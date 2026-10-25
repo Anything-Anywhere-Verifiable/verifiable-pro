@@ -1847,7 +1847,10 @@ class PersonBylineBuildTests(unittest.TestCase):
         cls.tmp = tempfile.TemporaryDirectory()
         root = Path(cls.tmp.name) / "project"
         root.mkdir()
-        shutil.copy2(ROOT / "build.py", root / "build.py")
+        for name in ("build.py", "indexnow.json"):
+            shutil.copy2(ROOT / name, root / name)
+        (root / "tools").mkdir()
+        shutil.copy2(ROOT / "tools" / "indexnow.py", root / "tools" / "indexnow.py")
         for name in ("sitegen", "static", "content"):
             shutil.copytree(ROOT / name, root / name, ignore=shutil.ignore_patterns("__pycache__"))
         newest = content.load(ROOT)["articles"]["en"][:discover.FEED_ITEMS]  # the feeds carry these
@@ -5589,7 +5592,10 @@ def illustrated_project(root):
     lines say "Cropped and color-adjusted", nothing and "Color-adjusted". static/media/ also
     holds a picture that no spec names, which the build must leave unpublished."""
     root.mkdir(parents=True)
-    shutil.copy2(ROOT / "build.py", root / "build.py")
+    for name in ("build.py", "indexnow.json"):
+        shutil.copy2(ROOT / name, root / name)
+    (root / "tools").mkdir()
+    shutil.copy2(ROOT / "tools" / "indexnow.py", root / "tools" / "indexnow.py")
     shutil.copytree(ROOT / "sitegen", root / "sitegen", ignore=shutil.ignore_patterns("__pycache__"))
     shutil.copytree(ROOT / "static", root / "static")
     shutil.copytree(ROOT / "content", root / "content")

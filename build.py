@@ -47,6 +47,7 @@ from xml.sax.saxutils import escape as xml_escape
 from sitegen import art, content, discover, md
 from sitegen import render
 from sitegen.render import Site
+from tools.indexnow import load_config as indexnow_config
 
 ROOT = Path(__file__).resolve().parent
 
@@ -569,6 +570,12 @@ def build(mode, out, css=None, mark=None, drafts=False, chat=None, chat_api=None
     attach_art(model)
     manifest_doc, digest = manifest(model)
     base = model["site"]["base_url"].rstrip("/")
+    try:
+        indexnow = indexnow_config(ROOT / "indexnow.json")
+    except (ValueError, OSError) as exc:
+        raise content.ContentError(f"indexnow.json: {exc}") from exc
+    if base != f"https://{indexnow['host']}":
+        raise content.ContentError("indexnow.json host must match the canonical HTTPS site base_url")
 
     check_out_dir(out)
     if out.exists():
@@ -639,6 +646,7 @@ def build(mode, out, css=None, mark=None, drafts=False, chat=None, chat_api=None
     (out / "llms.txt").write_text(discover.llms_txt(site, model), encoding="utf-8")
     (out / "sitemap.xml").write_text(sitemap(pages, base, last_revised(model)), encoding="utf-8")
     (out / "robots.txt").write_text(discover.robots_txt(base), encoding="utf-8")
+    (out / f"{indexnow['key']}.txt").write_text(indexnow["key"] + "\n", encoding="utf-8")
     if mode == "prod":
         (out / "CNAME").write_text(model["site"]["domain"] + "\n", encoding="utf-8")
     return len(pages), digest

@@ -161,3 +161,58 @@ jobs:
           done
           echo "::error::$site does not serve commit $GITHUB_SHA (last seen: ${live:-none})"
           exit 1
+
+  notify-indexnow:
+    name: Notify search engines of content changes
+    needs: live-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    # A notification service outage must not undo or block an already verified deploy.
+    # Its failed step and summary remain visible, and unreceived URLs retry next deploy.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Build the deployed source for content fingerprints
+        run: python build.py --out public
+      - name: Restore received notification state
+        uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: .indexnow-state.json
+          key: indexnow-v1-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            indexnow-v1-${{ hashFiles('indexnow.json') }}-
+      - name: Verify the published key, then notify changed URLs
+        id: notify
+        run: python tools/indexnow.py --site-dir public --key-attempts 6 --key-delay 10 2>&1 | tee "$RUNNER_TEMP/indexnow.txt"
+      # Also retain successful batches if a later batch failed. Failed URLs are
+      # never recorded as received. No key, token or account secret is needed.
+      - name: Retain received notification state
+        if: always() && hashFiles('.indexnow-state.json') != ''
+        uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: .indexnow-state.json
+          key: indexnow-v1-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Report notification result
+        if: always()
+        env:
+          NOTIFY_OUTCOME: ${{ steps.notify.outcome }}
+        run: |
+          {
+            echo "### IndexNow"
+            echo
+            if [ -f "$RUNNER_TEMP/indexnow.txt" ]; then
+              echo '```text'
+              cat "$RUNNER_TEMP/indexnow.txt"
+              echo '```'
+            fi
+            echo
+            echo 'Receipt does not establish crawling, indexing or an AI citation. Google is not an IndexNow participant.'
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$NOTIFY_OUTCOME" != success ]; then
+            echo '::warning::IndexNow notification did not complete. The site is deployed; inspect this job and retry the workflow. Unreceived URLs retain their previous state.'
+          fi
