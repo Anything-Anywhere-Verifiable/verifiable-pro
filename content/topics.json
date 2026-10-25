@@ -222,8 +222,8 @@
             "logo": "cursor"
           },
           {
-            "logo": "metaai",
-            "name": "Meta AI · Muse Spark"
+            "logo": "muse",
+            "name": "Meta Muse"
           },
           {
             "logo": "pi",
@@ -412,17 +412,16 @@
           },
           {
             "logo": "meta",
-            "name": "Meta Llama"
+            "name": "Meta Muse Wonder"
+          },
+          {
+            "logo": "grok"
           },
           {
             "logo": "deepseek"
           },
           {
             "logo": "qwen"
-          },
-          {
-            "logo": "huggingface",
-            "name": "Hugging Face"
           }
         ]
       }

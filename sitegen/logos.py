@@ -23,14 +23,21 @@ wordmark is not shrunk into a square, the height it is set at in rem
 beside them), its brand colour as (light page, dark page), and its path.
 
 Marks that Simple Icons does not carry (Azure, DeepSeek, Qwen, Cursor, Manus, MCP,
-vLLM, Claude Code, Codex, Pi, Meta AI) come from Lobe Icons (https://github.com/lobehub/lobe-icons,
+vLLM, Claude Code, Codex, Pi, Meta AI, Grok) come from Lobe Icons (https://github.com/lobehub/lobe-icons,
 @lobehub/icons-static-svg 1.98.0, MIT). They are drawn with the even-odd fill rule
 and may have several subpaths: such an entry has "rule": "evenodd" and "paths", a
 list of (path data, fill opacity or None), in place of "path".
 
+The Muse mark, which neither set carries, comes from Wikimedia Commons
+(https://commons.wikimedia.org/wiki/File:Muse_icon.svg), where the file is marked as
+public domain for being a simple text logo (PD-textlogo) and as a trademark. The file
+draws it on a 100-unit grid with a blue gradient; its path is scaled here to the
+24-unit grid and drawn in one brand colour, like the other marks.
+
 THIRD_PARTY_NOTICES.md, at the repository root, holds the Lobe Icons copyright and
-permission notice, which the MIT License requires to travel with these marks, and
-the credit for Simple Icons. A mark added from either set joins its list there.
+permission notice, which the MIT License requires to travel with these marks, the
+credit for Simple Icons and the source of the Muse mark. A mark added from either set
+joins its list there.
 """
 
 LOGOS = {
@@ -724,6 +731,49 @@ LOGOS = {
                 "1.138-.19.465-.599.807-1.051.996-.883.364-1.887.253-2.76-.082a5.568 5.568 0 01-2.343-1.685c-"
                 ".347-.445-.616-.968-.697-1.534-.042-.382-.036-.788.13-1.142.194-.418.55-.76.978-.925.25-.119"
                 ".525-.174.798-.207z",
+                None,
+            ),
+        ],
+    },
+    "muse": {
+        "title": "Muse",
+        "color": ("#0064e0", "#4a9bff"),
+        "box": (0, 3.87, 24, 16.26),
+        "height": 0.78,
+        "path": (
+            "M5.91 3.869C6.777 3.869 7.396 4.546 7.396 5.607C7.396 6.669 7.225 7.626 6.941 9.659C6.738 11.084"
+            " 6.389 13.258 6.243 14.162C6.523 13.628 7.178 12.378 7.294 12.144C8.666 9.375 10.096 6.901 10.50"
+            "8 6.246C11.054 5.372 11.535 5.021 12.278 5.021C12.664 5.022 13.124 5.217 13.352 5.477C13.66 5.82"
+            "9 13.725 6.398 13.714 7.019C13.698 7.97 13.574 9.486 13.405 11.177C13.33 11.929 13.185 13.466 13"
+            ".087 14.496C13.965 12.925 15.591 10.035 16.246 9.025C16.817 8.146 17.392 7.579 18.164 7.579C18.8"
+            "3 7.579 19.651 8.05 19.603 9.302C19.531 11.149 19.264 15.174 19.143 16.979C19.96 15.79 21.033 14"
+            ".029 21.436 13.367C21.842 12.698 22.26 12.157 22.894 12.139C23.544 12.12 23.979 12.562 23.999 13"
+            ".244C24.019 13.927 23.612 14.694 23.072 15.565C22.486 16.511 21.831 17.523 21.033 18.468C20.236 "
+            "19.413 19.502 20.131 18.384 20.131C17.382 20.131 16.677 19.465 16.628 18.246C16.602 17.607 16.72"
+            "3 16.234 16.814 15.16C16.92 13.917 17.048 12.717 17.137 11.923C16.256 13.535 14.402 16.912 13.56"
+            "8 18.23C12.752 19.52 12.355 19.974 11.493 19.975C10.631 19.975 10.253 19.354 10.241 18.42C10.227"
+            " 17.407 10.988 11.324 11.246 9.297C10.828 10.191 9.801 12.385 9.157 13.69C8.534 14.953 7.489 17."
+            "135 6.73 18.393C6.184 19.298 5.57 19.975 4.66 19.975C3.75 19.975 3.236 19.363 3.236 18.379C3.236"
+            " 17.395 3.521 15.756 3.827 13.723C3.98 12.739 4.155 11.667 4.352 10.53C4.496 9.708 4.746 8.26 4."
+            "9 7.371C4.2 8.461 2.941 10.423 2.558 11.014C2.131 11.671 1.749 12.15 1.115 12.15C.416 12.15 0 11"
+            ".605 0 10.971C0 10.337.322 9.848.846 8.988C1.518 7.883 2.726 6.377 3.388 5.586C4.168 4.654 4.947"
+            " 3.869 5.91 3.869Z"
+        ),
+    },
+    "grok": {
+        "title": "Grok",
+        "color": ("#0d0d0d", "#f2f2f2"),
+        "box": (0, 0.5, 24, 23.04),
+        "height": 0.9,
+        "rule": "evenodd",
+        "paths": [
+            (
+                "M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4"
+                ".667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.53"
+                "9 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-"
+                ".01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1"
+                ".425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1."
+                "962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815",
                 None,
             ),
         ],
