@@ -16,7 +16,7 @@
 ## Editorial checklist
 
 <!-- Delete this section for code-only changes. Each item restates a rule in CONTENT_GUIDE.md:
-     https://github.com/sept-usc/verifiable-pro/blob/main/CONTENT_GUIDE.md -->
+     https://github.com/Anything-Anywhere-Verifiable/verifiable-pro/blob/main/CONTENT_GUIDE.md -->
 
 **Sources and claims**
 
@@ -51,7 +51,7 @@
 - [ ] `zh.md` has its own `title` and `dek` (and a translated `disclosure` when `en.md` has one) and keeps the citations, callout markers, internal links and Markdown structure of `en.md` exactly.
 - [ ] `zh.md` uses the Chinese terms from `glossary.json` (with the English abbreviation at first mention), keeps names in their original form, uses full-width punctuation with a space between Chinese and Latin text or numbers, and has no full stop at the end of the headline.
 
-**Corrections and updates** (published articles only; see [CONTRIBUTING.md](https://github.com/sept-usc/verifiable-pro/blob/main/CONTRIBUTING.md#corrections))
+**Corrections and updates** (published articles only; see [CONTRIBUTING.md](https://github.com/Anything-Anywhere-Verifiable/verifiable-pro/blob/main/CONTRIBUTING.md#corrections))
 
 - [ ] `updated:` is set in `en.md`.
 - [ ] A `changes:` entry (`YYYY-MM-DD | note`) records each confirmed correction in `en.md`, and a translated entry is added to `zh.md`, which does not inherit `changes`.

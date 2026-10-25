@@ -92,11 +92,11 @@ verifiable.pro is maintained by the USC SEPT Lab and edited by **Mengyuan Li**. 
 
 ## Corrections {#corrections}
 
-Tell us the sentence that is wrong and the primary source that contradicts it. You can do this in public or privately. In public, open a correction issue (a report that anyone can read) in the site's [source repository](https://github.com/sept-usc/verifiable-pro). Privately, email the address below. Each article ends with a "Check or correct this page" box that opens such an issue with the page address filled in. When we confirm an error, we fix the article, change its "Updated" date and list the correction, with its date, at the end of the article. The fix also changes the article's source digest.
+Tell us the sentence that is wrong and the primary source that contradicts it. You can do this in public or privately. In public, open a correction issue (a report that anyone can read) in the site's [source repository](https://github.com/Anything-Anywhere-Verifiable/verifiable-pro). Privately, email the address below. Each article ends with a "Check or correct this page" box that opens such an issue with the page address filled in. When we confirm an error, we fix the article, change its "Updated" date and list the correction, with its date, at the end of the article. The fix also changes the article's source digest.
 
 ## Contributing {#contribute}
 
-The site's text, data and code live in a public [GitHub repository](https://github.com/sept-usc/verifiable-pro). An issue there is the preferred route for suggesting a story, a source, a resource for the library or a glossary term. We also welcome pull requests (proposed edits) that change the Markdown sources. The repository's [contribution guide](https://github.com/sept-usc/verifiable-pro/blob/main/CONTRIBUTING.md) explains the steps and the review rules. If you prefer email, send the link and a sentence or two on what it lets someone check. Write in English or Chinese.
+The site's text, data and code live in a public [GitHub repository](https://github.com/Anything-Anywhere-Verifiable/verifiable-pro). An issue there is the preferred route for suggesting a story, a source, a resource for the library or a glossary term. We also welcome pull requests (proposed edits) that change the Markdown sources. The repository's [contribution guide](https://github.com/Anything-Anywhere-Verifiable/verifiable-pro/blob/main/CONTRIBUTING.md) explains the steps and the review rules. If you prefer email, send the link and a sentence or two on what it lets someone check. Write in English or Chinese.
 
 ## Related publications {#related}
 

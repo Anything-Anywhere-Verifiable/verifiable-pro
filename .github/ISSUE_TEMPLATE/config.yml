@@ -4,8 +4,8 @@ contact_links:
     url: https://verifiable.pro/about/#contact
     about: Send tips or corrections that you prefer not to post publicly.
   - name: Report a security vulnerability
-    url: https://github.com/sept-usc/verifiable-pro/security/advisories/new
+    url: https://github.com/Anything-Anywhere-Verifiable/verifiable-pro/security/advisories/new
     about: Report it privately, not in a public issue.
   - name: Contribution guide
-    url: https://github.com/sept-usc/verifiable-pro/blob/main/CONTRIBUTING.md
+    url: https://github.com/Anything-Anywhere-Verifiable/verifiable-pro/blob/main/CONTRIBUTING.md
     about: How to propose an article, a translation or a code change.

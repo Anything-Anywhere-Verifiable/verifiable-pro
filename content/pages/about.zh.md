@@ -92,11 +92,11 @@ verifiable.pro 由 USC SEPT Lab 维护，编辑为 **Mengyuan Li**。本站不�
 
 ## 更正 {#corrections}
 
-请告诉我们哪一句有误，以及与之相矛盾的一手来源。你可以公开提交，也可以私下反映。公开提交的方式是在本站的[源代码仓库](https://github.com/sept-usc/verifiable-pro)中提交更正议题（任何人都能读到的报告）。私下反映请发邮件至下方地址。每篇文章末尾的“核查或更正本页”框可以直接打开这样的议题，并预先填好页面地址。确认有误后，我们会修正文章，更新其“更新于”日期，并在文末列出这条更正及其日期。修正也会改变文章源文件的摘要。
+请告诉我们哪一句有误，以及与之相矛盾的一手来源。你可以公开提交，也可以私下反映。公开提交的方式是在本站的[源代码仓库](https://github.com/Anything-Anywhere-Verifiable/verifiable-pro)中提交更正议题（任何人都能读到的报告）。私下反映请发邮件至下方地址。每篇文章末尾的“核查或更正本页”框可以直接打开这样的议题，并预先填好页面地址。确认有误后，我们会修正文章，更新其“更新于”日期，并在文末列出这条更正及其日期。修正也会改变文章源文件的摘要。
 
 ## 参与 {#contribute}
 
-本站的文字、数据与代码都在公开的 [GitHub 仓库](https://github.com/sept-usc/verifiable-pro)中。要推荐一条新闻、一个来源、一项资源库条目或一个术语，首选的方式是在那里提交议题。我们也欢迎修改 Markdown 源文件的拉取请求（即修改提议）。仓库中的[贡献指南](https://github.com/sept-usc/verifiable-pro/blob/main/CONTRIBUTING.md)说明了步骤与审核规则（英文）。如果你更习惯用邮件，请附上链接，并用一两句话说明它能帮助读者核实什么。中英文均可。
+本站的文字、数据与代码都在公开的 [GitHub 仓库](https://github.com/Anything-Anywhere-Verifiable/verifiable-pro)中。要推荐一条新闻、一个来源、一项资源库条目或一个术语，首选的方式是在那里提交议题。我们也欢迎修改 Markdown 源文件的拉取请求（即修改提议）。仓库中的[贡献指南](https://github.com/Anything-Anywhere-Verifiable/verifiable-pro/blob/main/CONTRIBUTING.md)说明了步骤与审核规则（英文）。如果你更习惯用邮件，请附上链接，并用一两句话说明它能帮助读者核实什么。中英文均可。
 
 ## 相关刊物 {#related}
 

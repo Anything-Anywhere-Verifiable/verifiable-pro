@@ -7,7 +7,7 @@
     "zh": "verifiable.pro 以中英双语报道可验证 AI：让 AI 服务商以外的人得以核查其声明的证据，例如是哪个模型回答了请求、是哪些软件处理了请求。报道从可信执行环境（TEE）、远程证明和机密计算出发，并把它们与核查声明的其他方法相比较。零知识机器学习（zkML）、可验证推理和形式化验证核查的是计算与代码，AI 评测、审计、模型签名和供应链溯源核查的则是模型及其来源。比较还延伸到内容凭证（C2PA）与水印、智能体问责，以及 AI 治理承诺的核查。本站发布新闻简报、分析、解读与指南，并提供资源库和术语表。"
   },
   "contact_email": "hello@verifiable.pro",
-  "repo_url": "https://github.com/sept-usc/verifiable-pro",
+  "repo_url": "https://github.com/Anything-Anywhere-Verifiable/verifiable-pro",
   "repo_branch": "main",
   "analytics": {
     "ga4_measurement_id": "G-T734VCE3Y5"

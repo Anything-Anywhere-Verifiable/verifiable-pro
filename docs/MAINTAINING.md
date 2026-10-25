@@ -84,7 +84,7 @@ Do this once, after the first push to GitHub. The ruleset's status-check picker 
 - [ ] Require a pull request before merging: 1 required approval; dismiss stale approvals when new commits are pushed; require review from Code Owners; require conversation resolution; allowed merge method: squash.
 - [ ] Require status checks to pass: `Unit tests`, `Mock backend on Python 3.9`, `Build and check`, `Content checks`, and `DCO` if the DCO app is installed. Leave "Require branches to be up to date" off. A job skipped by its `if:` condition counts as passing, so `Content checks` does not block pushes.
 - [ ] Bypass list: Repository admin, mode "For pull requests only".
-- [ ] Record the result: `gh api repos/sept-usc/verifiable-pro/rulesets` lists the rulesets as JSON.
+- [ ] Record the result: `gh api repos/Anything-Anywhere-Verifiable/verifiable-pro/rulesets` lists the rulesets as JSON.
 
 **Ruleset for tags** (New tag ruleset; target patterns `archive/**` and `edition/**`; enforcement: Active)
 
@@ -108,7 +108,7 @@ Do this once, after the first push to GitHub. The ruleset's status-check picker 
 - [ ] Dependabot alerts and security updates on.
 - [ ] Secret scanning and push protection on.
 
-**Labels.** The issue forms apply `triage` plus one type label. Create the set once (from a clone, or add `--repo sept-usc/verifiable-pro`); `--force` updates a label that already exists:
+**Labels.** The issue forms apply `triage` plus one type label. Create the set once (from a clone, or add `--repo Anything-Anywhere-Verifiable/verifiable-pro`); `--force` updates a label that already exists:
 
 ```bash
 gh label create triage      --color FBCA04 --description "Needs a first look" --force
@@ -133,8 +133,8 @@ gh label create link-rot    --color B60205 --description "External links that no
 `deploy.yml` publishes every push to `main`. It builds with `python build.py --out public`, which uses root-absolute links and the settings in `content/site.json`, including the Ask assistant's mode. A custom Actions workflow ignores the `CNAME` file that the production build writes; the domain is set in the repository settings instead.
 
 1. **Pages source.** Repository Settings → Pages → Build and deployment → Source: **GitHub Actions**.
-2. **Verify the domain for SEPT Lab.** Organization `sept-usc` → Settings → Pages → Add a domain → `verifiable.pro`. Add the TXT record GitHub shows to GoDaddy and press Verify. Keep that record after verification. Domain verification belongs to the organization, not a personal account.
-3. **Custom domain.** In `sept-usc/verifiable-pro`, open Settings → Pages → Custom domain, enter `verifiable.pro` and save before changing the public DNS records. This repository deploys with GitHub Actions, so the setting does not add a `CNAME` commit.
+2. **Verify the domain for the repository's owner.** Organization `Anything-Anywhere-Verifiable` → Settings → Pages → Add a domain → `verifiable.pro`. Add the TXT record GitHub shows (`_github-pages-challenge-Anything-Anywhere-Verifiable`) to GoDaddy and press Verify. Keep that record after verification. Domain verification belongs to an organization, not a personal account, and only one account can hold it: while it does, only that account's repositories can publish to the domain.
+3. **Custom domain.** In `Anything-Anywhere-Verifiable/verifiable-pro`, open Settings → Pages → Custom domain, enter `verifiable.pro` and save before changing the public DNS records. This repository deploys with GitHub Actions, so the setting does not add a `CNAME` commit.
 4. **DNS records** in GoDaddy. Replace only conflicting A, AAAA, ALIAS or CNAME records for the apex and `www`; preserve TXT verification and mail records.
 
    | Type | Name | Value |
@@ -147,7 +147,7 @@ gh label create link-rot    --color B60205 --description "External links that no
    | AAAA | `@` | `2606:50c0:8001::153` |
    | AAAA | `@` | `2606:50c0:8002::153` |
    | AAAA | `@` | `2606:50c0:8003::153` |
-   | CNAME | `www` | `sept-usc.github.io` |
+   | CNAME | `www` | `anything-anywhere-verifiable.github.io` |
 
    If the domain has CAA records, one of them must allow `letsencrypt.org`, which issues the Pages certificate. Check the records with:
 
@@ -160,7 +160,9 @@ gh label create link-rot    --color B60205 --description "External links that no
 5. **HTTPS.** Wait for the DNS check to pass, then enable **Enforce HTTPS** once the certificate is issued. With the apex as the custom domain and the `www` CNAME in place, GitHub redirects `www.verifiable.pro` to the apex. GitHub documents the [custom-domain setup](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site) and [organization domain verification](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages).
 6. **Mail.** The editorial address in `content/site.json` (`contact_email`) needs its own mailbox and MX records; GitHub Pages does not provide mail.
 
-**If the domain is not ready at the first deploy**, the site is served at `https://sept-usc.github.io/verifiable-pro/`, where the production build's root-absolute links break. Either attach the domain before the first deploy, or change the Build step in `deploy.yml` to `--mode preview` (relative links) through a pull request until the domain works, then change it back.
+**After moving the repository to another owner**, as on 25 October 2026 from `sept-usc` to `Anything-Anywhere-Verifiable`: remove `verifiable.pro` from the old organization's verified domains (Settings → Pages), verify it for the new owner as in step 2, point the `www` CNAME at the new owner's `github.io` host, and check that the repository's Pages settings still name `verifiable.pro` with Enforce HTTPS on. Then point `repo_url` in `content/site.json`, `repository-code` in `CITATION.cff`, the repository links in both About pages and the issue and pull request templates, README.md and this file at the new address, and refresh the assistant's request fixtures, since the About pages are hashed sources.
+
+**If the domain is not ready at the first deploy**, the site is served at `https://anything-anywhere-verifiable.github.io/verifiable-pro/`, where the production build's root-absolute links break. Either attach the domain before the first deploy, or change the Build step in `deploy.yml` to `--mode preview` (relative links) through a pull request until the domain works, then change it back.
 
 **After each deploy**, the `Check the live site` job waits until `/build.json` on the live site names the deployed commit, then runs `tools/verify_manifest.py` against the live site. A failure there means the CDN is still serving an older build or a published source does not match the manifest.
 
@@ -234,7 +236,7 @@ DNS records keep verification tags out of the pages; a verification tag in `rend
 
 ## Public repository and initial snapshot
 
-The public repository is `sept-usc/verifiable-pro`. It starts with one initial commit of the completed source snapshot. Earlier private Git history, raw research, design explorations and the retired prototype’s `DESIGN-NOTES.txt` and `brand/` are excluded. The original private checkout remains separate.
+The public repository is `Anything-Anywhere-Verifiable/verifiable-pro`. It moved there from `sept-usc/verifiable-pro` on 25 October 2026, and GitHub redirects the old web and Git addresses. It starts with one initial commit of the completed source snapshot. Earlier private Git history, raw research, design explorations and the retired prototype’s `DESIGN-NOTES.txt` and `brand/` are excluded. The original private checkout remains separate.
 
 After that initial commit, retain the public history and make changes through pull requests. Do not reset or replace its root to publish an update. Build provenance and attestations refer to commits in this public repository.
 
@@ -270,15 +272,15 @@ A reader checks a page source with the GitHub CLI:
 ```bash
 curl -s https://verifiable.pro/build.json                  # the commit behind this deployment
 curl -sO https://verifiable.pro/articles/<slug>/en.md
-gh attestation verify en.md --repo sept-usc/verifiable-pro \
-  --signer-workflow sept-usc/verifiable-pro/.github/workflows/deploy.yml \
+gh attestation verify en.md --repo Anything-Anywhere-Verifiable/verifiable-pro \
+  --signer-workflow Anything-Anywhere-Verifiable/verifiable-pro/.github/workflows/deploy.yml \
   --source-ref refs/heads/main --deny-self-hosted-runners
 # Offline, with the bundle published next to the site:
 curl -sO https://verifiable.pro/SHA256SUMS.sigstore.json
-gh attestation verify en.md --bundle SHA256SUMS.sigstore.json --repo sept-usc/verifiable-pro
+gh attestation verify en.md --bundle SHA256SUMS.sigstore.json --repo Anything-Anywhere-Verifiable/verifiable-pro
 ```
 
-To check that a file came from the commit named in `build.json`, add `--source-digest <commit>` to the first `gh attestation verify` command. Readers without the GitHub CLI can compare `shasum -a 256 en.md` with the line for `articles/<slug>/en.md` in `/SHA256SUMS`; that check is only as strong as the attestation on `SHA256SUMS`.
+Deploys made before the move on 25 October 2026 were signed as `sept-usc/verifiable-pro`: to check one of their files, give that name in `--repo` and `--signer-workflow`. To check that a file came from the commit named in `build.json`, add `--source-digest <commit>` to the first `gh attestation verify` command. Readers without the GitHub CLI can compare `shasum -a 256 en.md` with the line for `articles/<slug>/en.md` in `/SHA256SUMS`; that check is only as strong as the attestation on `SHA256SUMS`.
 
 ### Signed commits and tags
 

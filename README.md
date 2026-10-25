@@ -4,7 +4,7 @@ verifiable.pro is a bilingual (English and Simplified Chinese) editorial site ab
 
 The site holds its own pages to the standard it reports on. The Markdown source of every article and page is hashed at build time, the digests are published in a manifest that anyone can recompute, and each article ends with a route to check or correct it. Search engines, AI answer engines and agents get the same material in forms they can parse: an `llms.txt` guide, the full text as Markdown, feeds, structured data and a sitemap (see [Machine-readable files](#machine-readable-files)).
 
-The public repository, `sept-usc/verifiable-pro`, starts with one initial source snapshot; it does not include the earlier private history. It contains the content, a small static-site generator written in Python with no third-party dependencies, the stylesheets and the logo files. It also holds the site assistant: a browser widget that answers questions from the site's own published pages, the API contract for the backend it will use later, and a mock of that backend. A build produces plain HTML, CSS and JavaScript that any static host can serve. Coding agents start with [AGENTS.md](AGENTS.md).
+The public repository, `Anything-Anywhere-Verifiable/verifiable-pro` (formerly `sept-usc/verifiable-pro`, whose addresses GitHub redirects), starts with one initial source snapshot; it does not include the earlier private history. It contains the content, a small static-site generator written in Python with no third-party dependencies, the stylesheets and the logo files. It also holds the site assistant: a browser widget that answers questions from the site's own published pages, the API contract for the backend it will use later, and a mock of that backend. A build produces plain HTML, CSS and JavaScript that any static host can serve. Coding agents start with [AGENTS.md](AGENTS.md).
 
 ## Scope
 
@@ -17,7 +17,7 @@ You need Python 3.12 or later, the version CI uses. The generator currently also
 1. Clone the public repository.
 
    ```bash
-   git clone https://github.com/sept-usc/verifiable-pro.git
+   git clone https://github.com/Anything-Anywhere-Verifiable/verifiable-pro.git
    cd verifiable-pro
    ```
 
@@ -275,4 +275,4 @@ These placeholders need the site owner's decision before launch:
 - [ ] **Code license.** The repository has no LICENSE file for the generator, styles and tools.
 - [ ] **Search engines.** Verify `verifiable.pro` in Google Search Console and Bing Webmaster Tools, preferably with a DNS TXT record so that no verification tag is added to the pages, and submit `https://verifiable.pro/sitemap.xml` to both.
 - [ ] **AI training crawlers.** `robots.txt` names GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, CCBot, Amazonbot and Meta-ExternalAgent with `Allow: /`. Every crawler is allowed already, so this changes nothing in effect, but while no reuse license is chosen the owner should confirm it; [docs/MAINTAINING.md](docs/MAINTAINING.md#discoverability) says how to change that group.
-- [ ] **Repository.** Publish this source snapshot as the public `sept-usc/verifiable-pro` repository with one initial commit, set its website to `https://verifiable.pro` and its topics, and configure GitHub Pages as described above.
+- [ ] **Repository.** Publish this source snapshot as the public `Anything-Anywhere-Verifiable/verifiable-pro` repository with one initial commit, set its website to `https://verifiable.pro` and its topics, and configure GitHub Pages as described above.
