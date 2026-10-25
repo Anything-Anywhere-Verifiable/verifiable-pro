@@ -1,0 +1,33 @@
+{
+  "api_version": "1",
+  "mode": "mock",
+  "backend": {
+    "id": "mock-local",
+    "label": "Demo backend (no TEE)"
+  },
+  "encryption": "none",
+  "attestation_required": false,
+  "models": [
+    {
+      "id": "mock-extractive",
+      "display": "Extractive mock (no model)",
+      "langs": [
+        "en",
+        "zh"
+      ]
+    }
+  ],
+  "limits": {
+    "max_question_chars": 1200,
+    "max_turns": 6,
+    "max_context_chunks": 8,
+    "max_input_tokens": 6000,
+    "max_output_tokens": 700,
+    "requests_per_10min": 10,
+    "max_body_bytes": 262144
+  },
+  "privacy_url": null,
+  "status": "ok",
+  "system_prompt_sha256": null,
+  "notice": "MOCK BACKEND. Nothing here is attested: no trusted execution environment, no GPU confidential computing, no hardware evidence, no encryption to an enclave key. Clients must show the demo status."
+}

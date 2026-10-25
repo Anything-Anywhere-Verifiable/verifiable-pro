@@ -1,0 +1,63 @@
+name: Correction request
+description: Report an inaccurate statement, a misattributed claim or an outdated fact in a published page.
+title: "[Correction] "
+labels: [correction, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are public. An editor checks your report against the primary source and fixes a confirmed error in a pull request that links this issue. The fix changes the article's "Updated" date and adds a dated note under "Corrections and updates"; the previous text stays in the repository history.
+
+        To report privately instead, email the address on the [About page](https://verifiable.pro/about/#contact).
+  - type: input
+    id: page
+    attributes:
+      label: Page address
+      placeholder: https://verifiable.pro/articles/...
+    validations:
+      required: true
+  - type: input
+    id: digest
+    attributes:
+      label: Source SHA-256
+      description: Optional. Copy it from the article's record; it identifies the version you read.
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      options: [English, Chinese, Both]
+    validations:
+      required: true
+  - type: textarea
+    id: sentence
+    attributes:
+      label: Sentence to fix
+      description: Copy it exactly.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Corrected statement
+      description: Say what is wrong, then write the statement as it should read.
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Primary source
+      description: A link to the source that supports the correction.
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to the subject
+      options:
+        - None
+        - I work for or advise an organization named in the article
+        - I am an author of work cited in the article
+        - Other
+    validations:
+      required: true

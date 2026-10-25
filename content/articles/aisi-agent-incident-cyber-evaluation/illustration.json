@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "aisi-agent-incident-cyber-evaluation.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "755092e987a5b98341d384fe07066bbd4efd2a3f5a6255d1862ca9c890e4c6d3",
+  "variants": {
+    "list": {
+      "file": "aisi-agent-incident-cyber-evaluation-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "108a6a1486770f7025a338bd2c9f46db9349b19408a8e9b239dce8daef47c617"
+    },
+    "thumb": {
+      "file": "aisi-agent-incident-cyber-evaluation-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "b8e305b89fa583fdbdd1bc2b71220a6fe3b0d2f99606c61c640481cfb76a4e0d"
+    },
+    "social": {
+      "file": "aisi-agent-incident-cyber-evaluation-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "7bd582f9741f63d0a1f9bc8d4bca4e20bac71d890a8616e27c827f2645ba7130"
+    }
+  },
+  "edits": {
+    "source_sha256": "7b63499d7bf83a7272eb5842c326a7d708349cdd81e45b5309d3617da4ade4de",
+    "source_size": [3840, 2560],
+    "crop": [0, 0, 3840, 2560],
+    "social_crop": [0, 272, 3840, 2016],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Seen from above, two people's hands type on laptops at a wooden table crowded with blue, yellow and white network cables, a small network box and power adapters.",
+    "zh": "俯拍的一张木桌：两个人的双手在笔记本电脑上打字，桌上堆满蓝色、黄色和白色的网线，还有一个小型网络设备和几只电源适配器。"
+  },
+  "caption": {
+    "en": "Laptops and network cables set up for a capture-the-flag cybersecurity contest at the DEF CON conference in Las Vegas in August 2019. The photo does not show AISI's evaluation of AI agents.",
+    "zh": "2019 年 8 月拉斯维加斯 DEF CON 大会上，为一场夺旗（CTF）网络安全竞赛准备的笔记本电脑和网线。照片中并非 AISI 对 AI 智能体的评测。"
+  },
+  "credit": "Tech. Sgt. Robert Biermann, U.S. Air Force / Wikimedia Commons",
+  "license": "Public domain",
+  "license_url": "https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force",
+  "source_url": "https://commons.wikimedia.org/wiki/File:AFCYBER_presents,_participates_in_DEF_CON_27_(5674441).jpg",
+  "retrieved": "2026-10-24"
+}

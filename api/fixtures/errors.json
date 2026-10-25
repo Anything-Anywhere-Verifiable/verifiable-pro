@@ -1,0 +1,132 @@
+{
+  "description": "Error responses outside the event stream. Every body is {\"error\":{code,message,retry_after_s?}}.",
+  "examples": [
+    {
+      "note": "Malformed nonce on GET /v1/attestation.",
+      "status": 400,
+      "headers": {
+        "Cache-Control": "no-store",
+        "VP-Request-Id": "req_819fcce48f6dc8f2",
+        "Vary": "Origin",
+        "Access-Control-Allow-Origin": "http://localhost:8767",
+        "Access-Control-Expose-Headers": "ehbp-response-nonce, vp-request-id, retry-after, ratelimit, ratelimit-policy",
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": {
+          "code": "bad_request",
+          "message": "nonce must be 64 lowercase hex characters (32 random bytes from the browser)."
+        }
+      }
+    },
+    {
+      "note": "Unsupported api_version.",
+      "status": 400,
+      "headers": {
+        "Cache-Control": "no-store",
+        "VP-Request-Id": "req_d25c065869c5b94b",
+        "Vary": "Origin",
+        "Access-Control-Allow-Origin": "http://localhost:8767",
+        "Access-Control-Expose-Headers": "ehbp-response-nonce, vp-request-id, retry-after, ratelimit, ratelimit-policy",
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": {
+          "code": "bad_request",
+          "message": "api_version must be \"1\"."
+        }
+      }
+    },
+    {
+      "note": "Unknown VP-Attestation-Id (for example after the backend restarted).",
+      "status": 412,
+      "headers": {
+        "Cache-Control": "no-store",
+        "VP-Request-Id": "req_f633f7e06f1a437d",
+        "Vary": "Origin",
+        "Access-Control-Allow-Origin": "http://localhost:8767",
+        "Access-Control-Expose-Headers": "ehbp-response-nonce, vp-request-id, retry-after, ratelimit, ratelimit-policy",
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": {
+          "code": "attestation_mismatch",
+          "message": "Unknown VP-Attestation-Id (the mock forgets attestations when it restarts). Re-attest."
+        }
+      }
+    },
+    {
+      "note": "The attestation expired (expires_at passed).",
+      "status": 409,
+      "headers": {
+        "Cache-Control": "no-store",
+        "VP-Request-Id": "req_3e6ce2be570e25a0",
+        "Vary": "Origin",
+        "Access-Control-Allow-Origin": "http://localhost:8767",
+        "Access-Control-Expose-Headers": "ehbp-response-nonce, vp-request-id, retry-after, ratelimit, ratelimit-policy",
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": {
+          "code": "attestation_expired",
+          "message": "The attestation has expired. Re-attest."
+        }
+      }
+    },
+    {
+      "note": "Question longer than limits.max_question_chars.",
+      "status": 413,
+      "headers": {
+        "Cache-Control": "no-store",
+        "VP-Request-Id": "req_24741b3b06047d6a",
+        "Vary": "Origin",
+        "Access-Control-Allow-Origin": "http://localhost:8767",
+        "Access-Control-Expose-Headers": "ehbp-response-nonce, vp-request-id, retry-after, ratelimit, ratelimit-policy",
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": {
+          "code": "too_long",
+          "message": "The question has 1201 characters; the limit is 1200."
+        }
+      }
+    },
+    {
+      "note": "Per-network token bucket exhausted (server started with --rate 1).",
+      "status": 429,
+      "headers": {
+        "Cache-Control": "no-store",
+        "VP-Request-Id": "req_3d9205f087a0a148",
+        "Vary": "Origin",
+        "Access-Control-Allow-Origin": "http://localhost:8767",
+        "Access-Control-Expose-Headers": "ehbp-response-nonce, vp-request-id, retry-after, ratelimit, ratelimit-policy",
+        "Content-Type": "application/json; charset=utf-8",
+        "RateLimit-Policy": "\"chat\";q=1;w=600",
+        "RateLimit": "\"chat\";r=0;t=600",
+        "Retry-After": "600"
+      },
+      "body": {
+        "error": {
+          "code": "rate_limited",
+          "message": "Too many questions from this network. Try again later.",
+          "retry_after_s": 600
+        }
+      }
+    },
+    {
+      "note": "Phase 1+ only (the mock never sends it): the model provider or enclave is unreachable.",
+      "status": 503,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Retry-After": "120"
+      },
+      "body": {
+        "error": {
+          "code": "upstream_unavailable",
+          "message": "The model backend is unavailable.",
+          "retry_after_s": 120
+        }
+      }
+    }
+  ]
+}

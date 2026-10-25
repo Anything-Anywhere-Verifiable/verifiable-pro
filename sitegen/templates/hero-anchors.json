@@ -1,0 +1,13 @@
+{
+  "about": "Where each layer's leader line starts in sitegen/templates/hero-scene.svg, in scene units (the SVG's own coordinates): the right corner of the layer's plate at half its thickness. The viewBox starts at x = -28 to make room for the person who stands on the ground left of the board, so a position across the drawing is x minus that origin. Layers are numbered as the stack's codes, T1 (the board) to T7. label_y sets a label higher than its anchor: the board sits below the 56-unit rhythm of the plates, so its leader elbows up to its label.",
+  "viewBox": [-28, 0, 382, 597],
+  "anchors": [
+    {"layer": 7, "x": 323.5, "y": 86.5},
+    {"layer": 6, "x": 323.5, "y": 142.5},
+    {"layer": 5, "x": 323.5, "y": 198.5},
+    {"layer": 4, "x": 323.5, "y": 254.5},
+    {"layer": 3, "x": 323.5, "y": 310.5},
+    {"layer": 2, "x": 323.5, "y": 366.5},
+    {"layer": 1, "x": 339.9, "y": 489.5, "label_y": 422.5}
+  ]
+}

@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: >-
+  To cite verifiable.pro as a whole, use these metadata. To cite one article or page,
+  give its title, its address on verifiable.pro (not the address of its Markdown source),
+  its filing or update date and the date you read it.
+title: "verifiable.pro: bilingual reporting on verifiable AI systems"
+abstract: >-
+  verifiable.pro reports in English and Simplified Chinese on verifiable AI: evidence that
+  lets someone other than an AI provider check the provider's claims, such as which model
+  answered a request or which software handled it. Coverage starts from trusted execution
+  environments (TEEs), remote attestation and confidential computing. It compares them with
+  other ways to check a claim: zkML, verifiable inference and formal verification check
+  computations and code, while AI evaluations, audits, model signing and supply-chain
+  provenance check models and their origins. The comparison also extends to content
+  credentials (C2PA) and watermarking, agent accountability and the verification of AI
+  governance commitments. The site publishes news briefs, analysis, explainers and guides, a
+  resource library and a glossary, and lists the SHA-256 digest of every published source in
+  a manifest that anyone can recompute.
+# The Citation File Format offers only "software" and "dataset"; the work cited here is the
+# site's articles, pages and data files, so "dataset" fits better than "software".
+type: dataset
+authors:
+  - name: verifiable.pro
+    website: "https://verifiable.pro/"
+url: "https://verifiable.pro/"
+repository-code: "https://github.com/sept-usc/verifiable-pro"
+keywords:
+  - verifiable AI
+  - remote attestation
+  - confidential computing
+  - trusted execution environments
+  - zkML
+  - verifiable inference
+  - formal verification
+  - AI evaluations
+  - AI audits
+  - model signing
+  - AI supply chain
+  - content credentials
+  - C2PA
+  - agent accountability
+  - AI governance
+preferred-citation:
+  type: website
+  title: "verifiable.pro: bilingual reporting on verifiable AI systems"
+  authors:
+    - name: verifiable.pro
+  url: "https://verifiable.pro/"

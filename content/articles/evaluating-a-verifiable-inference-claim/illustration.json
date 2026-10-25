@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "evaluating-a-verifiable-inference-claim.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "2864594bcdc72ed55a5bbd0759d217e5e9176279a82163cadc7af5eb409d8811",
+  "variants": {
+    "list": {
+      "file": "evaluating-a-verifiable-inference-claim-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "0c08357a44bc95c51f5dece663f42f1f316b89de7238c15203644bb9d93952a8"
+    },
+    "thumb": {
+      "file": "evaluating-a-verifiable-inference-claim-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "6712293368d89e1383b409182d9d9035eae07aedd7f654b2f81a144801ed8eca"
+    },
+    "social": {
+      "file": "evaluating-a-verifiable-inference-claim-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "cf9853f341b39c516beb5fed24b5b4cc7d7e3a94ed1b2cab9de6b3f2a1e36a14"
+    }
+  },
+  "edits": {
+    "source_sha256": "4a432c48e240a683f824b7d626553373d637db90c5d30a58591b0f132a75718b",
+    "source_size": [4200, 2800],
+    "crop": [0, 0, 4200, 2800],
+    "social_crop": [0, 298, 4200, 2205],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A person in a light blue shirt, seen from the shoulders down, writes in a notebook with a yellow pencil beside an open laptop on a white desk.",
+    "zh": "一个身穿浅蓝色衬衫的人坐在白色书桌前，用黄色铅笔在本子上书写，旁边是一台打开的笔记本电脑，画面只拍到肩部以下。"
+  },
+  "caption": {
+    "en": "A person takes notes beside an open laptop. The photo does not show any of the tools or claims this guide discusses.",
+    "zh": "一个人在打开的笔记本电脑旁做笔记。照片没有展示本指南讨论的任何工具或声明。"
+  },
+  "credit": "JESHOOTS.COM / Wikimedia Commons",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Businessman_working_and_writing_notes_in_office_(Unsplash).jpg",
+  "retrieved": "2026-10-24"
+}

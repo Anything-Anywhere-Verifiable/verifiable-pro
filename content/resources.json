@@ -1,0 +1,3148 @@
+{
+  "paths": [
+    {
+      "id": "tee-basics",
+      "title": {
+        "en": "Start with TEEs",
+        "zh": "从 TEE 读起"
+      },
+      "purpose": {
+        "en": "First learn the vocabulary of remote attestation, in which a machine signs a record of the software it loaded so that others can check it. Then read about the CPU and GPU platforms that attested AI services run on.",
+        "zh": "先了解远程证明的基本概念：机器签署一份记录，写明自己加载了哪些软件，供他人核查。然后再看 CPU 和 GPU 平台，经远程证明的 AI 服务就运行在这些平台上。"
+      },
+      "entries": [
+        {
+          "id": "rats-architecture",
+          "why": {
+            "en": "Defines the attester, verifier and relying party that every later document assumes.",
+            "zh": "定义了证明方、验证方和依赖方这三个角色，后面各篇文献都以它们为前提。"
+          }
+        },
+        {
+          "id": "intel-tdx-demystified",
+          "why": {
+            "en": "How TDX is designed to isolate whole virtual machines, explained by researchers outside Intel.",
+            "zh": "由 Intel 以外的研究人员讲解 TDX 隔离整台虚拟机的设计。"
+          }
+        },
+        {
+          "id": "amd-sev-snp-white-paper",
+          "why": {
+            "en": "What SEV-SNP adds against a malicious hypervisor (the software that manages virtual machines), and what AMD leaves out of scope.",
+            "zh": "SEV-SNP 针对恶意的虚拟机监控器（hypervisor，即管理虚拟机的软件）增加了哪些防护，AMD 又把哪些威胁排除在防护范围之外。"
+          }
+        },
+        {
+          "id": "arm-cca",
+          "why": {
+            "en": "How Arm's Realms are designed to separate a workload from the hypervisor that still schedules it.",
+            "zh": "Arm 的 Realm 如何按设计把工作负载与虚拟机监控器隔开，而调度仍由后者负责。"
+          }
+        },
+        {
+          "id": "nvidia-h100-confidential-computing",
+          "why": {
+            "en": "How a GPU joins the trust boundary, and which GPU memory NVIDIA does not encrypt.",
+            "zh": "GPU 如何纳入信任边界，以及 NVIDIA 不加密哪部分显存。"
+          }
+        },
+        {
+          "id": "pcc-security-guide",
+          "why": {
+            "en": "A complete service design, with a research environment that lets outsiders run and inspect the node software.",
+            "zh": "一套完整的服务设计，附带研究环境，外界可以在其中运行并检查节点软件。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tee-limits",
+      "title": {
+        "en": "Where TEE protection ends",
+        "zh": "TEE 的保护在哪里止步"
+      },
+      "purpose": {
+        "en": "Published attacks show where isolation and attestation break down. Most of them need physical access to the server.",
+        "zh": "已公开的攻击显示了隔离与远程证明在哪些情况下会失效。其中多数攻击需要物理接触服务器。"
+      },
+      "entries": [
+        {
+          "id": "tee-fail",
+          "why": {
+            "en": "A physical attack that extracts keys to forge TDX attestation reports (quotes), and shows that GPU reports can be borrowed from other machines.",
+            "zh": "一种物理攻击：提取密钥以伪造 TDX 证明报告（quote），并表明 GPU 证明报告可以从其他机器“借用”。"
+          }
+        },
+        {
+          "id": "badram",
+          "why": {
+            "en": "Researchers altered a memory module with under $10 of equipment and replayed a genuine measurement for a backdoored SEV-SNP VM.",
+            "zh": "研究人员用不到 10 美元的设备改动内存条，为植入后门的 SEV-SNP 虚拟机重放了正常虚拟机的度量值。"
+          }
+        },
+        {
+          "id": "battering-ram",
+          "why": {
+            "en": "An interposer, placed between the processor and memory, passes boot checks and later breaks SEV-SNP attestation on fully patched systems.",
+            "zh": "插入器装在处理器与内存之间，先通过启动检查，之后在已打全补丁的系统上攻破 SEV-SNP 的远程证明。"
+          }
+        },
+        {
+          "id": "proof-of-cloud",
+          "why": {
+            "en": "A proposed response: binding attestation to a machine in a trusted data center.",
+            "zh": "一项应对提案：把远程证明与可信数据中心里的某台机器绑定。"
+          }
+        },
+        {
+          "id": "ml-confidential-computing-sok",
+          "why": {
+            "en": "A survey of what TEEs do and do not give machine-learning workloads.",
+            "zh": "一篇综述：TEE 能为机器学习任务提供什么，不能提供什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tee-services",
+      "title": {
+        "en": "Private AI services, as their providers describe them",
+        "zh": "私密 AI 服务：服务商的自述"
+      },
+      "purpose": {
+        "en": "Providers describe their own designs here, so read each as the provider's claim and note what it lets outsiders check.",
+        "zh": "这里是服务商对自身设计的描述，应当作服务商的声明来读，并留意每种设计让外界能核查什么。"
+      },
+      "entries": [
+        {
+          "id": "apple-private-cloud-compute",
+          "why": {
+            "en": "Apple's requirements for cloud AI that users' devices can verify.",
+            "zh": "Apple 对云端 AI 提出的要求：用户设备要能够核验它。"
+          }
+        },
+        {
+          "id": "meta-private-processing",
+          "why": {
+            "en": "Meta's design for WhatsApp, which Trail of Bits audited before launch.",
+            "zh": "Meta 为 WhatsApp 设计的方案，上线前经过了 Trail of Bits 的审计。"
+          }
+        },
+        {
+          "id": "google-private-ai-compute",
+          "why": {
+            "en": "Google's platform, where most attestation checks run inside Google.",
+            "zh": "Google 的平台，其中大部分远程证明核查在 Google 内部完成。"
+          }
+        },
+        {
+          "id": "anthropic-confidential-inference",
+          "why": {
+            "en": "An early design in which only a small attested loader can decrypt prompts and weights.",
+            "zh": "一份早期设计：只有一个经过远程证明的小型加载器能解密提示词和权重。"
+          }
+        },
+        {
+          "id": "azure-confidential-inferencing",
+          "why": {
+            "en": "Microsoft's planned design, in which a key service releases decryption keys only to attested GPU VMs.",
+            "zh": "Microsoft 规划中的设计：密钥服务只把解密密钥释放给通过远程证明的 GPU 虚拟机。"
+          }
+        },
+        {
+          "id": "rfc-9458-oblivious-http",
+          "why": {
+            "en": "The relay protocol several services use to hide a client's network address from the server.",
+            "zh": "几项服务借助这一中继协议，对服务器隐藏客户端的网络地址。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": {
+        "en": "Other ways to check, compared with TEEs",
+        "zh": "与 TEE 相比的其他核查方法"
+      },
+      "purpose": {
+        "en": "Signatures, audits, re-execution and proofs each ask you to trust different parties than a TEE does. Start with one or two readings on each.",
+        "zh": "签名、审计、重新执行和数学证明要求你信任的参与方，都与 TEE 不同。每种方法可以先读一到两篇。"
+      },
+      "entries": [
+        {
+          "id": "sigstore",
+          "why": {
+            "en": "Signatures and a public log: what a signer vouches for.",
+            "zh": "签名与公开日志：签名方担保的是什么。"
+          }
+        },
+        {
+          "id": "black-box-access-insufficient",
+          "why": {
+            "en": "Audits: why the depth of access decides what an audit can find.",
+            "zh": "审计：为什么访问深度决定了审计能发现什么。"
+          }
+        },
+        {
+          "id": "toploc",
+          "why": {
+            "en": "Re-execution: fingerprints of a model's intermediate values (activations) that tolerate differences across GPU types.",
+            "zh": "重新执行：为模型的中间计算值（激活值）生成的指纹，能容忍不同 GPU 型号之间的差异。"
+          }
+        },
+        {
+          "id": "verde",
+          "why": {
+            "en": "Re-execution with a referee that narrows a dispute between providers to a single operation.",
+            "zh": "带仲裁方的重新执行：把服务商之间的争议缩小到单个算子。"
+          }
+        },
+        {
+          "id": "zkllm",
+          "why": {
+            "en": "Proofs: a zero-knowledge proof system, which lets others check that a model computed an output correctly without seeing its weights. The authors applied it to a 13-billion-parameter model.",
+            "zh": "数学证明：一套零知识证明系统，可让他人在看不到模型权重的情况下，核查模型是否正确算出了输出。作者将其用于 130 亿参数的模型。"
+          }
+        },
+        {
+          "id": "zkml-survey",
+          "why": {
+            "en": "Proofs: where zero-knowledge machine learning stands and what limits it.",
+            "zh": "数学证明：零知识机器学习的现状，以及制约它的因素。"
+          }
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "rats-architecture",
+      "title": "RFC 9334: Remote ATtestation procedureS (RATS) Architecture",
+      "url": "https://www.rfc-editor.org/info/rfc9334/",
+      "org": "IETF",
+      "year": 2023,
+      "type": "specification",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "standards",
+      "note": {
+        "en": "Informational IETF RFC that defines the roles and messages of remote attestation. The roles include attesters, verifiers and relying parties; the messages include evidence, endorsements, reference values and attestation results.",
+        "zh": "IETF 的信息类 RFC，定义了远程证明中的角色与消息。角色包括证明方、验证方和依赖方；消息包括证据、背书、参考值和证明结果。"
+      },
+      "featured": true,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "confidential-computing-consortium",
+      "title": "Confidential Computing Consortium",
+      "url": "https://confidentialcomputing.io/",
+      "org": "Linux Foundation",
+      "year": 2019,
+      "type": "organization",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "standards",
+      "note": {
+        "en": "Linux Foundation community that works to speed up the adoption of trusted execution environment (TEE) technologies. It maintains open-source projects and attestation specifications for them.",
+        "zh": "Linux 基金会旗下的社区，致力于加快可信执行环境（TEE）技术的采用。它还维护这些技术的开源项目和远程证明规范。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "ml-confidential-computing-sok",
+      "title": "Machine Learning with Confidential Computing: A Systematization of Knowledge",
+      "url": "https://arxiv.org/abs/2208.10134",
+      "org": "Fan Mo, Zahra Tarkhani, Hamed Haddadi",
+      "year": 2022,
+      "type": "paper",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "uses",
+      "note": {
+        "en": "Survey of TEE-based techniques that give machine learning confidentiality and integrity guarantees. It also analyzes the limitations of existing TEEs for ML workloads.",
+        "zh": "一篇综述，梳理借助可信执行环境（TEE）为机器学习提供机密性和完整性保障的技术。论文还分析了现有 TEE 用于机器学习任务时的局限。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "amd-sev-snp-white-paper",
+      "title": "AMD SEV-SNP: Strengthening VM Isolation with Integrity Protection and More",
+      "url": "https://docs.amd.com/v/u/en-US/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more",
+      "org": "AMD",
+      "year": 2020,
+      "type": "report",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "cpu",
+      "note": {
+        "en": "AMD white paper describing SEV-SNP. SEV-SNP adds memory integrity protection against a malicious hypervisor to encrypted virtual machines. It signs attestation reports with a key unique to each chip and its TCB version, the versions of the chip's trusted components.",
+        "zh": "AMD 介绍 SEV-SNP 的白皮书。SEV-SNP 在加密虚拟机的基础上增加内存完整性保护，以防范恶意的虚拟机监控器。它用每颗芯片及其 TCB 版本独有的密钥签署证明报告；TCB 版本指芯片上各个可信组件的版本。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "intel-tdx-demystified",
+      "title": "Intel TDX Demystified: A Top-Down Approach",
+      "url": "https://arxiv.org/abs/2303.15540",
+      "org": "Pau-Chen Cheng et al.",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "cpu",
+      "note": {
+        "en": "Analysis of Intel Trust Domain Extensions (TDX) by researchers outside Intel. It explains how TDX is designed to isolate virtual machines with encrypted, integrity-protected memory, and how its remote attestation works.",
+        "zh": "Intel 以外的研究人员对 Intel Trust Domain Extensions（TDX）的分析。论文解释了 TDX 如何按设计用加密且受完整性保护的内存隔离虚拟机，以及它的远程证明如何运作。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "nvidia-h100-confidential-computing",
+      "title": "Confidential Computing on NVIDIA H100 GPUs for Secure and Trustworthy AI",
+      "url": "https://developer.nvidia.com/blog/confidential-computing-on-h100-gpus-for-secure-and-trustworthy-ai/",
+      "org": "NVIDIA",
+      "year": 2023,
+      "type": "report",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "gpu",
+      "note": {
+        "en": "NVIDIA's technical overview of confidential computing on H100 GPUs. It covers the on-die root of trust, measured boot, signed attestation reports and encrypted transfers between CPU and GPU. It notes that the on-package high-bandwidth memory (HBM) is not encrypted.",
+        "zh": "NVIDIA 对 H100 GPU 机密计算的技术概述。内容涵盖片上信任根、度量启动、签名的证明报告，以及 CPU 与 GPU 之间的加密传输。文中说明，封装内的高带宽显存（HBM）不加密。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "nvidia-attestation-docs",
+      "title": "NVIDIA Attestation",
+      "url": "https://docs.nvidia.com/attestation/index.html",
+      "org": "NVIDIA",
+      "type": "tool",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "gpu",
+      "note": {
+        "en": "Documentation for NVIDIA's attestation services and for the SDKs that verify GPU evidence. The services include the Remote Attestation Service (NRAS) and the Reference Integrity Manifest (RIM) service, which supplies reference values. They also include an OCSP service, which reports whether certificates have been revoked.",
+        "zh": "NVIDIA 各项远程证明服务及配套 SDK 的文档，这些 SDK 用于验证 GPU 证据。服务包括 NVIDIA 远程证明服务（NRAS）和参考完整性清单（RIM）服务，后者提供参考值。另有一项 OCSP 服务，用于报告证书是否已被吊销。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "apple-private-cloud-compute",
+      "title": "Private Cloud Compute: A new frontier for AI privacy in the cloud",
+      "url": "https://security.apple.com/blog/private-cloud-compute/",
+      "org": "Apple",
+      "year": 2024,
+      "type": "project",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "services",
+      "note": {
+        "en": "Apple's design for processing Apple Intelligence requests in the cloud. It is built around five requirements: stateless computation, enforceable guarantees, no privileged runtime access, non-targetability and verifiable transparency.",
+        "zh": "Apple 在云端处理 Apple Intelligence 请求的设计。设计围绕五项要求展开：无状态计算、可强制执行的保证、无特权运行时访问、不可定向性和可验证透明性。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "pcc-security-guide",
+      "title": "Private Cloud Compute Security Guide",
+      "url": "https://security.apple.com/documentation/private-cloud-compute",
+      "org": "Apple",
+      "year": 2024,
+      "type": "report",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "services",
+      "note": {
+        "en": "Apple's technical documentation of the Private Cloud Compute (PCC) design. The accompanying Virtual Research Environment (VRE) runs PCC node software on a Mac. Apple also provides source code for selected security-critical components.",
+        "zh": "Apple 关于 Private Cloud Compute（PCC）设计的技术文档。配套的虚拟研究环境（VRE）可在 Mac 上运行 PCC 节点软件。Apple 还公开了部分安全关键组件的源代码。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "meta-private-processing",
+      "title": "Building Private Processing for AI tools on WhatsApp",
+      "url": "https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/",
+      "org": "Meta",
+      "year": 2025,
+      "type": "project",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "services",
+      "note": {
+        "en": "Meta's design for running WhatsApp AI features in confidential virtual machines with confidential-computing GPUs. Clients check attestations against a third-party log over RA-TLS, which binds remote attestation to a TLS connection. They connect through Oblivious HTTP (OHTTP) relays, which hide a client's IP address from the server.",
+        "zh": "Meta 的设计：在机密虚拟机中运行 WhatsApp 的 AI 功能，并使用处于机密计算模式的 GPU。客户端通过 RA-TLS 对照第三方日志核查远程证明；RA-TLS 把远程证明与 TLS 连接绑定在一起。客户端经由不经意 HTTP（OHTTP）中继连接，中继使服务器看不到客户端的 IP 地址。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "google-private-ai-compute",
+      "title": "Private AI Compute: our next step in building private and helpful AI",
+      "url": "https://blog.google/innovation-and-ai/products/google-private-ai-compute/",
+      "org": "Google",
+      "year": 2025,
+      "type": "project",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "services",
+      "note": {
+        "en": "Google's announcement of a platform that runs Gemini models on its Tensor Processing Units (TPUs) with Titanium Intelligence Enclaves. User devices connect to the platform through remote attestation and encryption.",
+        "zh": "Google 宣布推出的平台：借助 Titanium Intelligence Enclaves，在自研的张量处理单元（TPU）上运行 Gemini 模型。用户设备通过远程证明和加密与平台连接。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "anthropic-confidential-inference",
+      "title": "Confidential Inference via Trusted Virtual Machines",
+      "url": "https://www.anthropic.com/research/confidential-inference-trusted-vms",
+      "org": "Anthropic, with Pattern Labs",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "services",
+      "note": {
+        "en": "Anthropic's early-stage design for its inference server. Only a small attested loader, rather than the whole server, can decrypt prompts and model weights. Boot measurements recorded by a Trusted Platform Module (TPM) control the release of keys.",
+        "zh": "Anthropic 尚处早期阶段的推理服务器设计。能解密提示词和模型权重的只有一个经过远程证明的小型加载器，而不是整个服务器。可信平台模块（TPM）记录的启动度量值决定密钥能否释放。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "rfc-9458-oblivious-http",
+      "title": "RFC 9458: Oblivious HTTP",
+      "url": "https://www.rfc-editor.org/info/rfc9458/",
+      "org": "IETF",
+      "year": 2024,
+      "type": "standard",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "standards",
+      "note": {
+        "en": "IETF standards-track protocol in which a relay forwards encrypted HTTP requests. The server never sees the client's IP address, and the relay never sees the content. Apple and Meta route AI requests through third-party OHTTP relays to hinder attacks that target specific users.",
+        "zh": "IETF 标准轨道协议：由中继转发加密的 HTTP 请求。服务器看不到客户端的 IP 地址，中继也看不到请求内容。Apple 和 Meta 通过第三方 OHTTP 中继转发 AI 请求，以阻碍针对特定用户的攻击。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "rand-securing-model-weights",
+      "title": "Securing AI Model Weights: Preventing Theft and Misuse of Frontier Models",
+      "url": "https://www.rand.org/pubs/research_reports/RRA2849-1.html",
+      "org": "Sella Nevo et al. (RAND)",
+      "year": 2024,
+      "type": "report",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "uses",
+      "note": {
+        "en": "RAND report that identifies 38 attack vectors against frontier model weights. It defines five security levels and recommends preliminary benchmark security systems that roughly achieve each level.",
+        "zh": "RAND 报告，梳理出针对前沿模型权重的 38 种攻击途径。报告定义了五个安全等级，并为每个等级推荐一套初步的基准安全体系，大致能达到该等级。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "tee-fail",
+      "title": "TEE.fail: Breaking Trusted Execution Environments via DDR5 Memory Bus Interposition",
+      "url": "https://tee.fail/",
+      "org": "Jalen Chuang et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "attacks",
+      "note": {
+        "en": "Physical attack that extracts cryptographic keys from Intel TDX and AMD SEV-SNP machines with an interposer, a device attached to the DDR5 memory bus. The keys include an Intel attestation key used to forge TDX quotes, Intel's name for attestation reports. The work also shows that NVIDIA GPU attestations can be borrowed from other machines, because they are not bound to a specific confidential VM.",
+        "zh": "一种物理攻击：用接在 DDR5 内存总线上的插入器，从 Intel TDX 和 AMD SEV-SNP 机器中提取密钥。被提取的密钥包括一把 Intel 证明密钥，研究人员用它伪造了 TDX quote，即 Intel 所称的证明报告。研究还表明，NVIDIA GPU 的证明报告没有绑定特定的机密虚拟机，因此可以从其他机器“借用”。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "proof-of-cloud",
+      "title": "Proof of Cloud: Data Center Execution Assurance for Confidential VMs",
+      "url": "https://arxiv.org/abs/2510.12469",
+      "org": "Filip Rezabek et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "attacks",
+      "note": {
+        "en": "Design that binds confidential-VM attestation to evidence from the host's Trusted Platform Module (TPM). A verifier then learns that the workload runs on a machine in a trusted data center. The binding is also designed to block relay attacks, which pass off attestation from another machine.",
+        "zh": "一项设计：把机密虚拟机的远程证明与宿主机可信平台模块（TPM）的证据绑定。验证方由此能够确认，工作负载运行在可信数据中心的机器上。按设计，这种绑定还能阻止中继攻击，即拿另一台机器的远程证明冒充本机。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "blackwell-cc-benchmark",
+      "title": "Benchmarking Confidential Computing Performance on NVIDIA Blackwell GPUs",
+      "url": "https://arxiv.org/abs/2608.26575",
+      "org": "Amean Asad, Ansgar Grunseid",
+      "year": 2026,
+      "type": "paper",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "performance",
+      "note": {
+        "en": "Paired measurements of LLM inference and training on B200 GPUs in Intel TDX confidential VMs. With a correctly configured stack, the authors report about 1 to 3 percent inference throughput overhead. With stock settings, they report 30 to 40 percent.",
+        "zh": "在 Intel TDX 机密虚拟机中的 B200 GPU 上，对大模型推理和训练做成对测量。作者报告，配置得当时，推理吞吐开销约为 1% 到 3%；使用默认配置时，开销为 30% 到 40%。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "azure-confidential-inferencing",
+      "title": "Azure AI Confidential Inferencing: Technical Deep-Dive",
+      "url": "https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/azure-ai-confidential-inferencing-technical-deep-dive/4253150",
+      "org": "Mark Russinovich (Microsoft)",
+      "year": 2024,
+      "type": "report",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "services",
+      "note": {
+        "en": "Microsoft's planned design for confidential inferencing in Azure OpenAI Service, announced as an upcoming preview. Clients encrypt prompts with Oblivious HTTP (OHTTP). A key management service releases the decryption keys only to attested confidential GPU VMs built on AMD SEV-SNP and NVIDIA H100. A transparency ledger records the deployed code, container policies and key release policies.",
+        "zh": "Microsoft 为 Azure OpenAI 服务规划的机密推理设计，宣布时称将推出预览版。客户端用不经意 HTTP（OHTTP）加密提示词。密钥管理服务只把解密密钥发放给通过远程证明的机密 GPU 虚拟机，这些虚拟机基于 AMD SEV-SNP 和 NVIDIA H100。部署的代码、容器策略和密钥释放策略都记录在透明账本中。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "arm-cca",
+      "title": "Arm Confidential Compute Architecture",
+      "url": "https://www.arm.com/architecture/security-features/arm-confidential-compute-architecture",
+      "org": "Arm",
+      "year": 2021,
+      "type": "specification",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "cpu",
+      "note": {
+        "en": "Armv9-A security architecture in which the Realm Management Extension (RME) creates hardware-isolated execution environments called Realms. The open-source Realm Management Monitor (RMM) manages them. The host hypervisor still decides which Realms run and what memory they receive. But the architecture is designed so that the hypervisor cannot access or modify the Realms' code and data.",
+        "zh": "Armv9-A 的安全架构，其中的 Realm 管理扩展（RME）可创建称为 Realm 的硬件隔离执行环境。Realm 由开源的 Realm 管理监控器（RMM）管理。宿主机的虚拟机监控器仍决定运行哪些 Realm、为它们分配哪些内存。但按照架构设计，虚拟机监控器无法访问或修改 Realm 中的代码和数据。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "caliptra",
+      "title": "Caliptra",
+      "url": "https://github.com/chipsalliance/Caliptra",
+      "org": "CHIPS Alliance (Linux Foundation)",
+      "year": 2022,
+      "type": "project",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "standards",
+      "note": {
+        "en": "Root-of-trust block that chip makers integrate into datacenter CPUs, GPUs and other systems on chip. It provides device identity, measured boot and attestation. Its specification, hardware design (RTL), ROM and firmware are open source. AMD, Google, Microsoft and NVIDIA announced it at the Open Compute Project summit in 2022.",
+        "zh": "一种信任根模块，供芯片厂商集成到数据中心的 CPU、GPU 等片上系统（SoC）中。它提供设备身份、度量启动和远程证明能力。其规范、硬件设计（RTL）、ROM 和固件均已开源。AMD、Google、Microsoft 和 NVIDIA 于 2022 年在开放计算项目（OCP）峰会上联合发布了这一项目。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "rfc-9711-eat",
+      "title": "RFC 9711: The Entity Attestation Token (EAT)",
+      "url": "https://www.rfc-editor.org/info/rfc9711/",
+      "org": "IETF",
+      "year": 2025,
+      "type": "standard",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "standards",
+      "note": {
+        "en": "IETF standards-track format for attestation evidence and attestation results, carried as a CBOR Web Token (CWT) or JSON Web Token (JWT). It defines common claims such as a nonce that shows the evidence is fresh, a universal entity ID (UEID), the hardware manufacturer, and the software name and version. It follows the RATS architecture of RFC 9334.",
+        "zh": "IETF 标准轨道规范，规定证明证据和证明结果的格式，以 CBOR Web Token（CWT）或 JSON Web Token（JWT）承载。它定义了一组常用声明，例如表明证据足够新的随机数（nonce）、通用实体标识（UEID）、硬件制造商以及软件名称和版本。它沿用 RFC 9334 的 RATS 架构。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "badram",
+      "title": "BadRAM: Practical Memory Aliasing Attacks on Trusted Execution Environments",
+      "url": "https://badram.eu/",
+      "org": "Jesse De Meulemeester et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "attacks",
+      "note": {
+        "en": "Attack in which a memory module misreports its size because its serial presence detect (SPD) chip has been altered. The false size creates address aliases, two addresses that point to the same memory location. With under $10 of equipment, an attacker can use them to bypass AMD SEV-SNP memory protections. The attacker can also replay a genuine attestation measurement for a backdoored VM. AMD responded with firmware that checks memory configuration at boot; Intel TDX and Scalable SGX already had this defense.",
+        "zh": "一种攻击：内存条的串行存在检测（SPD）芯片被篡改后，会谎报内存容量。错误的容量会产生地址别名，即两个地址指向同一个内存位置。攻击者只需不到 10 美元的设备，就能借此绕过 AMD SEV-SNP 的内存保护。攻击者还能为植入后门的虚拟机重放正常虚拟机在远程证明中的度量值。AMD 随后发布固件，在启动时检查内存配置；Intel TDX 和可扩展 SGX 早已具备此类检查。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "battering-ram",
+      "title": "Battering RAM: Low-Cost Interposer Attacks on Confidential Computing via Dynamic Memory Aliasing",
+      "url": "https://batteringram.eu/",
+      "org": "Jesse De Meulemeester et al.",
+      "year": 2026,
+      "type": "paper",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "attacks",
+      "note": {
+        "en": "Attack with an interposer costing under $50, placed between the processor and DDR4 memory. The interposer behaves normally during boot-time checks and later, at runtime, creates address aliases. This gives plaintext access to Intel Scalable SGX enclave memory and breaks AMD SEV-SNP attestation on fully patched systems. Intel and AMD said physical attacks on DRAM are out of scope for their current products.",
+        "zh": "一种攻击：在处理器与 DDR4 内存之间安装成本不到 50 美元的插入器。插入器在启动检查期间表现正常，之后在运行时制造地址别名。它能以明文读写 Intel 可扩展 SGX 的飞地内存，并在已打全补丁的系统上攻破 AMD SEV-SNP 的远程证明。Intel 和 AMD 表示，针对 DRAM 的物理攻击不在其现有产品的防护范围之内。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "zkml-survey",
+      "title": "A Survey of Zero-Knowledge Proof Based Verifiable Machine Learning",
+      "url": "https://arxiv.org/abs/2502.18535",
+      "org": "Zhizhi Peng et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Survey of zero-knowledge machine learning (zkML) research from June 2017 to August 2025. In zkML, zero-knowledge proofs let others check a machine-learning computation without seeing secrets such as model weights. The survey groups the work into verifiable training, testing and inference, and analyzes bottlenecks such as the cost of generating proofs.",
+        "zh": "综述 2017 年 6 月至 2025 年 8 月的零知识机器学习（zkML）研究。zkML 借助零知识证明，让他人无需看到模型权重等秘密信息即可核查机器学习计算。综述把这些研究分为可验证训练、测试和推理三类，并分析生成零知识证明的开销等瓶颈。"
+      },
+      "featured": true,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "safetynets",
+      "title": "SafetyNets: Verifiable Execution of Deep Neural Networks on an Untrusted Cloud",
+      "url": "https://arxiv.org/abs/1706.10268",
+      "org": "Zahra Ghodsi, Tianyu Gu, Siddharth Garg",
+      "year": 2017,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Interactive-proof protocol that lets a client check that an untrusted cloud ran neural-network inference correctly. It applies to networks that can be expressed as arithmetic circuits, built only from additions and multiplications.",
+        "zh": "一种交互式证明协议，可让客户端核查不可信的云端是否正确执行了神经网络推理。它适用于可表示为算术电路（只由加法和乘法构成）的网络。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "zk-snark-imagenet-inference",
+      "title": "Scaling up Trustless DNN Inference with Zero-Knowledge Proofs",
+      "url": "https://arxiv.org/abs/2210.08674",
+      "org": "Daniel Kang et al.",
+      "year": 2022,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Presents a zk-SNARK proof of valid inference for an ImageNet-scale model. A zk-SNARK is a short zero-knowledge proof that is quick to verify. The paper also gives protocols that use such proofs to verify the predictions and accuracy of ML services.",
+        "zh": "为 ImageNet 规模的模型构造 zk-SNARK，用来证明推理正确执行。zk-SNARK 是一种简短、验证迅速的零知识证明。论文还设计了协议，用这类证明核查机器学习服务的预测结果和准确率。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "zkllm",
+      "title": "zkLLM: Zero Knowledge Proofs for Large Language Models",
+      "url": "https://arxiv.org/abs/2404.16109",
+      "org": "Haochen Sun, Jason Li, Hongyang Zhang",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Zero-knowledge proof system for large language models. It handles non-arithmetic operations with a lookup argument, which checks values against a precomputed table. A dedicated proof handles attention. The authors report proving a 13-billion-parameter model's inference in under 15 minutes.",
+        "zh": "面向大语言模型的零知识证明系统。它用查找论证（对照预先算好的表格检查数值）处理非算术运算，并为注意力机制设计了专门的证明。作者报告，130 亿参数模型的推理证明可在 15 分钟内完成。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "deepprove",
+      "title": "DeepProve: Verifiable End-to-End Large Language Model Inference",
+      "url": "https://eprint.iacr.org/2026/1112",
+      "org": "Nicolas Gailly et al.",
+      "year": 2026,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Zero-knowledge system, built on the sum-check protocol and lookup arguments, that proves all the tokens generated for a prompt. It was demonstrated on GPT-2 at about 174 proven tokens per minute and on Gemma 3 at about 86.",
+        "zh": "以 sum-check 协议和查找论证为基础的零知识系统，可证明一个提示词生成的全部词元。在 GPT-2 上，它每分钟约能证明 174 个词元；在 Gemma 3 上约为 86 个。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "ezkl",
+      "title": "EZKL",
+      "url": "https://github.com/zkonduit/ezkl",
+      "org": "Zkonduit",
+      "year": 2022,
+      "type": "tool",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Library and command-line tool that turns models and other computational graphs exported as ONNX into zk-SNARK circuits. With these circuits, the models' inference can be proven and verified. EZKL can be used from Python, JavaScript or the command line.",
+        "zh": "一个库和命令行工具，可把导出为 ONNX 格式的模型及其他计算图转换成 zk-SNARK 电路。借助这些电路，可以证明并验证模型的推理过程。EZKL 可通过 Python、JavaScript 或命令行使用。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "toploc",
+      "title": "TOPLOC: A Locality Sensitive Hashing Scheme for Trustless Verifiable Inference",
+      "url": "https://arxiv.org/abs/2501.16007",
+      "org": "Jack Min Ong et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "The inference provider commits to locality-sensitive hashes of intermediate activations, the values computed inside the model. These hashes stay similar when the activations are similar. A validator can then detect changes to the model, prompt or numerical precision while tolerating differences across GPU types.",
+        "zh": "推理服务方对中间激活值（模型内部计算出的数值）的局部敏感哈希作出承诺。激活值相近时，这类哈希也相近。验证方由此可以发现模型、提示词或数值精度的改动，同时容忍不同 GPU 型号之间的差异。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "verde",
+      "title": "Verde: Verification via Refereed Delegation for Machine Learning Programs",
+      "url": "https://arxiv.org/abs/2502.19405",
+      "org": "Arasu Arun et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Refereed-delegation protocol for ML training and inference. When compute providers disagree, a referee narrows the dispute to a single operator. The protocol comes with RepOps, a library of operators that return bit-for-bit identical results when rerun.",
+        "zh": "面向机器学习训练和推理的仲裁式委托协议。当计算服务商的结果不一致时，仲裁方会把争议缩小到单个算子。协议配套提供算子库 RepOps，其算子每次重新运行都得到逐位相同的结果。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "model-equality-testing",
+      "title": "Model Equality Testing: Which Model Is This API Serving?",
+      "url": "https://arxiv.org/abs/2410.20247",
+      "org": "Irena Gao, Percy Liang, Carlos Guestrin",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference",
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Frames the detection of quantized (reduced-precision), watermarked or fine-tuned models behind an API as a two-sample test. Such a test asks whether two sets of outputs come from the same distribution. The paper reports that 11 of 31 tested endpoints served distributions different from Meta's reference weights.",
+        "zh": "把识别 API 背后的模型是否经过量化（降低数值精度）、加水印或微调视为双样本检验问题。双样本检验判断两组输出是否来自同一分布。论文报告，在测试的 31 个端点中，有 11 个的输出分布与 Meta 发布的参考权重不同。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "immaculate",
+      "title": "IMMACULATE: A Practical LLM Auditing Framework via Verifiable Computation",
+      "url": "https://arxiv.org/abs/2602.22700",
+      "org": "Yanpei Guo et al.",
+      "year": 2026,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference",
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Auditing framework that checks a small fraction of API requests with verifiable computation, in which the provider returns evidence that a result is correct. It looks for model substitution, quantization abuse and token overbilling, without relying on trusted hardware.",
+        "zh": "一种审计框架，用可验证计算抽查一小部分 API 请求：服务商需同时返回证据，供他人核查结果是否正确。框架不依赖可信硬件，用于发现模型替换、滥用量化和多计词元费用等行为。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "proof-of-learning",
+      "title": "Proof-of-Learning: Definitions and Practice",
+      "url": "https://arxiv.org/abs/2103.05633",
+      "org": "Hengrui Jia et al.",
+      "year": 2021,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Introduces proof-of-learning, a record of checkpoints (weights saved during training) and training metadata. It lets a verifier check that a party performed the training that produced a set of weights.",
+        "zh": "提出学习证明：由训练检查点（训练中保存的权重）和训练元数据组成的记录。验证方借此可以核查，某一方确实执行了产生某组权重的训练。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "optimistic-verifiable-training",
+      "title": "Optimistic Verifiable Training by Controlling Hardware Nondeterminism",
+      "url": "https://arxiv.org/abs/2403.09603",
+      "org": "Megha Srivastava, Simran Arora, Dan Boneh",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Uses higher-precision training and shared rounding decisions to control nondeterminism, the small differences in numerical results across GPU types. An auditor can then replicate training exactly and contest a trainer's result.",
+        "zh": "通过更高精度的训练和共享舍入决策，控制不同 GPU 型号之间的非确定性，即计算结果上的细微数值差异。审计方因此能够精确复现训练过程，并对训练方的结果提出质疑。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "defeating-nondeterminism-llm-inference",
+      "title": "Defeating Nondeterminism in LLM Inference",
+      "url": "https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/",
+      "org": "Horace He, Thinking Machines Lab",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Shows that LLM inference servers return different outputs for the same input mainly because their kernels lack batch invariance while server load varies. Without batch invariance, a request's result depends on how many other requests are processed with it. The post demonstrates batch-invariant kernels that made 1,000 temperature-zero completions identical.",
+        "zh": "文章指出，大模型推理服务对相同输入返回不同输出，主要原因是算子缺乏批次不变性，而服务器负载又在不断变化。缺乏批次不变性时，一个请求的结果会随同批处理的其他请求数量而变。文章展示了批次不变的算子，它们使温度为 0 时的 1000 次补全完全一致。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "pinocchio",
+      "title": "Pinocchio: Nearly Practical Verifiable Computation",
+      "url": "https://eprint.iacr.org/2013/279",
+      "org": "Bryan Parno et al.",
+      "year": 2013,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Verifiable computation system that compiles a subset of C into a protocol. A worker returns a 288-byte proof of correct execution. Anyone holding the public verification key can check it, typically in about 10 milliseconds. An optional zero-knowledge variant adds little extra cost.",
+        "zh": "一种可验证计算系统，可将 C 语言子集编译为一套协议。执行方返回一个 288 字节的正确执行证明。任何持有公开验证密钥的人都能检查这一证明，通常约需 10 毫秒。系统还可选用零知识版本，额外开销很小。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "zkcnn",
+      "title": "zkCNN: Zero Knowledge Proofs for Convolutional Neural Network Predictions and Accuracy",
+      "url": "https://eprint.iacr.org/2021/673",
+      "org": "Tianyi Liu, Xiang Xie, Yupeng Zhang",
+      "year": 2021,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference",
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Zero-knowledge proof scheme built on a new sum-check protocol for convolutions. A model owner can use it to prove that a convolutional neural network's prediction came from a secret model, without revealing the model. The scheme can also prove the model's accuracy on a public dataset. For VGG16, the proof took 88.3 seconds to generate and 59.3 milliseconds to verify.",
+        "zh": "一种零知识证明方案，以针对卷积的新 sum-check 协议为基础。模型所有者可以用它证明，卷积神经网络的某个预测结果来自一个保密模型，同时不泄露模型本身。该方案也能证明模型在公开数据集上的准确率。在 VGG16 上，生成证明耗时 88.3 秒，验证耗时 59.3 毫秒。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "proofs-arguments-zero-knowledge",
+      "title": "Proofs, Arguments, and Zero-Knowledge",
+      "url": "https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.html",
+      "org": "Justin Thaler",
+      "year": 2022,
+      "type": "course",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Free draft textbook on interactive proofs, arguments and zero-knowledge proofs. Topics include the sum-check protocol, the Fiat-Shamir transformation, polynomial commitments and SNARKs built from polynomial interactive oracle proofs (IOPs). It links to video lectures.",
+        "zh": "免费的教材草稿，讲解交互式证明、论证系统和零知识证明。内容包括 sum-check 协议、Fiat-Shamir 变换、多项式承诺，以及基于多项式交互式预言证明（IOP）构造的 SNARK。书中附有配套视频讲座的链接。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "proof-of-learning-broken",
+      "title": "Proof-of-Learning is Currently More Broken Than You Think",
+      "url": "https://arxiv.org/abs/2208.03567",
+      "org": "Congyu Fang et al.",
+      "year": 2022,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Presents spoofing attacks on proof-of-learning: the attacker forges a training record for weights it did not train. The attacks reproduce across verification settings at a fraction of the cost of earlier attacks. The authors argue that a provably robust proof-of-learning verifier requires a better understanding of optimization in deep learning.",
+        "zh": "提出针对学习证明（proof-of-learning）的伪造攻击：攻击者并未训练某组权重，却能为其伪造训练记录。这些攻击可在不同验证配置下复现，成本仅为以往攻击的一小部分。作者认为，要构建可证明稳健的学习证明验证机制，必须更深入地理解深度学习中的优化过程。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "zk-proofs-of-training",
+      "title": "Experimenting with Zero-Knowledge Proofs of Training",
+      "url": "https://eprint.iacr.org/2023/1345",
+      "org": "Sanjam Garg et al.",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Defines zero-knowledge proofs of training (zkPoT). Such a proof lets a model owner prove that a model was trained according to a specification, without revealing the data or the model. The authors implement a protocol for logistic regression that combines MPC-in-the-head with zk-SNARKs, and benchmark it on a 4 GB dataset.",
+        "zh": "提出零知识训练证明（zkPoT）的概念：模型所有者可以证明模型按照约定规范完成训练，同时不泄露数据和模型。作者结合 MPC-in-the-head 与 zk-SNARK，为逻辑回归实现了相应协议，并在 4 GB 的数据集上测试了性能。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "svip",
+      "title": "SVIP: Towards Verifiable Inference of Open-source Large Language Models",
+      "url": "https://arxiv.org/abs/2410.22307",
+      "org": "Yifan Sun et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Protocol for checking whether a decentralized computing provider ran the requested open-source LLM. The provider returns hidden-layer representations, the model's internal values, along with the generated text. The user checks them with a trained proxy task and a secret mechanism. The authors report false negative rates below 5% and false positive rates below 3%.",
+        "zh": "一种协议，用于核查去中心化算力提供方是否运行了用户指定的开源大模型。提供方在返回生成文本的同时，返回隐藏层表示，即模型内部的数值。用户借助训练好的代理任务和秘密机制核验这些表示。论文报告的假阴性率低于 5%，假阳性率低于 3%。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "opml",
+      "title": "opML: Optimistic Machine Learning on Blockchain",
+      "url": "https://arxiv.org/abs/2401.17555",
+      "org": "KD Conway et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Optimistic approach to on-chain machine-learning inference. Instead of zero-knowledge proofs, it relies on an interactive fraud-proof protocol similar to optimistic rollups. A result stands unless someone challenges it. The authors report running a 7B-parameter LLaMA model on a standard PC without a GPU.",
+        "zh": "一种在区块链上执行机器学习推理的乐观（optimistic）方案。它不用零知识证明，而是依靠类似 Optimistic Rollup 的交互式欺诈证明协议。结果默认有效，除非有人提出质疑。作者称，可在不配备 GPU 的普通 PC 上运行 70 亿参数的 LLaMA 模型。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "k2-vendor-verifier",
+      "title": "K2 Vendor Verifier",
+      "url": "https://github.com/MoonshotAI/K2-Vendor-Verifier",
+      "org": "Moonshot AI",
+      "year": 2025,
+      "type": "tool",
+      "topics": [
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Moonshot AI tool that sends 4,000 tool-calling requests to third-party providers of its Kimi K2 models. It measures how closely their decisions on whether to call a tool match Moonshot's official API. It also measures how often their tool-call JSON passes schema validation, a check of its format. The test is now one of the benchmarks in Moonshot's broader Kimi Vendor Verifier.",
+        "zh": "Moonshot AI 推出的工具：向提供 Kimi K2 模型服务的第三方厂商发送 4000 个工具调用请求。它衡量这些厂商是否调用工具的决策与 Moonshot 官方 API 的一致程度。它还衡量厂商返回的工具调用 JSON 通过模式校验（即格式检查）的比例。这项测试现已成为范围更广的 Kimi Vendor Verifier 中的一项基准。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "towards-verified-ai",
+      "title": "Towards Verified Artificial Intelligence",
+      "url": "https://arxiv.org/abs/1606.08514",
+      "org": "Sanjit A. Seshia, Dorsa Sadigh, S. Shankar Sastry",
+      "year": 2016,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Agenda paper that defines verified AI from the perspective of formal methods, mathematical techniques for specifying and verifying systems. It sets out five challenges and five corresponding principles.",
+        "zh": "一篇纲领性论文，从形式化方法（用数学手段描述和验证系统的技术）的角度界定“经验证的人工智能”（Verified AI）。论文提出五项挑战和相应的五条原则。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "guaranteed-safe-ai",
+      "title": "Towards Guaranteed Safe AI: A Framework for Ensuring Robust and Reliable AI Systems",
+      "url": "https://arxiv.org/abs/2405.06624",
+      "org": "David Dalrymple et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Defines guaranteed safe AI as a family of approaches that combine a world model, a safety specification and a verifier. The world model describes mathematically how the AI system affects the outside world. The verifier provides an auditable proof certificate that the system meets the specification relative to the world model.",
+        "zh": "将“可保证安全的 AI”定义为一类方法，这类方法结合世界模型、安全规约和验证器。世界模型以数学方式描述 AI 系统如何影响外部世界。验证器提供可审计的数学证明证书，表明相对于该世界模型，AI 系统满足安全规约。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "provably-safe-systems",
+      "title": "Provably safe systems: the only path to controllable AGI",
+      "url": "https://arxiv.org/abs/2309.01933",
+      "org": "Max Tegmark, Steve Omohundro",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Position paper arguing that artificial general intelligence should be built to provably satisfy human-specified requirements. The authors propose using advanced AI for formal verification and for mechanistic interpretability, the study of a model's internal mechanisms.",
+        "zh": "立场论文，主张在构建通用人工智能时，应确保能用数学证明它满足人类设定的要求。作者提出借助先进 AI 完成形式化验证和机制可解释性分析；后者研究模型的内部机制。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "reluplex",
+      "title": "Reluplex: An Efficient SMT Solver for Verifying Deep Neural Networks",
+      "url": "https://arxiv.org/abs/1702.01135",
+      "org": "Guy Katz et al.",
+      "year": 2017,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Simplex-based SMT technique for neural networks with ReLU activations. It either proves that a network has a given property or finds a counterexample. It was evaluated on networks from a prototype airborne collision-avoidance system (ACAS Xu).",
+        "zh": "基于单纯形法的 SMT 技术，面向采用 ReLU 激活的神经网络。它要么证明网络满足给定性质，要么找出反例。该技术在机载防撞系统原型（ACAS Xu）的网络上做了评估。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "alpha-beta-crown",
+      "title": "alpha-beta-CROWN",
+      "url": "https://github.com/Verified-Intelligence/alpha-beta-CROWN",
+      "org": "Verified-Intelligence",
+      "year": 2021,
+      "type": "tool",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "GPU-accelerated neural-network verifier based on linear bound propagation and branch and bound. Its README lists it as the winner of every annual neural-network verification competition (VNN-COMP) from 2021 to 2026.",
+        "zh": "基于线性界传播和分支定界的 GPU 加速神经网络验证器。其 README 称，它赢得了 2021 年至 2026 年历届 VNN-COMP（年度神经网络验证竞赛）。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "vnn-comp-2025",
+      "title": "The 6th International Verification of Neural Networks Competition (VNN-COMP 2025): Summary and Results",
+      "url": "https://arxiv.org/abs/2512.19007",
+      "org": "Konstantin Kaulen et al.",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Report on the 2025 edition of the annual competition that compares neural-network verifiers on shared ONNX and VNN-LIB benchmarks. Eight teams took part.",
+        "zh": "关于 2025 年度神经网络验证竞赛的报告。该竞赛每年举办，在统一的 ONNX 和 VNN-LIB 基准上比较各类验证器。本届有 8 支队伍参赛。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "lean",
+      "title": "Lean",
+      "url": "https://lean-lang.org/",
+      "org": "Lean FRO",
+      "year": 2013,
+      "type": "tool",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Open-source programming language and proof assistant, software that checks every step of a proof. It is used for formally verified code and machine-checked mathematics, and is a common target for AI-generated proofs.",
+        "zh": "开源编程语言和证明助手；证明助手是逐步检查证明的软件。Lean 用于编写经过形式化验证的代码和机器检查的数学证明，也是 AI 生成证明的常用目标语言。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "dafny",
+      "title": "Dafny",
+      "url": "https://dafny.org/",
+      "org": "Dafny project",
+      "type": "tool",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Verification-aware programming language whose static verifier checks code against its specifications before it runs. Dafny programs compile to languages such as C#, Java, JavaScript, Go and Python.",
+        "zh": "支持验证的编程语言，其静态验证器在代码运行前依据规约检查代码。Dafny 程序可编译为 C#、Java、JavaScript、Go 和 Python 等语言。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "verus",
+      "title": "Verus",
+      "url": "https://github.com/verus-lang/verus",
+      "org": "verus-lang",
+      "year": 2021,
+      "type": "tool",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Tool for verifying Rust code in which developers write specifications and proofs that automated solvers check for all possible executions.",
+        "zh": "用于验证 Rust 代码的工具：开发者编写规约和证明，由自动求解器检查代码在所有可能的执行中都满足规约。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "dafnybench",
+      "title": "DafnyBench: A Benchmark for Formal Software Verification",
+      "url": "https://arxiv.org/abs/2406.08467",
+      "org": "Chloe Loughridge et al.",
+      "year": 2024,
+      "type": "benchmark",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Benchmark of over 750 Dafny programs that tests whether language models can generate the hints the Dafny verifier needs. At release, the best model and prompt succeeded on 68 percent of them.",
+        "zh": "包含 750 多个 Dafny 程序的基准，测试语言模型能否生成 Dafny 验证器所需的验证提示（hints）。发布时，最佳模型与提示组合的成功率为 68%。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "vericoding-benchmark",
+      "title": "A benchmark for vericoding: formally verified program synthesis",
+      "url": "https://arxiv.org/abs/2509.22908",
+      "org": "Sergiu Bursuc et al.",
+      "year": 2025,
+      "type": "benchmark",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Benchmark of 12,504 formal specifications in Dafny, Verus/Rust and Lean for generating formally verified code. Off-the-shelf models succeeded 82, 44 and 27 percent of the time in those three languages, respectively.",
+        "zh": "包含 12504 条 Dafny、Verus/Rust 和 Lean 形式化规约的基准，用于评测生成形式化验证代码的能力。现成模型在三种语言上的成功率分别为 82%、44% 和 27%。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "vero",
+      "title": "Vero: Can AI Agents Build Formally Verified Software Repositories?",
+      "url": "https://arxiv.org/abs/2608.13522",
+      "org": "Zhe Ye et al.",
+      "year": 2026,
+      "type": "benchmark",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Repository-scale benchmark of 43 multi-module Lean 4 tasks, in which an agent must write both the implementation and its proof. Agents may also prove that a specification cannot be satisfied. The strongest agent fully solved 27 tasks.",
+        "zh": "包含 43 个多模块 Lean 4 任务的仓库级基准，要求智能体同时写出实现和证明。智能体也可以证明某条规约无法满足。最强的智能体完整解决了 27 个任务。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "aria-safeguarded-ai",
+      "title": "Safeguarded AI",
+      "url": "https://aria.org.uk/opportunity-spaces/trust-everything-everywhere/safeguarded-ai",
+      "org": "ARIA",
+      "type": "project",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Program of the UK's Advanced Research and Invention Agency (ARIA), backed by £59m. It is building an open-source toolkit with which AI agents produce formally verified artifacts, and is applying it mainly to cybersecurity.",
+        "zh": "英国高级研究与发明局（ARIA）的项目，投入 5900 万英镑。项目正在构建一套开源工具，供 AI 智能体生成经过形式化验证的成果，目前主要应用于网络安全领域。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "alphaproof",
+      "title": "Olympiad-level formal mathematical reasoning with reinforcement learning",
+      "url": "https://www.nature.com/articles/s41586-025-09833-y",
+      "org": "Thomas Hubert et al. (Google DeepMind)",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Describes AlphaProof, an AlphaZero-inspired agent that learns to find formal proofs in Lean through reinforcement learning. It trains on millions of problems that were automatically translated into Lean. At the 2024 International Mathematical Olympiad, it solved three of the five non-geometry problems. Together with AlphaGeometry 2, it reached a silver-medal-equivalent score.",
+        "zh": "介绍 AlphaProof：一个受 AlphaZero 启发的智能体，通过强化学习学会在 Lean 中寻找形式化证明。它在数百万道自动转写为 Lean 的题目上训练。在 2024 年国际数学奥林匹克竞赛中，它解出了 5 道非几何题中的 3 道。它与 AlphaGeometry 2 合计达到相当于银牌的分数。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "aristotle",
+      "title": "Aristotle: IMO-level Automated Theorem Proving",
+      "url": "https://arxiv.org/abs/2510.01346",
+      "org": "Tudor Achim et al. (Harmonic)",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Harmonic's theorem-proving system, which produced formal solutions to five of the six problems of the 2025 International Mathematical Olympiad. It searches over Lean tactics, the commands that build a proof, with Monte Carlo graph search. Its informal reasoning system drafts and formalizes lemmas, and a separate solver handles geometry.",
+        "zh": "Harmonic 的自动定理证明系统，为 2025 年国际数学奥林匹克竞赛 6 道题中的 5 道给出了形式化解答。它借助蒙特卡洛图搜索选择 Lean 策略（构造证明的命令）。其非形式推理系统负责起草并形式化引理，另有独立的求解器处理几何题。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "deepseek-prover-v2",
+      "title": "DeepSeek-Prover-V2: Advancing Formal Mathematical Reasoning via Reinforcement Learning for Subgoal Decomposition",
+      "url": "https://arxiv.org/abs/2504.21801",
+      "org": "Z. Z. Ren et al. (DeepSeek-AI)",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Open-source Lean 4 theorem-proving model. Its cold-start data, used in the first training stage, come from a pipeline in which DeepSeek-V3 decomposes problems into subgoals. Reinforcement learning follows. The 671B-parameter model reaches an 88.9% pass ratio on MiniF2F-test and solves 47 of 658 PutnamBench problems.",
+        "zh": "开源的 Lean 4 定理证明模型。第一阶段训练所用的冷启动数据来自一条流水线，由 DeepSeek-V3 把问题分解为子目标。随后进入强化学习阶段。6710 亿参数版本在 MiniF2F-test 上的通过率为 88.9%，并解出 PutnamBench 658 道题中的 47 道。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "seed-prover",
+      "title": "Seed-Prover: Deep and Broad Reasoning for Automated Theorem Proving",
+      "url": "https://arxiv.org/abs/2507.23726",
+      "org": "Luoxin Chen et al. (ByteDance Seed)",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Lean theorem-proving model that refines whole proofs using Lean feedback, proved lemmas and self-summarization. It works with the Seed-Geometry engine. The authors report fully proving five of the six 2025 International Mathematical Olympiad problems, one of them after the submission deadline. They also report proving 78.1% of formalized past IMO problems.",
+        "zh": "Lean 定理证明模型，利用 Lean 反馈、已证明的引理和自我总结迭代完善整个证明。它配合几何推理引擎 Seed-Geometry 使用。作者报告，它完整证明了 2025 年国际数学奥林匹克竞赛 6 道题中的 5 道，其中 1 道在提交截止后完成。作者还报告，它证明了 78.1% 的已形式化历届 IMO 题目。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "randomized-smoothing",
+      "title": "Certified Adversarial Robustness via Randomized Smoothing",
+      "url": "https://arxiv.org/abs/1902.02918",
+      "org": "Jeremy M. Cohen, Elan Rosenfeld, J. Zico Kolter",
+      "year": 2019,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Proves a tight ℓ2-norm robustness guarantee for classifiers smoothed with Gaussian noise, which predict by majority vote over noisy copies of an input. For example, it certifies 49% top-1 accuracy on ImageNet under perturbations of ℓ2 norm below 0.5. Because the guarantee is computed by Monte Carlo sampling, it holds only with high probability.",
+        "zh": "证明了经高斯噪声平滑的分类器在 ℓ2 范数下的紧致鲁棒性保证；这类分类器对输入加噪后的多份副本做多数投票来预测。例如，在 ImageNet 上，对 ℓ2 范数小于 0.5 的扰动，它认证了 49% 的 top-1 准确率。由于该保证通过蒙特卡洛采样计算，它只以高概率成立。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "marabou-2",
+      "title": "Marabou 2.0: A Versatile Formal Analyzer of Neural Networks",
+      "url": "https://arxiv.org/abs/2401.14461",
+      "org": "Haoze Wu et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "System description of version 2.0 of Marabou, an open-source verifier that checks properties of neural networks. It solves linear and non-linear constraints with an SMT-based procedure. The new version can produce proof certificates for queries that have no solution. It also handles more activation functions and accepts queries through a richer Python API.",
+        "zh": "Marabou 2.0 的系统描述论文。Marabou 是一款开源神经网络验证器，用于检验网络性质。它借助基于 SMT 的过程求解线性和非线性约束。新版本可为无解的查询生成证明证书。它还支持更多激活函数，并可通过更完善的 Python API 提交查询。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "bedrock-automated-reasoning-checks",
+      "title": "Automated Reasoning checks is now available in Amazon Bedrock Guardrails",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2025/08/automated-reasoning-checks-amazon-bedrock-guardrails/",
+      "org": "Amazon Web Services",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "AWS announcement that Automated Reasoning checks in Amazon Bedrock Guardrails are generally available. The safeguard uses formal verification techniques to check generative AI outputs against an Automated Reasoning policy. The policy's rules are extracted from a customer's own documents.",
+        "zh": "AWS 宣布 Amazon Bedrock Guardrails 中的自动推理检查（Automated Reasoning checks）正式可用。这项防护措施用形式化验证技术，对照自动推理策略检查生成式 AI 的输出。策略中的规则从客户自己的文档中提取。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "rocq",
+      "title": "The Rocq Prover",
+      "url": "https://rocq-prover.org/",
+      "org": "Inria",
+      "year": 1984,
+      "type": "tool",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Interactive theorem prover and dependently typed programming language, formerly the Coq Proof Assistant. It is used to write formal specifications and machine-checked proofs that programs meet them. It can also extract executable OCaml or Haskell code from specifications.",
+        "zh": "交互式定理证明器和依赖类型编程语言，前身为 Coq 证明助手。它用于编写形式化规约，以及程序符合规约的机器检查证明。它还能从规约中提取 OCaml 或 Haskell 可执行代码。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "isabelle",
+      "title": "Isabelle",
+      "url": "https://isabelle.in.tum.de/",
+      "org": "University of Cambridge and Technical University of Munich",
+      "year": 1986,
+      "type": "tool",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Generic proof assistant, used mainly as Isabelle/HOL for higher-order logic. It checks formal proofs about mathematics and about the correctness of hardware, software and protocols. Through Sledgehammer, it can call external automated provers. It comes with the Archive of Formal Proofs, a collection of proofs checked in Isabelle.",
+        "zh": "通用证明助手，主要以基于高阶逻辑的 Isabelle/HOL 形式使用。它可检查关于数学以及硬件、软件和协议正确性的形式化证明。借助 Sledgehammer，它能调用外部自动证明器。它还配有形式化证明档案库（Archive of Formal Proofs），收录经 Isabelle 检查的证明。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "theorem-proving-in-lean4",
+      "title": "Theorem Proving in Lean 4",
+      "url": "https://lean-lang.org/theorem_proving_in_lean4/",
+      "org": "Jeremy Avigad et al.",
+      "year": 2021,
+      "type": "course",
+      "topics": [
+        "formal-verification"
+      ],
+      "note": {
+        "en": "Book on writing definitions and machine-checked proofs in Lean 4, written with contributions from the Lean community. It covers dependent type theory, propositions and proofs, tactics, inductive types, structures and type classes.",
+        "zh": "一本教材，讲解如何在 Lean 4 中编写定义和机器检查的证明，Lean 社区也为本书作出了贡献。内容涵盖依赖类型论、命题与证明、策略（tactic）、归纳类型、结构体和类型类。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "black-box-access-insufficient",
+      "title": "Black-Box Access is Insufficient for Rigorous AI Audits",
+      "url": "https://arxiv.org/abs/2401.14446",
+      "org": "Stephen Casper et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Argues that white-box and outside-the-box access allow substantially more scrutiny than black-box queries. White-box access lets auditors examine a model's internals; outside-the-box access covers information such as training data and documentation. The paper also discusses technical, physical and legal safeguards for audits with deeper access.",
+        "zh": "论证白盒访问和“盒外”访问能支撑比黑盒查询多得多的审查。白盒访问可以查看模型内部；盒外访问涵盖训练数据、文档等信息。论文还讨论了在更深访问权限下开展审计所需的技术、物理和法律保障措施。"
+      },
+      "featured": true,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "structured-access",
+      "title": "Structured access: an emerging paradigm for safe AI deployment",
+      "url": "https://arxiv.org/abs/2201.05159",
+      "org": "Toby Shevlane",
+      "year": 2022,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Describes structured access, in which developers let others interact with an AI system in controlled ways, typically through cloud interfaces, instead of releasing it openly.",
+        "zh": "阐述结构化访问：开发者让他人以受控方式与 AI 系统交互（通常通过云端接口），而不是公开发布系统。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "frontier-ai-auditing",
+      "title": "Frontier AI Auditing: Toward Rigorous Third-Party Assessment of Safety and Security Practices at Leading AI Companies",
+      "url": "https://arxiv.org/abs/2601.11699",
+      "org": "Miles Brundage et al.",
+      "year": 2026,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Proposes rigorous third-party auditing of frontier AI developers' safety and security claims. It also proposes four AI Assurance Levels (AALs), where higher levels give more confidence in an audit's findings. It recommends AAL-1 as a baseline and AAL-2 as a near-term goal for the most advanced developers.",
+        "zh": "提出对前沿 AI 开发者的安全与安保声明开展严格的第三方审计。论文还提出四个 AI 保障等级（AAL），等级越高，审计结论越可信。它建议以 AAL-1 为基准，并把 AAL-2 作为最先进开发者的近期目标。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "attestable-audits",
+      "title": "Attestable Audits: Verifiable AI Safety Benchmarks Using Trusted Execution Environments",
+      "url": "https://arxiv.org/abs/2506.23706",
+      "org": "Christoph Schnabl et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits",
+        "confidential-computing"
+      ],
+      "tee_area": "uses",
+      "note": {
+        "en": "Runs audit benchmarks inside trusted execution environments (TEEs). Users can then verify that they interacted with a compliant model, while model weights and benchmark data stay confidential. The prototype was evaluated on Llama-3.1.",
+        "zh": "在可信执行环境（TEE）中运行审计基准。用户由此能够核实，自己交互的是合规模型，同时模型权重和基准数据保持机密。原型系统在 Llama-3.1 上完成了评估。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "zksnark-verifiable-evaluations",
+      "title": "Verifiable evaluations of machine learning models using zkSNARKs",
+      "url": "https://arxiv.org/abs/2402.02675",
+      "org": "Tobin South et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits",
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Packages zk-SNARK proofs of a model's outputs on datasets into evaluation attestations. Each attestation shows that a model with fixed, private weights achieves stated performance or fairness metrics.",
+        "zh": "把模型在数据集上输出结果的 zk-SNARK 证明打包成评测证明文件。每份文件表明，权重固定且保密的模型达到了所声明的性能或公平性指标。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "zkaudit",
+      "title": "Trustless Audits without Revealing Data or Models",
+      "url": "https://arxiv.org/abs/2404.04500",
+      "org": "Suppakit Waiwitlikhit et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "ZkAudit protocol, in which providers publish commitments, cryptographic values that bind them to specific datasets and model weights. They also publish a zero-knowledge proof of training. They then answer audit queries, such as copyright checks, with further proofs.",
+        "zh": "ZkAudit 协议：服务商公布承诺值，即把自己绑定到特定数据集和模型权重的密码学值。服务商还公布训练过程的零知识证明。之后，服务商以新的证明回答版权核查等审计查询。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "pysyft",
+      "title": "PySyft",
+      "url": "https://github.com/OpenMined/PySyft",
+      "org": "OpenMined",
+      "year": 2017,
+      "type": "tool",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "OpenMined's open-source library in which data scientists submit computations that data owners approve and run on private data, so that only approved results leave the owner's machine.",
+        "zh": "OpenMined 的开源库：数据科学家提交计算任务，由数据所有者批准后在私有数据上运行，只有获批的结果才会离开所有者的机器。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "pets-external-scrutiny",
+      "title": "Enabling External Scrutiny of AI Systems with Privacy-Enhancing Technologies",
+      "url": "https://arxiv.org/abs/2502.05219",
+      "org": "Kendrea Beers, Helen Toner",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Describes how OpenMined's infrastructure combines privacy-enhancing technologies (PETs) so that outsiders can scrutinize AI systems. PETs let parties compute on data while limiting what each side sees. Case studies involve the Christchurch Call and the UK AI Safety Institute.",
+        "zh": "介绍 OpenMined 的基础设施如何组合多种隐私增强技术（PETs），让外部人员审查 AI 系统。这类技术让各方能对数据做计算，同时限制每一方能看到的内容。论文给出了与“基督城呼吁”和英国 AI 安全研究所合作的案例。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "secure-enclaves-ai-evaluation",
+      "title": "Secure Enclaves for AI Evaluation",
+      "url": "https://openmined.org/blog/secure-enclaves-for-ai-evaluation/",
+      "org": "OpenMined",
+      "year": 2024,
+      "type": "report",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Pilot in which OpenMined, with staff from the UK AI Safety Institute and Anthropic, ran an AI evaluation inside an NVIDIA H100 secure enclave. GPT-2 and a five-row dataset sample stood in for confidential assets.",
+        "zh": "一次试点：OpenMined 与英国 AI 安全研究所和 Anthropic 的工作人员合作，在 NVIDIA H100 安全飞地中运行 AI 评测。GPT-2 和一份五行的数据样本代替了机密资产。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "averi-double-blind-evaluation",
+      "title": "AVERI Pilot Report: The World’s First Double-Blind Evaluation of a Proprietary Language Model",
+      "url": "https://www.averi.org/ourwork/averi-pilot-report-the-worlds-first-double-blind-eval",
+      "org": "AVERI, with Google DeepMind, OpenMined and MLCommons",
+      "year": 2026,
+      "type": "report",
+      "topics": [
+        "evaluation-audits",
+        "confidential-computing"
+      ],
+      "tee_area": "uses",
+      "note": {
+        "en": "Report on a pilot in which Gemini 2.5 Flash-Lite was evaluated on unpublished MLCommons AILuminate prompts inside a secure enclave. The enclave was designed so that neither side saw the other's assets. AVERI notes that the design did not close every avenue for tampering.",
+        "zh": "试点报告：在安全飞地中用未公开的 MLCommons AILuminate 提示词评测 Gemini 2.5 Flash-Lite。安全飞地的设计目的是让双方都看不到对方的资产。AVERI 指出，该设计并未堵住所有篡改途径。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "auditing-model-substitution",
+      "title": "Are You Getting What You Pay For? Auditing Model Substitution in LLM APIs",
+      "url": "https://arxiv.org/abs/2504.04715",
+      "org": "Will Cai et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits",
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Finds that software-only methods cannot reliably detect covert model substitution in LLM APIs. In model substitution, a provider secretly serves a different model from the one it advertises. The paper evaluates trusted execution environments (TEEs) as a way to guarantee model integrity.",
+        "zh": "研究发现，仅靠软件无法可靠地检测大模型 API 中的暗中模型替换。模型替换指服务商暗中使用与其宣传不同的模型。论文还评估了以可信执行环境（TEE）保证模型完整性的方案。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "proving-test-set-contamination",
+      "title": "Proving Test Set Contamination in Black Box Language Models",
+      "url": "https://arxiv.org/abs/2310.17623",
+      "org": "Yonatan Oren et al.",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Statistical test that can prove test-set contamination, meaning that a benchmark's test items were in a model's training data. It needs neither the training data nor the weights. It checks whether the model finds the benchmark's examples more likely in their original order than in shuffled orders.",
+        "zh": "一种统计检验，可以证明测试集污染，即基准的测试题目出现在模型的训练数据中。它既不需要训练数据，也不需要模型权重。它检查模型是否认为按原始顺序排列的基准题目比打乱顺序后更可能出现。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "leaderboard-illusion",
+      "title": "The Leaderboard Illusion",
+      "url": "https://arxiv.org/abs/2504.20879",
+      "org": "Shivalika Singh et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Documents undisclosed private testing and selective score disclosure on Chatbot Arena, including 27 private variants that Meta tested before the Llama 4 release.",
+        "zh": "记录 Chatbot Arena 上未公开的私下测试和选择性公布分数的做法，其中包括 Meta 在 Llama 4 发布前测试的 27 个私有变体。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "uk-aisi-inspect",
+      "title": "Inspect",
+      "url": "https://inspect.aisi.org.uk/",
+      "org": "UK AI Security Institute and Meridian Labs",
+      "year": 2024,
+      "type": "tool",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Open-source framework from the UK AI Security Institute and Meridian Labs for building and running LLM evaluations. An evaluation combines a dataset, a solver that gets the model's answers and a scorer that grades them. The framework supports agents, tool calling and sandboxed execution of model-written code, and offers more than 200 prebuilt evaluations.",
+        "zh": "英国 AI 安全研究所与 Meridian Labs 开发的开源框架，用于构建并运行大模型评测。一项评测由数据集、负责获取模型回答的求解器（solver）和负责给回答打分的评分器（scorer）组成。框架支持智能体、工具调用和在沙箱中执行模型生成的代码，并提供 200 多项预置评测。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "helm",
+      "title": "Holistic Evaluation of Language Models",
+      "url": "https://arxiv.org/abs/2211.09110",
+      "org": "Percy Liang et al. (Stanford CRFM)",
+      "year": 2022,
+      "type": "benchmark",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Stanford CRFM benchmark that evaluated 30 language models on 42 scenarios under standardized conditions. It measured seven metrics, including accuracy, calibration, robustness, fairness and efficiency. It also released all raw prompts and completions.",
+        "zh": "斯坦福大学基础模型研究中心（CRFM）的评测基准，在统一条件下用 42 个场景评测了 30 个语言模型。它衡量了准确性、校准、稳健性、公平性和效率等七项指标，还公开了全部原始提示词和模型输出。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "lm-evaluation-harness",
+      "title": "Language Model Evaluation Harness",
+      "url": "https://github.com/EleutherAI/lm-evaluation-harness",
+      "org": "EleutherAI",
+      "year": 2020,
+      "type": "tool",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "EleutherAI's open-source framework for testing generative language models on more than 60 standard academic benchmarks with publicly available prompts. It aims to make results reproducible and comparable across papers.",
+        "zh": "EleutherAI 的开源框架，使用公开的提示词在 60 多个标准学术基准上测试生成式语言模型。它旨在让不同论文的结果可以复现、可以相互比较。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "safe-harbor-ai-evaluation",
+      "title": "A Safe Harbor for AI Evaluation and Red Teaming",
+      "url": "https://arxiv.org/abs/2403.04893",
+      "org": "Shayne Longpre et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Argues that AI companies' terms of service and their enforcement deter good-faith safety research. It proposes that major developers commit to legal and technical safe harbors. These would protect public-interest evaluation and red teaming from account suspension and legal reprisal.",
+        "zh": "论证 AI 公司的服务条款及其执行方式会阻碍善意的安全研究。论文提议主要开发者承诺提供法律和技术上的安全港。安全港将保护出于公共利益的评测和红队测试，使其免受封号和法律追责。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "third-party-flaw-disclosure",
+      "title": "In-House Evaluation Is Not Enough: Towards Robust Third-Party Flaw Disclosure for General-Purpose AI",
+      "url": "https://arxiv.org/abs/2503.16861",
+      "org": "Shayne Longpre et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Proposes three measures. Researchers would use standardized AI flaw reports and rules of engagement. Providers of general-purpose AI systems would run flaw disclosure programs with legal safe harbors. Infrastructure would coordinate how flaw reports reach the many stakeholders who may be affected.",
+        "zh": "提出三项措施。研究者使用标准化的 AI 缺陷报告格式，并遵守参与规则。通用 AI 系统提供者设立缺陷披露计划，并提供法律安全港。另需建设基础设施，协调缺陷报告的分发，使其送达可能受影响的各方。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "iso-iec-42006",
+      "title": "ISO/IEC 42006:2025 Information technology - Artificial intelligence - Requirements for bodies providing audit and certification of artificial intelligence management systems",
+      "url": "https://webstore.iec.ch/en/publication/108460",
+      "org": "ISO/IEC",
+      "year": 2025,
+      "type": "standard",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "International Standard, published in July 2025, for bodies that audit and certify AI management systems against ISO/IEC 42001. It adds requirements to those of ISO/IEC 17021-1. It can serve as a criteria document for accrediting such bodies.",
+        "zh": "2025 年 7 月发布的国际标准，面向依据 ISO/IEC 42001 审核和认证 AI 管理体系的机构。它在 ISO/IEC 17021-1 的基础上提出补充要求。它可作为认可这些机构时的准则文件。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "ai-verify-foundation",
+      "title": "AI Verify Foundation",
+      "url": "https://aiverifyfoundation.sg/",
+      "org": "IMDA (Singapore)",
+      "year": 2023,
+      "type": "organization",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Not-for-profit subsidiary of Singapore's Infocomm Media Development Authority (IMDA), launched in June 2023. It develops open-source AI testing tools, such as the AI Verify toolkit and Project Moonshot. It also runs an accreditation program for third-party AI testing firms.",
+        "zh": "新加坡资讯通信媒体发展局（IMDA）旗下的非营利附属机构，2023 年 6 月成立。它开发 AI Verify 工具包和 Project Moonshot 等开源 AI 测试工具。它还为第三方 AI 测试机构提供认可计划。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "caisi-deepseek-evaluation",
+      "title": "CAISI Evaluation of DeepSeek AI Models Finds Shortcomings and Risks",
+      "url": "https://www.nist.gov/news-events/news/2025/09/caisi-evaluation-deepseek-ai-models-finds-shortcomings-and-risks",
+      "org": "NIST CAISI",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "NIST's Center for AI Standards and Innovation (CAISI) summarizes its evaluation of DeepSeek R1, R1-0528 and V3.1. It compared them with U.S. reference models on 19 public and private benchmarks. CAISI reports that the DeepSeek models performed worse, cost more and were more susceptible to agent hijacking and jailbreaking.",
+        "zh": "NIST 下属 AI 标准与创新中心（CAISI）介绍其对 DeepSeek R1、R1-0528 和 V3.1 的评测。CAISI 在 19 项公开和非公开基准上把这些模型与美国参照模型作了比较。报告称，这些模型性能较低、使用成本较高，且更容易受到智能体劫持和越狱攻击。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "slsa-spec",
+      "title": "SLSA Specification v1.2",
+      "url": "https://slsa.dev/spec/v1.2/",
+      "org": "SLSA project",
+      "year": 2025,
+      "type": "specification",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Framework of incremental supply-chain security levels, organized into Build and Source tracks. It recommends formats for signed statements about artifacts (attestations), including build provenance, which records how an artifact was built.",
+        "zh": "逐级提升的供应链安全等级框架，分为构建（Build）和源代码（Source）两条轨道。它推荐了签名声明（attestation）的格式，其中包括构建溯源，即记录制品如何构建的信息。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "sigstore",
+      "title": "Sigstore",
+      "url": "https://www.sigstore.dev/",
+      "org": "OpenSSF (Linux Foundation)",
+      "year": 2021,
+      "type": "project",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Open-source project for signing and verifying software artifacts with short-lived certificates tied to an identity. Signing events are recorded in the Rekor transparency log, a public append-only log that anyone can check.",
+        "zh": "开源项目，使用与身份绑定的短期证书对软件制品签名和验证。签名事件会记录在 Rekor 透明日志中，这是一种任何人都能核查的公开只追加日志。"
+      },
+      "featured": true,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "model-transparency",
+      "title": "Model Transparency",
+      "url": "https://github.com/sigstore/model-transparency",
+      "org": "Sigstore",
+      "year": 2023,
+      "type": "tool",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Reference library and command-line tool (model_signing) for signing ML models with Sigstore, public keys or certificates. It verifies a model against a signed manifest of its file hashes. Version 1.0 was released in April 2025.",
+        "zh": "参考实现库和命令行工具（model_signing），可用 Sigstore、公钥或证书对机器学习模型签名。它依据经签名的文件哈希清单验证模型。1.0 版于 2025 年 4 月发布。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "openssf-model-signing-spec",
+      "title": "OpenSSF Model Signing (OMS) Specification",
+      "url": "https://github.com/ossf/model-signing-spec",
+      "org": "OpenSSF AI/ML Working Group",
+      "year": 2025,
+      "type": "specification",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Format for a detached model signature, which is stored apart from the files it signs. The format does not depend on any one implementation. One signature covers the model's artifacts, such as weights, configuration files and tokenizers. It can use bare keys, certificate chains or Sigstore.",
+        "zh": "一种分离式模型签名格式，签名与被签名的文件分开存放。该格式不依赖任何特定实现。一份签名可覆盖模型的各类制品，例如权重、配置文件和分词器。它支持裸密钥、证书链或 Sigstore。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "in-toto-attestation",
+      "title": "in-toto Attestation Framework",
+      "url": "https://github.com/in-toto/attestation",
+      "org": "in-toto project",
+      "year": 2021,
+      "type": "specification",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Specification for verifiable claims about how software was produced. It defines a standard statement format and vetted predicate types, which name the kind of claim being made. Sigstore's model signatures carry in-toto statements.",
+        "zh": "一项规范，用于描述软件如何产生的可验证声明。它定义了标准的声明格式和经审核的谓词类型；谓词类型说明声明属于哪一类。Sigstore 的模型签名即采用 in-toto 声明。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "reproducible-builds",
+      "title": "Reproducible Builds",
+      "url": "https://reproducible-builds.org/",
+      "org": "Reproducible Builds project",
+      "type": "project",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Project that defines and promotes reproducible builds. In a reproducible build, any party can recreate bit-for-bit identical artifacts from the same source, environment and instructions. This lets anyone check a binary against its source code.",
+        "zh": "界定并推广可复现构建的项目。在可复现构建中，任何一方都能用相同的源代码、环境和指令，重建逐位相同的制品。因此，任何人都能核对二进制文件与源代码是否一致。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "rfc-9943-scitt",
+      "title": "RFC 9943: An Architecture for Trustworthy and Transparent Digital Supply Chains",
+      "url": "https://www.rfc-editor.org/info/rfc9943/",
+      "org": "IETF",
+      "year": 2026,
+      "type": "standard",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "IETF architecture for Supply Chain Integrity, Transparency and Trust (SCITT), published as a Proposed Standard. Issuers register signed statements about artifacts with a transparency service. The service records them in an append-only ledger and returns receipts showing that each statement was recorded.",
+        "zh": "IETF 的供应链完整性、透明与信任（SCITT）架构，以“建议标准”状态发布。发布方把关于制品的签名声明登记到透明服务。透明服务把声明记入只追加账本，并返回收据，表明声明已被记录。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "cyclonedx-ml-bom",
+      "title": "Machine Learning Bill of Materials (AI/ML-BOM)",
+      "url": "https://cyclonedx.org/capabilities/mlbom/",
+      "org": "OWASP CycloneDX",
+      "year": 2023,
+      "type": "specification",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "CycloneDX capability for describing models, datasets and their dependencies in a machine-readable bill of materials, including dataset provenance and training methods. AI support arrived in CycloneDX 1.5. CycloneDX 1.6 was published as Ecma standard ECMA-424.",
+        "zh": "CycloneDX 的一项功能，用机器可读的物料清单描述模型、数据集及其依赖关系，涵盖数据集溯源和训练方法。CycloneDX 自 1.5 版起支持 AI。1.6 版已作为 Ecma 标准 ECMA-424 发布。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "spdx-ai-profile",
+      "title": "SPDX Specification 3.0.1: AI Profile",
+      "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
+      "org": "SPDX (Linux Foundation)",
+      "year": 2024,
+      "type": "specification",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "SPDX profile for documenting AI software packages, with fields such as autonomy type, energy consumption, safety risk assessment, training information and limitations.",
+        "zh": "SPDX 规范中的 AI Profile，用于记录 AI 软件包，包含自主类型、能耗、安全风险评估、训练信息和局限性等字段。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "model-cards",
+      "title": "Model Cards for Model Reporting",
+      "url": "https://arxiv.org/abs/1810.03993",
+      "org": "Margaret Mitchell et al.",
+      "year": 2018,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Proposes model cards: short documents that accompany trained models and report their intended uses and evaluation results across relevant conditions and groups.",
+        "zh": "提出模型卡：随已训练模型一同发布的简短文档，说明模型的预期用途，以及在相关条件和人群上的评测结果。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "data-provenance-initiative",
+      "title": "The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI",
+      "url": "https://arxiv.org/abs/2310.16787",
+      "org": "Shayne Longpre et al.",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Audit that traces the sources, creators and licenses of more than 1,800 text datasets. On widely used hosting sites, it finds license information omitted in over 70 percent of cases.",
+        "zh": "一项审计，追溯了 1800 多个文本数据集的来源、创建者和许可。审计发现，在常用托管网站上，超过 70% 的情况缺失许可信息。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "croissant",
+      "title": "Croissant: A Metadata Format for ML-Ready Datasets",
+      "url": "https://arxiv.org/abs/2403.19546",
+      "org": "Mubashara Akhtar et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Metadata format that gives ML datasets a shared, machine-readable description across tools, frameworks and repositories. MLCommons hosts its specification and code.",
+        "zh": "一种元数据格式，为机器学习数据集提供在各类工具、框架和数据仓库之间通用的机器可读描述。MLCommons 托管其规范和代码。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "poisoning-web-scale-datasets",
+      "title": "Poisoning Web-Scale Training Datasets is Practical",
+      "url": "https://arxiv.org/abs/2302.10149",
+      "org": "Nicholas Carlini et al.",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Shows two practical poisoning attacks on web-scale datasets, in which attackers plant bad data in a training set. One of them could have poisoned 0.01 percent of LAION-400M for about 60 US dollars. The paper also recommends low-overhead defenses.",
+        "zh": "展示针对网络规模数据集的两种可行投毒攻击，即攻击者把恶意数据混入训练集。其中一种只需约 60 美元，本可污染 LAION-400M 中 0.01% 的数据。论文还提出了低开销的防御措施。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "atlas-ml-provenance",
+      "title": "Atlas: A Framework for ML Lifecycle Provenance & Transparency",
+      "url": "https://arxiv.org/abs/2502.19567",
+      "org": "Marcin Spoczynski, Marcela S. Melara, Sebastian Szyller",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Framework for attestable ML pipelines. It combines trusted hardware, transparency logs and open provenance specifications to record a model's lineage (the data and steps behind it) from training through deployment.",
+        "zh": "一个框架，面向支持远程证明的机器学习流水线。它结合可信硬件、透明日志和开放的溯源规范，记录模型从训练到部署的谱系，即模型背后的数据和步骤。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "cosai-signing-ml-artifacts",
+      "title": "Signing ML Artifacts: Building towards tamper-proof ML metadata records",
+      "url": "https://www.coalitionforsecureai.org/wp-content/uploads/2026/03/signing-ml-artifacts-1.pdf",
+      "org": "Coalition for Secure AI (OASIS)",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Coalition for Secure AI paper on model-signing roles, components and maturity levels. It includes NVIDIA's account of shipping an OpenSSF Model Signing (OMS) signature with every NVIDIA model published in its NGC catalog since March 2025.",
+        "zh": "安全 AI 联盟（CoSAI）关于模型签名的论文，讨论模型签名中的角色、基础组件和成熟度等级。文中包括 NVIDIA 的经验：自 2025 年 3 月起，NVIDIA 在 NGC 目录中发布的每个模型都附带 OpenSSF 模型签名（OMS）。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "independence-tests-language-models",
+      "title": "Independence Tests for Language Models",
+      "url": "https://arxiv.org/abs/2502.12292",
+      "org": "Sally Zhu et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "supply-chain",
+        "verifiable-inference"
+      ],
+      "note": {
+        "en": "Statistical tests of whether two language models, given their weights, were trained from independent random initializations (starting weights). One test, on matched hidden activations, resists adversarial changes and can locate components derived from another model. For example, it shows how Llama 3.1-8B was pruned to initialize Llama 3.2-3B.",
+        "zh": "一组统计检验：给定两个语言模型的权重，判断它们是否由相互独立的随机初始化（初始权重）训练而来。其中基于隐藏层激活匹配的检验能抵御对抗性修改，并能定位从其他模型派生出的组件。例如，它揭示了 Llama 3.2-3B 如何由 Llama 3.1-8B 剪枝初始化而来。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "model-provenance-testing",
+      "title": "Model Provenance Testing for Large Language Models",
+      "url": "https://arxiv.org/abs/2502.00706",
+      "org": "Ivica Nikolic, Teodora Baluta, Prateek Saxena",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Black-box framework that decides whether one LLM was derived from another by applying multiple hypothesis testing to their outputs. On benchmarks of more than 600 models, it reports 90–95% precision and 80–90% recall.",
+        "zh": "一种黑盒框架，对模型输出做多重假设检验，以判断某个大模型是否派生自另一个模型。在涵盖 600 多个模型的基准上，报告的精确率为 90% 至 95%，召回率为 80% 至 90%。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "rfc-6962-certificate-transparency",
+      "title": "RFC 6962: Certificate Transparency",
+      "url": "https://www.rfc-editor.org/info/rfc6962/",
+      "org": "IETF",
+      "year": 2013,
+      "type": "specification",
+      "topics": [
+        "supply-chain",
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Experimental IETF protocol, now obsoleted by RFC 9162 (version 2.0). Public append-only logs built on Merkle trees (hash trees) record TLS certificates, so anyone can audit certificate authorities. Anyone can also check the logs: Merkle audit paths show that a certificate is included, and consistency proofs show that a log has only been appended to.",
+        "zh": "IETF 的实验性协议，现已被定义 2.0 版的 RFC 9162 取代。以 Merkle 树（哈希树）构建的公开只追加日志记录 TLS 证书，任何人都可以借此审计证书颁发机构。任何人也可以检查日志本身：Merkle 审计路径表明某张证书已被收录，一致性证明表明日志只被追加过。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "datasheets-for-datasets",
+      "title": "Datasheets for Datasets",
+      "url": "https://arxiv.org/abs/1803.09010",
+      "org": "Timnit Gebru et al.",
+      "year": 2018,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Proposes that every dataset be accompanied by a datasheet documenting its motivation, composition, collection process and recommended uses, by analogy with datasheets for electronic components.",
+        "zh": "提出每个数据集都应附带一份数据表，仿照电子元器件的数据手册，记录数据集的创建动机、构成、收集过程和推荐用途。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "undetectable-backdoors",
+      "title": "Planting Undetectable Backdoors in Machine Learning Models",
+      "url": "https://arxiv.org/abs/2204.06974",
+      "org": "Shafi Goldwasser et al.",
+      "year": 2022,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Shows that a service provider entrusted with training can plant a backdoor that no observer with limited computing power can detect. In one construction, the backdoor stays undetectable even to someone given the full network and its training data.",
+        "zh": "论文表明，受托训练模型的服务方可以植入后门，任何计算能力有限的观察者都无法发现。在其中一种构造下，即使拿到完整的网络和训练数据，也无法检测出后门。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "sleeper-agents",
+      "title": "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training",
+      "url": "https://arxiv.org/abs/2401.05566",
+      "org": "Evan Hubinger et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Trains proof-of-concept LLMs with backdoors, such as writing exploitable code when the prompt states that the year is 2024. The paper finds that supervised fine-tuning, reinforcement learning and adversarial training can fail to remove them. Adversarial training sometimes teaches the models to hide the behavior.",
+        "zh": "训练带后门的概念验证大模型，例如在提示中称年份为 2024 年时编写含漏洞的代码。研究发现，监督微调、强化学习和对抗训练都可能无法消除这些后门。对抗训练有时反而让模型学会隐藏这种行为。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "near-constant-poisoning",
+      "title": "Poisoning Attacks on LLMs Require a Near-constant Number of Poison Samples",
+      "url": "https://arxiv.org/abs/2510.07192",
+      "org": "Alexandra Souly et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Pretraining experiments on models from 600M to 13B parameters, in which 250 poisoned documents implanted a backdoor at every scale. This indicates that the number of poison samples an attack needs stays near-constant as models and datasets grow.",
+        "zh": "在 6 亿至 130 亿参数的模型上开展的预训练实验：250 篇投毒文档在各种规模下都植入了后门。这说明，攻击所需的投毒样本数量几乎不随模型和数据集规模增长。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "eu-gpai-training-content-template",
+      "title": "Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models",
+      "url": "https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models",
+      "org": "European Commission",
+      "year": 2025,
+      "type": "standard",
+      "topics": [
+        "supply-chain",
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Mandatory template under Article 53(1)(d) of the EU AI Act for the public summary of training content. Providers of general-purpose AI models must publish this summary. It covers data sources such as large public datasets, the most-scraped web domains and user data.",
+        "zh": "依据欧盟《人工智能法》第 53 条第 1 款（d）项制定的强制性模板，用于训练内容的公开摘要。通用 AI 模型提供者必须公开这份摘要。摘要需列明数据来源，例如大型公开数据集、抓取量最大的网站域名和用户数据。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "uk-ai-cyber-security-code",
+      "title": "AI Cyber Security Code of Practice",
+      "url": "https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice",
+      "org": "UK Department for Science, Innovation and Technology",
+      "year": 2025,
+      "type": "standard",
+      "topics": [
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Voluntary UK code that sets 13 baseline security principles for AI systems across five lifecycle phases. The principles include securing the supply chain; documenting data, models and prompts; and re-running evaluations on released models before use.",
+        "zh": "英国的自愿性行为守则，按五个生命周期阶段为 AI 系统规定 13 项基线安全原则。这些原则包括保障供应链安全，记录数据、模型和提示词，以及在使用已发布模型前重新运行评测。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "c2pa-specification",
+      "title": "Content Credentials: C2PA Technical Specification (version 2.4)",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html",
+      "org": "C2PA",
+      "year": 2026,
+      "type": "specification",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Defines C2PA manifests: signed assertions about a media asset's origin and edits. Cryptographic hashes bind a manifest to the content, and fingerprints or invisible watermarks can optionally bind it too.",
+        "zh": "定义 C2PA 清单：关于媒体资产来源和编辑过程的签名断言。清单通过密码学哈希与内容绑定，也可选择借助指纹或不可见水印与内容关联。"
+      },
+      "featured": true,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "content-authenticity-initiative",
+      "title": "Content Authenticity Initiative",
+      "url": "https://contentauthenticity.org/",
+      "org": "Content Authenticity Initiative",
+      "year": 2019,
+      "type": "organization",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Community founded by Adobe in 2019 that promotes adoption of C2PA Content Credentials and develops open-source tools for them.",
+        "zh": "由 Adobe 于 2019 年发起的社区，推动 C2PA 内容凭证的采用，并为其开发开源工具。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "nist-ai-100-4",
+      "title": "Reducing Risks Posed by Synthetic Content: An Overview of Technical Approaches to Digital Content Transparency",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-4.pdf",
+      "org": "NIST",
+      "year": 2024,
+      "type": "report",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "NIST report (AI 100-4) that surveys technical approaches to digital content transparency and their limitations. The approaches include tracking provenance through watermarks and metadata, and detecting synthetic content.",
+        "zh": "NIST 报告（AI 100-4），梳理数字内容透明度的技术路径及其局限。这些路径包括借助水印和元数据追踪内容溯源，以及检测合成内容。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "llm-watermark",
+      "title": "A Watermark for Large Language Models",
+      "url": "https://arxiv.org/abs/2301.10226",
+      "org": "John Kirchenbauer et al.",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Text watermark that softly favors a pseudorandom set of 'green' tokens at each generation step. A statistical test can detect it without access to the model.",
+        "zh": "一种文本水印：在每一步生成时轻微偏向一组伪随机的“绿色”词元。无需访问模型，即可用统计检验检测出水印。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "synthid-text",
+      "title": "Scalable watermarking for identifying large language model outputs",
+      "url": "https://www.nature.com/articles/s41586-024-08025-4",
+      "org": "Sumanth Dathathri et al. (Google DeepMind)",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Describes SynthID-Text, a sampling-based text watermark that works with speculative sampling, a technique for faster generation. It also reports a live experiment that assessed nearly 20 million Gemini responses for quality.",
+        "zh": "介绍 SynthID-Text：一种基于采样的文本水印，可与推测采样（一种加快生成速度的技术）配合使用。论文还报告了一项线上实验，评估了近 2000 万条 Gemini 回复的质量。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "google-synthid",
+      "title": "Google SynthID",
+      "url": "https://deepmind.google/models/synthid/",
+      "org": "Google DeepMind",
+      "year": 2023,
+      "type": "tool",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Google DeepMind's watermarking for AI-generated images, audio, text and video. Its SynthID Detector portal checks content from Google and from partners including OpenAI, NVIDIA and Kakao.",
+        "zh": "Google DeepMind 为 AI 生成的图像、音频、文本和视频提供的水印技术。配套的 SynthID Detector 门户可检测 Google 及 OpenAI、NVIDIA、Kakao 等合作伙伴生成的内容。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "stable-signature",
+      "title": "The Stable Signature: Rooting Watermarks in Latent Diffusion Models",
+      "url": "https://arxiv.org/abs/2303.15435",
+      "org": "Pierre Fernandez et al.",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Fine-tunes a latent diffusion model's decoder so that every generated image carries an invisible watermark that remains detectable after edits such as cropping.",
+        "zh": "通过微调潜在扩散模型的解码器，使生成的每张图像都带有不可见水印，并在裁剪等编辑后仍可检测。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "undetectable-watermarks",
+      "title": "Undetectable Watermarks for Language Models",
+      "url": "https://arxiv.org/abs/2306.09194",
+      "org": "Miranda Christ, Sam Gunn, Or Zamir",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Cryptographic watermark for language models whose outputs cannot be distinguished from the original model's outputs without the secret key.",
+        "zh": "一种面向语言模型的密码学水印，没有密钥就无法把其输出与原模型的输出区分开来。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "watermarks-in-the-sand",
+      "title": "Watermarks in the Sand: Impossibility of Strong Watermarking for Generative Models",
+      "url": "https://arxiv.org/abs/2311.04378",
+      "org": "Hanlin Zhang et al.",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Proves that strong watermarking of generative model outputs is impossible under stated assumptions. A strong watermark is one that cannot be removed without noticeably degrading output quality. The paper also gives a generic removal attack that worked against three text watermarking schemes.",
+        "zh": "证明在所述假设下，无法给生成模型的输出加上强水印。强水印指不明显降低输出质量就无法去除的水印。论文还给出一种通用的去水印攻击，已成功用于三种文本水印方案。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "eu-code-of-practice-ai-content",
+      "title": "Code of Practice on Transparency of AI-generated Content",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content",
+      "org": "European Commission",
+      "year": 2026,
+      "type": "standard",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Voluntary code that helps providers and deployers of generative AI meet the marking and labeling obligations in Article 50 of the EU AI Act. These obligations apply from 2 August 2026. The final version of the code was published on 10 June 2026.",
+        "zh": "一项自愿性行为守则，帮助生成式 AI 的提供者和部署者履行欧盟《人工智能法》第 50 条规定的标记与标注义务。这些义务自 2026 年 8 月 2 日起适用。守则最终版本于 2026 年 6 月 10 日发布。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "apple-reference-image",
+      "title": "Apple Reference Image: A New Approach for Verified Photography",
+      "url": "https://security.apple.com/blog/apple-reference-image/",
+      "org": "Apple",
+      "year": 2026,
+      "type": "project",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Opt-in iPhone camera mode in which the image sensor signs pixel data at capture. The Secure Enclave, the iPhone's security processor, signs other metadata. Private Cloud Compute then develops the images. Apple contrasts the mode with C2PA-based approaches.",
+        "zh": "iPhone 的一种可选拍摄模式：图像传感器在拍摄时对像素数据签名。安全隔区（Secure Enclave，iPhone 的安全处理器）对其他元数据签名。随后由 Private Cloud Compute 完成图像显影。Apple 将这一模式与基于 C2PA 的方案作了对比。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "hacking-time-c2pa",
+      "title": "How to Hack Time, With C2PA",
+      "url": "https://www.da.vidbuchanan.co.uk/blog/hacking-time.html",
+      "org": "David Buchanan",
+      "year": 2026,
+      "type": "report",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Security write-up on C2PA's exclusion ranges, the parts of a file that a signer may leave out of the signed hash. The author shows that a signer can exclude the whole file. The claim signature and trusted timestamp then cover none of its content, so later edits do not invalidate them.",
+        "zh": "一篇安全分析文章，讨论 C2PA 的排除范围，即签名者可以不纳入签名哈希的文件部分。作者指出，签名者可以把整个文件排除在外。这样一来，声明签名和可信时间戳不覆盖任何内容，事后的修改也不会使其失效。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "china-ai-content-labeling-measures",
+      "title": "人工智能生成合成内容标识办法 (Measures for Labeling AI-Generated Synthetic Content)",
+      "url": "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm",
+      "org": "Cyberspace Administration of China et al.",
+      "year": 2025,
+      "type": "standard",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Chinese rules issued by the Cyberspace Administration of China and three other agencies, in force since 1 September 2025. Providers must add explicit labels, which users can see or hear, to AI-generated content. They must also write implicit labels into its metadata. Distribution platforms must check the metadata and label the content accordingly.",
+        "zh": "国家互联网信息办公室等四部门制定的办法，自 2025 年 9 月 1 日起施行。服务提供者必须为 AI 生成合成内容添加用户能看到或听到的显式标识，并在文件元数据中写入隐式标识。内容传播平台必须核验元数据，并据此添加提示标识。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "korea-ai-framework-act",
+      "title": "Framework Act on the Development of Artificial Intelligence and the Creation of a Foundation for Trust",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=268543&viewCls=engLsInfoR&urlMode=engLsInfoR",
+      "org": "Republic of Korea",
+      "year": 2025,
+      "type": "standard",
+      "topics": [
+        "content-provenance",
+        "governance-compute"
+      ],
+      "note": {
+        "en": "South Korean law in force since 22 January 2026. The link is to the Korea Legislation Research Institute's unofficial English translation. The law requires generative AI outputs to be labeled. AI-generated sounds, images or videos that are hard to tell apart from real ones must be clearly disclosed. The law also sets risk-management duties for AI systems trained above a compute threshold.",
+        "zh": "韩国法律，2026 年 1 月 22 日起施行。此处链接为韩国法制研究院提供的非官方英译本。该法要求标注生成式 AI 的输出，并明确告知难以与真实内容区分的 AI 生成声音、图像或视频。它还对训练算力达到阈值的 AI 系统规定了风险管理义务。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "jpeg-trust",
+      "title": "JPEG Trust (ISO/IEC 21617)",
+      "url": "https://jpeg.org/jpegtrust/",
+      "org": "ISO/IEC JPEG Committee",
+      "year": 2025,
+      "type": "standard",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Multi-part ISO/IEC standard from the JPEG committee for annotating media assets with information on provenance, authenticity, attribution, rights and integrity. Part 1, Core foundation, was published as ISO/IEC 21617-1:2025 in January 2025. Parts on trust profiles, watermarking and reference software are in development.",
+        "zh": "JPEG 委员会制定的多部分 ISO/IEC 标准，用于为媒体资产附加溯源、真实性、归属、权利和完整性信息。第 1 部分“核心基础”已于 2025 年 1 月以 ISO/IEC 21617-1:2025 发布。信任配置、水印和参考软件等部分仍在制定中。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "c2pa-conformance-program",
+      "title": "C2PA Conformance Program",
+      "url": "https://c2pa.org/conformance/",
+      "org": "C2PA",
+      "year": 2025,
+      "type": "project",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "C2PA program, launched in mid-2025, that covers generator products, validator products and certification authorities. It holds them to the Content Credentials specification, certificate policy and security requirements. It publishes the Conforming Products List, the C2PA Trust List and a TSA Trust List for time-stamping authorities.",
+        "zh": "C2PA 于 2025 年年中启动的符合性计划，覆盖生成类产品、验证类产品和证书颁发机构。它依据内容凭证规范、证书策略和安全要求约束这些对象。它公布合规产品列表、C2PA 信任列表和时间戳机构（TSA）信任列表。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "pixel-10-content-credentials",
+      "title": "How Pixel and Android are bringing a new level of trust to your images with C2PA Content Credentials",
+      "url": "https://security.googleblog.com/2025/09/pixel-android-trusted-images-c2pa-content-credentials.html",
+      "org": "Google",
+      "year": 2025,
+      "type": "project",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Google's account of Content Credentials in the Pixel 10 camera and Google Photos. Google says the camera app reached Assurance Level 2 of the C2PA Conformance Program through hardware-backed key attestation. It also says the app signs each image with a single-use certificate and timestamps offline captures with an on-device time-stamping authority.",
+        "zh": "Google 介绍 Pixel 10 相机和 Google Photos 如何添加内容凭证。Google 称，相机应用借助硬件支持的密钥远程证明（key attestation），达到了 C2PA 符合性计划的 2 级保障。Google 还称，应用用一次性证书为每张图像签名，并通过设备端时间戳服务为离线拍摄的照片提供可信时间戳。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "sok-watermarking-ai-content",
+      "title": "SoK: Watermarking for AI-Generated Content",
+      "url": "https://arxiv.org/abs/2411.18479",
+      "org": "Xuandong Zhao et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Structured survey, or systematization of knowledge (SoK), on watermarking for AI-generated content. It formalizes the definitions and desired properties of watermarking schemes and examines their objectives and threat models. It also reviews evaluation strategies and representative schemes, and discusses regulatory context and open challenges.",
+        "zh": "关于 AI 生成内容水印的知识系统化综述（SoK）。它形式化地给出水印方案的定义和期望性质，并分析其目标和威胁模型。它还梳理评估策略和代表性方案，并讨论监管背景和待解决的问题。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "waves-benchmark",
+      "title": "WAVES: Benchmarking the Robustness of Image Watermarks",
+      "url": "https://arxiv.org/abs/2401.08573",
+      "org": "Bang An et al.",
+      "year": 2024,
+      "type": "benchmark",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Benchmark for image watermark robustness that combines detection and identification tasks with a standardized set of stress tests. The tests range from common image distortions to diffusion-based and adversarial attacks. After each attack, it measures both the loss of image quality and how well the watermark is still detected.",
+        "zh": "图像水印稳健性基准，把检测和识别两类任务与一套标准化压力测试结合起来。测试范围从常见的图像失真，到基于扩散模型的攻击和对抗攻击。每次攻击后，它同时衡量图像质量的下降和水印的检测效果。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "markllm",
+      "title": "MarkLLM: An Open-Source Toolkit for LLM Watermarking",
+      "url": "https://github.com/THU-BPM/MarkLLM",
+      "org": "Tsinghua University (THU-BPM)",
+      "year": 2024,
+      "type": "tool",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Open-source toolkit that implements many LLM text watermarking algorithms, including KGW, Unigram and SynthID-Text, behind one interface. It visualizes how they work and provides tools to evaluate detectability, robustness and text quality.",
+        "zh": "开源工具包，以统一接口实现 KGW、Unigram、SynthID-Text 等多种大模型文本水印算法。它能可视化展示算法如何工作，并提供评估可检测性、稳健性和文本质量的工具。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "video-seal",
+      "title": "Video Seal: Open and Efficient Video Watermarking",
+      "url": "https://arxiv.org/abs/2412.09492",
+      "org": "Pierre Fernandez et al. (Meta)",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Open-source neural video watermarking method from Meta. It jointly trains an embedder and an extractor, applying transformations such as video compression between them. It propagates watermarks across frames, so not every high-resolution frame has to be watermarked.",
+        "zh": "Meta 的开源神经网络视频水印方法。它联合训练嵌入器和提取器，并在两者之间施加视频压缩编码等变换。它在帧间传播水印，因此不必为每一帧高分辨率画面都嵌入水印。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "pai-synthetic-media-framework",
+      "title": "PAI’s Responsible Practices for Synthetic Media",
+      "url": "https://syntheticmedia.partnershiponai.org/",
+      "org": "Partnership on AI",
+      "year": 2023,
+      "type": "report",
+      "topics": [
+        "content-provenance"
+      ],
+      "note": {
+        "en": "Partnership on AI framework, launched in February 2023, that recommends consent, disclosure and transparency practices for builders, creators and distributors of synthetic media. PAI collects case studies from supporters but does not audit or certify them.",
+        "zh": "Partnership on AI 于 2023 年 2 月发布的框架，围绕同意、披露和透明，为合成媒体的技术构建者、创作者以及分发和发布者提出实践建议。PAI 收集支持机构的案例研究，但不对其审计或认证。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "infrastructure-for-ai-agents",
+      "title": "Infrastructure for AI Agents",
+      "url": "https://arxiv.org/abs/2501.10114",
+      "org": "Alan Chan et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Defines agent infrastructure as systems and protocols outside agents. It has three functions: attributing actions to agents and their users, shaping agents' interactions, and detecting and remedying harmful actions.",
+        "zh": "将智能体基础设施定义为智能体之外的系统和协议。它承担三项功能：把行动归因于智能体及其用户、塑造智能体的交互、发现并补救有害行动。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "visibility-into-ai-agents",
+      "title": "Visibility into AI Agents",
+      "url": "https://arxiv.org/abs/2401.13138",
+      "org": "Alan Chan et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Assesses agent identifiers, real-time monitoring and activity logging as ways to learn where, why, how and by whom AI agents are used.",
+        "zh": "评估智能体标识、实时监控和活动日志三类措施，用于了解 AI 智能体在何处、为何、如何以及被谁使用。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "ids-for-ai-systems",
+      "title": "IDs for AI Systems",
+      "url": "https://arxiv.org/abs/2406.12137",
+      "org": "Alan Chan et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Proposes IDs attached to instances of AI systems so that users and investigators can find associated information such as certifications and responsible parties.",
+        "zh": "提出为 AI 系统的实例分配标识，使用户和调查者能够查到认证情况、责任方等相关信息。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "authenticated-delegation",
+      "title": "Authenticated Delegation and Authorized AI Agents",
+      "url": "https://arxiv.org/abs/2501.09674",
+      "org": "Tobin South et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Extends OAuth 2.0 and OpenID Connect, standards for authorization and sign-in, with agent-specific credentials and metadata. Users can then give AI agents authority that is limited in scope and can be audited.",
+        "zh": "在 OAuth 2.0 和 OpenID Connect（授权与登录标准）的基础上，加入智能体专用的凭证和元数据。用户由此能够向 AI 智能体委托限定范围且可审计的权限。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "openid-identity-agentic-ai",
+      "title": "Identity Management for Agentic AI",
+      "url": "https://openid.net/wp-content/uploads/2025/10/Identity-Management-for-Agentic-AI.pdf",
+      "org": "OpenID Foundation",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "OpenID Foundation whitepaper on applying OAuth 2.1, enterprise single sign-on and SCIM (a standard for managing user accounts) to AI agents. It also covers open problems such as delegated authority, recursive delegation (agents delegating to other agents) and the number of consent requests users face.",
+        "zh": "OpenID 基金会白皮书，讨论如何把 OAuth 2.1、企业单点登录和 SCIM（一种管理用户账户的标准）应用于 AI 智能体。它还讨论了待解问题，例如委托权限、递归委托（智能体再委托给其他智能体）以及用户面对过多授权请求。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "nccoe-agent-identity",
+      "title": "Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "url": "https://csrc.nist.gov/pubs/other/2026/02/05/accelerating-the-adoption-of-software-and-ai-agent/ipd",
+      "org": "NIST NCCoE",
+      "year": 2026,
+      "type": "report",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Concept paper from NIST's National Cybersecurity Center of Excellence (NCCoE) on applying identity and authorization standards to AI agents. It sought input on identification, authorization, auditing, non-repudiation and prompt-injection controls.",
+        "zh": "NIST 国家网络安全卓越中心（NCCoE）的概念文件，探讨如何把身份与授权标准应用于 AI 智能体。它就标识、授权、审计、不可否认性和提示注入防控征求意见。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "w3c-verifiable-credentials-2",
+      "title": "Verifiable Credentials Data Model v2.0",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+      "org": "W3C",
+      "year": 2025,
+      "type": "standard",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "W3C Recommendation that defines a data model for tamper-evident credentials whose authorship can be verified cryptographically. Issuers, holders and verifiers exchange these credentials.",
+        "zh": "W3C 推荐标准，定义了一种凭证数据模型：凭证可检测篡改，作者身份可通过密码学方法验证。签发方、持有方和验证方之间交换这些凭证。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "a2a-protocol",
+      "title": "Agent2Agent (A2A) Protocol Specification",
+      "url": "https://a2a-protocol.org/latest/specification/",
+      "org": "A2A Project (Linux Foundation)",
+      "year": 2026,
+      "type": "specification",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Specification for communication between AI agents. Version 1.0, released in March 2026, defines how providers can sign the Agent Cards that describe their agents. They sign with JSON Web Signatures, so clients can check a card's origin and integrity.",
+        "zh": "AI 智能体之间的通信规范。2026 年 3 月发布的 1.0 版规定了服务商如何为描述其智能体的 Agent Card 签名。签名采用 JSON Web Signature，客户端因此能够核查 Agent Card 的来源和完整性。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "agent-payments-protocol",
+      "title": "Agent Payments Protocol (AP2)",
+      "url": "https://ap2-protocol.org/",
+      "org": "Google; FIDO Alliance",
+      "year": 2025,
+      "type": "specification",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Open protocol for payments initiated by AI agents. Signed mandates record what the user authorized and form an audit trail. Google donated it to the FIDO Alliance in April 2026.",
+        "zh": "面向 AI 智能体发起支付的开放协议。签名授权书记录用户授权的内容，并构成审计轨迹。Google 已于 2026 年 4 月将其捐赠给 FIDO 联盟。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "web-bot-auth-draft",
+      "title": "HTTP Message Signatures for automated traffic",
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-webbotauth-httpsig-protocol/",
+      "org": "IETF Web Bot Auth Working Group",
+      "year": 2026,
+      "type": "specification",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "IETF working-group Internet-Draft, not yet an RFC, that lets bots and agents sign HTTP requests so servers can verify their identity. A Signature-Agent header tells servers where to find the signing keys.",
+        "zh": "IETF 工作组互联网草案（尚未成为 RFC），允许机器人和智能体对 HTTP 请求签名，以便服务器核实其身份。Signature-Agent 头字段告诉服务器到哪里查找签名密钥。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "tamper-evident-logging",
+      "title": "Efficient Data Structures for Tamper-Evident Logging",
+      "url": "https://www.usenix.org/legacy/event/sec09/tech/full_papers/crosby.pdf",
+      "org": "Scott A. Crosby, Dan S. Wallach",
+      "year": 2009,
+      "type": "paper",
+      "topics": [
+        "agents-accountability",
+        "supply-chain"
+      ],
+      "note": {
+        "en": "Tree-based tamper-evident log, which makes any later deletion or change detectable. An untrusted logger can prove that events are still present and that the log is consistent with earlier versions. The proofs stay small, growing only logarithmically with the log's size.",
+        "zh": "一种基于树结构的篡改可检测日志，事后对条目的任何删除或修改都能被发现。不可信的日志方可以证明事件仍在日志中，且日志与早先版本保持一致。这些证明规模很小，只随日志大小呈对数增长。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "trusted-ai-agents-cloud",
+      "title": "Trusted AI Agents in the Cloud",
+      "url": "https://arxiv.org/abs/2512.05951",
+      "org": "Teofil Bodea et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "agents-accountability",
+        "confidential-computing"
+      ],
+      "tee_area": "uses",
+      "note": {
+        "en": "Presents Omega, which hosts many agents in one confidential VM with confidential GPUs. It uses differential attestation and a policy framework to govern data access, tool use and communication between agents.",
+        "zh": "介绍 Omega 系统：在一台机密虚拟机中借助机密 GPU 托管多个智能体。它通过差分远程证明和策略框架，管理数据访问、工具调用和智能体之间的通信。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "proof-of-guardrail",
+      "title": "Proof-of-Guardrail in AI Agents and What (Not) to Trust from It",
+      "url": "https://arxiv.org/abs/2603.05786",
+      "org": "Xisen Jin et al.",
+      "year": 2026,
+      "type": "paper",
+      "topics": [
+        "agents-accountability",
+        "confidential-computing"
+      ],
+      "tee_area": "uses",
+      "note": {
+        "en": "Runs an agent and an open-source guardrail inside a TEE. A guardrail is software that screens an AI system's inputs or outputs. The TEE signs attestations of the guardrail's execution. The authors warn that developers can still mislead users, for example by jailbreaking the guardrail with inputs that slip past it.",
+        "zh": "在 TEE 中运行智能体和开源护栏；护栏是筛查 AI 系统输入或输出的软件。TEE 为护栏的执行签署远程证明。作者同时提醒，开发者仍可能误导用户，例如用能绕过护栏的输入对其越狱。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "ietf-wimse",
+      "title": "Workload Identity in Multi System Environments (WIMSE)",
+      "url": "https://datatracker.ietf.org/wg/wimse/about/",
+      "org": "IETF",
+      "year": 2024,
+      "type": "project",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "IETF working group, chartered in March 2024, that standardizes identity and authentication for software workloads across trust domains. It builds on OAuth, JWT and SPIFFE. Its drafts cover workload tokens, workload-to-workload authentication and an AI identity management system.",
+        "zh": "IETF 工作组，2024 年 3 月获批成立，为跨信任域运行的软件工作负载制定身份与认证标准。它以 OAuth、JWT 和 SPIFFE 为基础。其草案涵盖工作负载令牌、工作负载之间的认证以及 AI 身份管理系统。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "otel-genai-semconv",
+      "title": "OpenTelemetry GenAI Semantic Conventions",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai",
+      "org": "OpenTelemetry",
+      "year": 2024,
+      "type": "specification",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "OpenTelemetry conventions for recording generative AI model calls, agent operations and Model Context Protocol activity as spans (timed operations), metrics and events. They are still at Development status. Introduced in 2024, they moved to a dedicated repository in 2026.",
+        "zh": "OpenTelemetry 的语义约定，规定如何以 span（计时的操作记录）、指标和事件记录生成式 AI 模型调用、智能体操作和 Model Context Protocol 活动。该约定目前仍处于 Development 状态。它于 2024 年推出，2026 年迁入独立仓库。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "agentic-ai-foundation",
+      "title": "Agentic AI Foundation (AAIF)",
+      "url": "https://aaif.io/",
+      "org": "Linux Foundation",
+      "year": 2025,
+      "type": "organization",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Linux Foundation body formed in December 2025 to host open agentic AI projects. Its first projects were Anthropic's Model Context Protocol, Block's goose and OpenAI's AGENTS.md. Its working groups include Identity & Trust and Observability & Traceability.",
+        "zh": "Linux 基金会于 2025 年 12 月成立的机构，承载开放的智能体 AI 项目。首批项目为 Anthropic 的 Model Context Protocol、Block 的 goose 和 OpenAI 的 AGENTS.md。其工作组包括身份与信任、可观测性与可追溯性等。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "entra-agent-id",
+      "title": "Announcing Microsoft Entra Agent ID: Secure and manage your AI agents",
+      "url": "https://techcommunity.microsoft.com/blog/microsoft-entra-blog/announcing-microsoft-entra-agent-id-secure-and-manage-your-ai-agents/3827392",
+      "org": "Microsoft",
+      "year": 2025,
+      "type": "project",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "Microsoft's announcement of the Entra Agent ID public preview. The preview lists agent identities created in Copilot Studio and Azure AI Foundry in one directory in the Entra admin center. Microsoft said it planned to add authentication, authorization and access governance for agents.",
+        "zh": "Microsoft 宣布推出 Entra Agent ID 公开预览版。预览版在 Entra 管理中心以统一目录列出在 Copilot Studio 和 Azure AI Foundry 中创建的智能体身份。Microsoft 表示，计划为智能体提供认证、授权和访问治理功能。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "imda-agentic-ai-framework",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "url": "https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf",
+      "org": "IMDA (Singapore)",
+      "year": 2026,
+      "type": "report",
+      "topics": [
+        "agents-accountability"
+      ],
+      "note": {
+        "en": "IMDA framework for organizations deploying AI agents, first released in January 2026 and updated to version 1.5 in May 2026. It recommends giving each agent a unique, cryptographically verifiable identity tied to a supervising agent, human user or department. It also recommends human approval at significant checkpoints, and continuous monitoring and logging of agent behavior after deployment.",
+        "zh": "IMDA 面向部署 AI 智能体的机构制定的治理框架，2026 年 1 月首次发布，同年 5 月更新至 1.5 版。框架建议为每个智能体分配唯一且可用密码学方法验证的身份，并关联到负责监督的智能体、人类用户或部门。框架还建议在重要节点设置人工审批，并在部署后持续监测和记录智能体的行为。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "computing-power-governance",
+      "title": "Computing Power and the Governance of Artificial Intelligence",
+      "url": "https://arxiv.org/abs/2402.08797",
+      "org": "Girish Sastry et al.",
+      "year": 2024,
+      "type": "paper",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Argues that AI compute is detectable, excludable (access to it can be withheld) and quantifiable, which makes it a lever for regulatory visibility, resource allocation and enforcement. It also warns of privacy, economic and centralization risks.",
+        "zh": "论证 AI 算力具有可检测、可排他（可以拒绝他人使用）、可量化的特点，因而可以作为监管可见性、资源配置和执法的抓手。论文同时警示隐私、经济和权力集中方面的风险。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "catch-a-chinchilla",
+      "title": "What does it take to catch a Chinchilla? Verifying Rules on Large-Scale Neural Network Training via Compute Monitoring",
+      "url": "https://arxiv.org/abs/2303.11341",
+      "org": "Yonadav Shavit",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Proposes on-chip weight snapshots, training-run records and chip supply-chain monitoring so that governments can verify that no actor ran a prohibited large training run.",
+        "zh": "提出芯片上的权重快照、训练过程记录和芯片供应链监测，使政府能够核实没有任何一方开展被禁止的大规模训练。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "verifying-international-agreements-six-layers",
+      "title": "Verifying International Agreements on AI: Six Layers of Verification for Rules on Large-Scale AI Development and Deployment",
+      "url": "https://arxiv.org/abs/2507.15916",
+      "org": "Mauricio Baker et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Report finding that states could eventually verify compliance with rules on large-scale AI development through six largely independent approaches, from chip security features to whistleblower programs.",
+        "zh": "报告认为，各国最终可以通过六种基本相互独立的途径核实大规模 AI 开发是否合规，范围从芯片安全功能到举报人计划。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "mechanisms-verify-international-agreements",
+      "title": "Mechanisms to Verify International Agreements About AI Development",
+      "url": "https://arxiv.org/abs/2506.15867",
+      "org": "Aaron Scher, Lisa Thiergart",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Overview of verification approaches for three example policy goals. It argues that more access, such as physical inspections of data centers, can often substitute for technical mechanisms that are still immature.",
+        "zh": "针对三个示例政策目标，概述可用的核查方法。论文认为，在技术手段尚不成熟时，扩大访问（例如实地检查数据中心）往往可以替代这些手段。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "nuclear-arms-control-lessons",
+      "title": "Nuclear Arms Control Verification and Lessons for AI Treaties",
+      "url": "https://arxiv.org/abs/2304.04123",
+      "org": "Mauricio Baker",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Case study of verification in three types of nuclear arms control agreements. It draws lessons for agreements on AI development that relies on thousands of specialized chips.",
+        "zh": "一项案例研究，考察三类核军控协议中的核查实践。论文据此总结对 AI 开发协议的启示，这类 AI 开发依赖数千块专用芯片。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "hems-verifying-responsible-ai",
+      "title": "Hardware-Enabled Mechanisms for Verifying Responsible AI Development",
+      "url": "https://arxiv.org/abs/2505.03742",
+      "org": "Aidan O'Gara et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Workshop-based overview of hardware-enabled mechanisms (HEMs) for reporting training compute, cluster configuration or location in a verifiable way. HEMs are features built into AI chips or servers. The overview also covers open questions about implementing them.",
+        "zh": "基于研讨会成果的综述，介绍硬件赋能机制（HEM），即内置于 AI 芯片或服务器中的功能。这些机制用于以可验证的方式报告训练算力、集群配置或位置。综述还讨论了尚待解决的实现问题。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "rand-hardware-enabled-governance",
+      "title": "Hardware-Enabled Governance Mechanisms: Developing Technical Solutions to Exempt Items Otherwise Classified Under Export Control Classification Numbers 3A090 and 4A090",
+      "url": "https://www.rand.org/pubs/working_papers/WRA3056-1.html",
+      "org": "Gabriel Kulp et al. (RAND)",
+      "year": 2024,
+      "type": "report",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "RAND working paper introducing hardware-enabled governance mechanisms for AI chips, the export-control objectives they could support, and the attacks they would need to withstand.",
+        "zh": "RAND 工作论文，介绍面向 AI 芯片的硬件赋能治理机制、它们可支持的出口管制目标，以及需要抵御的攻击。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "secure-governable-chips",
+      "title": "Secure, Governable Chips: Using On-Chip Mechanisms to Manage National Security Risks from AI & Advanced Computing",
+      "url": "https://www.cnas.org/publications/reports/secure-governable-chips",
+      "org": "Onni Aarne, Tim Fist, Caleb Withers (CNAS)",
+      "year": 2024,
+      "type": "report",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "CNAS report proposing on-chip governance mechanisms for data-center AI chips, such as privacy-preserving verification and operating licenses that a chip needs to keep running. It names export control enforcement as a near-term application.",
+        "zh": "CNAS 报告，提出面向数据中心 AI 芯片的片上治理机制，例如保护隐私的核查，以及芯片持续运行所需的运行许可。报告把出口管制执法列为近期应用。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "location-verification-ai-chips",
+      "title": "Location Verification for AI Chips",
+      "url": "https://www.iaps.ai/research/location-verification-for-ai-chips",
+      "org": "Asher Brass (IAPS)",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Issue brief proposing delay-based location verification for AI chips. A chip's response times to trusted landmark servers set an upper limit on its distance from them. The brief estimates the cost of a firmware update and a landmark network.",
+        "zh": "政策简报，提出基于时延的 AI 芯片位置验证。芯片对可信地标服务器的响应时间，决定了它与这些服务器之间距离的上限。简报还估算了固件更新和地标网络的成本。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "flexheg",
+      "title": "Flexible Hardware-Enabled Guarantees for AI Compute",
+      "url": "https://arxiv.org/abs/2506.15093",
+      "org": "James Petrie et al.",
+      "year": 2025,
+      "type": "paper",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "First paper in a three-part series proposing flexible hardware-enabled guarantees (flexHEG). The proposal places an auditable guarantee processor in a tamper-protective enclosure to monitor the use of AI accelerators.",
+        "zh": "三篇系列论文中的第一篇，提出灵活的硬件赋能保障（flexHEG）。方案把可审计的保障处理器放在防篡改外壳中，用来监测 AI 加速器的使用情况。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "proof-of-training-data",
+      "title": "Tools for Verifying Neural Models' Training Data",
+      "url": "https://arxiv.org/abs/2307.00682",
+      "org": "Dami Choi, Yonadav Shavit, David Duvenaud",
+      "year": 2023,
+      "type": "paper",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Introduces proof-of-training-data protocols, which let a model trainer show which data produced a set of weights. Examples include pre-committed random seeds and checks based on models' tendency to temporarily overfit their training data. In the authors' experiments, these protocols caught all known proof-of-learning attacks.",
+        "zh": "提出训练数据证明协议，让模型训练方能够表明某组权重由哪些数据训练而来。例子包括预先承诺随机种子，以及一类检查方法，它利用模型会暂时过拟合训练数据的倾向。在作者的实验中，这些协议发现了所有已知的学习证明攻击。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "nvidia-fleet-management",
+      "title": "Opt-In NVIDIA Software Enables Data Center Fleet Management",
+      "url": "https://blogs.nvidia.com/blog/optional-data-center-fleet-management-software/",
+      "org": "NVIDIA",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "NVIDIA's announcement of an opt-in, customer-installed service that streams GPU telemetry (operating data) to a fleet dashboard. NVIDIA states that its GPUs have no hardware tracking technology, kill switches or backdoors.",
+        "zh": "NVIDIA 关于一项可选服务的公告，该服务由客户自行安装，把 GPU 遥测数据（运行数据）传送到集群仪表盘。NVIDIA 声称，其 GPU 没有硬件追踪技术、远程停用开关或后门。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "toward-trustworthy-ai-development",
+      "title": "Toward Trustworthy AI Development: Mechanisms for Supporting Verifiable Claims",
+      "url": "https://arxiv.org/abs/2004.07213",
+      "org": "Miles Brundage et al.",
+      "year": 2020,
+      "type": "report",
+      "topics": [
+        "governance-compute",
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "Multi-author report on how AI developers could make verifiable claims about the safety, security, fairness and privacy of their systems. It analyzes ten institutional, software and hardware mechanisms, such as third-party auditing, red teaming, audit trails and secure hardware for machine learning. It recommends steps to implement or improve them.",
+        "zh": "一份多方合著的报告，讨论 AI 开发者如何就其系统的安全、安保、公平和隐私保护作出可验证的声明。报告分析了机构、软件和硬件三类共十种机制，例如第三方审计、红队演练、审计追踪和用于机器学习的安全硬件。报告还就落实或改进这些机制提出建议。"
+      },
+      "featured": true,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "chip-security-act",
+      "title": "H.R. 3447: Chip Security Act",
+      "url": "https://www.govinfo.gov/app/details/BILLS-119hr3447ih",
+      "org": "U.S. House of Representatives",
+      "year": 2025,
+      "type": "standard",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Bill introduced in the U.S. House on 15 May 2025. It would require export-controlled advanced chips to carry location verification mechanisms before export. It would also require license holders to promptly report credible information on diversion or tampering.",
+        "zh": "2025 年 5 月 15 日提交美国众议院的法案。它拟要求受出口管制的先进芯片在出口前配备位置验证机制。它还拟要求获得许可的出口方在掌握芯片被转移或篡改的可信信息时及时报告。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "americas-ai-action-plan",
+      "title": "America’s AI Action Plan",
+      "url": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf",
+      "org": "The White House",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "governance-compute",
+        "evaluation-audits"
+      ],
+      "note": {
+        "en": "White House policy plan. Its recommended actions include exploring location verification features on advanced AI chips to enforce export controls. They also include having NIST's Center for AI Standards and Innovation (CAISI) evaluate frontier AI systems for national security risks and assess risks from adversaries' AI systems.",
+        "zh": "白宫发布的政策计划。其建议措施包括探索利用先进 AI 芯片的位置验证功能，加强出口管制执法。建议措施还包括由 NIST 下属的 AI 标准与创新中心（CAISI）评估前沿 AI 系统的国家安全风险，并评估使用对手国家 AI 系统带来的风险。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "cset-tracking-ai-chips",
+      "title": "Tracking AI Chips: Assessing Location Verification as an Export Control Enforcement Tool",
+      "url": "https://cset.georgetown.edu/publication/tracking-ai-chips/",
+      "org": "Jacob Feldgoise, Kyle Miller, Hanna Dohmen (CSET)",
+      "year": 2026,
+      "type": "report",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "CSET report that assesses methods for verifying the location of AI chips to enforce export controls. It judges the methods on verifiability, accuracy, security and repeatability. It finds that the most feasible approach is ping-based verification (timing a chip's network replies) supplemented by physical inspections. The report also sets out that approach's limitations.",
+        "zh": "CSET 报告，评估用于出口管制执法的 AI 芯片位置验证方法。报告从可验证性、准确性、安全性和可重复性四方面评判这些方法。报告认为，最可行的方案是以基于 ping 的位置验证（测量芯片的网络响应时间）为主，辅以实地检查。报告也阐述了这一方案的局限。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "oxford-verification-international-ai-governance",
+      "title": "Verification for International AI Governance",
+      "url": "https://www.oxfordmartin.ox.ac.uk/publications/verification-for-international-ai-governance",
+      "org": "Ben Harack et al. (Oxford Martin AIGI)",
+      "year": 2025,
+      "type": "report",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Report finding that many international AI agreements could be verified without speculative technology. It finds that rules on data-center AI development appear verifiable within a few years, given dedicated verification hardware and serious effort. It also finds that detailed rules on mobile AI-enabled devices in sensitive domains, such as weapons, face severe political barriers.",
+        "zh": "报告认为，许多国际 AI 协议无需依赖尚属设想的核查技术即可核查。报告指出，若投入足够努力并部署专用核查硬件，针对数据中心 AI 开发的规则看来几年内就能得到核查。报告还认为，对武器等敏感领域的移动式 AI 设备作细致规定，会面临严重的政治障碍。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    },
+    {
+      "id": "how-to-catch-a-gpu",
+      "title": "How to Catch a GPU: A Taxonomy of Verification and Enforcement Mechanisms for International AI Agreements",
+      "url": "https://arxiv.org/abs/2607.22619",
+      "org": "Raymond Koopmanschap, Otto Barten",
+      "year": 2026,
+      "type": "paper",
+      "topics": [
+        "governance-compute"
+      ],
+      "note": {
+        "en": "Taxonomy for assessing whether proposed international AI agreements can be enforced. It splits compliance into three problems: preventing uncontrolled resource acquisition, detecting all capacity outside the control regime, and preventing escape from the regime. It also defines an enforcement breaking point, the compute threshold at which a policy loses its effectiveness.",
+        "zh": "一套评估国际 AI 协议可执行性的分类框架。它把合规问题拆分为三个子问题：防止不受控的资源获取、发现管控体系之外的全部违约能力，以及防止脱离管控体系。它还提出“执行失效点”概念，即某项政策失去效力时的算力阈值。"
+      },
+      "featured": false,
+      "verified_on": "2026-10-20"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "eigenai-deterministic-inference-mainnet.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "9bcbf2c0d87d4f801147c87bd5bd2c8984609122ace221f6d6b9c45b56efcd42",
+  "variants": {
+    "list": {
+      "file": "eigenai-deterministic-inference-mainnet-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "9a11875be8d3f93372bf5d8cf9ac51da221e44269a40a9014f54d27d22a0edd8"
+    },
+    "thumb": {
+      "file": "eigenai-deterministic-inference-mainnet-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "125aeb965a0a7165b1a4efcc682badca759a68ff518938145b5395e64b263c79"
+    },
+    "social": {
+      "file": "eigenai-deterministic-inference-mainnet-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "71904e00b082403631c422070405075e8ef21c22c0ff4fc74c85a2dcb77fdb71"
+    }
+  },
+  "edits": {
+    "source_sha256": "69fb7ed0d034293f524632b4bd697f170cca74c2416aa09f4ab9cf92380fcbfb",
+    "source_size": [6720, 3292],
+    "crop": [892, 0, 4936, 3292],
+    "social_crop": [892, 350, 4936, 2591],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Rows of tall computer cabinets with gray wave-patterned panels and black end units stand on a pale floor under a steel roof truss.",
+    "zh": "浅色地面上立着几排高大的计算机机柜，灰色面板带波浪纹，两端是黑色机柜，上方是钢结构屋架。"
+  },
+  "caption": {
+    "en": "Cabinets of the JUWELS supercomputer at Forschungszentrum Jülich in Germany. The photo does not show the GPUs or the trusted hardware that EigenAI uses.",
+    "zh": "德国 Forschungszentrum Jülich 的 JUWELS 超级计算机机柜。照片没有展示 EigenAI 使用的 GPU 或可信硬件。"
+  },
+  "credit": "Ralf-Uwe Limbach, Forschungszentrum Jülich / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:J%C3%BClich_Wizard_for_European_Leadership_Science_(JUWELS).jpg",
+  "retrieved": "2026-10-24"
+}

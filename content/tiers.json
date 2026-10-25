@@ -1,0 +1,409 @@
+{
+  "order_note": {
+    "en": "The tiers are ordered by what a passing check rests on: first a party's statement, then hardware evidence, then recomputation and proof. The order shows where the trust sits; it is not a ranking. Each tier checks a different, narrower claim. Costs differ too, and they do not follow the order. Of these approaches, only a TEE is designed to keep prompts and weights from the operator while they are processed. Deployed services often combine tiers.",
+    "zh": "各档按通过核查所依赖的对象排列：先是某一方的陈述，再是硬件生成的证据，然后是重新计算与数学证明。这一顺序说明信任落在何处，并不是优劣排名。每一档核实的声明各不相同，范围也更窄。各档的代价也不同，而且并不按这个顺序递增。在这些方法中，只有 TEE 的设计目标是在处理期间对运营方隐藏提示词与权重。实际部署的服务常常组合使用多档。"
+  },
+  "he_note": {
+    "en": "Homomorphic encryption and multiparty computation also hide data while it is processed, but they are not checks in themselves.",
+    "zh": "同态加密和安全多方计算也能在处理期间隐藏数据，但它们本身不是核查手段。"
+  },
+  "baseline": {
+    "trust_name": {
+      "en": "The provider's word",
+      "zh": "服务商的说法"
+    },
+    "text": {
+      "en": "Model cards, privacy policies and a service's description of itself, including the words \"attested\", \"private\" or \"verified\". Such a statement tells you what the provider says. An outsider can compare it with evidence, but the statement on its own cannot be checked. We report it as the provider's claim.",
+      "zh": "模型卡、隐私政策，以及服务对自身的描述，包括“经远程证明”“私密”“已验证”之类的说法。这样的陈述告诉你服务商怎么说。外界可以拿它与证据对照，却无法单凭陈述本身加以核实。我们把它作为服务商的声明来报道。"
+    }
+  },
+  "tiers": [
+    {
+      "id": "signatures",
+      "n": 1,
+      "trust_name": {
+        "en": "The signer and its keys",
+        "zh": "签名方及其密钥"
+      },
+      "mechanism": {
+        "en": "Signatures and logs",
+        "zh": "签名与日志"
+      },
+      "short": {
+        "en": "Signatures",
+        "zh": "签名"
+      },
+      "approaches": {
+        "en": "Model signing (Sigstore, OpenSSF Model Signing), build provenance and AI bills of materials, transparency logs, C2PA Content Credentials, signed agent requests and mandates, and tamper-evident logs. Watermark detection sits beside this tier: a watermark is an embedded statistical signal, not a signature.",
+        "zh": "模型签名（Sigstore、OpenSSF 模型签名）、构建溯源与 AI 物料清单、透明日志、C2PA 内容凭证、智能体的签名请求与签名授权书，以及篡改可检测日志。水印检测与这一档相邻：水印是嵌入内容的统计信号，不是签名。"
+      },
+      "establishes": {
+        "en": "A known key signed these exact bytes, and they have not changed since. A transparency log adds a public record of the signing, so anyone who monitors the log can notice a quiet replacement.",
+        "zh": "某个已知密钥签署了这些确切的字节，此后它们没有被改动。透明日志还会公开记录签名事件，监督日志的人因此能发现悄悄替换的行为。"
+      },
+      "not_established": {
+        "en": "How the artifact was produced, or whether what the signer asserts is true. A signed model can still misbehave. A credential records what its signer claims. A missing watermark shows nothing.",
+        "zh": "它不能说明制品是如何产生的，也不能说明签名方所声称的内容属实。签过名的模型仍可能出错。内容凭证记录的是签名方的说法。没有检测到水印，也说明不了任何问题。"
+      },
+      "trust": {
+        "en": "The signer's honesty and key custody, the certificate authority or identity provider that names signers, and whoever monitors the log. For watermarks, the party that embeds them and the detector's error rates.",
+        "zh": "签名方的诚实及其对密钥的保管、为签名方背书身份的证书机构或身份提供方，以及监督日志的一方。对水印而言，还包括嵌入水印的一方和检测器的误差率。"
+      },
+      "hidden": {
+        "en": "Nothing: signatures and logs are public by design.",
+        "zh": "不涉及保密：签名与日志本来就是公开的。"
+      },
+      "cost": {
+        "en": "Cheap per artifact and in production use. Sigstore's model-signing library reached version 1.0 in April 2025. Researchers report that C2PA falls short of its stated security goals. Another researcher says that exclusion ranges (parts of a file that the signature leaves out) let a malicious signer backdate an edited image.",
+        "zh": "单个制品的成本很低，已在生产中使用。Sigstore 的模型签名库于 2025 年 4 月发布 1.0 版。研究者指出，C2PA 没有达到其声明的安全目标。另一位研究者称，排除范围（签名不覆盖的文件部分）会让恶意签名者为编辑过的图像倒签日期。"
+      },
+      "vs_tee": {
+        "en": "A TEE's attestation report is also a signature, but the hardware issues it about software it measured. In this tier, a person or organization decides what to state. Signatures also complement a TEE: a transparency log of software releases lets a verifier compare the measurements in a report with the logged releases.",
+        "zh": "TEE 的证明报告也是一种签名，但它由硬件针对自己度量过的软件签发。在这一档，陈述什么由个人或机构决定。签名也能补足 TEE：有了软件版本的透明日志，验证方就能把证明报告中的度量值与登记在案的版本比对。"
+      },
+      "focus": null,
+      "combined": {
+        "en": "Apple's Private Cloud Compute pairs attestation with an append-only log of software releases.",
+        "zh": "Apple 的 Private Cloud Compute 把远程证明与软件版本的只追加日志结合起来。"
+      },
+      "summary": {
+        "en": "Cheaper and usable anywhere, but a signer vouches for an artifact; no hardware measures how it was produced.",
+        "zh": "成本更低、随处可用，但只是签名方为制品担保，没有硬件度量它是如何产生的。"
+      },
+      "layers": [
+        "agents",
+        "outputs",
+        "models",
+        "runtime"
+      ],
+      "topics": [
+        "supply-chain",
+        "content-provenance",
+        "agents-accountability"
+      ],
+      "read": [
+        "verify-a-signed-model",
+        "check-a-content-credential",
+        "c2pa-exclusion-range-backdated-image"
+      ]
+    },
+    {
+      "id": "audits",
+      "n": 2,
+      "trust_name": {
+        "en": "The examiner and the access it had",
+        "zh": "检查方及其获得的访问权限"
+      },
+      "mechanism": {
+        "en": "Audits and evaluations",
+        "zh": "审计与评测"
+      },
+      "short": {
+        "en": "Audits",
+        "zh": "审计"
+      },
+      "approaches": {
+        "en": "Third-party audits and evaluations with black-box, white-box or outside-the-box access, accredited testing and graded assurance levels, conformity assessment against standards, data-center and chip inspections, and reviews of agent incidents.",
+        "zh": "采用黑盒、白盒或“盒外”访问的第三方审计与评测、经认证的测试与分级保障、依据标准的合格评定、数据中心与芯片的现场检查，以及对智能体事故的审查。"
+      },
+      "establishes": {
+        "en": "What a named examiner observed about a system, with the access it was given, at a point in time. Audits reach claims that no hardware report or proof describes, such as whether a developer follows its own safety practices.",
+        "zh": "某个具名检查方在其获得的访问权限下、于某一时间点观察到的情况。审计能覆盖硬件报告或数学证明都无法描述的声明，例如开发者是否遵守了自己的安全做法。"
+      },
+      "not_established": {
+        "en": "That the system serving users is the one examined, or anything outside the examination's scope.",
+        "zh": "它不能说明为用户提供服务的系统就是被检查的那一个，也不能说明检查范围之外的任何事情。"
+      },
+      "trust": {
+        "en": "The examiner's competence and independence, the depth of access the developer granted, and the honesty of the report.",
+        "zh": "检查方的能力与独立性、开发者给予的访问深度，以及报告是否如实。"
+      },
+      "hidden": {
+        "en": "The examiner sees what the developer shares, usually under confidentiality; the public sees the report.",
+        "zh": "检查方看到开发者提供的内容，通常须保密；公众只能看到报告。"
+      },
+      "cost": {
+        "en": "Each engagement takes expert time, and access is negotiated case by case, so audits cannot cover every request. Accreditation, assurance levels and requirements for evaluators are still being defined.",
+        "zh": "每次审计都需要专家投入，访问权限逐案协商，因此无法覆盖每一次请求。认证、保障等级以及对评测方的要求仍在制定之中。"
+      },
+      "vs_tee": {
+        "en": "The evidence rests on people's judgment rather than on a report a client can check for each request. A TEE can deepen an audit: evaluators can test a confidential model inside a TEE, and its attestation report shows which model and test code were loaded.",
+        "zh": "这类证据依靠的是人的判断，而不是客户端可以逐次核对的报告。TEE 可以加深审计：评测方可以在 TEE 中测试保密的模型，证明报告则说明加载了哪个模型和哪些测试代码。"
+      },
+      "focus": null,
+      "combined": {
+        "en": "Google DeepMind's double-blind pilot ran an evaluation inside Google Cloud's Confidential Space. Its report notes that not all inference code could be inspected and that the setup still trusted Google.",
+        "zh": "Google DeepMind 的双盲评测试点在 Google Cloud 的 Confidential Space 中运行了一次评测。其报告指出，并非所有推理代码都能接受检查，这一安排仍需信任 Google。"
+      },
+      "summary": {
+        "en": "Reaches practices no report describes, but rests on people and yields no evidence a client can check for each request.",
+        "zh": "能覆盖证明报告无法描述的做法，但依靠的是人，客户端无法逐次核对。"
+      },
+      "layers": [
+        "institutions",
+        "evaluations",
+        "agents",
+        "hardware"
+      ],
+      "topics": [
+        "evaluation-audits",
+        "governance-compute",
+        "agents-accountability"
+      ],
+      "read": [
+        "deepmind-double-blind-gemini-evaluation",
+        "averi-frontier-ai-assurance-levels",
+        "anthropic-metr-embedded-evaluators"
+      ]
+    },
+    {
+      "id": "tee",
+      "n": 3,
+      "trust_name": {
+        "en": "The chip vendor and the measured software",
+        "zh": "芯片厂商与被度量的软件"
+      },
+      "mechanism": {
+        "en": "Hardware attestation with TEEs",
+        "zh": "基于硬件的远程证明（TEE）"
+      },
+      "short": {
+        "en": "TEE",
+        "zh": "TEE"
+      },
+      "approaches": {
+        "en": "Confidential VMs on Intel TDX, AMD SEV-SNP and Arm CCA; NVIDIA Hopper and Blackwell GPUs in confidential-computing mode; remote attestation in the IETF RATS roles; attestation-gated key release; and AI services that publish attestation evidence, such as Apple Private Cloud Compute, Meta Private Processing, Google Private AI Compute and Cohere Model Vault Encrypted.",
+        "zh": "Intel TDX、AMD SEV-SNP 与 Arm CCA 上的机密虚拟机；处于机密计算模式的 NVIDIA Hopper 与 Blackwell GPU；IETF RATS 角色划分下的远程证明；以远程证明为前提的密钥释放；以及公开远程证明证据的 AI 服务，例如 Apple Private Cloud Compute、Meta Private Processing、Google Private AI Compute 与 Cohere Model Vault Encrypted。"
+      },
+      "establishes": {
+        "en": "Genuine hardware launched software with the stated measurements in a protected mode, at stated firmware versions. A random value from the verifier, called a nonce, shows that the report is fresh. Only a report that commits to the session key shows that this connection ends inside the attested environment.",
+        "zh": "真实硬件在受保护模式下启动了具有所述度量值的软件，固件版本如报告所述。验证方提供的随机数（nonce）说明报告是新鲜的。只有承诺了会话密钥的报告，才能说明这条连接终止于经远程证明的环境之内。"
+      },
+      "not_established": {
+        "en": "That the measured software behaves correctly. Inputs loaded after launch count only if measured code checks them. The report also does not show that the protected mode keeps the host and the cloud operator out. That is a property of the vendor's design.",
+        "zh": "它不能说明被度量的软件行为正确。启动后加载的输入，只有经被度量的代码核对才算在内。证明报告也不能说明受保护模式能把宿主机和云运营方挡在外面，这是厂商设计的属性。"
+      },
+      "trust": {
+        "en": "The chip vendor's design, firmware and keys; whoever publishes the reference values, and the verifier that compares against them; and the measured software. Isolation holds only within the vendor's threat model. That model leaves out some physical attacks, such as the DDRop memory interposer, and does not cover all side channels. The operator can still stop or restart the environment.",
+        "zh": "芯片厂商的设计、固件与密钥；发布参考值的一方，以及据此比对的验证方；还有被度量的软件本身。隔离只在厂商的威胁模型范围内成立。该模型不涵盖部分物理攻击（例如 DDRop 内存插入器），也没有涵盖所有侧信道。运营方仍然可以停止或重启这一环境。"
+      },
+      "hidden": {
+        "en": "Prompts and weights, within the vendor's threat model. Of the approaches compared here, this is the only one designed to keep them from the operator while a large model runs.",
+        "zh": "提示词与权重，在厂商威胁模型的范围内对运营方保密。在这里比较的方法中，只有它的设计目标是在大模型运行期间对运营方隐藏这些数据。"
+      },
+      "cost": {
+        "en": "Commercial CPUs and GPUs in the major clouds, used by deployed AI services. One preprint measured about 1% to 3% throughput overhead for tuned serving on NVIDIA B200 GPUs, and 30% to 40% with default inference software. Published audits have found inputs left out of the measurement and reports that could be replayed.",
+        "zh": "商用 CPU 与 GPU 已在主要云平台上提供，已部署的 AI 服务正在使用。一篇预印本测得：在 NVIDIA B200 GPU 上，配置得当时推理吞吐开销约为 1% 至 3%，使用默认推理软件时为 30% 至 40%。已公开的审计发现过未纳入度量的输入，以及可以被重放的报告。"
+      },
+      "vs_tee": null,
+      "focus": {
+        "en": "AI services already rely on this tier, so its limits affect readers now. Its evidence is also easy to overstate: a valid report identifies the software without vouching for it.",
+        "zh": "AI 服务已经依赖这一档，它的局限因此正在影响读者。它的证据也容易被夸大：一份有效的报告能标识软件，却不能为软件的行为担保。"
+      },
+      "combined": null,
+      "summary": {
+        "en": "The reference point: hardware-signed evidence for each session, and the only approach here designed to keep data from the operator.",
+        "zh": "参照基准：每次会话都有硬件签名的证据，也是这里唯一以对运营方保密为设计目标的方法。"
+      },
+      "layers": [
+        "institutions",
+        "evaluations",
+        "agents",
+        "outputs",
+        "models",
+        "runtime",
+        "hardware"
+      ],
+      "topics": [
+        "confidential-computing"
+      ],
+      "read": [
+        "remote-attestation-for-ai-workloads-explained",
+        "how-to-read-a-remote-attestation-report",
+        "private-ai-compute-published-designs"
+      ]
+    },
+    {
+      "id": "reexecution",
+      "n": 4,
+      "trust_name": {
+        "en": "An honest checker",
+        "zh": "诚实的核查方"
+      },
+      "mechanism": {
+        "en": "Re-execution",
+        "zh": "重新执行"
+      },
+      "short": {
+        "en": "Re-execution",
+        "zh": "重新执行"
+      },
+      "approaches": {
+        "en": "Full re-execution, activation fingerprints (TOPLOC), refereed delegation (Verde), sampled audits (IMMACULATE), optimistic schemes with a dispute window (EigenAI), and statistical tests of model identity.",
+        "zh": "完整重新执行、激活指纹（TOPLOC）、仲裁式委托（Verde）、抽样审计（IMMACULATE）、带争议窗口的乐观方案（EigenAI），以及模型身份的统计检验。"
+      },
+      "establishes": {
+        "en": "A rerun of the checked requests, or of a sample, matched the provider's output, exactly or within a stated tolerance. With refereed delegation, which sends the same job to several providers, the client gets the correct result if at least one provider is honest.",
+        "zh": "对被核查的请求或其中的样本重新执行后，结果与服务商的输出相符，或完全一致，或在给定容差之内。仲裁式委托把同一任务交给多家服务商，只要其中至少一家诚实，客户端就能得到正确结果。"
+      },
+      "not_established": {
+        "en": "Anything about requests nobody checks, including rare cheating that sampling misses, or whether the model is any good.",
+        "zh": "它不能说明无人核查的请求，包括抽样漏掉的偶发作弊，也不能说明模型本身好不好。"
+      },
+      "trust": {
+        "en": "That a checker holding the model actually runs the check; that the provider cannot single out audit requests; and that the tolerance does not let a cheaper model pass. Optimistic schemes, which accept a result unless someone challenges it, also need a challenger who acts within the dispute window.",
+        "zh": "持有模型的核查方确实执行了核查；服务商无法分辨哪些请求是抽查；容差不会让更便宜的模型蒙混过关。乐观方案在无人质疑时默认接受结果，这类方案还需要有人在争议窗口内提出质疑。"
+      },
+      "hidden": {
+        "en": "Nothing by default: the checker sees the prompt and the weights, unless the re-execution itself runs inside a TEE.",
+        "zh": "默认不保密：核查方能看到提示词和权重，除非重新执行本身在 TEE 中运行。"
+      },
+      "cost": {
+        "en": "At least one more run of whatever is checked. On top of the duplicate run, Verde's authors report 58% to 98% inference overhead for its reproducible operations, relative to PyTorch on A100 GPUs. Sampling schemes report under 1% throughput overhead. Mostly research protocols, with one deployment reported live (EigenAI, January 2026).",
+        "zh": "被核查的计算至少要多跑一遍。在重复运行之外，Verde 的作者报告，其可复现算子在 A100 GPU 上相对 PyTorch 的推理开销为 58% 至 98%。抽样方案报告的吞吐开销低于 1%。大多仍是研究协议，已有一个部署据称上线（EigenAI，2026 年 1 月）。"
+      },
+      "vs_tee": {
+        "en": "Re-execution replaces trust in a chip vendor with trust in an honest checker, but nothing stays confidential. It can check which model produced an output, a question a TEE leaves to the software it measures.",
+        "zh": "重新执行把对芯片厂商的信任换成了对诚实核查方的信任，但没有任何内容能保密。它能核查输出出自哪个模型，TEE 则把这个问题留给自己度量的软件。"
+      },
+      "focus": null,
+      "combined": {
+        "en": "EigenAI re-executes challenged requests inside TEEs, so it relies on both sets of assumptions. Someone must challenge within the dispute window, and verifiers holding at least two-thirds of the stake must behave honestly. The enclave hardware must also be trusted.",
+        "zh": "EigenAI 在 TEE 中重新执行受到质疑的请求，因此同时依赖两类假设。必须有人在争议窗口内提出质疑，持有至少三分之二质押的验证者也必须诚实行事。飞地硬件同样需要信任。"
+      },
+      "summary": {
+        "en": "Replaces trust in a chip vendor with trust in an honest checker, but keeps nothing confidential on its own.",
+        "zh": "把对芯片厂商的信任换成对诚实核查方的信任，但本身不对任何内容保密。"
+      },
+      "layers": [
+        "evaluations",
+        "outputs",
+        "models"
+      ],
+      "topics": [
+        "verifiable-inference",
+        "evaluation-audits"
+      ],
+      "read": [
+        "proofs-enclaves-and-re-execution-compared",
+        "evaluating-a-verifiable-inference-claim",
+        "eigenai-deterministic-inference-mainnet"
+      ]
+    },
+    {
+      "id": "proofs",
+      "n": 5,
+      "trust_name": {
+        "en": "The proof system and the statement proven",
+        "zh": "证明系统与被证明的命题"
+      },
+      "mechanism": {
+        "en": "Proofs (zero-knowledge and formal)",
+        "zh": "数学证明（零知识证明与形式化证明）"
+      },
+      "short": {
+        "en": "Proofs",
+        "zh": "数学证明"
+      },
+      "approaches": {
+        "en": "Zero-knowledge proofs of inference and evaluation (zkLLM, DeepProve, Jolt Atlas), proofs against committed weights and proofs of training data; formal verification of neural networks (α,β-CROWN) and of code, and proof assistants such as Lean.",
+        "zh": "推理与评测的零知识证明（zkLLM、DeepProve、Jolt Atlas）、针对已承诺权重的证明与训练数据证明；神经网络与代码的形式化验证（α,β-CROWN），以及 Lean 等证明助手。"
+      },
+      "establishes": {
+        "en": "A zero-knowledge proof shows that the proven computation turns an input and committed weights into a given output. Committed weights are weights the prover fixed in advance, and the proof does not reveal them to the verifier. A formal proof shows that a stated property holds for every input within its specification.",
+        "zh": "零知识证明说明：在被证明的计算下，输出由输入和已承诺的权重得出。已承诺的权重是证明者事先固定下来的权重，零知识证明不会向验证方透露它们。形式化证明说明：所陈述的性质对规约范围内的所有输入都成立。"
+      },
+      "not_established": {
+        "en": "A proof covers its statement and nothing more. The proven computation is often an integer version of the model with greedy decoding, in which the model always picks the most likely next token. Committed weights are the advertised model only if something else ties them together. The Hollow-LLM paper describes committed weights that keep proofs valid while most of the declared model's computation is never performed. (The editor co-authored that paper.)",
+        "zh": "数学证明只覆盖它所陈述的命题。被证明的计算往往是模型的整数化版本，并采用贪心解码，即模型总是选取概率最高的下一个词元。已承诺的权重是否就是所宣称的模型，需要另外的绑定来说明。Hollow-LLM 论文描述了一种情形：所承诺的权重让证明依然有效，而所声明模型的大部分计算从未执行。（本站编辑是该论文的合著者。）"
+      },
+      "trust": {
+        "en": "The soundness of the proof system and of any trusted setup, the proof checker, and a circuit or specification that matches the system in use.",
+        "zh": "证明系统及其可信设置（如有）的可靠性、证明检查器，以及与实际系统相符的电路或规约。"
+      },
+      "hidden": {
+        "en": "The weights, from the verifier. The prover still sees the prompt.",
+        "zh": "对验证方隐藏权重；生成证明的一方仍能看到提示词。"
+      },
+      "cost": {
+        "en": "Proving costs orders of magnitude more than inference. zkLLM took 803 seconds to prove one inference of a 13-billion-parameter model. DeepProve reports 174 proven tokens per minute for GPT-2 and 86 for Gemma 3. These are research systems. Neural-network verifiers prove properties such as robustness over a region of inputs. Proof assistants such as Lean now check AI-generated proofs of major theorems.",
+        "zh": "生成证明的代价比推理高出几个数量级。zkLLM 为一个 130 亿参数模型的一次推理生成证明，用了 803 秒。DeepProve 报告，GPT-2 每分钟可证明 174 个词元，Gemma 3 为 86 个。这些仍是研究系统。神经网络验证器可以证明某个输入区域内的鲁棒性等性质。Lean 等证明助手如今也在检查 AI 生成的重要定理证明。"
+      },
+      "vs_tee": {
+        "en": "For integrity, proofs remove the need to trust hardware. But they keep nothing from the provider, prove a narrower statement and cost far more. Formal verification can also complement a TEE: attestation shows which code was loaded, and a proof about that code can show that it meets its specification.",
+        "zh": "在完整性方面，数学证明不再需要信任硬件。但它们不对服务商保密，所证明的命题更窄，代价也高得多。形式化验证还可以补足 TEE：远程证明说明加载了哪份代码，关于这份代码的形式化证明则可以说明它满足规约。"
+      },
+      "focus": null,
+      "combined": null,
+      "summary": {
+        "en": "Removes the need to trust hardware for integrity, but proves a narrower statement, costs far more and leaves the prompt visible to the prover.",
+        "zh": "在完整性方面不再需要信任硬件，但所证明的命题更窄、代价高得多，生成证明的一方仍能看到提示词。"
+      },
+      "layers": [
+        "evaluations",
+        "outputs",
+        "models",
+        "runtime"
+      ],
+      "topics": [
+        "verifiable-inference",
+        "formal-verification"
+      ],
+      "read": [
+        "proofs-enclaves-and-re-execution-compared",
+        "hollow-llm-attack-zero-knowledge-inference",
+        "jolt-atlas-lookup-based-zkml"
+      ]
+    }
+  ],
+  "combinations": [
+    {
+      "id": "pcc",
+      "name": {
+        "en": "Apple Private Cloud Compute: attestation plus a public log",
+        "zh": "Apple Private Cloud Compute：远程证明加公开日志"
+      },
+      "text": {
+        "en": "Devices send requests only to nodes whose attested measurements match a release in an append-only log. Apple publishes the images for researchers. The attestation still rests on the hardware and Apple's keys. Outside researchers are left to examine what a logged build does.",
+        "zh": "设备只把请求发给这样的节点：其证明报告中的度量值与只追加日志中的某个版本相符。Apple 还向研究人员公开这些镜像。远程证明仍需信任硬件和 Apple 的密钥。已登记的版本究竟做了什么，要靠外部研究人员来检查。"
+      },
+      "tiers": [
+        "tee",
+        "signatures"
+      ],
+      "article": "private-ai-compute-published-designs"
+    },
+    {
+      "id": "eigenai",
+      "name": {
+        "en": "EigenAI: re-execution inside TEEs",
+        "zh": "EigenAI：在 TEE 中重新执行"
+      },
+      "text": {
+        "en": "A committee re-executes challenged requests inside TEEs, and the results must match byte for byte. The design still needs someone to challenge within the dispute window and verifiers holding two-thirds of the stake to behave honestly. It also relies on the enclave hardware.",
+        "zh": "一个委员会在 TEE 中重新执行受到质疑的请求，结果必须逐字节一致。这一设计仍需要有人在争议窗口内提出质疑，也需要持有三分之二质押的验证者诚实行事。它还依赖飞地硬件。"
+      },
+      "tiers": [
+        "reexecution",
+        "tee"
+      ],
+      "article": "eigenai-deterministic-inference-mainnet"
+    },
+    {
+      "id": "double-blind",
+      "name": {
+        "en": "Double-blind evaluation: an audit inside a TEE",
+        "zh": "双盲评测：TEE 中的审计"
+      },
+      "text": {
+        "en": "Evaluators tested a Gemini model in Google Cloud's Confidential Space. The setup was designed to keep the weights from the evaluators and the test prompts from Google. The report notes that not all inference code could be inspected and that the setup still trusted Google.",
+        "zh": "评测方在 Google Cloud 的 Confidential Space 中测试了一个 Gemini 模型。这一安排的设计目标是让评测方看不到权重，Google 也看不到测试提示词。报告指出，并非所有推理代码都能接受检查，这一安排仍需信任 Google。"
+      },
+      "tiers": [
+        "audits",
+        "tee"
+      ],
+      "article": "deepmind-double-blind-gemini-evaluation"
+    }
+  ]
+}

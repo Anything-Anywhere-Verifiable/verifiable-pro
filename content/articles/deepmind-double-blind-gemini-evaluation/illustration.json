@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "deepmind-double-blind-gemini-evaluation.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "52f5d936505e18a7d4ba03350dd18b4e30f1538232a9ba33ce69e3f8e6b27a1e",
+  "variants": {
+    "list": {
+      "file": "deepmind-double-blind-gemini-evaluation-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "11278bfe3d82bab65838bcdbc13a17960f6106f13d70bd3c166d532f1853ef4c"
+    },
+    "thumb": {
+      "file": "deepmind-double-blind-gemini-evaluation-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "9b7b06f5c6a7bd9465bacb4ab2a7f503117a20429f6f2a9a174eef2ae11116b2"
+    },
+    "social": {
+      "file": "deepmind-double-blind-gemini-evaluation-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "a659e7f89deae322d1d76cc9085e8c85e0a0f72c428d3fce37c6bbbaf57ca149"
+    }
+  },
+  "edits": {
+    "source_sha256": "1501e29b3ac8e6bb4d48d3339eee12f84afe17fb212943d4a1429f09edb4f709",
+    "source_size": [5294, 3357],
+    "crop": [1011, 300, 3900, 2600],
+    "social_crop": [1011, 576, 3900, 2048],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A long beige data center building stands behind a row of gray industrial units and a black fence, with brown and green hills under a cloudy sky behind it.",
+    "zh": "一座米色的长条形数据中心建筑立在一排灰色工业设备和黑色围栏后面，背后是多云天空下褐绿相间的山丘。"
+  },
+  "caption": {
+    "en": "A Google data center in The Dalles, Oregon, in May 2015. The photo does not show the machine on which the pilot ran.",
+    "zh": "Google 位于美国俄勒冈州达尔斯的数据中心，摄于 2015 年 5 月。照片中并非这次试行所用的机器。"
+  },
+  "credit": "Tony Webster / Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Google_Datacenter_-_The_Dalles,_Oregon_(17832143871).jpg",
+  "retrieved": "2026-10-24"
+}

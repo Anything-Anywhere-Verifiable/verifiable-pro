@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "trail-of-bits-whatsapp-tee-audit.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "f7d47e3f704f8bd9a1f28d49e1eaf9fdc2960e9fd4dcee6f6889f3cd913e7f30",
+  "variants": {
+    "list": {
+      "file": "trail-of-bits-whatsapp-tee-audit-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "a3ea32ac803f68dcac1dd3003a0d11878b955af8f5c405a82d6c723c72881cb7"
+    },
+    "thumb": {
+      "file": "trail-of-bits-whatsapp-tee-audit-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "aa12da45a69eb3f553ee1d7ead1434b5f72cb7e544ee95b4e958c902efb3471c"
+    },
+    "social": {
+      "file": "trail-of-bits-whatsapp-tee-audit-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "81410269ebf42f51cda48ce153408b33081e74d14b7c0437af7e6ecb5ea608b5"
+    }
+  },
+  "edits": {
+    "source_sha256": "62ebe6154dc9e3f9dabe8c84171a8350b9911d536e92131c0ab2114752a5ce21",
+    "source_size": [7360, 4912],
+    "crop": [400, 0, 6960, 4640],
+    "social_crop": [400, 493, 6960, 3654],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Seen from the air, a long, low data center hall with a gray roof sits among autumn birch and pine forest, with an electrical substation and stacked blue site cabins in the foreground.",
+    "zh": "从空中俯瞰，一座灰色屋顶、低矮狭长的数据中心机房坐落在秋日的桦树和松树林间，前景是一座变电站和几排叠放的蓝色工地板房。"
+  },
+  "caption": {
+    "en": "Facebook's data center in Luleå, Sweden, now Meta's, seen from the air in 2013. The photo does not indicate where WhatsApp's Private Processing runs.",
+    "zh": "2013 年航拍的 Facebook（现为 Meta）位于瑞典吕勒奥的数据中心。照片并不表明 WhatsApp 的 Private Processing 在这里运行。"
+  },
+  "credit": "© 2013 Torbjörn Tapani (Tortap) / Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Facebook_Serverhall.jpg",
+  "retrieved": "2026-10-24"
+}

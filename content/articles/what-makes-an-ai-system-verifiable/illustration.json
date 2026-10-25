@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "what-makes-an-ai-system-verifiable.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "396607e92a0c4760388239e3cc710f91405bd9f896b1867f6c49a3b8ed45e447",
+  "variants": {
+    "list": {
+      "file": "what-makes-an-ai-system-verifiable-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "8b7bf7bc05885a1aefc3500bd0cd7f30688cf51ad6b0b8ac71b24c9396594987"
+    },
+    "thumb": {
+      "file": "what-makes-an-ai-system-verifiable-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "c8ad56a8b154418a2f8f8a1ae2398182855743712149d0b3b380b7311387dfbb"
+    },
+    "social": {
+      "file": "what-makes-an-ai-system-verifiable-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "8f5918c81b71392688305c4dd6d9312d8f5ca87145accc38c4fdc076bffb8109"
+    }
+  },
+  "edits": {
+    "source_sha256": "20de10754821168f476beba053559eb635777de5a39133a02c9e5d838c1b69d9",
+    "source_size": [3771, 2121],
+    "crop": [295, 0, 3181, 2121],
+    "social_crop": [295, 226, 3181, 1670],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A bright data center hall with a white tiled floor, a row of black equipment racks under overhead trays of blue cables, and an orange traffic cone.",
+    "zh": "明亮的数据中心机房，白色地砖延伸向一排黑色设备机架，机架上方的走线槽垂下蓝色线缆，地上立着一个橙色锥桶。"
+  },
+  "caption": {
+    "en": "Equipment racks in a data center hall. The photo does not show any particular AI system or check.",
+    "zh": "数据中心机房里的设备机架。照片没有展示任何具体的 AI 系统或核查过程。"
+  },
+  "credit": "Taylor Vick / Unsplash",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license",
+  "source_url": "https://unsplash.com/photos/server-room-with-network-cabinets-aWslrFhs1w4",
+  "retrieved": "2026-10-24"
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "proofs-enclaves-and-re-execution-compared.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "d923aac6d1f799ed138cff6f0a10557706311990fbde93a23966f79aa2bd3874",
+  "variants": {
+    "list": {
+      "file": "proofs-enclaves-and-re-execution-compared-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "93ab4e2c4e522f7625e85aa745dd8cb9e4aeb896295eff85009e90fa9bd473e2"
+    },
+    "thumb": {
+      "file": "proofs-enclaves-and-re-execution-compared-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "662f8aee3ce006b7679e85ff1e51f9f82e0d8794ebf34b3558d4deeee39250b3"
+    },
+    "social": {
+      "file": "proofs-enclaves-and-re-execution-compared-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "85568dfbc8befbae0c22d0f5bfca724f29b00e9e0f4f97000707f9942e7d9cad"
+    }
+  },
+  "edits": {
+    "source_sha256": "bde61f7cf9c966ed55507f2978543b9158e1faaec53054ca577bb1bd50652d4f",
+    "source_size": [5208, 3912],
+    "crop": [0, 24, 5208, 3473],
+    "social_crop": [0, 393, 5208, 2734],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A long row of black server cabinets decorated with sweeping blue, red and white graphics stands on a white raised floor under rows of ceiling lights.",
+    "zh": "一长排黑色服务器机柜立在白色架空地板上，柜门上印着流动的蓝、红、白色图案，上方是一排排顶灯。"
+  },
+  "caption": {
+    "en": "Racks of computing nodes of Japan's TSUBAME 4.0 supercomputer in May 2026. The photo does not show the systems compared in this analysis.",
+    "zh": "日本 TSUBAME 4.0 超级计算机的计算节点机柜，摄于 2026 年 5 月。照片中并非本文比较的任何系统。"
+  },
+  "credit": "Fukumoto / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:TSUBAME4.0_P5160975.jpg",
+  "retrieved": "2026-10-24"
+}

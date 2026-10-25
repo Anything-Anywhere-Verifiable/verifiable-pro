@@ -1,0 +1,163 @@
+# Builds main, attests the build, and publishes it to GitHub Pages.
+# Repository settings (docs/MAINTAINING.md): Pages > Source = "GitHub Actions";
+# Pages > Custom domain = verifiable.pro (verify the domain under the account's
+# Pages settings first); Environments > github-pages > Deployment branches = main.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deployment at a time; a newer push waits instead of cancelling a running deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# bash -eo pipefail, so a failure inside a pipeline fails the step
+defaults:
+  run:
+    shell: bash
+
+env:
+  PYTHON_VERSION: "3.12"
+  PYTHONDONTWRITEBYTECODE: "1"
+  PYTHONUTF8: "1"
+
+jobs:
+  build:
+    name: Build and attest
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write          # short-lived Sigstore certificate for the attestation
+      attestations: write      # store the attestation with the repository
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -t .
+
+      # No --chat override: the Ask assistant's mode and API address come from
+      # content/site.json, so what is published is what was reviewed.
+      - name: Build
+        run: |
+          python build.py --out public
+          python tools/verify_manifest.py public
+
+      - name: Write the build record
+        run: |
+          python - <<'PY'
+          import json, os, platform, subprocess
+          server, repo = os.environ["GITHUB_SERVER_URL"], os.environ["GITHUB_REPOSITORY"]
+          manifest = json.load(open("public/manifest.json", encoding="utf-8"))
+          record = {
+              "site": manifest["site"],
+              "manifest_digest": manifest["digest"],
+              "repository": f"{server}/{repo}",
+              "commit": os.environ["GITHUB_SHA"],
+              "commit_time": subprocess.check_output(["git", "log", "-1", "--format=%cI"], text=True).strip(),
+              "ref": os.environ["GITHUB_REF"],
+              "workflow_run": f"{server}/{repo}/actions/runs/{os.environ['GITHUB_RUN_ID']}/attempts/{os.environ['GITHUB_RUN_ATTEMPT']}",
+              "python": platform.python_version(),
+              "checksums": "/SHA256SUMS",
+              "attestation_bundle": "/SHA256SUMS.sigstore.json",
+          }
+          with open("public/build.json", "w", encoding="utf-8") as f:
+              json.dump(record, f, indent=2, sort_keys=True)
+              f.write("\n")
+          PY
+
+      - name: Write checksums for every published file
+        id: sums
+        working-directory: public
+        run: |
+          find . -type f ! -name SHA256SUMS -print0 | LC_ALL=C sort -z | xargs -0 sha256sum \
+            | sed 's#  \./#  #' > SHA256SUMS
+          echo "count=$(wc -l < SHA256SUMS | tr -d ' ')" >> "$GITHUB_OUTPUT"
+
+      # SLSA build provenance, signed through Sigstore and logged in Rekor.
+      # actions/attest makes build provenance when given no predicate; the older
+      # actions/attest-build-provenance (v4) is a wrapper around it.
+      # One attestation whose subjects are all published files (limit: 1024 subjects).
+      - name: Attest every published file
+        id: attest_all
+        if: fromJSON(steps.sums.outputs.count) <= 1000
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-checksums: public/SHA256SUMS
+      # Fallback once the site outgrows the limit: attest the index files only.
+      - name: Attest the index files
+        id: attest_index
+        if: fromJSON(steps.sums.outputs.count) > 1000
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-path: |
+            public/SHA256SUMS
+            public/manifest.json
+            public/build.json
+
+      - name: Publish the attestation bundle with the site
+        env:
+          BUNDLE: ${{ steps.attest_all.outputs.bundle-path || steps.attest_index.outputs.bundle-path }}
+        run: cp "$BUNDLE" public/SHA256SUMS.sigstore.json
+
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: public
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+
+  live-check:
+    name: Check the live site
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Wait for this commit's build, then verify every source
+        env:
+          PAGE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          site=${PAGE_URL%/}
+          # The Pages CDN caches files for a few minutes; retry until this commit is served.
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            live=$(curl -fsS "$site/build.json?run=$GITHUB_RUN_ID-$attempt" \
+                   | python -c 'import json, sys; print(json.load(sys.stdin)["commit"])') || live=""
+            if [ "$live" = "$GITHUB_SHA" ] && python tools/verify_manifest.py "$site"; then
+              exit 0
+            fi
+            sleep 60
+          done
+          echo "::error::$site does not serve commit $GITHUB_SHA (last seen: ${live:-none})"
+          exit 1

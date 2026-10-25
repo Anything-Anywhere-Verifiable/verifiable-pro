@@ -1,0 +1,18 @@
+version: 2
+updates:
+  # Keeps the SHA pins in .github/workflows current (one grouped pull request a month).
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: ci
+  # The generator and backend/mock use only the Python standard library, so
+  # there is nothing else to update. When a backend gains a lockfile, add it:
+  # - package-ecosystem: pip
+  #   directory: /backend/<service>
+  #   schedule:
+  #     interval: weekly

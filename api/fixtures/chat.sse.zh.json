@@ -1,0 +1,295 @@
+{
+  "description": "Mock answer (extractive) to chat.request.zh.json, sent without attestation headers.",
+  "request_fixture": "chat.request.zh.json",
+  "response": {
+    "status": 200,
+    "headers": {
+      "Cache-Control": "no-store",
+      "VP-Request-Id": "req_a37fcc184a8cf46f",
+      "Vary": "Origin",
+      "Access-Control-Allow-Origin": "http://localhost:8767",
+      "Access-Control-Expose-Headers": "ehbp-response-nonce, vp-request-id, retry-after, ratelimit, ratelimit-policy",
+      "Content-Type": "text/event-stream; charset=utf-8",
+      "X-Accel-Buffering": "no",
+      "RateLimit-Policy": "\"chat\";q=10;w=600",
+      "RateLimit": "\"chat\";r=8;t=120"
+    }
+  },
+  "events": [
+    {
+      "comment": "ping"
+    },
+    {
+      "event": "meta",
+      "data": {
+        "request_id": "req_a37fcc184a8cf46f",
+        "backend": "mock-local",
+        "mode": "mock",
+        "model": "mock-extractive",
+        "attestation_id": null,
+        "keyset_digest": "d09f6cea75c967654a7df1d6e8d839ffb4a8c680701a40b60d8be7b1cb59ead5",
+        "started_at": "2026-10-20T14:02:11Z"
+      }
+    },
+    {
+      "event": "citations",
+      "data": {
+        "items": [
+          {
+            "n": 1,
+            "chunk_id": "proofs-enclaves-and-re-execution-compared/zh#安全飞地开销可以很小但信任转移到硬件和度量值上/0",
+            "title": "核查 AI 回答的三种方法对比：零知识证明、安全飞地与重新执行",
+            "heading": "安全飞地开销可以很小，但信任转移到硬件和度量值上",
+            "url": "/zh/articles/proofs-enclaves-and-re-execution-compared/#安全飞地开销可以很小但信任转移到硬件和度量值上",
+            "lang": "zh",
+            "source": "/articles/proofs-enclaves-and-re-execution-compared/zh.md",
+            "source_sha256": "974782930afcb09de40d9d4a5e2ab91aae30ddc98d54d70ab245327e9d7abcd6",
+            "start": 1254,
+            "end": 1682,
+            "context_verified": false
+          },
+          {
+            "n": 2,
+            "chunk_id": "proofs-enclaves-and-re-execution-compared/zh#安全飞地开销可以很小但信任转移到硬件和度量值上/1",
+            "title": "核查 AI 回答的三种方法对比：零知识证明、安全飞地与重新执行",
+            "heading": "安全飞地开销可以很小，但信任转移到硬件和度量值上",
+            "url": "/zh/articles/proofs-enclaves-and-re-execution-compared/#安全飞地开销可以很小但信任转移到硬件和度量值上",
+            "lang": "zh",
+            "source": "/articles/proofs-enclaves-and-re-execution-compared/zh.md",
+            "source_sha256": "974782930afcb09de40d9d4a5e2ab91aae30ddc98d54d70ab245327e9d7abcd6",
+            "start": 1684,
+            "end": 2016,
+            "context_verified": false
+          }
+        ]
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 0,
+        "text": "根据浏览器发送的"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 1,
+        "text": "段落，verifiable.pro "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 2,
+        "text": "的相关内容如下："
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 3,
+        "text": "\n\n- **核查"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 4,
+        "text": " AI 回答的三"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 5,
+        "text": "种方法对比：零知"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 6,
+        "text": "识证明、安全飞地"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 7,
+        "text": "与重新执行**（"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 8,
+        "text": "安全飞地开销可以"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 9,
+        "text": "很小，但信任转移"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 10,
+        "text": "到硬件和度量值上"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 11,
+        "text": "）：“安全飞地的"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 12,
+        "text": "设计目标是不让运"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 13,
+        "text": "营方接触提示词和"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 14,
+        "text": "权重，远程证明则"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 15,
+        "text": "是关于加载了哪些"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 16,
+        "text": "软件的证据。” "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 17,
+        "text": "[1]\n- “按"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 18,
+        "text": "照互联网工程任务"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 19,
+        "text": "组（IETF）的"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 20,
+        "text": "远程证明架构，验"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 21,
+        "text": "证方把证据与参考"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 22,
+        "text": "值比对，例如已知"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 23,
+        "text": "良好的度量值。” "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 24,
+        "text": "[2]\n\n模拟后"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 25,
+        "text": "端：这个回答不是"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 26,
+        "text": "模型生成的，只摘"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 27,
+        "text": "录上面的段落，也"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 28,
+        "text": "没有经过任何证明"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 29,
+        "text": "。"
+      }
+    },
+    {
+      "event": "done",
+      "data": {
+        "finish_reason": "stop",
+        "used_citations": [
+          1,
+          2
+        ],
+        "usage": {
+          "input_tokens": 649,
+          "output_tokens": 208,
+          "estimated": true
+        },
+        "receipt": null
+      }
+    }
+  ],
+  "raw": ": ping\n\nevent: meta\ndata: {\"request_id\":\"req_a37fcc184a8cf46f\",\"backend\":\"mock-local\",\"mode\":\"mock\",\"model\":\"mock-extractive\",\"attestation_id\":null,\"keyset_digest\":\"d09f6cea75c967654a7df1d6e8d839ffb4a8c680701a40b60d8be7b1cb59ead5\",\"started_at\":\"2026-10-20T14:02:11Z\"}\n\nevent: citations\ndata: {\"items\":[{\"n\":1,\"chunk_id\":\"proofs-enclaves-and-re-execution-compared/zh#安全飞地开销可以很小但信任转移到硬件和度量值上/0\",\"title\":\"核查 AI 回答的三种方法对比：零知识证明、安全飞地与重新执行\",\"heading\":\"安全飞地开销可以很小，但信任转移到硬件和度量值上\",\"url\":\"/zh/articles/proofs-enclaves-and-re-execution-compared/#安全飞地开销可以很小但信任转移到硬件和度量值上\",\"lang\":\"zh\",\"source\":\"/articles/proofs-enclaves-and-re-execution-compared/zh.md\",\"source_sha256\":\"974782930afcb09de40d9d4a5e2ab91aae30ddc98d54d70ab245327e9d7abcd6\",\"start\":1254,\"end\":1682,\"context_verified\":false},{\"n\":2,\"chunk_id\":\"proofs-enclaves-and-re-execution-compared/zh#安全飞地开销可以很小但信任转移到硬件和度量值上/1\",\"title\":\"核查 AI 回答的三种方法对比：零知识证明、安全飞地与重新执行\",\"heading\":\"安全飞地开销可以很小，但信任转移到硬件和度量值上\",\"url\":\"/zh/articles/proofs-enclaves-and-re-execution-compared/#安全飞地开销可以很小但信任转移到硬件和度量值上\",\"lang\":\"zh\",\"source\":\"/articles/proofs-enclaves-and-re-execution-compared/zh.md\",\"source_sha256\":\"974782930afcb09de40d9d4a5e2ab91aae30ddc98d54d70ab245327e9d7abcd6\",\"start\":1684,\"end\":2016,\"context_verified\":false}]}\n\nevent: delta\ndata: {\"i\":0,\"text\":\"根据浏览器发送的\"}\n\nevent: delta\ndata: {\"i\":1,\"text\":\"段落，verifiable.pro \"}\n\nevent: delta\ndata: {\"i\":2,\"text\":\"的相关内容如下：\"}\n\nevent: delta\ndata: {\"i\":3,\"text\":\"\\n\\n- **核查\"}\n\nevent: delta\ndata: {\"i\":4,\"text\":\" AI 回答的三\"}\n\nevent: delta\ndata: {\"i\":5,\"text\":\"种方法对比：零知\"}\n\nevent: delta\ndata: {\"i\":6,\"text\":\"识证明、安全飞地\"}\n\nevent: delta\ndata: {\"i\":7,\"text\":\"与重新执行**（\"}\n\nevent: delta\ndata: {\"i\":8,\"text\":\"安全飞地开销可以\"}\n\nevent: delta\ndata: {\"i\":9,\"text\":\"很小，但信任转移\"}\n\nevent: delta\ndata: {\"i\":10,\"text\":\"到硬件和度量值上\"}\n\nevent: delta\ndata: {\"i\":11,\"text\":\"）：“安全飞地的\"}\n\nevent: delta\ndata: {\"i\":12,\"text\":\"设计目标是不让运\"}\n\nevent: delta\ndata: {\"i\":13,\"text\":\"营方接触提示词和\"}\n\nevent: delta\ndata: {\"i\":14,\"text\":\"权重，远程证明则\"}\n\nevent: delta\ndata: {\"i\":15,\"text\":\"是关于加载了哪些\"}\n\nevent: delta\ndata: {\"i\":16,\"text\":\"软件的证据。” \"}\n\nevent: delta\ndata: {\"i\":17,\"text\":\"[1]\\n- “按\"}\n\nevent: delta\ndata: {\"i\":18,\"text\":\"照互联网工程任务\"}\n\nevent: delta\ndata: {\"i\":19,\"text\":\"组（IETF）的\"}\n\nevent: delta\ndata: {\"i\":20,\"text\":\"远程证明架构，验\"}\n\nevent: delta\ndata: {\"i\":21,\"text\":\"证方把证据与参考\"}\n\nevent: delta\ndata: {\"i\":22,\"text\":\"值比对，例如已知\"}\n\nevent: delta\ndata: {\"i\":23,\"text\":\"良好的度量值。” \"}\n\nevent: delta\ndata: {\"i\":24,\"text\":\"[2]\\n\\n模拟后\"}\n\nevent: delta\ndata: {\"i\":25,\"text\":\"端：这个回答不是\"}\n\nevent: delta\ndata: {\"i\":26,\"text\":\"模型生成的，只摘\"}\n\nevent: delta\ndata: {\"i\":27,\"text\":\"录上面的段落，也\"}\n\nevent: delta\ndata: {\"i\":28,\"text\":\"没有经过任何证明\"}\n\nevent: delta\ndata: {\"i\":29,\"text\":\"。\"}\n\nevent: done\ndata: {\"finish_reason\":\"stop\",\"used_citations\":[1,2],\"usage\":{\"input_tokens\":649,\"output_tokens\":208,\"estimated\":true},\"receipt\":null}\n\n"
+}

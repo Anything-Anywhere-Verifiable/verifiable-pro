@@ -1,0 +1,1388 @@
+{
+  "stack": [
+    {
+      "id": "institutions",
+      "name": {
+        "en": "Policy",
+        "zh": "政策"
+      },
+      "claim": {
+        "en": "Developers and governments keep the commitments they make about training, deployment and compute.",
+        "zh": "开发者与政府信守其在训练、部署和算力方面作出的承诺。"
+      },
+      "checkers": {
+        "en": "Regulators and inspectors can check commitments, mostly through audits and site visits.",
+        "zh": "监管机构和检查人员可以核查这些承诺，主要通过审计和现场检查。"
+      },
+      "topics": [
+        "governance-compute"
+      ],
+      "tee": {
+        "reach": "via",
+        "short": {
+          "en": "Under a proposal, chips would sign location-check answers with a key in TEE firmware.",
+          "zh": "按一项提议，芯片将用 TEE 固件中的密钥为位置核查的应答签名。"
+        },
+        "text": {
+          "en": "For proposed location checks on export-controlled chips, CSET recommends that each chip sign its answers with a key in its TEE firmware. This shows where a chip answers from. It does not show who uses the chip or whether a commitment was kept.",
+          "zh": "对于拟议中的出口管制芯片位置核查，CSET 建议每颗芯片用其 TEE 固件中的密钥为应答签名。这能说明芯片从何处应答，但不能说明谁在使用它，也不能说明承诺是否得到遵守。"
+        }
+      },
+      "others": [
+        {
+          "tier": "audits",
+          "examples": {
+            "en": "inspections, conformity assessment, evaluator requirements",
+            "zh": "现场检查、合格评定、对评测方的要求"
+          }
+        }
+      ],
+      "bind": {
+        "status": "missing",
+        "text": {
+          "en": "Commitments and rules rarely name the audit results or attested evidence they rely on, though there are proposals to do so for compute agreements.",
+          "zh": "承诺与规则很少写明所依据的审计结果或证明证据，不过在算力协议方面，已有提案这样做。"
+        }
+      },
+      "hero": {
+        "short": {
+          "en": "Policy",
+          "zh": "政策"
+        },
+        "icon": "policy",
+        "examples": [
+          {
+            "logo": "europeanunion",
+            "text": "AI Act"
+          },
+          {
+            "text": "NIST"
+          },
+          {
+            "text": "ISO 42001"
+          },
+          {
+            "text": {
+              "en": "CAC",
+              "zh": "网信办"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "evaluations",
+      "name": {
+        "en": "Evaluations & audits",
+        "zh": "评测与审计"
+      },
+      "claim": {
+        "en": "A reported result came from the stated model, tests and conditions.",
+        "zh": "公布的结果确实来自所声明的模型、测试和条件。"
+      },
+      "checkers": {
+        "en": "Independent evaluators given access to the model can rerun the tests or check the test logs.",
+        "zh": "获准访问模型的独立评测方可以重跑测试，或核对测试日志。"
+      },
+      "topics": [
+        "evaluation-audits",
+        "formal-verification"
+      ],
+      "tee": {
+        "reach": "via",
+        "short": {
+          "en": "An evaluation run in a TEE shows which model and test code were loaded.",
+          "zh": "在 TEE 中运行的评测，可以说明加载了哪个模型和哪些测试代码。"
+        },
+        "text": {
+          "en": "When an evaluation runs inside a TEE, the attestation report shows which model, test set and evaluation code were loaded. The weights and test items can also stay confidential. The report does not show that the benchmark measures what matters.",
+          "zh": "评测在 TEE 中运行时，证明报告会说明加载了哪个模型、哪个测试集和哪些评测代码。权重和测试题也可以保持机密。证明报告不能说明基准衡量的是真正重要的能力。"
+        }
+      },
+      "others": [
+        {
+          "tier": "audits",
+          "examples": {
+            "en": "structured access, accredited testing",
+            "zh": "结构化访问、经认证的测试"
+          }
+        },
+        {
+          "tier": "reexecution",
+          "examples": {
+            "en": "rerunning an evaluation",
+            "zh": "重跑评测"
+          }
+        },
+        {
+          "tier": "proofs",
+          "examples": {
+            "en": "zero-knowledge evaluation proofs",
+            "zh": "零知识评测证明"
+          }
+        }
+      ],
+      "bind": {
+        "status": "emerging",
+        "text": {
+          "en": "Evaluations run inside TEEs, or auditors check logs that are bound to attested environments.",
+          "zh": "评测在 TEE 中运行，或者由审计方核对日志，这些日志与经远程证明的环境绑定。"
+        }
+      },
+      "hero": {
+        "short": {
+          "en": "Evaluations",
+          "zh": "评测"
+        },
+        "icon": "evaluations",
+        "examples": [
+          {
+            "text": "UK AISI"
+          },
+          {
+            "text": "US CAISI"
+          },
+          {
+            "text": "METR"
+          },
+          {
+            "text": "Apollo"
+          }
+        ]
+      }
+    },
+    {
+      "id": "agents",
+      "name": {
+        "en": "Agents & actions",
+        "zh": "智能体与行动"
+      },
+      "claim": {
+        "en": "An agent took these actions, under this policy, on behalf of this person or organization.",
+        "zh": "智能体依据这项策略，代表这个人或机构采取了这些行动。"
+      },
+      "checkers": {
+        "en": "Services an agent calls can check its signed requests; reviewers can later check its log.",
+        "zh": "智能体调用的服务可以核验它的签名请求；审查人员事后可以核对它的日志。"
+      },
+      "topics": [
+        "agents-accountability"
+      ],
+      "tee": {
+        "reach": "via",
+        "short": {
+          "en": "Shows which guardrail code was loaded, but not that it works.",
+          "zh": "可以说明加载了哪段护栏代码，但不能说明它有效。"
+        },
+        "text": {
+          "en": "An attested agent runtime can show which guardrail or policy code was loaded before the agent acted. It does not show that the guardrail works or who authorized the agent.",
+          "zh": "经远程证明的智能体运行时可以说明，智能体行动之前加载了哪段护栏或策略代码。它不能说明护栏确实有效，也不能说明是谁授权了智能体。"
+        }
+      },
+      "others": [
+        {
+          "tier": "signatures",
+          "examples": {
+            "en": "signed requests and mandates, tamper-evident logs",
+            "zh": "签名请求与授权书、篡改可检测日志"
+          }
+        },
+        {
+          "tier": "audits",
+          "examples": {
+            "en": "incident reviews",
+            "zh": "事故审查"
+          }
+        }
+      ],
+      "bind": {
+        "status": "emerging",
+        "text": {
+          "en": "Each action is recorded in a tamper-evident log, together with the signed output that triggered it.",
+          "zh": "每一次行动连同触发它的已签名输出，一起记入篡改可检测日志。"
+        }
+      },
+      "hero": {
+        "short": {
+          "en": "Agents",
+          "zh": "智能体"
+        },
+        "icon": "agents",
+        "examples": [
+          {
+            "logo": "claudecode"
+          },
+          {
+            "logo": "codex"
+          },
+          {
+            "logo": "githubcopilot"
+          },
+          {
+            "logo": "cursor"
+          },
+          {
+            "logo": "metaai",
+            "name": "Meta AI · Muse Spark"
+          },
+          {
+            "logo": "pi",
+            "name": {
+              "en": "Pi coding agent",
+              "zh": "Pi 编程智能体"
+            }
+          },
+          {
+            "logo": "mcp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outputs",
+      "name": {
+        "en": "Outputs & content",
+        "zh": "输出与内容"
+      },
+      "claim": {
+        "en": "This output came from this model and input, and this media has this origin.",
+        "zh": "这一输出由该模型根据该输入生成，这份媒体内容具有所声明的来源。"
+      },
+      "checkers": {
+        "en": "Readers and platforms can check a response's signature or an image's Content Credential.",
+        "zh": "读者和平台可以核验回答的签名，或图片的内容凭证。"
+      },
+      "topics": [
+        "verifiable-inference",
+        "content-provenance"
+      ],
+      "tee": {
+        "reach": "via",
+        "short": {
+          "en": "Can tie a response to the software that produced it, but cannot show that it is correct.",
+          "zh": "可以把回答对应到生成它的软件，但不能说明回答正确。"
+        },
+        "text": {
+          "en": "When the session is bound to the attestation report, a response can be tied to the software that produced it. If that software measured the weights, the response can be tied to them too. The report does not show that the output is correct.",
+          "zh": "当会话与证明报告绑定时，回答可以对应到生成它的软件。如果该软件度量了权重，回答也能对应到这些权重。证明报告不能说明输出正确。"
+        }
+      },
+      "others": [
+        {
+          "tier": "proofs",
+          "examples": {
+            "en": "zero-knowledge proofs of inference",
+            "zh": "推理的零知识证明"
+          }
+        },
+        {
+          "tier": "reexecution",
+          "examples": {
+            "en": "activation fingerprints, refereed delegation, sampled audits",
+            "zh": "激活指纹、仲裁式委托、抽样审计"
+          }
+        },
+        {
+          "tier": "signatures",
+          "examples": {
+            "en": "Content Credentials, watermarks",
+            "zh": "内容凭证、水印"
+          }
+        }
+      ],
+      "bind": {
+        "status": "emerging",
+        "text": {
+          "en": "Responses are signed with a key that exists only inside the attested environment.",
+          "zh": "为回答签名的密钥只存在于经远程证明的环境中。"
+        }
+      },
+      "hero": {
+        "short": {
+          "en": "AI outputs",
+          "zh": "AI 生成内容"
+        },
+        "icon": "outputs",
+        "examples": [
+          {
+            "text": "C2PA"
+          },
+          {
+            "logo": "google",
+            "text": "SynthID"
+          },
+          {
+            "logo": "openai",
+            "name": {
+              "en": "OpenAI (C2PA on generated images)",
+              "zh": "OpenAI（生成的图像附带 C2PA 信息）"
+            }
+          },
+          {
+            "logo": "meta",
+            "name": {
+              "en": "Meta (AI labels)",
+              "zh": "Meta（AI 标签）"
+            }
+          },
+          {
+            "logo": "tiktok",
+            "name": {
+              "en": "TikTok (AI labels)",
+              "zh": "TikTok（AI 标签）"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "models",
+      "name": {
+        "en": "Models & data",
+        "zh": "模型与数据"
+      },
+      "claim": {
+        "en": "These are the weights that were trained, signed and deployed, with this lineage.",
+        "zh": "部署的权重正是经过训练和签名的那一份，并具有所声明的来源谱系。"
+      },
+      "checkers": {
+        "en": "Developers and auditors can check a model's signature, or compare its hash with the published one.",
+        "zh": "开发者和审计方可以核验模型的签名，或把权重哈希值与公开的哈希值比对。"
+      },
+      "topics": [
+        "supply-chain",
+        "governance-compute"
+      ],
+      "tee": {
+        "reach": "via",
+        "short": {
+          "en": "Weights count only if measured code checks them. Attestation can be a condition for releasing their keys.",
+          "zh": "权重只有经被度量的代码核对才算在内。远程证明可以作为释放权重密钥的前提。"
+        },
+        "text": {
+          "en": "Weights loaded after launch are covered only if measured code checks them, for example against a published hash. A key server can also release the key that decrypts the weights only to an environment whose attestation meets its policy.",
+          "zh": "启动后加载的权重，只有经被度量的代码核对（例如与公开的哈希值比对），才在覆盖范围之内。密钥服务器还可以只在某个环境的远程证明结果符合其策略时，才向它释放权重的解密密钥。"
+        }
+      },
+      "others": [
+        {
+          "tier": "signatures",
+          "examples": {
+            "en": "model signing, build provenance, AI bills of materials",
+            "zh": "模型签名、构建溯源、AI 物料清单"
+          }
+        },
+        {
+          "tier": "proofs",
+          "examples": {
+            "en": "weight commitments, proofs of training data",
+            "zh": "权重承诺、训练数据证明"
+          }
+        },
+        {
+          "tier": "audits",
+          "examples": {
+            "en": "dataset audits",
+            "zh": "数据集审计"
+          }
+        }
+      ],
+      "bind": {
+        "status": "emerging",
+        "text": {
+          "en": "The attested software records a hash of the weights it loads, so the report can name the exact model.",
+          "zh": "经远程证明的软件记录所加载权重的哈希值，报告因此可以指明具体是哪个模型。"
+        }
+      },
+      "hero": {
+        "short": {
+          "en": "Models & data",
+          "zh": "模型与数据"
+        },
+        "icon": "models",
+        "examples": [
+          {
+            "logo": "openai"
+          },
+          {
+            "logo": "anthropic"
+          },
+          {
+            "logo": "googlegemini"
+          },
+          {
+            "logo": "meta",
+            "name": "Meta Llama"
+          },
+          {
+            "logo": "deepseek"
+          },
+          {
+            "logo": "qwen"
+          },
+          {
+            "logo": "huggingface",
+            "name": "Hugging Face"
+          }
+        ]
+      }
+    },
+    {
+      "id": "runtime",
+      "name": {
+        "en": "Software & runtime",
+        "zh": "软件与运行时"
+      },
+      "claim": {
+        "en": "This exact code and configuration processed the request.",
+        "zh": "处理请求的正是这份代码和配置。"
+      },
+      "checkers": {
+        "en": "Your device can compare attested measurements with published values before it sends a request.",
+        "zh": "你的设备可以在发送请求之前，把证明报告中的度量值与公开的参考值比对。"
+      },
+      "topics": [
+        "confidential-computing",
+        "formal-verification"
+      ],
+      "tee": {
+        "reach": "direct",
+        "short": {
+          "en": "Launch measurements identify the code and configuration that were loaded.",
+          "zh": "启动度量值标识出所加载的代码与配置。"
+        },
+        "text": {
+          "en": "Measurements taken at launch identify the software that was loaded. A verifier compares them with published reference values. Inputs loaded later count only if measured code checks them. A match identifies the software but does not show that it behaves correctly.",
+          "zh": "启动时的度量值标识出所加载的软件，验证方把它们与公开的参考值比对。之后加载的输入，只有经被度量的代码核对才算在内。度量值相符只能标识软件，不能说明软件行为正确。"
+        }
+      },
+      "others": [
+        {
+          "tier": "signatures",
+          "examples": {
+            "en": "signed builds, logged releases",
+            "zh": "签名构建、登记在案的版本"
+          }
+        },
+        {
+          "tier": "proofs",
+          "examples": {
+            "en": "formal verification of code",
+            "zh": "代码的形式化验证"
+          }
+        }
+      ],
+      "bind": {
+        "status": "deployed",
+        "text": {
+          "en": "At launch the chip measures the software it loads and signs those measurements in its attestation report.",
+          "zh": "启动时，芯片度量所加载的软件，并在远程证明报告中为这些度量值签名。"
+        }
+      },
+      "hero": {
+        "short": {
+          "en": "Runtime",
+          "zh": "运行时"
+        },
+        "icon": "runtime",
+        "examples": [
+          {
+            "logo": "googlecloud",
+            "name": "Google Cloud"
+          },
+          {
+            "logo": "amazonwebservices"
+          },
+          {
+            "logo": "azure"
+          },
+          {
+            "logo": "apple",
+            "name": "Apple Private Cloud Compute"
+          },
+          {
+            "logo": "vllm"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hardware",
+      "name": {
+        "en": "Hardware & compute",
+        "zh": "硬件与算力"
+      },
+      "claim": {
+        "en": "The computation ran on genuine hardware in a protected mode.",
+        "zh": "计算确实在真实硬件的受保护模式下运行。"
+      },
+      "checkers": {
+        "en": "Your device can check the attestation report's signature before it sends a request.",
+        "zh": "你的设备可以在发送请求之前核验证明报告的签名。"
+      },
+      "topics": [
+        "confidential-computing",
+        "governance-compute"
+      ],
+      "tee": {
+        "reach": "direct",
+        "short": {
+          "en": "A report whose key chains to the chip vendor shows genuine hardware in a protected mode.",
+          "zh": "报告由可追溯至芯片厂商的密钥签名，能说明硬件真实且处于受保护模式。"
+        },
+        "text": {
+          "en": "A report signed with a key that chains to the chip vendor shows that genuine hardware launched the measured software in a protected mode, at stated firmware versions. Whether the mode keeps the host out depends on the vendor's design. You trust that design within the vendor's threat model, which leaves out some physical and side-channel attacks.",
+          "zh": "报告由可追溯至芯片厂商的密钥签名。它说明真实硬件在受保护模式下启动了被度量的软件，并给出固件版本。这一模式能否把宿主机挡在外面，取决于厂商的设计。你对这一设计的信任只在厂商的威胁模型内成立，而该模型不涵盖部分物理攻击和侧信道攻击。"
+        }
+      },
+      "others": [
+        {
+          "tier": "audits",
+          "examples": {
+            "en": "data-center and chip inspections",
+            "zh": "数据中心与芯片的现场检查"
+          }
+        }
+      ],
+      "hero": {
+        "short": {
+          "en": "Hardware",
+          "zh": "硬件"
+        },
+        "icon": "hardware",
+        "examples": [
+          {
+            "logo": "nvidia"
+          },
+          {
+            "logo": "amd"
+          },
+          {
+            "logo": "intel"
+          },
+          {
+            "logo": "arm"
+          },
+          {
+            "logo": "qualcomm"
+          }
+        ]
+      }
+    }
+  ],
+  "topics": [
+    {
+      "id": "confidential-computing",
+      "name": {
+        "en": "Confidential computing & attestation",
+        "zh": "机密计算与远程证明"
+      },
+      "one_liner": {
+        "en": "Hardware isolation designed to protect AI workloads while they run, paired with remote attestation, which reports the software loaded to handle prompts, data and model weights.",
+        "zh": "硬件隔离旨在保护运行中的 AI 工作负载，远程证明则报告加载了哪些软件来处理提示词、数据和模型权重。"
+      },
+      "description": {
+        "en": "A client, key server or auditor can check a service before sending it prompts or releasing model keys to it. The check shows whether the service runs in a trusted execution environment (TEE), a hardware-isolated mode of a CPU or GPU. It also shows which software the service loaded at startup. The evidence is an attestation report, which records hashes of that software, called measurements. The report is signed with a key that chains to the hardware vendor. A verifier compares the measurements with reference values, such as the measurements of published software releases. Isolation is designed to protect the running workload from the host, and attestation shows what was loaded. Neither shows that the software behaves correctly. Both depend on the hardware vendor and on threat models that exclude some physical attacks.",
+        "zh": "在发送提示词或释放模型密钥之前，客户端、密钥服务器或审计方可以核实某项服务是否运行在可信执行环境（TEE）中，以及服务启动时加载了哪些软件。TEE 是 CPU 或 GPU 上一种由硬件隔离的运行模式。证据是一份证明报告，其中记录了这些软件的哈希值，称为度量值。报告由一把可追溯至硬件厂商的密钥签名。验证方把这些度量值与参考值比对，例如已发布软件版本的度量值。隔离的设计目标是保护运行中的工作负载不受宿主机侵扰，远程证明则说明加载了什么。两者都不能说明软件行为正确。两者也都依赖硬件厂商和威胁模型，而这些威胁模型不涵盖部分物理攻击。"
+      },
+      "questions": {
+        "en": [
+          "What does a valid attestation report establish? What does it leave open, such as software correctness, physical attacks or the machine's location?",
+          "How can outsiders confirm that attested measurements correspond to software images they can inspect?",
+          "When attestation evidence covers both a confidential VM and a GPU, is it bound to the same machine and session?",
+          "Which parties must still be trusted, including the chip vendor, the cloud operator and the developer of the measured software?",
+          "How much performance does confidential inference cost on current GPUs? Which configuration choices drive the overhead?"
+        ],
+        "zh": [
+          "一份有效的证明报告能确立什么？又有哪些问题仍未回答，例如软件是否正确、物理攻击或机器所在位置？",
+          "外部人员如何确认，证明报告中的度量值对应着他们可以检查的软件镜像？",
+          "当证明证据同时覆盖机密虚拟机和 GPU 时，这些证据是否绑定到同一台机器和同一会话？",
+          "哪些参与方仍需被信任，包括芯片厂商、云运营方以及被度量软件的开发者？",
+          "在当前的 GPU 上，机密推理要付出多少性能代价？哪些配置选择决定了开销大小？"
+        ]
+      },
+      "techniques": [
+        {
+          "name": {
+            "en": "Confidential virtual machines",
+            "zh": "机密虚拟机"
+          },
+          "description": {
+            "en": "AMD SEV-SNP and Intel TDX run a whole virtual machine in encrypted, integrity-protected memory. The hardware is designed to keep that memory from the hypervisor, the software that manages virtual machines. Keys rooted in the hardware sign attestation reports about the machine's launch state.",
+            "zh": "AMD SEV-SNP 和 Intel TDX 让整台虚拟机在加密且受完整性保护的内存中运行。按照硬件的设计，虚拟机监控器（管理虚拟机的软件）读不到这部分内存。植根于硬件的密钥会为证明报告签名，报告说明虚拟机的启动状态。"
+          }
+        },
+        {
+          "name": {
+            "en": "GPU confidential computing",
+            "zh": "GPU 机密计算"
+          },
+          "description": {
+            "en": "In confidential-computing mode, an NVIDIA GPU isolates workload memory behind hardware firewalls and exchanges encrypted data with a confidential VM. The GPU also produces a signed attestation report, which can be checked with NVIDIA's Remote Attestation Service or locally.",
+            "zh": "在机密计算模式下，NVIDIA GPU 以硬件防火墙隔离工作负载内存，并与机密虚拟机交换加密数据。GPU 还会生成签名的证明报告，可以通过 NVIDIA 远程证明服务（NRAS）或在本地验证。"
+          }
+        },
+        {
+          "name": {
+            "en": "Attestation-gated key release",
+            "zh": "基于远程证明的密钥释放"
+          },
+          "description": {
+            "en": "In the IETF's RATS architecture for remote attestation, the attester is the environment that produces evidence. A verifier compares that evidence with reference values. A relying party, such as a key server, releases decryption keys only when the verifier's result meets its policy.",
+            "zh": "在 IETF 为远程证明制定的 RATS 架构中，证明方是生成证据的环境。验证方把这些证据与参考值比对。密钥服务器等依赖方只在验证方的结果符合其策略时，才释放解密密钥。"
+          }
+        },
+        {
+          "name": {
+            "en": "Transparency logs for server software",
+            "zh": "服务器软件透明日志"
+          },
+          "description": {
+            "en": "The operator records the measurements of every production software image in an append-only log. Client devices send data only to servers whose attested measurements match a logged release. Outside researchers can inspect those releases (Apple Private Cloud Compute).",
+            "zh": "运营方把每个生产软件镜像的度量值写入只追加日志。服务器证明报告中的度量值必须与某个已登记的版本相符，客户端设备才会向它发送数据。外部研究人员可以检查这些已登记的版本（Apple Private Cloud Compute）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Non-targetable request routing",
+            "zh": "不可定向的请求路由"
+          },
+          "description": {
+            "en": "A third-party relay using Oblivious HTTP hides the client's IP address from the operator. An attacker who wants to steer a user's requests by IP address must therefore compromise both the relay and the operator's load balancer (Apple Private Cloud Compute).",
+            "zh": "第三方中继通过不经意 HTTP（OHTTP）转发请求，向运营方隐藏客户端的 IP 地址。因此，攻击者若想依据 IP 地址把某个用户的请求导向特定服务器，就必须同时攻破这个中继和运营方的负载均衡器（Apple Private Cloud Compute）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Platform and location binding",
+            "zh": "平台与位置绑定"
+          },
+          "description": {
+            "en": "Confidential-VM attestation is bound to evidence from the host's Trusted Platform Module (TPM). A verifier can then confirm that the workload runs on a specific machine in a trusted data center. The binding is designed to block attestation reports relayed from other machines (Proof of Cloud).",
+            "zh": "机密虚拟机的远程证明与宿主机可信平台模块（TPM）提供的证据绑定。验证方因此能确认，工作负载运行在可信数据中心内的某台特定机器上。这一绑定的设计目标是阻止从其他机器转发来的证明报告（Proof of Cloud）。"
+          }
+        }
+      ],
+      "tiers": [
+        "tee"
+      ]
+    },
+    {
+      "id": "verifiable-inference",
+      "name": {
+        "en": "Verifiable inference & computation",
+        "zh": "可验证推理与计算"
+      },
+      "one_liner": {
+        "en": "Cryptographic proofs and re-execution protocols for checking that an output, or a set of trained weights, came from the claimed model and computation.",
+        "zh": "用密码学证明和重新执行协议，核查一个输出或一组训练得到的权重是否确实来自所声明的模型与计算。"
+      },
+      "description": {
+        "en": "A user, auditor or protocol participant can check whether an API response came from the advertised model, weights and numerical precision. This matters because providers can substitute cheaper models, or quantized ones whose weights are stored at lower precision. The evidence can be a zero-knowledge proof of the whole computation or a lighter check. Lighter checks include sampled audits, statistical tests on outputs, dispute protocols that recompute only the disputed step, and activation fingerprints (compact hashes of the model's intermediate values). These options differ in cost and trust. Full proofs remain expensive for large models. Lighter schemes give probabilistic assurance or assume that at least one party is honest. Methods that recompute or compare outputs must also tolerate or eliminate small numerical differences across hardware and batch sizes.",
+        "zh": "用户、审计方或协议参与者可以核查一次 API 响应是否来自所宣称的模型、权重和数值精度。这一点之所以重要，是因为服务商可能换用更便宜的模型，或经过量化、以更低精度存储权重的模型。证据可以是对整个计算的零知识证明，也可以是较轻量的检查。较轻量的检查包括抽样审计、对输出的统计检验、只复算争议步骤的仲裁协议，以及激活指纹，即模型中间计算结果的紧凑哈希。这些方案的代价和信任假设各不相同。对大模型来说，完整的零知识证明仍然昂贵。较轻量的方案只提供概率性保证，或者假设至少有一方诚实。需要复算或比对输出的方法，还必须容忍或消除不同硬件和批大小带来的细微数值差异。"
+      },
+      "questions": {
+        "en": [
+          "How can a user confirm which model, weights and numerical precision produced an API response?",
+          "When is a full zero-knowledge proof worth its cost compared with sampled audits or dispute-based re-execution?",
+          "How can a verifier tolerate benign numerical differences between GPUs without letting model substitution pass?",
+          "What should a provider commit to publicly, such as weight hashes, quantization and decoding settings, so that outsiders can check its claims?",
+          "Can training runs, as well as inference, be verified at the scale of frontier models?"
+        ],
+        "zh": [
+          "用户如何确认是哪个模型、哪组权重、何种数值精度生成了一次 API 响应？",
+          "与抽样审计或基于争议的重新执行相比，完整的零知识证明在什么情况下才值得它的代价？",
+          "验证方如何容忍不同 GPU 之间正常的数值差异，同时不让模型替换蒙混过关？",
+          "服务商应公开承诺哪些内容（例如权重哈希、量化方式和解码设置），外部人员才能核查其声明？",
+          "除了推理，训练过程能否在前沿模型的规模上得到验证？"
+        ]
+      },
+      "techniques": [
+        {
+          "name": {
+            "en": "Zero-knowledge proofs of inference",
+            "zh": "推理的零知识证明"
+          },
+          "description": {
+            "en": "The prover generates a short proof that a committed model, one whose weights were fixed in advance, produced a given output from a given input. A verifier can check the proof quickly without seeing the weights.",
+            "zh": "证明者生成一份简短的证明，表明某个已承诺的模型（其权重事先已经固定）根据给定输入产生了给定输出。验证方无需看到权重，就能快速检查这份证明。"
+          }
+        },
+        {
+          "name": {
+            "en": "Lookup arguments and the sum-check protocol",
+            "zh": "查找论证与 sum-check 协议"
+          },
+          "description": {
+            "en": "Some operations in language models, such as softmax and normalization, are hard to express as arithmetic. Proof systems handle them with lookup arguments, which prove that values appear in a precomputed table. zkLLM adds a dedicated proof for attention, and DeepProve builds its prover on the sum-check protocol.",
+            "zh": "语言模型中的 softmax、归一化等操作难以表示为算术运算。证明系统用查找论证处理这些操作：查找论证能证明某些值出现在一张预先算好的表中。zkLLM 为注意力机制设计了专门的证明，DeepProve 则以 sum-check 协议为核心构建证明器。"
+          }
+        },
+        {
+          "name": {
+            "en": "Activation fingerprints",
+            "zh": "激活指纹"
+          },
+          "description": {
+            "en": "The provider commits to compact locality-sensitive hashes of intermediate activations. Such hashes stay similar when the activations are similar. A validator recomputes the hashes faster than the original generation to detect a changed model, prompt or precision (TOPLOC).",
+            "zh": "服务商对中间激活值的紧凑局部敏感哈希作出承诺。激活值相近时，这类哈希也相近。验证方以快于原始生成的速度重新计算这些哈希，从而发现模型、提示词或精度是否被改动（TOPLOC）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Refereed delegation",
+            "zh": "仲裁式委托"
+          },
+          "description": {
+            "en": "The same job goes to several providers. If their results disagree, a protocol narrows the dispute to a single operation, which a referee recomputes. The client gets the correct result if at least one provider is honest and execution is bitwise reproducible (Verde).",
+            "zh": "同一任务交给多家服务商执行。如果结果不一致，协议会把争议缩小到单个算子，由仲裁方重新计算。只要至少一家服务商诚实，且执行过程逐位可复现，客户端就能得到正确结果（Verde）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Proof of learning and replayable training",
+            "zh": "学习证明与可重放训练"
+          },
+          "description": {
+            "en": "The trainer keeps checkpoints (weights saved at intervals) and training metadata, so that a verifier can replay segments of the run. Controlling GPU nondeterminism lets the replay match exactly.",
+            "zh": "训练方保存检查点（定期保存的权重）和训练元数据，使验证方可以重放部分训练过程。控制 GPU 的非确定性之后，重放结果可以逐位一致。"
+          }
+        },
+        {
+          "name": {
+            "en": "Sampled verifiable audits",
+            "zh": "抽样可验证审计"
+          },
+          "description": {
+            "en": "An auditor checks a small fraction of requests with verifiable computation instead of proving every request. This spreads the cost of proofs across many requests while still detecting systematic substitution or overbilling (IMMACULATE).",
+            "zh": "审计方用可验证计算检查一小部分请求，而不必为每个请求生成证明。这样能把证明开销分摊到大量请求上，同时仍能发现系统性的模型替换或多计费行为（IMMACULATE）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Statistical model-identity tests",
+            "zh": "模型身份统计检验"
+          },
+          "description": {
+            "en": "Two-sample tests compare outputs from an API with samples from reference weights. They can detect quantization, fine-tuning or substitution without the provider's cooperation. But they need many queries and can miss subtle substitutions.",
+            "zh": "双样本检验把 API 的输出与参考权重生成的样本相比较，无需服务商配合就能发现量化、微调或模型替换。但这类检验需要大量查询，也可能漏掉细微的替换。"
+          }
+        }
+      ],
+      "tiers": [
+        "reexecution",
+        "proofs"
+      ],
+      "tee_relation": {
+        "en": "Proofs and re-execution check which model produced an output without trusting a chip vendor, but the prover or the checker sees the prompt. A trusted execution environment (TEE) is designed to keep the prompt from the operator, at an overhead of a few percent when tuned. It leaves the question of which model ran to the software it measures. Combinations such as EigenAI's re-execution inside TEEs rely on both sets of assumptions.",
+        "zh": "数学证明和重新执行无需信任芯片厂商，就能核查输出出自哪个模型，但生成证明或执行核查的一方能看到提示词。可信执行环境（TEE）的设计目标是对运营方隐藏提示词，调优后只需几个百分点的开销。至于运行的是哪个模型，TEE 交给它所度量的软件来回答。像 EigenAI 在 TEE 中重新执行这样的组合，同时依赖两类假设。"
+      }
+    },
+    {
+      "id": "formal-verification",
+      "name": {
+        "en": "Formal verification",
+        "zh": "形式化验证"
+      },
+      "one_liner": {
+        "en": "Machine-checked proofs that a neural network, a program or AI-generated code satisfies a precise specification for every input in its scope.",
+        "zh": "用经机器检查的数学证明，表明神经网络、程序或 AI 生成的代码在适用范围内的所有输入上都满足精确的规约。"
+      },
+      "description": {
+        "en": "Anyone who trusts the proof checker, such as a proof assistant or verifier, can confirm that a property holds for every input in scope. They do not need to rely on the person or AI that wrote the proof. In AI, the evidence takes three forms. Proofs about neural networks can show a property such as robustness over a region of inputs. Machine-checked proofs can show that AI-generated code meets its specification. In the guaranteed-safe AI proposal, a verifier issues a proof certificate relative to a safety specification and a world model of how the system affects its environment. A proof establishes only that the system meets its specification, so errors or gaps in the specification carry over into the guarantee. Verification at the scale of whole repositories also remains difficult for current AI agents.",
+        "zh": "只要信任证明检查器（如证明助手或验证器），任何拿到证明的人都能确认某项性质对适用范围内的所有输入成立，无需依赖写出证明的人或 AI。在 AI 领域，这类证据有三种形式。关于神经网络的证明，可以说明某个输入区域内的鲁棒性等性质。机器检查的证明可以说明 AI 生成的代码满足其规约。在“可保证安全的 AI”构想中，验证器相对于安全规约和世界模型出具数学证明证书，世界模型描述系统如何影响其所处的环境。数学证明只能确立系统符合其规约，因此规约中的错误或遗漏会原样带入保证之中。对当前的 AI 智能体来说，整个代码仓库规模的验证也仍然困难。"
+      },
+      "questions": {
+        "en": [
+          "Which properties of AI systems can be stated precisely enough to prove, and which cannot?",
+          "How can reviewers check that a formal specification captures what people intend?",
+          "Can AI systems produce proofs quickly enough, and at sufficient scale, to verify real software?",
+          "How far can neural-network verifiers scale toward large modern models?",
+          "What would a credible world model and safety specification look like for guaranteed-safe AI?"
+        ],
+        "zh": [
+          "AI 系统的哪些性质可以表述得足够精确从而加以证明，哪些不能？",
+          "审查者如何检查一份形式化规约是否准确表达了人们的意图？",
+          "AI 系统能否以足够的速度和规模生成证明，以验证真实的软件？",
+          "神经网络验证器能在多大程度上扩展到大型现代模型？",
+          "对“可保证安全的 AI”而言，可信的世界模型和安全规约应当是什么样子？"
+        ]
+      },
+      "techniques": [
+        {
+          "name": {
+            "en": "Neural-network verifiers",
+            "zh": "神经网络验证器"
+          },
+          "description": {
+            "en": "These verifiers prove that a network's outputs satisfy a property, such as robustness, for every input in a region, or they return a counterexample. Examples are the SMT-based Reluplex and the bound-propagation verifier alpha-beta-CROWN.",
+            "zh": "这类验证器可以证明，在某个输入区域内的所有输入上，网络输出都满足鲁棒性等性质；或者给出反例。基于 SMT 的 Reluplex 和基于界传播的 alpha-beta-CROWN 都属于这类工具。"
+          }
+        },
+        {
+          "name": {
+            "en": "Proof assistants",
+            "zh": "证明助手"
+          },
+          "description": {
+            "en": "In proof assistants such as Lean, a machine checks every step of a proof. A proof that an AI generated can therefore be accepted once it passes the checker, without trusting the AI.",
+            "zh": "在 Lean 等证明助手中，证明的每一步都由机器检查。因此，AI 生成的证明只要通过检查就可以接受，无需信任生成它的 AI。"
+          }
+        },
+        {
+          "name": {
+            "en": "Verification-aware languages",
+            "zh": "支持验证的编程语言"
+          },
+          "description": {
+            "en": "Dafny and Verus let developers, or language models, write specifications and proof annotations alongside code. An automated solver then checks that the code meets them in all executions.",
+            "zh": "Dafny 和 Verus 允许开发者或语言模型在代码旁写下规约和证明注解。随后，自动求解器检查代码在所有执行中都满足这些规约。"
+          }
+        },
+        {
+          "name": {
+            "en": "Vericoding",
+            "zh": "形式化验证代码生成（vericoding）"
+          },
+          "description": {
+            "en": "Language models or agents generate an implementation together with a machine-checked proof that it meets a given formal specification. The code is accepted only if the verifier accepts the proof.",
+            "zh": "语言模型或智能体在生成实现的同时，生成一份机器检查的证明，表明实现满足给定的形式化规约。只有验证器接受这份证明，代码才会被采纳。"
+          }
+        },
+        {
+          "name": {
+            "en": "Guaranteed-safe AI architecture",
+            "zh": "可保证安全的 AI 架构"
+          },
+          "description": {
+            "en": "A world model describes how a system affects its environment. A safety specification states which effects are acceptable. A verifier then produces an auditable proof certificate that the system satisfies the specification relative to the world model.",
+            "zh": "世界模型描述系统如何影响外部环境，安全规约说明哪些影响可以接受。验证器据此出具可审计的数学证明证书，表明系统相对于该世界模型满足安全规约。"
+          }
+        },
+        {
+          "name": {
+            "en": "Specification auditing",
+            "zh": "规约审查"
+          },
+          "description": {
+            "en": "Benchmarks such as Vero let agents prove that a specification cannot be satisfied or that a reference implementation is wrong. This exposes errors in specifications and reference code while the benchmark is curated.",
+            "zh": "Vero 等基准允许智能体证明某份规约无法被满足，或证明参考实现有误。这样，在整理基准的过程中就能发现规约和参考代码中的错误。"
+          }
+        }
+      ],
+      "tiers": [
+        "proofs"
+      ],
+      "tee_relation": {
+        "en": "A formal proof shows that code or a network meets its specification for every input in scope, which an attestation report does not show. The two complement each other: attestation identifies which code was loaded, and a proof about that code can show that it meets its specification.",
+        "zh": "形式化证明说明代码或网络在适用范围内的所有输入上都满足规约，而远程证明报告不能说明这一点。两者可以互补：远程证明标识加载了哪份代码，关于这份代码的形式化证明则可以说明它满足规约。"
+      }
+    },
+    {
+      "id": "evaluation-audits",
+      "name": {
+        "en": "Verifiable evaluation & audits",
+        "zh": "可验证评测与审计"
+      },
+      "one_liner": {
+        "en": "Ways to bind a reported benchmark score or audit finding to the model, test set and code that produced it.",
+        "zh": "如何把公布的基准分数或审计结论，与产生它的模型、测试集和代码绑定起来。"
+      },
+      "description": {
+        "en": "Users, regulators and auditors want to check that a reported result came from the stated model, test set and evaluation code. They also want to know that the auditor had enough access to support the conclusion. A trusted execution environment (TEE) can attest which model, test set and code produced a score. Zero-knowledge proofs can tie results to weights and datasets that were committed in advance. Privacy-preserving remote execution gives auditors access without handing over the assets. Statistical tests can reveal contamination, where test items appeared in the training data. This evidence shows how a number was produced. Whether the benchmark measures what matters is a separate question. The depth of the auditor's access still limits what an audit can find.",
+        "zh": "用户、监管者和审计方希望核实一项公布的结果确实来自所声明的模型、测试集和评测代码，还希望确认审计方获得的访问权限足以支撑其结论。可信执行环境（TEE）可以通过证明报告说明，是哪个模型、测试集和代码产生了某个分数。零知识证明可以把结果与事先承诺的权重和数据集绑定。保护隐私的远程执行让审计方无需拿到这些资产就能检查。统计检验能揭示测试集污染，即测试题目出现在训练数据中。这些证据说明一个数字是如何产生的。基准能否衡量真正重要的能力，是另一个问题。审计方的访问深度仍然限制着审计能发现的问题。"
+      },
+      "questions": {
+        "en": [
+          "How can anyone confirm that a reported score came from the stated model, test set and evaluation code?",
+          "What level of access, whether black-box, white-box or outside-the-box, does a given audit claim require?",
+          "Can privacy-enhancing technologies give auditors deep access without exposing weights, data or test items?",
+          "How can contamination and the selective reporting of results be detected or prevented?",
+          "Who accredits auditors? How can audit findings themselves be made checkable?"
+        ],
+        "zh": [
+          "如何确认一个公布的分数确实来自所声明的模型、测试集和评测代码？",
+          "某项审计结论需要何种访问权限：黑盒、白盒还是“盒外”访问？",
+          "隐私增强技术能否在不暴露权重、数据或测试题目的前提下，为审计方提供深度访问？",
+          "如何发现或防止测试集污染和选择性公布结果？",
+          "由谁认证审计方？审计结论本身又如何变得可核查？"
+        ]
+      },
+      "techniques": [
+        {
+          "name": {
+            "en": "Remote execution under structured access",
+            "zh": "结构化访问下的远程执行"
+          },
+          "description": {
+            "en": "Auditors submit code. Once the code is approved, it runs against a private model or dataset on the owner's infrastructure. The auditors receive only the agreed outputs (OpenMined's PySyft).",
+            "zh": "审计方提交的代码经批准后，在所有者的基础设施上针对私有模型或数据集运行。审计方只拿到约定的输出（OpenMined 的 PySyft）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Attestable audits",
+            "zh": "基于远程证明的审计"
+          },
+          "description": {
+            "en": "The model, test set and benchmark code run inside a trusted execution environment. The hardware attests which artifacts produced a score, while the weights and test items stay confidential.",
+            "zh": "模型、测试集和基准代码在可信执行环境中运行。硬件签署的证明报告说明是哪些工件产生了某个分数，权重和测试题目则保持机密。"
+          }
+        },
+        {
+          "name": {
+            "en": "Zero-knowledge evaluation proofs",
+            "zh": "零知识评测证明"
+          },
+          "description": {
+            "en": "Some proofs show that a model with committed private weights achieves a stated metric on a dataset. Others show that answers to audit queries were computed over committed data and weights.",
+            "zh": "有的零知识证明表明，一个权重已承诺且保密的模型在某个数据集上达到了所声明的指标。有的则表明，审计查询的答案确实基于已承诺的数据和权重计算得出。"
+          }
+        },
+        {
+          "name": {
+            "en": "Double-blind evaluation",
+            "zh": "双盲评测"
+          },
+          "description": {
+            "en": "Encrypted test items and a developer's model meet only inside a secure enclave that runs jointly approved code. The enclave is designed to keep the prompts from the developer and the weights from the evaluator.",
+            "zh": "加密的测试题目与开发者的模型只在安全飞地中相遇，飞地运行双方共同批准的代码。飞地的设计目标是让开发者看不到提示词，评测方也看不到权重。"
+          }
+        },
+        {
+          "name": {
+            "en": "Contamination tests",
+            "zh": "污染检验"
+          },
+          "description": {
+            "en": "Statistical tests can show that a model saw test data during training. One test compares a model's likelihood for a benchmark's original ordering with its likelihood for shuffled orderings.",
+            "zh": "统计检验可以表明模型在训练中见过测试数据。一种检验比较模型对基准原始排列顺序的似然，和对打乱顺序后样本的似然。"
+          }
+        },
+        {
+          "name": {
+            "en": "Graded assurance levels",
+            "zh": "分级保障"
+          },
+          "description": {
+            "en": "Audit frameworks grade how much confidence a finding can carry. A 2026 proposal defines four AI Assurance Levels (AALs) and recommends AAL-1 as a baseline for frontier AI developers.",
+            "zh": "审计框架给审计结论能承载的可信程度分级。2026 年的一项提案定义了四个 AI 保障等级（AAL），并建议把 AAL-1 作为前沿 AI 开发者的基准。"
+          }
+        }
+      ],
+      "tiers": [
+        "audits"
+      ],
+      "tee_relation": {
+        "en": "An audit reaches practices and behavior that no attestation report describes. But its evidence rests on the examiner, not on a report that a client can check for each request. Running an evaluation inside a TEE combines the two: outside evaluators can test a confidential model, and the attestation report shows which model and test code were loaded.",
+        "zh": "审计能覆盖证明报告无法描述的做法与行为。但审计的证据依靠检查方，而不是一份客户端可以逐次核对的报告。在 TEE 中运行评测可以把两者结合起来：外部评测方能够测试保密的模型，证明报告则说明加载了哪个模型和哪些测试代码。"
+      }
+    },
+    {
+      "id": "supply-chain",
+      "name": {
+        "en": "Model & data supply chain",
+        "zh": "模型与数据供应链"
+      },
+      "one_liner": {
+        "en": "Signatures, build provenance and bills of materials that let a user check who produced a model or dataset, from which inputs, and whether it changed after release.",
+        "zh": "借助签名、构建溯源和物料清单，用户可以核查模型或数据集由谁产生、来自哪些输入，以及发布后是否被改动。"
+      },
+      "description": {
+        "en": "A user, platform or regulator can check that a model file is unchanged since a known producer signed it. They can also check how it was built and which datasets and dependencies it declares. The evidence comes from software-security practice adapted to machine learning. Signed manifests list the hashes of a model's files (OpenSSF Model Signing). Build provenance describes how an artifact was built (SLSA). AI bills of materials declare a model's datasets and dependencies (CycloneDX, SPDX). Transparency logs record signatures and signed statements (Sigstore, IETF SCITT). A valid signature shows who published an artifact and that it has not been altered since signing. It does not show that the model is safe or that its documentation is accurate.",
+        "zh": "用户、平台或监管者可以核查，模型文件自已知发布者签名以来是否保持不变。他们还可以核查文件是如何构建的，以及它声明了哪些数据集和依赖项。这些证据来自移植到机器学习领域的软件安全实践。签名清单列出模型各个文件的哈希值（OpenSSF 模型签名）。构建溯源描述制品是如何构建的（SLSA）。AI 物料清单声明模型的数据集和依赖项（CycloneDX、SPDX）。透明日志记录签名和签名声明（Sigstore、IETF SCITT）。有效的签名说明制品由谁发布、签名后未被改动，但不能说明模型是安全的，也不能说明其文档准确无误。"
+      },
+      "questions": {
+        "en": [
+          "Can a user verify who produced a model file and that it has not changed since release?",
+          "What should an AI bill of materials contain to be both useful and checkable?",
+          "How can dataset sources, licenses and transformations be traced at web scale?",
+          "How should signatures, provenance records and transparency logs work together across model hubs and registries?"
+        ],
+        "zh": [
+          "用户能否核实某个模型文件由谁产生，以及它自发布以来是否被改动？",
+          "AI 物料清单应包含哪些内容，才能既有用又可核查？",
+          "如何在网络规模上追溯数据集的来源、许可和处理过程？",
+          "签名、溯源记录和透明日志应如何在各个模型托管平台和注册中心之间协同工作？"
+        ]
+      },
+      "techniques": [
+        {
+          "name": {
+            "en": "Model signing",
+            "zh": "模型签名"
+          },
+          "description": {
+            "en": "A signature covers a manifest of hashes for all model files and can use bare keys, certificates or Sigstore identities. With Sigstore, each signing event is also recorded in a public transparency log (OpenSSF Model Signing).",
+            "zh": "签名覆盖所有模型文件的哈希清单，可使用裸密钥、证书或 Sigstore 身份。使用 Sigstore 时，每次签名事件还会记录在公开的透明日志中（OpenSSF 模型签名）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Build provenance",
+            "zh": "构建溯源"
+          },
+          "description": {
+            "en": "Signed provenance records describe where, when and how an artifact was produced. Higher SLSA levels set stricter requirements for how that provenance is generated.",
+            "zh": "经签名的溯源记录描述制品在何时、何地以及如何产生。SLSA 级别越高，对溯源信息生成方式的要求越严格。"
+          }
+        },
+        {
+          "name": {
+            "en": "AI bills of materials",
+            "zh": "AI 物料清单"
+          },
+          "description": {
+            "en": "Machine-readable inventories list a system's models, datasets and dependencies together with provenance and training information (CycloneDX ML-BOM, SPDX 3.0 AI profile).",
+            "zh": "机器可读的清单列出系统的模型、数据集和依赖项，以及溯源和训练信息（CycloneDX ML-BOM、SPDX 3.0 AI Profile）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Documentation and dataset audits",
+            "zh": "文档与数据集审计"
+          },
+          "description": {
+            "en": "Model cards report a model's intended uses and evaluation results. Croissant gives datasets machine-readable metadata. Large-scale audits trace where datasets came from and under which licenses.",
+            "zh": "模型卡报告模型的预期用途和评测结果。Croissant 为数据集提供机器可读的元数据。大规模审计则追溯数据集的来源和许可条款。"
+          }
+        },
+        {
+          "name": {
+            "en": "Supply-chain transparency services",
+            "zh": "供应链透明服务"
+          },
+          "description": {
+            "en": "Issuers register signed statements about artifacts with a transparency service, which records them in an append-only ledger and returns receipts (IETF SCITT, RFC 9943).",
+            "zh": "发布方把关于制品的签名声明登记到透明服务，透明服务将其记入只追加账本并返回收据（IETF SCITT，RFC 9943）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Reproducible builds",
+            "zh": "可复现构建"
+          },
+          "description": {
+            "en": "When anyone can rebuild bit-for-bit identical artifacts from the same source code, environment and instructions, a published binary can be checked against its source.",
+            "zh": "如果任何人都能用相同的源代码、构建环境和构建指令重建出逐位相同的制品，就可以核对已发布的二进制文件是否与源代码一致。"
+          }
+        },
+        {
+          "name": {
+            "en": "Attested ML pipelines",
+            "zh": "经远程证明的机器学习流水线"
+          },
+          "description": {
+            "en": "Trusted hardware and transparency logs record verifiable lineage for model artifacts from training through deployment (Atlas).",
+            "zh": "可信硬件和透明日志为模型制品记录从训练到部署的可验证谱系（Atlas）。"
+          }
+        }
+      ],
+      "tiers": [
+        "signatures"
+      ],
+      "tee_relation": {
+        "en": "A signature shows that model files are the ones a known publisher signed. It says nothing about the machine that later runs them. A trusted execution environment (TEE) can close part of that gap when measured code checks the weights against a signed manifest before use. A transparency log of software releases also lets a verifier compare the measurements in an attestation report with the logged releases.",
+        "zh": "签名说明模型文件正是某个已知发布者签署的那些文件，但不能说明之后运行它们的机器。如果被度量的代码在使用前把权重与签名清单比对，可信执行环境（TEE）就能补上一部分缺口。软件版本的透明日志还能让验证方把证明报告中的度量值与登记在案的版本比对。"
+      }
+    },
+    {
+      "id": "content-provenance",
+      "name": {
+        "en": "Content provenance & watermarking",
+        "zh": "内容溯源与水印"
+      },
+      "one_liner": {
+        "en": "Signed metadata and embedded watermarks that record where media came from and whether AI generated or edited it.",
+        "zh": "用签名元数据和嵌入式水印记录媒体内容的来源，以及它是否由 AI 生成或编辑。"
+      },
+      "description": {
+        "en": "Viewers, platforms and fact-checkers can check signed provenance metadata attached to an image, video, audio file or text (C2PA Content Credentials). They can also test content for a watermark that a generator embedded, such as Google DeepMind's SynthID. A valid credential shows who signed which claims about an asset and whether the signed bytes changed. It does not establish that the content is accurate, and the metadata can be stripped. A 2026 analysis also showed that a malicious signer can obtain valid C2PA signatures that cover none of a file's content. Watermarks can survive common edits. But theory shows that strong watermarking, in which a mark cannot be removed without noticeably degrading the content, is impossible under natural assumptions. That limit matters now that EU AI Act obligations to mark AI-generated content in a machine-readable way have applied since 2 August 2026.",
+        "zh": "观众、平台和事实核查者可以检查附加在图片、视频、音频或文本上的签名溯源元数据（C2PA 内容凭证），也可以检测内容中是否有生成工具嵌入的水印，例如 Google DeepMind 的 SynthID。有效的内容凭证说明谁对资产签署了哪些声明，以及被签名的字节是否发生了变化。它不能确立内容真实准确，元数据也可能被剥离。2026 年的一项分析还表明，恶意签名者可以拿到有效的 C2PA 签名，而这些签名不覆盖文件的任何内容。水印能经受常见的编辑。但理论研究表明，在自然的假设下，强水印（不明显损害内容质量就无法去除的水印）不可能做到。欧盟《人工智能法》要求以机器可读方式标记 AI 生成内容，这项义务已于 2026 年 8 月 2 日起适用，这一局限因此更值得关注。"
+      },
+      "questions": {
+        "en": [
+          "Can viewers reliably tell whether content was created or edited by AI, and by which system?",
+          "How robust are watermarks to editing, paraphrasing and deliberate removal?",
+          "Does signed provenance survive real-world sharing? How should verifiers treat stripped or partial credentials?",
+          "How can provenance systems avoid exposing photographers, journalists or sources who need anonymity?",
+          "How do legal marking and labeling duties map onto watermarking and metadata standards?"
+        ],
+        "zh": [
+          "观众能否可靠地判断内容是否由 AI 创建或编辑，以及由哪个系统完成？",
+          "水印在编辑、改写和蓄意去除面前有多稳健？",
+          "签名溯源信息能否在真实的传播过程中保留下来？验证方应如何对待被剥离或不完整的凭证？",
+          "溯源系统如何避免暴露需要匿名的摄影师、记者或消息来源？",
+          "法律规定的标记和标注义务如何与水印和元数据标准对应？"
+        ]
+      },
+      "techniques": [
+        {
+          "name": {
+            "en": "Content Credentials (C2PA manifests)",
+            "zh": "内容凭证（C2PA 清单）"
+          },
+          "description": {
+            "en": "Signed assertions about an asset's origin and edit history are bound to the content by cryptographic hashes (hard bindings). Fingerprints or invisible watermarks can also link them to the content (soft bindings).",
+            "zh": "关于资产来源和编辑历史的签名断言通过密码学哈希与内容绑定（硬绑定）。指纹或不可见水印也可以把它们与内容关联起来（软绑定）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Generative text watermarking",
+            "zh": "生成式文本水印"
+          },
+          "description": {
+            "en": "Sampling favors tokens chosen by a pseudorandom function of the preceding tokens and a key, as in green-list watermarks and SynthID-Text. A detector can then test text for this bias statistically.",
+            "zh": "采样时偏向某些词元，它们由一个伪随机函数根据前文词元和密钥选出，绿名单水印和 SynthID-Text 都是这样做的。检测方随后可以用统计检验判断文本中是否存在这种偏向。"
+          }
+        },
+        {
+          "name": {
+            "en": "Image, audio and video watermarks",
+            "zh": "图像、音频与视频水印"
+          },
+          "description": {
+            "en": "Imperceptible signals are embedded during or after generation. Stable Signature does this by fine-tuning an image model's decoder, and SynthID does it across Google's generative products.",
+            "zh": "在生成过程中或生成后嵌入人类难以察觉的信号。Stable Signature 通过微调图像模型的解码器做到这一点，SynthID 则在 Google 的各类生成式产品中嵌入这类信号。"
+          }
+        },
+        {
+          "name": {
+            "en": "Cryptographically undetectable watermarks",
+            "zh": "密码学意义上不可检测的水印"
+          },
+          "description": {
+            "en": "Watermarked outputs cannot be distinguished from the model's ordinary outputs without a secret key, so users cannot observe any loss of quality.",
+            "zh": "没有密钥就无法把带水印的输出与模型的普通输出区分开，因此用户察觉不到任何质量下降。"
+          }
+        },
+        {
+          "name": {
+            "en": "Capture-time signing with attested processing",
+            "zh": "拍摄时签名与经远程证明的处理"
+          },
+          "description": {
+            "en": "The camera sensor signs pixel data at capture, and secure hardware signs other metadata. The image is then developed in an attested cloud environment (Apple Reference Image).",
+            "zh": "相机传感器在拍摄时为像素数据签名，安全硬件为其他元数据签名。图像随后在经远程证明的云端环境中完成显影（Apple Reference Image）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Detection portals",
+            "zh": "检测平台"
+          },
+          "description": {
+            "en": "Services check uploaded media for known watermarks. The SynthID Detector, for example, covers content from Google and partner models.",
+            "zh": "检测服务检查上传的媒体中是否含有已知水印。例如，SynthID Detector 可识别 Google 及合作伙伴模型生成的内容。"
+          }
+        }
+      ],
+      "tiers": [
+        "signatures"
+      ],
+      "tee_relation": {
+        "en": "Content Credentials and watermarks describe where media came from. A credential records what its signer asserts, and a watermark is detected statistically. Most deployments involve no trusted execution environment (TEE). Apple's Reference Image design develops images in an attested cloud environment, one of the few places where content provenance and a TEE meet.",
+        "zh": "内容凭证和水印描述媒体的来源：内容凭证记录签名方的陈述，水印则靠统计检测发现。大多数部署都不涉及可信执行环境（TEE）。Apple 的 Reference Image 设计在经远程证明的云端环境中完成图像显影，是内容溯源与 TEE 少数的交汇点之一。"
+      }
+    },
+    {
+      "id": "agents-accountability",
+      "name": {
+        "en": "Agent identity & accountability",
+        "zh": "智能体身份与问责"
+      },
+      "one_liner": {
+        "en": "Evidence of which agent acted, for whom and under what authority, kept in records that cannot be quietly rewritten.",
+        "zh": "用证据说明是哪个智能体、代表谁、凭借何种授权采取了行动，并把证据保存在无法被悄悄改写的记录中。"
+      },
+      "description": {
+        "en": "When an agent browses, pays or calls tools for someone, the counterparty needs to know which agent it is dealing with and on whose behalf it acts. Investigators later need a reliable record of what the agent did. Agent credentials, scoped authorization tokens, signed mandates and signed requests show identity and authority. Tamper-evident logs record the actions, so that later edits can be detected. Attested runtimes can add evidence about which guardrail or policy code was loaded to handle an interaction. But an attestation that the guardrail code was loaded does not show that the guardrail worked as intended.",
+        "zh": "当智能体代表他人浏览网页、付款或调用工具时，交易对方需要知道自己面对的是哪个智能体、它代表谁行事。事后的调查者则需要一份关于它做了什么的可靠记录。智能体凭证、限定范围的授权令牌、签名授权书和签名请求用来表明身份和授权。篡改可检测日志记录这些行动，事后的改动能被发现。经远程证明的运行时还能提供证据，说明加载了哪段护栏或策略代码来处理一次交互。但远程证明即使表明护栏代码已经加载，也不能说明护栏按预期发挥了作用。"
+      },
+      "questions": {
+        "en": [
+          "How can a website, API or another agent verify which agent is acting and on whose behalf?",
+          "How should people delegate limited, revocable authority to agents, including chains of sub-agents?",
+          "Which records of agent actions should be kept? How can they be tamper-evident and still protect privacy?",
+          "Can attested runtimes show that a stated guardrail or policy mediated an agent's actions?"
+        ],
+        "zh": [
+          "网站、API 或其他智能体如何核实正在行动的是哪个智能体、它代表谁？",
+          "人们应如何向智能体（包括层层委托的子智能体）授予有限且可撤销的权限？",
+          "应保留哪些智能体行动记录？如何让这些记录既可检测篡改，又能保护隐私？",
+          "经远程证明的运行时能否表明，所声明的护栏或策略确实介导了智能体的行动？"
+        ]
+      },
+      "techniques": [
+        {
+          "name": {
+            "en": "Agent identifiers and credentials",
+            "zh": "智能体标识与凭证"
+          },
+          "description": {
+            "en": "IDs or credentials attached to an agent or to an instance of an AI system let counterparties find information such as the responsible parties and certifications.",
+            "zh": "附加在智能体或 AI 系统实例上的标识或凭证，使交易对方能够查到责任方、认证情况等信息。"
+          }
+        },
+        {
+          "name": {
+            "en": "Delegated authorization",
+            "zh": "委托授权"
+          },
+          "description": {
+            "en": "OAuth 2.0 and OpenID Connect, extended with agent-specific credentials and metadata, let users grant agents scoped authority. The extensions also keep agents distinguishable from the users they represent.",
+            "zh": "在 OAuth 2.0 和 OpenID Connect 的基础上加入智能体专用的凭证和元数据后，用户可以向智能体授予限定范围的权限。这些扩展还能让智能体与其所代表的用户保持可区分。"
+          }
+        },
+        {
+          "name": {
+            "en": "Signed requests and Agent Cards",
+            "zh": "签名请求与 Agent Card"
+          },
+          "description": {
+            "en": "Agents sign HTTP requests so that servers can verify their identity (the IETF Web Bot Auth draft). Providers can also sign the Agent Cards that describe their agents (A2A).",
+            "zh": "智能体对 HTTP 请求签名，使服务器能够核实其身份（IETF Web Bot Auth 草案）。服务商也可以对描述其智能体的 Agent Card 签名（A2A）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Signed mandates",
+            "zh": "签名授权书"
+          },
+          "description": {
+            "en": "Cryptographically signed records capture what a user authorized, such as purchase constraints or a specific payment, and form an audit trail (AP2).",
+            "zh": "经密码学签名的记录载明用户授权的内容，例如购买限制条件或某笔具体付款，并构成审计轨迹（AP2）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Tamper-evident logs",
+            "zh": "篡改可检测日志"
+          },
+          "description": {
+            "en": "Hash chains or hash trees make deletions and edits of recorded actions detectable. Tree-based designs also give logarithmic-size proofs that an entry is present and that the log stayed consistent.",
+            "zh": "哈希链或哈希树使删除或修改已记录行动的行为可被发现。基于树的设计还能以对数大小的证明，表明某条记录确实在日志中，且日志前后一致。"
+          }
+        },
+        {
+          "name": {
+            "en": "Attested agent runtimes",
+            "zh": "经远程证明的智能体运行时"
+          },
+          "description": {
+            "en": "Agents and their guardrails or policy engines run inside trusted execution environments, such as confidential VMs with confidential GPUs. The attestation report shows which code was loaded to handle an interaction (Omega, Proof-of-Guardrail).",
+            "zh": "智能体及其护栏或策略引擎运行在可信执行环境中，例如配备机密 GPU 的机密虚拟机。证明报告说明加载了哪些代码来处理某次交互（Omega、Proof-of-Guardrail）。"
+          }
+        }
+      ],
+      "tiers": [
+        "signatures",
+        "audits"
+      ],
+      "tee_relation": {
+        "en": "Signed requests, credentials and tamper-evident logs show which agent acted and for whom. An attested agent runtime can also show which guardrail or policy code was loaded before the agent acted. It cannot show that the guardrail worked or that the policy was adequate.",
+        "zh": "签名请求、凭证和篡改可检测日志说明是哪个智能体、代表谁采取了行动。经远程证明的智能体运行时还能说明行动之前加载了哪段护栏或策略代码，但不能说明护栏确实有效，也不能说明策略是否充分。"
+      }
+    },
+    {
+      "id": "governance-compute",
+      "name": {
+        "en": "Governance & compute verification",
+        "zh": "治理与算力核查"
+      },
+      "one_liner": {
+        "en": "Checking whether commitments, rules and agreements about AI are kept, including claims about chips and training runs.",
+        "zh": "核查关于 AI 的承诺、规则与协议是否得到遵守，包括关于芯片和训练过程的声明。"
+      },
+      "description": {
+        "en": "Governments and parties to possible international agreements want to verify claims about large-scale AI development without seeing sensitive models or data. Such claims concern, for example, where advanced chips are or how much compute a training run used. Proposed technical evidence includes hardware-enabled mechanisms that report or enforce properties on the chip, delay-based location checks and auditable records of training runs. Until those mechanisms mature, personnel-based measures such as inspections and whistleblower programs can fill gaps. Compute is a candidate basis for verification because it is detectable, quantifiable and excludable, meaning that access to it can be restricted. But many of these mechanisms have not been built or stress-tested. They could also create risks of abuse, privacy loss and concentration of power. This topic also tracks the laws, codes and standards that determine which of these claims developers must document and how they can be checked.",
+        "zh": "各国政府以及未来国际协议的缔约方，希望在不接触敏感模型或数据的情况下，核实有关大规模 AI 开发的声明。这些声明涉及先进芯片在哪里、某次训练用了多少算力等问题。已提出的技术证据包括：在芯片上报告或执行特定属性的硬件赋能机制、基于时延的位置核查，以及可供审计的训练过程记录。在这些机制成熟之前，现场检查和举报人计划等依靠人员的措施可以弥补空缺。算力之所以可以作为核查的基础，是因为它可检测、可量化，而且可排他，即可以限制对它的使用。但其中许多机制尚未建成，也未经压力测试。它们还可能带来滥用、隐私受损和权力集中的风险。本主题也关注法律、行为准则与标准，它们决定开发者必须记录哪些声明，以及这些声明如何接受核查。"
+      },
+      "questions": {
+        "en": [
+          "Could states verify compliance with rules on large training runs without seeing sensitive models or data?",
+          "Which hardware-enabled mechanisms are feasible with today's chips, and which need years of development?",
+          "How can chip location and use be verified while protecting privacy and guarding against abuse?",
+          "What can inspections, compute accounting and whistleblower programs achieve while hardware mechanisms are immature?"
+        ],
+        "zh": [
+          "各国能否在不接触敏感模型或数据的情况下，核实大规模训练是否合规？",
+          "哪些硬件赋能机制用现有芯片就可行，哪些还需要多年研发？",
+          "如何在保护隐私、防范滥用的同时核实芯片的位置和用途？",
+          "在硬件机制尚不成熟时，现场检查、算力核算和举报人计划能发挥多大作用？"
+        ]
+      },
+      "techniques": [
+        {
+          "name": {
+            "en": "Hardware-enabled mechanisms (HEMs)",
+            "zh": "硬件赋能机制（HEM）"
+          },
+          "description": {
+            "en": "Features built into chips or servers could verifiably report properties such as compute used, cluster configuration or location, or enforce policies directly.",
+            "zh": "内置于芯片或服务器的功能可以用可验证的方式报告所用算力、集群配置或位置等属性，也可以直接执行策略。"
+          }
+        },
+        {
+          "name": {
+            "en": "Delay-based location verification",
+            "zh": "基于时延的位置验证"
+          },
+          "description": {
+            "en": "A chip proves its identity to landmark servers at known locations. The response time limits how far away it can be.",
+            "zh": "芯片向位于已知地点的地标服务器证明自己的身份，响应时间决定了它与服务器之间距离的上限。"
+          }
+        },
+        {
+          "name": {
+            "en": "Compute monitoring and chip tracking",
+            "zh": "算力监测与芯片追踪"
+          },
+          "description": {
+            "en": "Tracking chip supply chains and inventories helps detect undeclared clusters large enough for prohibited training runs.",
+            "zh": "追踪芯片供应链和库存，有助于发现足以开展被禁止训练的未申报集群。"
+          }
+        },
+        {
+          "name": {
+            "en": "Training records and proof of training data",
+            "zh": "训练记录与训练数据证明"
+          },
+          "description": {
+            "en": "On-chip weight snapshots, pre-committed random seeds and data commitments let inspectors later check weights against a declared training run.",
+            "zh": "芯片上的权重快照、预先承诺的随机种子和数据承诺，使核查人员事后能够把权重与所申报的训练过程比对。"
+          }
+        },
+        {
+          "name": {
+            "en": "Guarantee processors in secure enclosures",
+            "zh": "安全外壳中的保障处理器"
+          },
+          "description": {
+            "en": "An auditable, open-source processor monitors accelerator use inside a tamper-protective enclosure (flexHEG).",
+            "zh": "可审计的开源处理器在防篡改外壳内监测加速器的使用情况（flexHEG）。"
+          }
+        },
+        {
+          "name": {
+            "en": "Inspections and personnel-based mechanisms",
+            "zh": "现场检查与依靠人员的机制"
+          },
+          "description": {
+            "en": "On-site inspections of data centers and whistleblower programs can complement or substitute for technical mechanisms that are not yet mature.",
+            "zh": "对数据中心的现场检查和举报人计划，可以补充或替代尚不成熟的技术机制。"
+          }
+        }
+      ],
+      "tiers": [
+        "audits",
+        "tee"
+      ],
+      "tee_relation": {
+        "en": "Most governance claims are checked by inspections, audits and documents. Trusted execution environments (TEEs) matter where a proposal relies on the chip itself. In proposed location checks, for example, each chip signs its answers with a key held in its TEE firmware. That shows where a chip answers from, but not who uses it.",
+        "zh": "大多数治理类声明依靠现场检查、审计和文件来核实。只有当某项提议依赖芯片本身时，可信执行环境（TEE）才发挥作用。例如，在拟议的位置核查中，每颗芯片用其 TEE 固件中的密钥为应答签名。这只能说明芯片从何处应答，不能说明谁在使用它。"
+      }
+    }
+  ]
+}

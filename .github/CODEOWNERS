@@ -1,0 +1,35 @@
+# Code owners are asked to review every pull request that touches their paths,
+# and the ruleset on main requires their approval. The last matching pattern
+# wins, so specific paths come after the default. Teams (@org/team) need a
+# GitHub organization; until there is one, list people. See docs/MAINTAINING.md.
+
+# Default
+*                                   @Mengyuan-L
+
+# Editorial content
+/content/                           @Mengyuan-L
+/CONTENT_GUIDE.md                   @Mengyuan-L
+# Once there are section editors, for example:
+# /content/articles/**/zh.md        @verifiable-pro/zh-editors
+# /content/resources.json           @verifiable-pro/editors
+
+# Generator, styles and tools
+/build.py                           @Mengyuan-L
+/sitegen/                           @Mengyuan-L
+/static/                            @Mengyuan-L
+/tools/                             @Mengyuan-L
+/tests/                             @Mengyuan-L
+/DESIGN.md                          @Mengyuan-L
+
+# Ask assistant: widget, API contract, backend and its documentation.
+# The contract and the widget's honesty rules decide what readers are told
+# about attestation, so changes here always need the maintainer.
+/static/chat.*                      @Mengyuan-L
+/api/                               @Mengyuan-L
+/backend/                           @Mengyuan-L
+/docs/assistant-architecture.md     @Mengyuan-L
+
+# Automation and governance: changes here can change what is published.
+/.github/                           @Mengyuan-L
+/docs/MAINTAINING.md                @Mengyuan-L
+/CONTRIBUTING.md                    @Mengyuan-L

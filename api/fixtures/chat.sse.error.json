@@ -1,0 +1,112 @@
+{
+  "description": "The \"error\" test trigger: a few deltas, then an error event and no done event.",
+  "request_fixture": "chat.request.json",
+  "question": "Simulate an error: what does remote attestation prove?",
+  "response": {
+    "status": 200,
+    "headers": {
+      "Cache-Control": "no-store",
+      "VP-Request-Id": "req_aba5c2b3627b9593",
+      "Vary": "Origin",
+      "Access-Control-Allow-Origin": "http://localhost:8767",
+      "Access-Control-Expose-Headers": "ehbp-response-nonce, vp-request-id, retry-after, ratelimit, ratelimit-policy",
+      "Content-Type": "text/event-stream; charset=utf-8",
+      "X-Accel-Buffering": "no",
+      "RateLimit-Policy": "\"chat\";q=10;w=600",
+      "RateLimit": "\"chat\";r=7;t=180"
+    }
+  },
+  "events": [
+    {
+      "comment": "ping"
+    },
+    {
+      "event": "meta",
+      "data": {
+        "request_id": "req_aba5c2b3627b9593",
+        "backend": "mock-local",
+        "mode": "mock",
+        "model": "mock-extractive",
+        "attestation_id": null,
+        "keyset_digest": "d09f6cea75c967654a7df1d6e8d839ffb4a8c680701a40b60d8be7b1cb59ead5",
+        "started_at": "2026-10-20T14:02:11Z"
+      }
+    },
+    {
+      "event": "citations",
+      "data": {
+        "items": [
+          {
+            "n": 1,
+            "chunk_id": "remote-attestation-for-ai-workloads-explained/en#intro/0",
+            "title": "Remote attestation for AI workloads, explained",
+            "heading": null,
+            "url": "/articles/remote-attestation-for-ai-workloads-explained/",
+            "lang": "en",
+            "source": "/articles/remote-attestation-for-ai-workloads-explained/en.md",
+            "source_sha256": "dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2",
+            "start": 2820,
+            "end": 3511,
+            "context_verified": false
+          },
+          {
+            "n": 2,
+            "chunk_id": "remote-attestation-for-ai-workloads-explained/en#what-a-valid-report-establishes-and-what-it-leaves-open/0",
+            "title": "Remote attestation for AI workloads, explained",
+            "heading": "What a valid report establishes and what it leaves open",
+            "url": "/articles/remote-attestation-for-ai-workloads-explained/#what-a-valid-report-establishes-and-what-it-leaves-open",
+            "lang": "en",
+            "source": "/articles/remote-attestation-for-ai-workloads-explained/en.md",
+            "source_sha256": "dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2",
+            "start": 9877,
+            "end": 10465,
+            "context_verified": false
+          },
+          {
+            "n": 3,
+            "chunk_id": "how-to-read-a-remote-attestation-report/en#step-5-confirm-the-report-is-fresh/0",
+            "title": "How to read a remote attestation report",
+            "heading": "Step 5: Confirm the report is fresh",
+            "url": "/articles/how-to-read-a-remote-attestation-report/#step-5-confirm-the-report-is-fresh",
+            "lang": "en",
+            "source": "/articles/how-to-read-a-remote-attestation-report/en.md",
+            "source_sha256": "574e7c4e29d84091ac878c71d8bed8443ed070cb40876eae6c8c61c5d7d3ad69",
+            "start": 8186,
+            "end": 8921,
+            "context_verified": false
+          }
+        ]
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 0,
+        "text": "From the "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 1,
+        "text": "passages "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 2,
+        "text": "your browser "
+      }
+    },
+    {
+      "event": "error",
+      "data": {
+        "code": "upstream_unavailable",
+        "message": "Simulated failure: the question contains the test word \"error\".",
+        "retry_after_s": null
+      }
+    }
+  ],
+  "raw": ": ping\n\nevent: meta\ndata: {\"request_id\":\"req_aba5c2b3627b9593\",\"backend\":\"mock-local\",\"mode\":\"mock\",\"model\":\"mock-extractive\",\"attestation_id\":null,\"keyset_digest\":\"d09f6cea75c967654a7df1d6e8d839ffb4a8c680701a40b60d8be7b1cb59ead5\",\"started_at\":\"2026-10-20T14:02:11Z\"}\n\nevent: citations\ndata: {\"items\":[{\"n\":1,\"chunk_id\":\"remote-attestation-for-ai-workloads-explained/en#intro/0\",\"title\":\"Remote attestation for AI workloads, explained\",\"heading\":null,\"url\":\"/articles/remote-attestation-for-ai-workloads-explained/\",\"lang\":\"en\",\"source\":\"/articles/remote-attestation-for-ai-workloads-explained/en.md\",\"source_sha256\":\"dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2\",\"start\":2820,\"end\":3511,\"context_verified\":false},{\"n\":2,\"chunk_id\":\"remote-attestation-for-ai-workloads-explained/en#what-a-valid-report-establishes-and-what-it-leaves-open/0\",\"title\":\"Remote attestation for AI workloads, explained\",\"heading\":\"What a valid report establishes and what it leaves open\",\"url\":\"/articles/remote-attestation-for-ai-workloads-explained/#what-a-valid-report-establishes-and-what-it-leaves-open\",\"lang\":\"en\",\"source\":\"/articles/remote-attestation-for-ai-workloads-explained/en.md\",\"source_sha256\":\"dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2\",\"start\":9877,\"end\":10465,\"context_verified\":false},{\"n\":3,\"chunk_id\":\"how-to-read-a-remote-attestation-report/en#step-5-confirm-the-report-is-fresh/0\",\"title\":\"How to read a remote attestation report\",\"heading\":\"Step 5: Confirm the report is fresh\",\"url\":\"/articles/how-to-read-a-remote-attestation-report/#step-5-confirm-the-report-is-fresh\",\"lang\":\"en\",\"source\":\"/articles/how-to-read-a-remote-attestation-report/en.md\",\"source_sha256\":\"574e7c4e29d84091ac878c71d8bed8443ed070cb40876eae6c8c61c5d7d3ad69\",\"start\":8186,\"end\":8921,\"context_verified\":false}]}\n\nevent: delta\ndata: {\"i\":0,\"text\":\"From the \"}\n\nevent: delta\ndata: {\"i\":1,\"text\":\"passages \"}\n\nevent: delta\ndata: {\"i\":2,\"text\":\"your browser \"}\n\nevent: error\ndata: {\"code\":\"upstream_unavailable\",\"message\":\"Simulated failure: the question contains the test word \\\"error\\\".\",\"retry_after_s\":null}\n\n"
+}

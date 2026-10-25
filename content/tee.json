@@ -1,0 +1,619 @@
+{
+  "reviewed": "2026-10-20",
+  "establishes": {
+    "shows": [
+      {
+        "en": "Genuine hardware from the vendor launched the measured software in a protected mode.",
+        "zh": "厂商的真实硬件在受保护模式下启动了被度量的软件。"
+      },
+      {
+        "en": "The platform runs the firmware versions named in the report, if the verifier checks them against data the vendor signed.",
+        "zh": "平台运行的是报告所列的固件版本，前提是验证方已对照厂商签名的数据核对过这些版本。"
+      },
+      {
+        "en": "The report is fresh, if it carries the random value (nonce) that the verifier chose.",
+        "zh": "报告是新鲜的，前提是报告带有验证方选定的随机数（nonce）。"
+      },
+      {
+        "en": "Your connection ends inside the environment the report describes, if the report is bound to the session key.",
+        "zh": "你的连接终止于报告所描述的环境之内，前提是报告绑定了会话密钥。"
+      }
+    ],
+    "still": [
+      {
+        "en": "The chip vendor's design, firmware and keys. The vendor's threat model leaves out some physical attacks and side channels.",
+        "zh": "芯片厂商的设计、固件与密钥。厂商的威胁模型不涵盖部分物理攻击和侧信道。"
+      },
+      {
+        "en": "Whoever publishes the reference values, and the verifier that compares the report with them.",
+        "zh": "发布参考值的一方，以及拿报告与参考值比对的验证方。"
+      },
+      {
+        "en": "The measured software, including how it handles inputs loaded after launch.",
+        "zh": "被度量的软件，包括它如何处理启动后加载的输入。"
+      },
+      {
+        "en": "The operator, which can still stop or restart the environment.",
+        "zh": "运营方：它仍然可以停止或重启这一环境。"
+      }
+    ],
+    "boundary": {
+      "en": "A report identifies the software that was loaded; it does not show that the software behaves correctly or that an output is right.",
+      "zh": "证明报告能标识所加载的软件，但不能说明软件行为正确，也不能说明输出正确。"
+    },
+    "sources": [
+      "article:remote-attestation-for-ai-workloads-explained",
+      "article:how-to-read-a-remote-attestation-report",
+      "article:cohere-model-vault-confidential-computing"
+    ]
+  },
+  "path": [
+    {
+      "article": "what-makes-an-ai-system-verifiable",
+      "outcome": {
+        "en": "separate a provider's claim from the evidence that could support it, and name what a check leaves to trust.",
+        "zh": "把服务商的声明与可能支持它的证据区分开，并说出一次核查仍把什么留给信任。"
+      }
+    },
+    {
+      "article": "remote-attestation-for-ai-workloads-explained",
+      "outcome": {
+        "en": "name the attester, verifier and relying party in an AI service, and say what a valid report leaves open.",
+        "zh": "说出 AI 服务中的证明方、验证方与依赖方，并说明一份有效报告还留下哪些问题。"
+      }
+    },
+    {
+      "article": "how-to-read-a-remote-attestation-report",
+      "outcome": {
+        "en": "check a report's signature chain, firmware versions, measurements, freshness and connection binding before sending data.",
+        "zh": "在发送数据之前，核对报告的签名链、固件版本、度量值、新鲜性及其与连接的绑定。"
+      }
+    },
+    {
+      "article": "private-ai-compute-published-designs",
+      "outcome": {
+        "en": "compare what Apple, Meta, Google and Cohere let outsiders check about the software that handles requests.",
+        "zh": "比较 Apple、Meta、Google 与 Cohere 在处理请求的软件上分别允许外界核查什么。"
+      }
+    },
+    {
+      "article": "proofs-enclaves-and-re-execution-compared",
+      "outcome": {
+        "en": "decide when a TEE's evidence is enough and when to add re-execution or a proof.",
+        "zh": "判断何时 TEE 的证据已经足够，何时还需加上重新执行或数学证明。"
+      }
+    },
+    {
+      "planned": {
+        "en": "CPU TEEs compared: Intel TDX, AMD SEV-SNP and Arm CCA",
+        "zh": "CPU TEE 对比：Intel TDX、AMD SEV-SNP 与 Arm CCA"
+      }
+    },
+    {
+      "planned": {
+        "en": "GPU confidential computing for AI inference",
+        "zh": "面向 AI 推理的 GPU 机密计算"
+      }
+    },
+    {
+      "planned": {
+        "en": "How TEEs fail: physical, side-channel and configuration attacks",
+        "zh": "TEE 如何失效：物理攻击、侧信道攻击与配置缺陷"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "id": "intel-tdx",
+      "group": "cpu",
+      "name": {
+        "en": "Intel TDX",
+        "zh": "Intel TDX"
+      },
+      "isolates": {
+        "en": "Whole virtual machines (VMs), called trust domains. Their memory is encrypted and integrity-protected, and the hardware is designed to isolate it from the host and the hypervisor.",
+        "zh": "整台虚拟机，称为信任域（trust domain）。其内存经过加密并受完整性保护，硬件按设计把它与宿主机和虚拟机监控器隔离。"
+      },
+      "signs": {
+        "en": "The processor's report is converted into a quote signed with an attestation key. The key's certificate chain traces back to an Intel certification authority, and Intel aims to publish the certificates and revocation lists for that chain.",
+        "zh": "处理器生成的报告被转换为用证明密钥签名的 quote。该密钥的证书链可追溯到 Intel 的一个证书颁发机构，Intel 的目标是公布这条证书链上的证书和吊销列表。"
+      },
+      "reference_values": {
+        "en": "A measurement register holds the measurement of the trust domain's initial memory. Software inside the trust domain can extend runtime registers with measurements of code and data it loads later. The expected values come from whoever publishes the VM image.",
+        "zh": "一个度量寄存器保存信任域初始内存的度量值。信任域内的软件之后加载代码和数据时，可以把它们的度量值扩展到运行时度量寄存器中。预期值来自虚拟机镜像的发布方。"
+      },
+      "out_of_scope": {
+        "en": "Intel says TDX does not prevent all types of hardware attacks. It places DDRop's physical memory attacks outside its standard threat model for confidential computing.",
+        "zh": "Intel 表示，TDX 并不能防范所有类型的硬件攻击。它把 DDRop 的物理内存攻击置于其机密计算标准威胁模型之外。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "article:remote-attestation-for-ai-workloads-explained",
+        "resource:intel-tdx-demystified",
+        "article:how-to-read-a-remote-attestation-report",
+        "article:ddrop-ddr5-interposer-attack"
+      ]
+    },
+    {
+      "id": "amd-sev-snp",
+      "group": "cpu",
+      "name": {
+        "en": "AMD SEV-SNP",
+        "zh": "AMD SEV-SNP"
+      },
+      "isolates": {
+        "en": "Whole virtual machines with encrypted, integrity-protected memory. SEV-SNP is designed so that a malicious hypervisor can neither read nor tamper with that memory.",
+        "zh": "整台虚拟机。其内存经过加密并受完整性保护，按设计使恶意的虚拟机监控器既无法读取、也无法篡改这些内存。"
+      },
+      "signs": {
+        "en": "AMD's firmware signs reports with a Versioned Chip Endorsement Key (VCEK). Each chip has its own VCEK, derived from the versions of the chip's trusted components, so a valid signature also identifies those versions. The VCEK's certificate chain traces back to the AMD Root Key (ARK).",
+        "zh": "AMD 的固件用版本化芯片背书密钥（VCEK）为报告签名。VCEK 是每块芯片独有的密钥，由芯片可信组件的版本号派生而来，因此有效的签名也能标明这些版本。VCEK 的证书链可追溯到 AMD 根密钥（ARK）。"
+      },
+      "reference_values": {
+        "en": "The AMD Secure Processor measures the VM's initial memory pages and their placement, producing a launch digest. The expected values come from whoever publishes the VM image.",
+        "zh": "AMD Secure Processor 度量虚拟机的初始内存页及其放置位置，生成启动摘要。预期值来自虚拟机镜像的发布方。"
+      },
+      "out_of_scope": {
+        "en": "AMD lists memory-bus attacks on a running VM as out of scope. It also says its hardware does not specifically prevent architectural side channels.",
+        "zh": "AMD 把虚拟机运行期间针对内存总线的攻击列在防护范围之外。AMD 还表示，其硬件没有专门防范架构侧信道。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "resource:amd-sev-snp-white-paper",
+        "article:remote-attestation-for-ai-workloads-explained",
+        "article:how-to-read-a-remote-attestation-report"
+      ]
+    },
+    {
+      "id": "arm-cca",
+      "group": "cpu",
+      "name": {
+        "en": "Arm CCA",
+        "zh": "Arm CCA"
+      },
+      "isolates": {
+        "en": "Hardware-isolated environments called Realms, created by the Realm Management Extension (RME) and managed by the open-source Realm Management Monitor (RMM). The host hypervisor still decides which Realms run and what memory they receive. But the architecture is designed to stop it from accessing or modifying their code and data.",
+        "zh": "称为 Realm 的硬件隔离执行环境，由 Realm 管理扩展（RME）创建，并由开源的 Realm 管理监控器（RMM）管理。宿主机的虚拟机监控器仍负责调度 Realm 并为其分配内存。但按设计，它无法访问或修改 Realm 内的代码和数据。"
+      },
+      "signs": {
+        "en": "",
+        "zh": ""
+      },
+      "reference_values": {
+        "en": "",
+        "zh": ""
+      },
+      "out_of_scope": {
+        "en": "",
+        "zh": ""
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "resource:arm-cca"
+      ]
+    },
+    {
+      "id": "nvidia-cc",
+      "group": "gpu",
+      "name": {
+        "en": "NVIDIA Hopper and Blackwell confidential computing",
+        "zh": "NVIDIA Hopper 与 Blackwell 机密计算"
+      },
+      "isolates": {
+        "en": "Workload memory on the GPU, which NVIDIA's design places behind hardware firewalls. On H100, the GPU works with a confidential VM on Intel TDX or AMD SEV-SNP. Data transfers, command buffers and CUDA kernels are encrypted before they cross the PCI Express bus between the VM and the GPU.",
+        "zh": "GPU 上的工作负载内存，在 NVIDIA 的设计中由硬件防火墙隔离。在 H100 上，GPU 与运行在 Intel TDX 或 AMD SEV-SNP 上的机密虚拟机协同工作。传输的数据、命令缓冲区和 CUDA 内核在经过虚拟机与 GPU 之间的 PCI Express 总线之前都会加密。"
+      },
+      "signs": {
+        "en": "An identity key burned into the GPU's fuses, whose certificate chain traces back to NVIDIA's certificate authority. The GPU signs an attestation report of its measurements.",
+        "zh": "烧录在 GPU 熔丝中的身份密钥，其证书链可追溯到 NVIDIA 的证书颁发机构。GPU 会就自身的度量值签署一份证明报告。"
+      },
+      "reference_values": {
+        "en": "Reference integrity manifests (RIMs): reference values that NVIDIA generates and signs as part of its driver and GPU firmware builds. NVIDIA's Remote Attestation Service (NRAS) or a local verifier compares the GPU's measurements with them.",
+        "zh": "参考完整性清单（RIM），即 NVIDIA 在构建驱动程序和 GPU 固件的过程中生成并签名的参考值。NVIDIA 远程证明服务（NRAS）或本地验证工具会把 GPU 的度量值与之比对。"
+      },
+      "out_of_scope": {
+        "en": "NVIDIA says the H100's on-package memory is not encrypted and is considered secure against everyday physical attack tools.",
+        "zh": "NVIDIA 表示，H100 封装内的显存不加密，这部分显存被认为能够抵御常见的物理攻击工具。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "resource:nvidia-h100-confidential-computing",
+        "resource:nvidia-attestation-docs",
+        "article:remote-attestation-for-ai-workloads-explained",
+        "resource:blackwell-cc-benchmark"
+      ]
+    }
+  ],
+  "gpu_note": {
+    "en": "A relying party needs CPU and GPU evidence tied to one machine and one session. TEE.fail showed that NVIDIA GPU attestation reports can be borrowed from other machines, because they are not bound to a specific confidential VM.",
+    "zh": "依赖方需要绑定到同一台机器、同一会话的 CPU 与 GPU 证据。TEE.fail 表明，NVIDIA GPU 的证明报告没有绑定特定的机密虚拟机，因此可以从其他机器“借用”。",
+    "sources": [
+      "resource:tee-fail",
+      "article:remote-attestation-for-ai-workloads-explained",
+      "article:how-to-read-a-remote-attestation-report"
+    ]
+  },
+  "services": [
+    {
+      "id": "apple-pcc",
+      "name": {
+        "en": "Apple Private Cloud Compute (PCC) on Apple silicon",
+        "zh": "Apple Private Cloud Compute（PCC，Apple 芯片）"
+      },
+      "record": {
+        "en": "Public append-only log; binaries published within 90 days of being logged",
+        "zh": "公开的只追加日志；二进制文件在登记后 90 天内发布"
+      },
+      "checker": {
+        "en": "User's device",
+        "zh": "用户设备"
+      },
+      "inspection": {
+        "en": "Public binaries, Apple's Virtual Research Environment (VRE), some source code, bug bounty",
+        "zh": "公开的二进制文件、Apple 的虚拟研究环境（VRE）、部分源代码、漏洞赏金计划"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "article:private-ai-compute-published-designs",
+        "resource:apple-private-cloud-compute",
+        "resource:pcc-security-guide"
+      ]
+    },
+    {
+      "id": "apple-pcc-google-cloud",
+      "name": {
+        "en": "Apple PCC on Google Cloud (preview)",
+        "zh": "Apple PCC（Google Cloud，预览版）"
+      },
+      "record": {
+        "en": "Same log; the VRE cannot yet parse these releases",
+        "zh": "同一份日志；VRE 暂时无法解析这些版本"
+      },
+      "checker": {
+        "en": "User's device; protections still being phased in",
+        "zh": "用户设备；保护措施正逐步到位"
+      },
+      "inspection": {
+        "en": "Research program due later in 2026",
+        "zh": "研究计划预计 2026 年晚些时候推出"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "article:apple-pcc-google-cloud",
+        "article:private-ai-compute-published-designs"
+      ]
+    },
+    {
+      "id": "meta-private-processing",
+      "name": {
+        "en": "Meta Private Processing",
+        "zh": "Meta Private Processing"
+      },
+      "record": {
+        "en": "Measurements in a publicly witnessed ledger",
+        "zh": "度量值记入接受公开见证的账本"
+      },
+      "checker": {
+        "en": "User's device",
+        "zh": "用户设备"
+      },
+      "inspection": {
+        "en": "Binaries shared under agreement, bug bounty, published audit",
+        "zh": "按协议提供的二进制文件、漏洞赏金计划、已公开的审计报告"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "article:meta-private-processing-ai-glasses",
+        "article:trail-of-bits-whatsapp-tee-audit",
+        "resource:meta-private-processing",
+        "article:private-ai-compute-published-designs"
+      ]
+    },
+    {
+      "id": "google-private-ai-compute",
+      "name": {
+        "en": "Google Private AI Compute",
+        "zh": "Google Private AI Compute"
+      },
+      "record": {
+        "en": "Ledger of digests for critical components",
+        "zh": "记录关键组件摘要的账本"
+      },
+      "checker": {
+        "en": "Google's infrastructure; user's device for the memory store",
+        "zh": "Google 基础设施；记忆存储由用户设备核查"
+      },
+      "inspection": {
+        "en": "Audits with internal access, open-source memory server",
+        "zh": "具有内部访问权限的审计、开源的记忆存储服务器"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "article:private-ai-compute-published-designs",
+        "article:google-private-ai-compute-memory",
+        "resource:google-private-ai-compute"
+      ]
+    },
+    {
+      "id": "cohere-model-vault",
+      "name": {
+        "en": "Cohere Model Vault Encrypted",
+        "zh": "Cohere Model Vault Encrypted"
+      },
+      "record": {
+        "en": "Policy registered with Intel Trust Authority",
+        "zh": "在 Intel Trust Authority 登记的策略"
+      },
+      "checker": {
+        "en": "Customer's client, via Intel's token",
+        "zh": "客户的客户端，凭 Intel 签发的令牌"
+      },
+      "inspection": {
+        "en": "Cohere says its stack is open source",
+        "zh": "Cohere 称其技术栈开源"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "article:cohere-model-vault-confidential-computing",
+        "article:private-ai-compute-published-designs"
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "google-memory-review",
+      "date": "2026-09-21",
+      "name": {
+        "en": "Trail of Bits review of Google Private AI Compute memory",
+        "zh": "Trail of Bits 对 Google Private AI Compute 记忆存储的评估"
+      },
+      "physical": false,
+      "defeated": {
+        "en": "Trail of Bits found that Google sends truncated hashes of response fragments outside the trusted boundary, for a check on whether responses repeat copyrighted text. It also found two flaws, since fixed, in Google's attestation and ledger checks. They would have let two or more unauthorized insiders acting together deploy modified services without a publicly visible ledger entry.",
+        "zh": "Trail of Bits 发现，Google 会把响应片段的截断哈希发送到可信边界之外，用于检查响应是否复述受版权保护的内容。它还发现，Google 的远程证明核查和账本核查中有两个缺陷（现已修复）。这两个缺陷本可让两名或更多未经授权的内部人员联手部署经过修改的服务，而账本上不会出现公开可见的条目。"
+      },
+      "access": {
+        "en": "For the ledger flaws, two or more unauthorized insiders acting together. Trail of Bits rated the hash issue hard to exploit.",
+        "zh": "账本缺陷需要两名或更多未经授权的内部人员联手；Trail of Bits 认为哈希问题难以利用。"
+      },
+      "vendor": {
+        "en": "Google plans a filter inside the enclave so that most hashes never leave it.",
+        "zh": "Google 计划在飞地内加入过滤器，使大部分哈希值不会离开飞地。"
+      },
+      "status": {
+        "en": "Eight of ten findings are resolved. The high-severity hash issue remains. Trail of Bits says the planned filter reduces the risk without eliminating it.",
+        "zh": "10 项发现中已解决 8 项。高危的哈希问题仍未解决。Trail of Bits 称，计划中的过滤器能降低风险，但不能消除风险。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "article:google-private-ai-compute-memory",
+        "article:private-ai-compute-published-designs"
+      ],
+      "editor": false
+    },
+    {
+      "id": "ddrop",
+      "date": "2026-09-14",
+      "name": {
+        "en": "DDRop",
+        "zh": "DDRop"
+      },
+      "physical": true,
+      "defeated": {
+        "en": "On Intel TDX, the researchers made a rogue VM pass remote attestation with a legitimate workload's measurement. On AMD SEV-SNP, they copied a victim's memory pages.",
+        "zh": "在 Intel TDX 上，研究人员让一台恶意虚拟机以合法工作负载的度量值通过了远程证明；在 AMD SEV-SNP 上，他们复制了受害者的内存页。"
+      },
+      "access": {
+        "en": "A brief, one-time physical visit to install a DDR5 interposer, a small device on the server's memory bus. The attacker also needs control of the host operating system, hypervisor and BIOS. The parts cost $159 per interposer when ten are built.",
+        "zh": "一次短暂的现场接触，用于安装 DDR5 插入器，即接在服务器内存总线上的小型设备。攻击者还需要控制宿主机的操作系统、虚拟机监控器和 BIOS。按一批制作 10 台计算，每台插入器的零件成本为 159 美元。"
+      },
+      "vendor": {
+        "en": "Intel and AMD say it falls outside their threat models. Intel says it is evaluating further hardening and detection. AMD does not plan to assign a Common Vulnerabilities and Exposures (CVE) identifier or release mitigations.",
+        "zh": "Intel 和 AMD 表示，这一攻击超出了各自的威胁模型。Intel 表示正在评估进一步的加固和检测方案。AMD 则不打算为其分配通用漏洞披露（CVE）编号，也不打算发布缓解措施。"
+      },
+      "status": {
+        "en": "The researchers say software or firmware updates can make the attack harder. A lasting fix, they say, needs memory encryption with integrity and freshness, so that the processor can detect altered or outdated data.",
+        "zh": "研究人员表示，软件或固件更新可以提高攻击难度。他们还表示，持久的解决方案需要兼具完整性和新鲜性保护的内存加密，让处理器能够发现被篡改或过时的数据。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "article:ddrop-ddr5-interposer-attack",
+        "article:private-ai-compute-published-designs"
+      ],
+      "editor": false
+    },
+    {
+      "id": "whatsapp-review",
+      "date": "2026-04-07",
+      "name": {
+        "en": "Trail of Bits audit of WhatsApp Private Processing",
+        "zh": "Trail of Bits 对 WhatsApp Private Processing 的审计"
+      },
+      "physical": false,
+      "defeated": {
+        "en": "Configuration files and the tables that describe hardware to the operating system sat outside the measurement, so tampering with them would not have changed it. The client also trusted the patch level the firmware reported about itself. Reports carried no random value (nonce) from the client, so they could be replayed.",
+        "zh": "配置文件和向操作系统描述硬件的数据表都在度量范围之外，篡改它们不会改变度量值。客户端还信任固件自行报告的补丁级别。此外，报告不含客户端提供的随机数（nonce），因此可以被重放。"
+      },
+      "access": {
+        "en": "A malicious insider or hypervisor, or an attacker who had compromised a TEE once.",
+        "zh": "恶意的内部人员或虚拟机监控器，或曾经攻破过某个 TEE 的攻击者。"
+      },
+      "vendor": {
+        "en": "Meta fixed these four findings. For example, the client now checks the patch level against AMD's signed certificate. Each report also carries the client_random nonce from the TLS handshake.",
+        "zh": "Meta 已修复这四项发现。例如，客户端现在对照 AMD 签名的证书核对补丁级别。每份报告也都带有 TLS 握手中的 client_random 随机数。"
+      },
+      "status": {
+        "en": "The final report, dated 26 August 2025, lists 16 of 28 findings as resolved, four as partly resolved and eight as unresolved. The eight unresolved findings are rated low or informational. Two of the partly resolved findings are rated high: attestation is not bound to Meta-specific machines, and the VM images are not yet fully reproducible.",
+        "zh": "2025 年 8 月 26 日的最终报告记载：28 项发现中，16 项已解决，4 项部分解决，8 项未解决。未解决的 8 项评级均为低危或信息级。部分解决的发现中有两项评为高危：远程证明没有绑定到 Meta 专属的机器，虚拟机镜像也尚不能完全复现。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "article:trail-of-bits-whatsapp-tee-audit"
+      ],
+      "editor": false
+    },
+    {
+      "id": "battering-ram",
+      "date": "2026",
+      "name": {
+        "en": "Battering RAM",
+        "zh": "Battering RAM"
+      },
+      "physical": true,
+      "defeated": {
+        "en": "Gave plaintext access to Intel Scalable SGX enclave memory and broke AMD SEV-SNP attestation.",
+        "zh": "以明文读写 Intel 可扩展 SGX 的飞地内存，并攻破了 AMD SEV-SNP 的远程证明。"
+      },
+      "access": {
+        "en": "An interposer costing under $50, placed between the processor and DDR4 memory.",
+        "zh": "一个成本不到 50 美元的插入器，安装在处理器与 DDR4 内存之间。"
+      },
+      "vendor": {
+        "en": "Intel and AMD said physical attacks on DRAM are out of scope for their current products.",
+        "zh": "Intel 和 AMD 表示，针对 DRAM 的物理攻击不在其现有产品的防护范围之内。"
+      },
+      "status": {
+        "en": "The attack works on fully patched systems. The interposer behaves normally during boot-time checks and creates address aliases only later, at runtime. An alias makes two addresses lead to the same memory location.",
+        "zh": "该攻击在已打全补丁的系统上依然有效。插入器在启动检查期间表现正常，到运行时才制造地址别名。地址别名会让两个地址指向同一处内存。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "resource:battering-ram"
+      ],
+      "editor": false
+    },
+    {
+      "id": "tee-fail",
+      "date": "2025",
+      "name": {
+        "en": "TEE.fail",
+        "zh": "TEE.fail"
+      },
+      "physical": true,
+      "defeated": {
+        "en": "Extracted keys from Intel TDX and AMD SEV-SNP machines, including an Intel attestation key used to forge TDX quotes. It also showed that NVIDIA GPU attestation reports can be borrowed from other machines, because they are not bound to a specific confidential VM.",
+        "zh": "从 Intel TDX 和 AMD SEV-SNP 机器中提取了密钥，其中包括可用于伪造 TDX quote 的 Intel 证明密钥。研究还表明，NVIDIA GPU 的证明报告没有绑定特定的机密虚拟机，因此可以从其他机器“借用”。"
+      },
+      "access": {
+        "en": "A DDR5 memory-bus interposer.",
+        "zh": "一个 DDR5 内存总线插入器。"
+      },
+      "vendor": null,
+      "status": null,
+      "as_of": "2026-10-20",
+      "sources": [
+        "resource:tee-fail"
+      ],
+      "editor": false
+    },
+    {
+      "id": "badram",
+      "date": "2025",
+      "name": {
+        "en": "BadRAM",
+        "zh": "BadRAM"
+      },
+      "physical": true,
+      "defeated": {
+        "en": "Bypassed AMD SEV-SNP memory protections and replayed a genuine attestation measurement for a backdoored VM.",
+        "zh": "绕过了 AMD SEV-SNP 的内存保护，并为植入后门的虚拟机重放了正常虚拟机在远程证明中的度量值。"
+      },
+      "access": {
+        "en": "A memory module whose serial presence detect (SPD) chip has been altered to misreport the module's size. The equipment costs under $10.",
+        "zh": "一根内存条，其串行存在检测（SPD）芯片被篡改，会谎报容量。所需设备不到 10 美元。"
+      },
+      "vendor": null,
+      "status": {
+        "en": "AMD shipped firmware that checks memory configuration at boot. Intel TDX and Scalable SGX already had such checks.",
+        "zh": "AMD 已发布在启动时检查内存配置的固件。Intel TDX 和可扩展 SGX 早已具备此类检查。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "resource:badram"
+      ],
+      "editor": false
+    },
+    {
+      "id": "side-channels",
+      "date": "",
+      "name": {
+        "en": "Architectural side channels",
+        "zh": "架构侧信道"
+      },
+      "physical": false,
+      "defeated": {
+        "en": "Confidentiality that relies on memory encryption alone. A side-channel attack infers data from effects of the computation, such as timing, without reading protected memory.",
+        "zh": "仅依赖内存加密的机密性。侧信道攻击借助计算过程的效应（例如耗时）推断数据，无需读取受保护的内存。"
+      },
+      "access": {
+        "en": "Software on the host, such as a malicious hypervisor.",
+        "zh": "宿主机上的软件，例如恶意的虚拟机监控器。"
+      },
+      "vendor": {
+        "en": "AMD says SEV-SNP hardware does not specifically prevent architectural side channels.",
+        "zh": "AMD 表示，SEV-SNP 硬件没有专门防范架构侧信道。"
+      },
+      "status": {
+        "en": "Cohere lists hardware side channels among the residual risks of Model Vault Encrypted.",
+        "zh": "Cohere 把硬件侧信道列为 Model Vault Encrypted 的残余风险之一。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "resource:amd-sev-snp-white-paper",
+        "article:remote-attestation-for-ai-workloads-explained",
+        "article:cohere-model-vault-confidential-computing"
+      ],
+      "editor": false
+    }
+  ],
+  "responses": [
+    {
+      "id": "proof-of-cloud",
+      "date": "2025",
+      "name": {
+        "en": "Proof of Cloud",
+        "zh": "Proof of Cloud"
+      },
+      "text": {
+        "en": "Proof of Cloud is a proposed design that binds confidential-VM attestation to evidence from the host's Trusted Platform Module (TPM). This tells a verifier that the workload runs on a machine in a trusted data center. It is designed to block attestation reports relayed from other machines.",
+        "zh": "Proof of Cloud 是一项设计提案：把机密虚拟机的远程证明与宿主机可信平台模块（TPM）的证据绑定。这样，验证方就能确认工作负载运行在可信数据中心的机器上。其设计目标是阻止从其他机器中继而来的证明报告。"
+      },
+      "as_of": "2026-10-20",
+      "sources": [
+        "resource:proof-of-cloud"
+      ]
+    }
+  ],
+  "terms": [
+    "trusted-execution-environment",
+    "confidential-vm",
+    "gpu-confidential-computing",
+    "remote-attestation",
+    "attester",
+    "verifier",
+    "relying-party",
+    "attestation-evidence",
+    "measurement",
+    "reference-value",
+    "attestation-report",
+    "attestation-result",
+    "endorsement",
+    "freshness",
+    "root-of-trust",
+    "trusted-computing-base",
+    "verifiable-transparency",
+    "oblivious-http",
+    "side-channel-attack",
+    "confidential-computing"
+  ],
+  "learn_terms": [
+    "trusted-execution-environment",
+    "remote-attestation",
+    "measurement",
+    "reference-value",
+    "verifier",
+    "relying-party",
+    "freshness",
+    "trusted-computing-base"
+  ]
+}

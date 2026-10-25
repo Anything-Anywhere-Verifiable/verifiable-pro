@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "eu-ai-office-external-evaluator-requirements.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "b0f1d43e5b1aa4aa021d1ad3ddee830fdb6228e7e006611a85b834305e7b3fef",
+  "variants": {
+    "list": {
+      "file": "eu-ai-office-external-evaluator-requirements-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "e6d82c7657ba558e2a30c3c377cb460a0334029d9b7fdc46931df50277929c75"
+    },
+    "thumb": {
+      "file": "eu-ai-office-external-evaluator-requirements-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "fd058e707c368273b6e41185ca6b4277ea269b93d12a35602bbf47b646ccd353"
+    },
+    "social": {
+      "file": "eu-ai-office-external-evaluator-requirements-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "71b5a39b65a4ea3641fc8b11cf5c5e5aa169df542155465386988d06ee795fd2"
+    }
+  },
+  "edits": {
+    "source_sha256": "faaa029bb96a659ea7fdbd14acf4f742af5aea70f3ba2fe674db9cbce6b0206a",
+    "source_size": [4644, 3246],
+    "crop": [0, 74, 4644, 3097],
+    "social_crop": [0, 404, 4644, 2438],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A wide road runs between tall glass office buildings toward a pink and orange evening sky, with streetlights and a few cars far down the street.",
+    "zh": "一条宽阔的马路从高大的玻璃办公楼之间穿过，伸向粉橙色的暮色天空，远处路灯已亮，街上有几辆汽车。"
+  },
+  "caption": {
+    "en": "Rue de la Loi in the European Quarter of Brussels at dusk in August 2018, lined by buildings of the European Union's institutions. The photo does not show the AI Office's workshop or any external evaluator.",
+    "zh": "2018 年 8 月黄昏时的布鲁塞尔欧洲区法律街（Rue de la Loi），街道两旁是欧盟机构的建筑。照片中并非人工智能办公室的研讨会，也没有任何外部评测方。"
+  },
+  "credit": "Trougnouf (Benoit Brummer) / Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Rue_de_la_Loi,_European_Quarter_in_Brussels_during_civil_twilight_(DSCF6957).jpg",
+  "retrieved": "2026-10-24"
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "check-a-content-credential.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "012d76b83ff122393c76a67e97c82c565debb76f6e09eafc5bc510914245a169",
+  "variants": {
+    "list": {
+      "file": "check-a-content-credential-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "6aa409c3e2c3d4aea0782a50d26b2620542d913660999a88a9bb7fa84f4a02f1"
+    },
+    "thumb": {
+      "file": "check-a-content-credential-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "bdefe0dec6217cf023fb766c80287d658f75cbd91cd2df86b7dd80f0475da0dd"
+    },
+    "social": {
+      "file": "check-a-content-credential-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "c4d941bd03b48d17e46482e9608f7b3d72839d02569b6e80a174b01117d80183"
+    }
+  },
+  "edits": {
+    "source_sha256": "fd26c99fb2674bed87560f6b2dd7c921a61607f80f45e62514751daeef4de669",
+    "source_size": [3000, 2008],
+    "crop": [0, 4, 3000, 2001],
+    "social_crop": [0, 216, 3000, 1575],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Seen over a person's shoulder, two hands hold a digital camera whose rear screen shows shooting settings, above a table with an open laptop and a smartphone.",
+    "zh": "从一个人的肩后看去，一双手握着一台数码相机，相机背屏显示拍摄设置；下方桌上放着一台打开的笔记本电脑和一部智能手机。"
+  },
+  "caption": {
+    "en": "A photographer in Prague checks a camera's settings beside a laptop and a phone. The photo does not show a Content Credential or the tools in this guide.",
+    "zh": "一名摄影者在布拉格查看相机设置，旁边放着笔记本电脑和手机。照片没有展示内容凭证或本指南介绍的工具。"
+  },
+  "credit": "JESHOOTS.COM / Unsplash",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license",
+  "source_url": "https://unsplash.com/photos/person-holding-black-dslr-camera-p8kaVRe4edM",
+  "retrieved": "2026-10-24"
+}

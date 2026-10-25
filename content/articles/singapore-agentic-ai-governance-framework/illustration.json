@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "singapore-agentic-ai-governance-framework.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "6aa87add34c52b3314e6341ef25b61ea040fce10e7ab694db46a995a1b40a76e",
+  "variants": {
+    "list": {
+      "file": "singapore-agentic-ai-governance-framework-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "7ca532e88026d7eaf8cce9ee8247db922596b223a73ada3ce94c6feabfc5e921"
+    },
+    "thumb": {
+      "file": "singapore-agentic-ai-governance-framework-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "33e8c4775d3d7efde5a53920beb69d4d616cc8c97533c3b2daf3a9d1000dc536"
+    },
+    "social": {
+      "file": "singapore-agentic-ai-governance-framework-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "0ad85c9c5795b0fd4db629a5b347f1823e1a23e13cab37038f01dc7aebe4c204"
+    }
+  },
+  "edits": {
+    "source_sha256": "2e90afd959f458d121672420101169a7518cb670490dc91f2317ab82cbaab893",
+    "source_size": [3840, 2549],
+    "crop": [9, 0, 3822, 2549],
+    "social_crop": [9, 144, 3822, 2007],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A long white building with rows of windows whose shutters are painted in rainbow colors, seen from the street under a blue sky with white clouds.",
+    "zh": "一栋狭长的白色建筑，一排排窗户的百叶窗漆成彩虹般的各种颜色，从街上望去，背景是飘着白云的蓝天。"
+  },
+  "caption": {
+    "en": "The Old Hill Street Police Station in Singapore in November 2018. It now houses the Ministry of Digital Development and Information, whose minister announced the update. The photo does not show IMDA, which publishes the framework.",
+    "zh": "2018 年 11 月的新加坡旧禧街警察局大楼。新加坡数码发展及新闻部现设在楼内，宣布这次更新的正是该部部长。照片中并非发布这一框架的资讯通信媒体发展局（IMDA）。"
+  },
+  "credit": "Bjoertvedt / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Singapore_-_Hill_Street_140_-_Old_Hill_Street_Police_Station_-_Ministry_of_Culture_IMG_9702.jpg",
+  "retrieved": "2026-10-24"
+}

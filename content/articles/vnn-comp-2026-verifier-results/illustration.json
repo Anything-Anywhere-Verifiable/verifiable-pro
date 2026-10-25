@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "vnn-comp-2026-verifier-results.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "5963c99b3e04b8a3e630aa56084bf55165c4ec89ed6e4fb6f4a67d2003363923",
+  "variants": {
+    "list": {
+      "file": "vnn-comp-2026-verifier-results-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "1de3fe6aae510765ae9a9f34ef6ed9adacc15b3ad3125a5db364aa82f73da450"
+    },
+    "thumb": {
+      "file": "vnn-comp-2026-verifier-results-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "0bf0b8385c6af9ceb58c893a026b3b086f1235bda697e154a7bbcd4ff5996004"
+    },
+    "social": {
+      "file": "vnn-comp-2026-verifier-results-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "bf1de46942fd647fea3cb1b6c50844227ae75af02d3da62d398092a79bcb3863"
+    }
+  },
+  "edits": {
+    "source_sha256": "5a53f639a1c65892594d231af8b5d11f55fc33e6bc2db50c687675c0c82ef57c",
+    "source_size": [3840, 2880],
+    "crop": [0, 16, 3840, 2561],
+    "social_crop": [0, 288, 3840, 2016],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Looking up at a gray concrete university building whose windows sit under rows of angled concrete sunshades, against a blue sky.",
+    "zh": "仰望一栋灰色混凝土大学建筑，窗户上方是一排排斜伸出来的混凝土遮阳板，背景是蓝天。"
+  },
+  "caption": {
+    "en": "Building II of Iscte – University Institute of Lisbon, where the VNN-COMP 2026 results were presented on 24 July 2026. The photo was taken in October 2025 and does not show the session or the competing tools.",
+    "zh": "里斯本大学学院（Iscte）的二号楼，VNN-COMP 2026 的结果于 2026 年 7 月 24 日在这里公布。照片摄于 2025 年 10 月，画面中没有当天的会议，也没有参赛工具。"
+  },
+  "credit": "Leonie Bourke / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Edific%C3%ADo_2,_Iscte_%E2%80%93_Instituto_Universit%C3%A1rio_de_Lisboa_(54890171307).jpg",
+  "retrieved": "2026-10-24"
+}

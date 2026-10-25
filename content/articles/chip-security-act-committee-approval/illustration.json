@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "chip-security-act-committee-approval.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "c9fd03265ec3415f6acbd706dfd1fcbf59913ac39beee6f1966fe81607c9f236",
+  "variants": {
+    "list": {
+      "file": "chip-security-act-committee-approval-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "7f36447a49e53a28d0c82558ea3e4de4eb728d3c10c18a3d67d0f57285ae6ee7"
+    },
+    "thumb": {
+      "file": "chip-security-act-committee-approval-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "e6f14f83fd45db219d2c811175287f110fb7971d10ee624dd3d7c183c254f75e"
+    },
+    "social": {
+      "file": "chip-security-act-committee-approval-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "013af7109234ed30729c4cf241c58099e22571a1b69e24439165237e9ffdff36"
+    }
+  },
+  "edits": {
+    "source_sha256": "53ebfdf47ea1fd419537754f3584dba122df5c97f8758815720708b07d1e69a9",
+    "source_size": [7433, 4955],
+    "crop": [0, 0, 7433, 4955],
+    "social_crop": [0, 526, 7433, 3902],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The white marble Rayburn House Office Building, seen from across an empty street, with a columned portico at its center, a U.S. flag on the roof and a seated statue on either side of the entrance steps.",
+    "zh": "从一条空荡的街道对面望去的白色大理石建筑 Rayburn 众议院办公大楼：正中是带立柱的门廊，屋顶飘着美国国旗，入口台阶两侧各有一尊坐像。"
+  },
+  "caption": {
+    "en": "The Rayburn House Office Building in Washington, where the House Foreign Affairs Committee voted on the bill on 26 March 2026. The photo was taken on 1 May 2026 and does not show the vote.",
+    "zh": "华盛顿的 Rayburn 众议院办公大楼。2026 年 3 月 26 日，众议院外交事务委员会在这里就这项法案进行表决。照片摄于 2026 年 5 月 1 日，画面中没有那次表决。"
+  },
+  "credit": "ajay_suresh / Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Rayburn_House_Office_Building_(RHOB)_(55255174942).jpg",
+  "retrieved": "2026-10-24"
+}

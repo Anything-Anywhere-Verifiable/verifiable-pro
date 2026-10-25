@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "aisi-transect-agent-transcript-analysis.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "907a921d5bd80c0abb06696e3e773f11714f2bd514ec10bd1a17628ae6dfbd5a",
+  "variants": {
+    "list": {
+      "file": "aisi-transect-agent-transcript-analysis-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "acab729d98cc627702fa483354e2888b84c3888163b3e8ad113aae14d5d6447b"
+    },
+    "thumb": {
+      "file": "aisi-transect-agent-transcript-analysis-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "1ded42c263d6cb9d6a8e906c2a8dfba05f6ca19a720eb83cdea69f9ba0b6639d"
+    },
+    "social": {
+      "file": "aisi-transect-agent-transcript-analysis-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "5bbe47f9b0c2ef7247023b85acaf1c225a58b2575312316634a5b09ed0a52c35"
+    }
+  },
+  "edits": {
+    "source_sha256": "4edcd06d89dc8ee0758daf0b5a818dfc50ccc695e13e4e73f5fdac85d486a4d6",
+    "source_size": [5279, 3519],
+    "crop": [0, 0, 5279, 3519],
+    "social_crop": [0, 198, 5279, 2771],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A person in a dark T-shirt types on a laptop at a dark wooden table, with a white mug in front of the laptop and two phones beside it.",
+    "zh": "一个穿深色 T 恤的人在深色木桌旁用笔记本电脑打字，电脑前放着一只白色马克杯，旁边是两部手机。"
+  },
+  "caption": {
+    "en": "A person types on a laptop at a wooden table. The photo does not show Transect, AISI's evaluations or any agent transcript.",
+    "zh": "一个人在木桌旁用笔记本电脑打字。照片没有展示 Transect、AISI 的评测或任何智能体运行记录。"
+  },
+  "credit": "Parker Byrd / Wikimedia Commons",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Mobile_developer_at_work_(Unsplash).jpg",
+  "retrieved": "2026-10-24"
+}

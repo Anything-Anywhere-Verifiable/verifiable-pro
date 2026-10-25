@@ -1,0 +1,624 @@
+{
+  "description": "Mock answer (extractive) to chat.request.json, sent with the VP-Attestation-Id and VP-Keyset-Digest of attestation.mock.json.",
+  "request_fixture": "chat.request.json",
+  "response": {
+    "status": 200,
+    "headers": {
+      "Cache-Control": "no-store",
+      "VP-Request-Id": "req_b64a25d22c3cddec",
+      "Vary": "Origin",
+      "Access-Control-Allow-Origin": "http://localhost:8767",
+      "Access-Control-Expose-Headers": "ehbp-response-nonce, vp-request-id, retry-after, ratelimit, ratelimit-policy",
+      "Content-Type": "text/event-stream; charset=utf-8",
+      "X-Accel-Buffering": "no",
+      "RateLimit-Policy": "\"chat\";q=10;w=600",
+      "RateLimit": "\"chat\";r=9;t=60"
+    }
+  },
+  "events": [
+    {
+      "comment": "ping"
+    },
+    {
+      "event": "meta",
+      "data": {
+        "request_id": "req_b64a25d22c3cddec",
+        "backend": "mock-local",
+        "mode": "mock",
+        "model": "mock-extractive",
+        "attestation_id": "att_mock_e073c438128f3e34",
+        "keyset_digest": "d09f6cea75c967654a7df1d6e8d839ffb4a8c680701a40b60d8be7b1cb59ead5",
+        "started_at": "2026-10-20T14:02:11Z"
+      }
+    },
+    {
+      "event": "citations",
+      "data": {
+        "items": [
+          {
+            "n": 1,
+            "chunk_id": "remote-attestation-for-ai-workloads-explained/en#intro/0",
+            "title": "Remote attestation for AI workloads, explained",
+            "heading": null,
+            "url": "/articles/remote-attestation-for-ai-workloads-explained/",
+            "lang": "en",
+            "source": "/articles/remote-attestation-for-ai-workloads-explained/en.md",
+            "source_sha256": "dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2",
+            "start": 2820,
+            "end": 3511,
+            "context_verified": false
+          },
+          {
+            "n": 2,
+            "chunk_id": "remote-attestation-for-ai-workloads-explained/en#what-a-valid-report-establishes-and-what-it-leaves-open/0",
+            "title": "Remote attestation for AI workloads, explained",
+            "heading": "What a valid report establishes and what it leaves open",
+            "url": "/articles/remote-attestation-for-ai-workloads-explained/#what-a-valid-report-establishes-and-what-it-leaves-open",
+            "lang": "en",
+            "source": "/articles/remote-attestation-for-ai-workloads-explained/en.md",
+            "source_sha256": "dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2",
+            "start": 9877,
+            "end": 10465,
+            "context_verified": false
+          },
+          {
+            "n": 3,
+            "chunk_id": "how-to-read-a-remote-attestation-report/en#step-5-confirm-the-report-is-fresh/0",
+            "title": "How to read a remote attestation report",
+            "heading": "Step 5: Confirm the report is fresh",
+            "url": "/articles/how-to-read-a-remote-attestation-report/#step-5-confirm-the-report-is-fresh",
+            "lang": "en",
+            "source": "/articles/how-to-read-a-remote-attestation-report/en.md",
+            "source_sha256": "574e7c4e29d84091ac878c71d8bed8443ed070cb40876eae6c8c61c5d7d3ad69",
+            "start": 8186,
+            "end": 8921,
+            "context_verified": false
+          }
+        ]
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 0,
+        "text": "From the "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 1,
+        "text": "passages "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 2,
+        "text": "your browser "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 3,
+        "text": "sent, verifiable.pro "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 4,
+        "text": "says:\n\n- "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 5,
+        "text": "**Remote "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 6,
+        "text": "attestation "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 7,
+        "text": "for AI workloads, "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 8,
+        "text": "explained**: "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 9,
+        "text": "“Remote "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 10,
+        "text": "attestation "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 11,
+        "text": "lets one "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 12,
+        "text": "party obtain "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 13,
+        "text": "hardware-signed "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 14,
+        "text": "evidence "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 15,
+        "text": "about another "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 16,
+        "text": "machine's "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 17,
+        "text": "software "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 18,
+        "text": "state before "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 19,
+        "text": "trusting "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 20,
+        "text": "it with "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 21,
+        "text": "data or "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 22,
+        "text": "work.” [1]\n"
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 23,
+        "text": "- **Remote "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 24,
+        "text": "attestation "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 25,
+        "text": "for AI workloads, "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 26,
+        "text": "explained** "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 27,
+        "text": "(What a "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 28,
+        "text": "valid report "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 29,
+        "text": "establishes "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 30,
+        "text": "and what "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 31,
+        "text": "it leaves "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 32,
+        "text": "open): “A "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 33,
+        "text": "report that "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 34,
+        "text": "passes these "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 35,
+        "text": "checks shows "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 36,
+        "text": "that genuine "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 37,
+        "text": "hardware "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 38,
+        "text": "at known "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 39,
+        "text": "firmware "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 40,
+        "text": "versions "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 41,
+        "text": "loaded the "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 42,
+        "text": "measured "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 43,
+        "text": "software "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 44,
+        "text": "in a protected "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 45,
+        "text": "mode, with "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 46,
+        "text": "fresh evidence "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 47,
+        "text": "tied to "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 48,
+        "text": "the connection.” "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 49,
+        "text": "[2]\n- **How "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 50,
+        "text": "to read "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 51,
+        "text": "a remote "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 52,
+        "text": "attestation "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 53,
+        "text": "report** "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 54,
+        "text": "(Step 5: "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 55,
+        "text": "Confirm "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 56,
+        "text": "the report "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 57,
+        "text": "is fresh): "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 58,
+        "text": "“A valid "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 59,
+        "text": "report from "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 60,
+        "text": "last week "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 61,
+        "text": "says nothing "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 62,
+        "text": "about the "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 63,
+        "text": "machine "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 64,
+        "text": "today.” "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 65,
+        "text": "[3]\n\nMock "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 66,
+        "text": "backend: "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 67,
+        "text": "no model "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 68,
+        "text": "wrote this "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 69,
+        "text": "answer. "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 70,
+        "text": "It quotes "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 71,
+        "text": "the passages "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 72,
+        "text": "above, and "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 73,
+        "text": "nothing "
+      }
+    },
+    {
+      "event": "delta",
+      "data": {
+        "i": 74,
+        "text": "was attested."
+      }
+    },
+    {
+      "event": "done",
+      "data": {
+        "finish_reason": "stop",
+        "used_citations": [
+          1,
+          2,
+          3
+        ],
+        "usage": {
+          "input_tokens": 524,
+          "output_tokens": 205,
+          "estimated": true
+        },
+        "receipt": null
+      }
+    }
+  ],
+  "raw": ": ping\n\nevent: meta\ndata: {\"request_id\":\"req_b64a25d22c3cddec\",\"backend\":\"mock-local\",\"mode\":\"mock\",\"model\":\"mock-extractive\",\"attestation_id\":\"att_mock_e073c438128f3e34\",\"keyset_digest\":\"d09f6cea75c967654a7df1d6e8d839ffb4a8c680701a40b60d8be7b1cb59ead5\",\"started_at\":\"2026-10-20T14:02:11Z\"}\n\nevent: citations\ndata: {\"items\":[{\"n\":1,\"chunk_id\":\"remote-attestation-for-ai-workloads-explained/en#intro/0\",\"title\":\"Remote attestation for AI workloads, explained\",\"heading\":null,\"url\":\"/articles/remote-attestation-for-ai-workloads-explained/\",\"lang\":\"en\",\"source\":\"/articles/remote-attestation-for-ai-workloads-explained/en.md\",\"source_sha256\":\"dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2\",\"start\":2820,\"end\":3511,\"context_verified\":false},{\"n\":2,\"chunk_id\":\"remote-attestation-for-ai-workloads-explained/en#what-a-valid-report-establishes-and-what-it-leaves-open/0\",\"title\":\"Remote attestation for AI workloads, explained\",\"heading\":\"What a valid report establishes and what it leaves open\",\"url\":\"/articles/remote-attestation-for-ai-workloads-explained/#what-a-valid-report-establishes-and-what-it-leaves-open\",\"lang\":\"en\",\"source\":\"/articles/remote-attestation-for-ai-workloads-explained/en.md\",\"source_sha256\":\"dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2\",\"start\":9877,\"end\":10465,\"context_verified\":false},{\"n\":3,\"chunk_id\":\"how-to-read-a-remote-attestation-report/en#step-5-confirm-the-report-is-fresh/0\",\"title\":\"How to read a remote attestation report\",\"heading\":\"Step 5: Confirm the report is fresh\",\"url\":\"/articles/how-to-read-a-remote-attestation-report/#step-5-confirm-the-report-is-fresh\",\"lang\":\"en\",\"source\":\"/articles/how-to-read-a-remote-attestation-report/en.md\",\"source_sha256\":\"574e7c4e29d84091ac878c71d8bed8443ed070cb40876eae6c8c61c5d7d3ad69\",\"start\":8186,\"end\":8921,\"context_verified\":false}]}\n\nevent: delta\ndata: {\"i\":0,\"text\":\"From the \"}\n\nevent: delta\ndata: {\"i\":1,\"text\":\"passages \"}\n\nevent: delta\ndata: {\"i\":2,\"text\":\"your browser \"}\n\nevent: delta\ndata: {\"i\":3,\"text\":\"sent, verifiable.pro \"}\n\nevent: delta\ndata: {\"i\":4,\"text\":\"says:\\n\\n- \"}\n\nevent: delta\ndata: {\"i\":5,\"text\":\"**Remote \"}\n\nevent: delta\ndata: {\"i\":6,\"text\":\"attestation \"}\n\nevent: delta\ndata: {\"i\":7,\"text\":\"for AI workloads, \"}\n\nevent: delta\ndata: {\"i\":8,\"text\":\"explained**: \"}\n\nevent: delta\ndata: {\"i\":9,\"text\":\"“Remote \"}\n\nevent: delta\ndata: {\"i\":10,\"text\":\"attestation \"}\n\nevent: delta\ndata: {\"i\":11,\"text\":\"lets one \"}\n\nevent: delta\ndata: {\"i\":12,\"text\":\"party obtain \"}\n\nevent: delta\ndata: {\"i\":13,\"text\":\"hardware-signed \"}\n\nevent: delta\ndata: {\"i\":14,\"text\":\"evidence \"}\n\nevent: delta\ndata: {\"i\":15,\"text\":\"about another \"}\n\nevent: delta\ndata: {\"i\":16,\"text\":\"machine's \"}\n\nevent: delta\ndata: {\"i\":17,\"text\":\"software \"}\n\nevent: delta\ndata: {\"i\":18,\"text\":\"state before \"}\n\nevent: delta\ndata: {\"i\":19,\"text\":\"trusting \"}\n\nevent: delta\ndata: {\"i\":20,\"text\":\"it with \"}\n\nevent: delta\ndata: {\"i\":21,\"text\":\"data or \"}\n\nevent: delta\ndata: {\"i\":22,\"text\":\"work.” [1]\\n\"}\n\nevent: delta\ndata: {\"i\":23,\"text\":\"- **Remote \"}\n\nevent: delta\ndata: {\"i\":24,\"text\":\"attestation \"}\n\nevent: delta\ndata: {\"i\":25,\"text\":\"for AI workloads, \"}\n\nevent: delta\ndata: {\"i\":26,\"text\":\"explained** \"}\n\nevent: delta\ndata: {\"i\":27,\"text\":\"(What a \"}\n\nevent: delta\ndata: {\"i\":28,\"text\":\"valid report \"}\n\nevent: delta\ndata: {\"i\":29,\"text\":\"establishes \"}\n\nevent: delta\ndata: {\"i\":30,\"text\":\"and what \"}\n\nevent: delta\ndata: {\"i\":31,\"text\":\"it leaves \"}\n\nevent: delta\ndata: {\"i\":32,\"text\":\"open): “A \"}\n\nevent: delta\ndata: {\"i\":33,\"text\":\"report that \"}\n\nevent: delta\ndata: {\"i\":34,\"text\":\"passes these \"}\n\nevent: delta\ndata: {\"i\":35,\"text\":\"checks shows \"}\n\nevent: delta\ndata: {\"i\":36,\"text\":\"that genuine \"}\n\nevent: delta\ndata: {\"i\":37,\"text\":\"hardware \"}\n\nevent: delta\ndata: {\"i\":38,\"text\":\"at known \"}\n\nevent: delta\ndata: {\"i\":39,\"text\":\"firmware \"}\n\nevent: delta\ndata: {\"i\":40,\"text\":\"versions \"}\n\nevent: delta\ndata: {\"i\":41,\"text\":\"loaded the \"}\n\nevent: delta\ndata: {\"i\":42,\"text\":\"measured \"}\n\nevent: delta\ndata: {\"i\":43,\"text\":\"software \"}\n\nevent: delta\ndata: {\"i\":44,\"text\":\"in a protected \"}\n\nevent: delta\ndata: {\"i\":45,\"text\":\"mode, with \"}\n\nevent: delta\ndata: {\"i\":46,\"text\":\"fresh evidence \"}\n\nevent: delta\ndata: {\"i\":47,\"text\":\"tied to \"}\n\nevent: delta\ndata: {\"i\":48,\"text\":\"the connection.” \"}\n\nevent: delta\ndata: {\"i\":49,\"text\":\"[2]\\n- **How \"}\n\nevent: delta\ndata: {\"i\":50,\"text\":\"to read \"}\n\nevent: delta\ndata: {\"i\":51,\"text\":\"a remote \"}\n\nevent: delta\ndata: {\"i\":52,\"text\":\"attestation \"}\n\nevent: delta\ndata: {\"i\":53,\"text\":\"report** \"}\n\nevent: delta\ndata: {\"i\":54,\"text\":\"(Step 5: \"}\n\nevent: delta\ndata: {\"i\":55,\"text\":\"Confirm \"}\n\nevent: delta\ndata: {\"i\":56,\"text\":\"the report \"}\n\nevent: delta\ndata: {\"i\":57,\"text\":\"is fresh): \"}\n\nevent: delta\ndata: {\"i\":58,\"text\":\"“A valid \"}\n\nevent: delta\ndata: {\"i\":59,\"text\":\"report from \"}\n\nevent: delta\ndata: {\"i\":60,\"text\":\"last week \"}\n\nevent: delta\ndata: {\"i\":61,\"text\":\"says nothing \"}\n\nevent: delta\ndata: {\"i\":62,\"text\":\"about the \"}\n\nevent: delta\ndata: {\"i\":63,\"text\":\"machine \"}\n\nevent: delta\ndata: {\"i\":64,\"text\":\"today.” \"}\n\nevent: delta\ndata: {\"i\":65,\"text\":\"[3]\\n\\nMock \"}\n\nevent: delta\ndata: {\"i\":66,\"text\":\"backend: \"}\n\nevent: delta\ndata: {\"i\":67,\"text\":\"no model \"}\n\nevent: delta\ndata: {\"i\":68,\"text\":\"wrote this \"}\n\nevent: delta\ndata: {\"i\":69,\"text\":\"answer. \"}\n\nevent: delta\ndata: {\"i\":70,\"text\":\"It quotes \"}\n\nevent: delta\ndata: {\"i\":71,\"text\":\"the passages \"}\n\nevent: delta\ndata: {\"i\":72,\"text\":\"above, and \"}\n\nevent: delta\ndata: {\"i\":73,\"text\":\"nothing \"}\n\nevent: delta\ndata: {\"i\":74,\"text\":\"was attested.\"}\n\nevent: done\ndata: {\"finish_reason\":\"stop\",\"used_citations\":[1,2,3],\"usage\":{\"input_tokens\":524,\"output_tokens\":205,\"estimated\":true},\"receipt\":null}\n\n"
+}

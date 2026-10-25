@@ -1,0 +1,748 @@
+{
+  "terms": [
+    {
+      "id": "trusted-execution-environment",
+      "term": {
+        "en": "Trusted execution environment (TEE)",
+        "zh": "可信执行环境（TEE）"
+      },
+      "definition": {
+        "en": "A hardware-isolated environment for running code, such as an enclave or a confidential VM. It is designed to keep the code and data inside it confidential and unmodified, even if the operating system, the hypervisor or the cloud operator is compromised.",
+        "zh": "一种由硬件隔离、用于运行代码的环境，例如安全飞地或机密虚拟机。按设计，即使操作系统、虚拟机监控器或云运营方被攻破，其中的代码和数据也不会被窥探或篡改。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "confidential-computing",
+      "term": {
+        "en": "Confidential computing",
+        "zh": "机密计算"
+      },
+      "definition": {
+        "en": "Protecting data while it is being processed, by running the computation inside a hardware-based trusted execution environment (TEE) that supports remote attestation.",
+        "zh": "在处理数据的同时保护数据，做法是在基于硬件、支持远程证明的可信执行环境（TEE）中运行计算。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "confidential-vm",
+      "term": {
+        "en": "Confidential VM",
+        "zh": "机密虚拟机"
+      },
+      "definition": {
+        "en": "A virtual machine that runs as a trusted execution environment, such as one based on AMD SEV-SNP or Intel TDX. Its memory is encrypted and isolated from the host and from the hypervisor, the software that manages virtual machines.",
+        "zh": "作为可信执行环境运行的虚拟机，例如基于 AMD SEV-SNP 或 Intel TDX 的虚拟机。它的内存经过加密，并与宿主机和虚拟机监控器（管理虚拟机的软件）隔离。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "gpu-confidential-computing",
+      "term": {
+        "en": "GPU confidential computing",
+        "zh": "GPU 机密计算"
+      },
+      "definition": {
+        "en": "A GPU operating mode that isolates the workload's memory from the host. It also encrypts data passing between the GPU and a confidential VM, and lets the GPU produce its own signed attestation report.",
+        "zh": "一种 GPU 运行模式，会把工作负载的内存与宿主机隔离。它还会加密 GPU 与机密虚拟机之间传输的数据，并让 GPU 生成自己的签名证明报告。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "remote-attestation",
+      "term": {
+        "en": "Remote attestation",
+        "zh": "远程证明"
+      },
+      "definition": {
+        "en": "A process in which a device produces signed evidence about its hardware and software state. A verifier checks the evidence, and a relying party uses the result to decide whether to trust the device.",
+        "zh": "设备就自身软硬件状态生成签名证据的过程。验证方评估这些证据，依赖方再根据评估结果决定是否信任这台设备。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "attester",
+      "term": {
+        "en": "Attester",
+        "zh": "证明方"
+      },
+      "definition": {
+        "en": "In remote attestation, the device or environment that produces evidence about its own state so that others can judge how far to trust it.",
+        "zh": "远程证明中生成自身状态证据的设备或环境，他方据此判断可以在多大程度上信任它。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "verifier",
+      "term": {
+        "en": "Verifier (attestation)",
+        "zh": "验证方（远程证明）"
+      },
+      "definition": {
+        "en": "In remote attestation, the party that checks an attester's evidence against reference values, endorsements and policy, and produces an attestation result.",
+        "zh": "远程证明中的一方，依据参考值、背书和策略评估证明方的证据，并生成证明结果。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "relying-party",
+      "term": {
+        "en": "Relying party",
+        "zh": "依赖方"
+      },
+      "definition": {
+        "en": "In remote attestation, the party that uses attestation results to decide whether to trust a device, for example before sending it data or releasing a key.",
+        "zh": "远程证明中的一方，依据证明结果决定是否信任某台设备，例如在向它发送数据或释放密钥之前。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "attestation-evidence",
+      "term": {
+        "en": "Attestation evidence",
+        "zh": "证明证据"
+      },
+      "definition": {
+        "en": "The claims that an attester generates for a verifier to check, such as measurements and configuration data.",
+        "zh": "证明方生成、供验证方评估的一组声明，例如度量值和配置数据。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "endorsement",
+      "term": {
+        "en": "Endorsement",
+        "zh": "背书"
+      },
+      "definition": {
+        "en": "In remote attestation, a signed statement that vouches for the integrity of an attester's capabilities, such as collecting claims and signing evidence. It usually comes from the hardware manufacturer.",
+        "zh": "远程证明中的一种签名声明，用于担保证明方各项能力的完整性，例如收集声明和签署证据的能力。背书通常由硬件制造商签发。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "attestation-result",
+      "term": {
+        "en": "Attestation result",
+        "zh": "证明结果"
+      },
+      "definition": {
+        "en": "The output a verifier produces after checking an attester's evidence. The verifier vouches for it, and a relying party uses it to make its decision.",
+        "zh": "验证方评估证明方的证据后输出的结果。验证方为这一结果担保，依赖方据此作出决定。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "measurement",
+      "term": {
+        "en": "Measurement",
+        "zh": "度量值"
+      },
+      "definition": {
+        "en": "A cryptographic hash (a digital fingerprint) of code, firmware or configuration. The hash is recorded when the item is loaded, and attestation evidence reports it.",
+        "zh": "代码、固件或配置的密码学哈希值，相当于数字指纹。哈希值在加载时记录下来，并包含在证明证据中。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "reference-value",
+      "term": {
+        "en": "Reference value",
+        "zh": "参考值"
+      },
+      "definition": {
+        "en": "An expected value, such as the measurement of an approved software release, that a verifier compares with the claims in attestation evidence.",
+        "zh": "一种预期值，例如某个获批软件版本的度量值，验证方用它来比对证明证据中的各项声明。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "attestation-report",
+      "term": {
+        "en": "Attestation report",
+        "zh": "证明报告"
+      },
+      "definition": {
+        "en": "The data structure in which a TEE or device reports its measurements and other claims, signed with a key rooted in the hardware. Intel calls it a quote.",
+        "zh": "TEE 或设备用来报告度量值等声明的数据结构，由植根于硬件的密钥签名。Intel 称之为 quote。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "freshness",
+      "term": {
+        "en": "Freshness",
+        "zh": "新鲜性"
+      },
+      "definition": {
+        "en": "Assurance that attestation evidence is recent enough to reflect the attester's current state. To establish freshness, the signed evidence usually includes a nonce (an unpredictable value that the verifier chooses) or a trusted timestamp.",
+        "zh": "一种保证：证明证据足够新，能够反映证明方的当前状态。为此，签名证据中通常包含验证方选定的随机数（nonce）或可信时间戳。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "root-of-trust",
+      "term": {
+        "en": "Root of trust",
+        "zh": "信任根"
+      },
+      "definition": {
+        "en": "A component, usually in hardware or firmware, that performs a critical security function and is trusted without further verification. An example is the on-chip component that holds the key used to sign attestation reports.",
+        "zh": "一种组件，执行关键安全功能，无需进一步验证即被信任，通常位于硬件或固件中。芯片上保存证明报告签名密钥的组件就是一例。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "trusted-computing-base",
+      "term": {
+        "en": "Trusted computing base (TCB)",
+        "zh": "可信计算基（TCB）"
+      },
+      "definition": {
+        "en": "All the hardware, firmware and software that must work correctly for a system's security policy to be enforced.",
+        "zh": "为执行系统安全策略而必须正确工作的全部硬件、固件和软件。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "verifiable-transparency",
+      "term": {
+        "en": "Verifiable transparency",
+        "zh": "可验证透明性"
+      },
+      "definition": {
+        "en": "A requirement that Apple set out for Private Cloud Compute: outside researchers must be able to check the service's privacy and security guarantees and confirm that production servers run the software they inspected. Client devices enforce it by sending data only to servers whose attested measurements match a release in a public log.",
+        "zh": "Apple 为 Private Cloud Compute 提出的要求：外部研究人员能够核查该服务的隐私与安全保证，并确认生产服务器运行的正是他们检查过的软件。客户端设备这样落实这一要求：只有当服务器证明报告中的度量值与公开日志中的某个版本相符时，才向该服务器发送数据。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "oblivious-http",
+      "term": {
+        "en": "Oblivious HTTP (OHTTP)",
+        "zh": "不经意 HTTP（OHTTP）"
+      },
+      "definition": {
+        "en": "An IETF protocol in which a relay forwards encrypted HTTP requests, so the server never sees the client's IP address and the relay never sees the request content.",
+        "zh": "IETF 制定的协议：由中继转发加密的 HTTP 请求，使服务器看不到客户端的 IP 地址，中继也看不到请求内容。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "side-channel-attack",
+      "term": {
+        "en": "Side-channel attack",
+        "zh": "侧信道攻击"
+      },
+      "definition": {
+        "en": "An attack that infers secret information from the physical effects of a computation instead of reading the information directly. Such effects include timing, power consumption and electromagnetic emissions.",
+        "zh": "一种攻击：借助计算过程的物理效应推断秘密信息，而不直接读取这些信息。这类效应包括耗时、功耗和电磁辐射。"
+      },
+      "topic": "confidential-computing"
+    },
+    {
+      "id": "verifiable-computation",
+      "term": {
+        "en": "Verifiable computation",
+        "zh": "可验证计算"
+      },
+      "definition": {
+        "en": "An arrangement in which the party that runs a computation also returns evidence that lets someone else check the result with much less work than redoing it.",
+        "zh": "一种安排：执行计算的一方同时返回证据，他人借助这些证据核查结果，所需工作量远少于重做一遍计算。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "zero-knowledge-proof",
+      "term": {
+        "en": "Zero-knowledge proof (ZKP)",
+        "zh": "零知识证明（ZKP）"
+      },
+      "definition": {
+        "en": "A cryptographic proof that convinces a verifier that a statement is true without revealing anything else. For example, it can show that an output came from a model the provider committed to, while keeping the model's weights secret.",
+        "zh": "一种密码学证明，能让验证方相信某个命题为真，同时不泄露任何其他信息。例如，它可以表明某个输出来自服务商事先承诺的模型，而不公开模型权重。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "zk-snark",
+      "term": {
+        "en": "zk-SNARK",
+        "zh": "零知识简洁非交互式知识论证（zk-SNARK）"
+      },
+      "definition": {
+        "en": "A zero-knowledge proof system whose proofs are short, fast to verify and require no interaction between the prover and the verifier.",
+        "zh": "一类零知识证明系统，其证明简短、验证迅速，且证明者与验证者之间无需交互。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "zkml",
+      "term": {
+        "en": "zkML",
+        "zh": "零知识机器学习（zkML）"
+      },
+      "definition": {
+        "en": "The use of zero-knowledge proofs to verify machine-learning computations such as inference, training or evaluation.",
+        "zh": "利用零知识证明验证推理、训练或评测等机器学习计算。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "proof-of-inference",
+      "term": {
+        "en": "Proof of inference",
+        "zh": "推理证明"
+      },
+      "definition": {
+        "en": "Evidence that a specific output was produced by running a specific model on a specific input.",
+        "zh": "一种证据，表明某个特定输出是由特定模型在特定输入上运行得到的。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "model-commitment",
+      "term": {
+        "en": "Model commitment",
+        "zh": "模型承诺"
+      },
+      "definition": {
+        "en": "A cryptographic value, such as a hash of the weights, that a provider publishes to bind itself to one specific model. Later proofs or audits can then refer to the commitment.",
+        "zh": "服务商公布的密码学值，例如模型权重的哈希值，用来把自己绑定到某个特定模型。之后的密码学证明或审计就可以引用这一承诺。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "model-substitution",
+      "term": {
+        "en": "Model substitution",
+        "zh": "模型替换"
+      },
+      "definition": {
+        "en": "A provider's secret use of a different model from the one it advertises and charges for, such as a cheaper model or a quantized (lower-precision) version.",
+        "zh": "服务商暗中使用的模型与其对外宣传并据以收费的模型不同，例如换成更便宜的模型，或换成经过量化（降低数值精度）的版本。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "refereed-delegation",
+      "term": {
+        "en": "Refereed delegation",
+        "zh": "仲裁式委托"
+      },
+      "definition": {
+        "en": "A scheme in which a client sends the same computation to several providers, and a referee settles any disagreement by recomputing only the disputed step. The client then gets the correct result as long as at least one provider is honest.",
+        "zh": "一种方案：客户端把同一计算交给多家服务商，结果不一致时，由仲裁方只重算有争议的那一步来裁决。只要至少有一家服务商诚实，客户端就能得到正确结果。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "proof-of-learning",
+      "term": {
+        "en": "Proof of learning",
+        "zh": "学习证明"
+      },
+      "definition": {
+        "en": "A record of a training run that lets a verifier check that a set of weights came from that training. It includes weights saved at intervals and the data and settings used between them.",
+        "zh": "训练过程的记录，验证方可以用它核查一组权重确实来自这次训练。记录包括定期保存的权重，以及两次保存之间使用的数据和设置。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "bitwise-reproducibility",
+      "term": {
+        "en": "Bitwise reproducibility",
+        "zh": "逐位可复现性"
+      },
+      "definition": {
+        "en": "The property that rerunning a computation produces exactly the same bits. Floating-point arithmetic does not guarantee it when the order of operations changes, for example across hardware or batch sizes.",
+        "zh": "重新运行计算时得到逐位相同结果的性质。当运算顺序因硬件或批大小不同而改变时，浮点运算无法保证这一点。"
+      },
+      "topic": "verifiable-inference"
+    },
+    {
+      "id": "formal-verification",
+      "term": {
+        "en": "Formal verification",
+        "zh": "形式化验证"
+      },
+      "definition": {
+        "en": "Using machine-checked mathematical proof to show that a system satisfies a precise specification for all possible inputs or executions, including ones that were never tested.",
+        "zh": "借助机器检查的数学证明，表明系统对所有可能的输入或执行（包括从未测试过的情况）都满足精确的规约。"
+      },
+      "topic": "formal-verification"
+    },
+    {
+      "id": "formal-specification",
+      "term": {
+        "en": "Formal specification",
+        "zh": "形式化规约"
+      },
+      "definition": {
+        "en": "A precise, machine-readable statement of what a system must or must not do, which determines what a formal proof actually establishes.",
+        "zh": "以精确、机器可读的形式说明系统必须做什么或不得做什么，它决定了形式化证明实际确立的内容。"
+      },
+      "topic": "formal-verification"
+    },
+    {
+      "id": "proof-assistant",
+      "term": {
+        "en": "Proof assistant",
+        "zh": "证明助手"
+      },
+      "definition": {
+        "en": "Software in which proofs are written in a formal language and the computer checks every step. Lean is one example.",
+        "zh": "一种软件：数学证明用形式化语言书写，由计算机逐步检查。Lean 就是一例。"
+      },
+      "topic": "formal-verification"
+    },
+    {
+      "id": "vericoding",
+      "term": {
+        "en": "Vericoding",
+        "zh": "形式化验证代码生成（vericoding）"
+      },
+      "definition": {
+        "en": "Generating code together with a machine-checked proof that the code meets a given formal specification. By contrast, generating code from a natural-language description gives no guarantee that the code is correct.",
+        "zh": "在生成代码的同时生成经机器检查的数学证明，表明代码满足给定的形式化规约。相比之下，根据自然语言描述生成代码，并不能保证代码正确。"
+      },
+      "topic": "formal-verification"
+    },
+    {
+      "id": "neural-network-verification",
+      "term": {
+        "en": "Neural network verification",
+        "zh": "神经网络验证"
+      },
+      "definition": {
+        "en": "Algorithms that prove a trained network satisfies a property for every input in a specified region. One such property is robustness to small changes in the input.",
+        "zh": "一类算法，用来证明已训练的网络在指定区域内的所有输入上都满足某项性质。对输入微小扰动的鲁棒性就是这样一种性质。"
+      },
+      "topic": "formal-verification"
+    },
+    {
+      "id": "guaranteed-safe-ai",
+      "term": {
+        "en": "Guaranteed safe AI",
+        "zh": "可保证安全的 AI"
+      },
+      "definition": {
+        "en": "A family of approaches in which an AI system comes with an auditable proof certificate. The certificate shows that the system satisfies a safety specification relative to a world model, a mathematical description of how the system affects the outside world.",
+        "zh": "一类方法：AI 系统附带可审计的数学证明证书，表明它相对于某个世界模型满足安全规约。世界模型是对系统如何影响外部世界的数学描述。"
+      },
+      "topic": "formal-verification"
+    },
+    {
+      "id": "structured-access",
+      "term": {
+        "en": "Structured access",
+        "zh": "结构化访问"
+      },
+      "definition": {
+        "en": "Letting others interact with an AI system under the developer's control, usually through a cloud interface, instead of releasing the system openly.",
+        "zh": "在开发者的控制下让他人与 AI 系统交互，通常通过云端接口，而不是公开发布系统本身。"
+      },
+      "topic": "evaluation-audits"
+    },
+    {
+      "id": "black-box-audit",
+      "term": {
+        "en": "Black-box audit",
+        "zh": "黑盒审计"
+      },
+      "definition": {
+        "en": "An audit in which the auditor can only query a system and observe its outputs.",
+        "zh": "审计方只能向系统发出查询并观察其输出的审计。"
+      },
+      "topic": "evaluation-audits"
+    },
+    {
+      "id": "white-box-audit",
+      "term": {
+        "en": "White-box audit",
+        "zh": "白盒审计"
+      },
+      "definition": {
+        "en": "An audit in which the auditor can examine a system's internals, such as weights, activations and gradients.",
+        "zh": "审计方可以检查系统内部（例如权重、激活值和梯度）的审计。"
+      },
+      "topic": "evaluation-audits"
+    },
+    {
+      "id": "attestable-audit",
+      "term": {
+        "en": "Attestable audit",
+        "zh": "基于远程证明的审计"
+      },
+      "definition": {
+        "en": "An evaluation run inside a trusted execution environment so that the hardware attests which model, test set and code produced the reported result.",
+        "zh": "在可信执行环境中运行的评测，由硬件签署的证明报告说明是哪个模型、测试集和代码产生了所报告的结果。"
+      },
+      "topic": "evaluation-audits"
+    },
+    {
+      "id": "benchmark-contamination",
+      "term": {
+        "en": "Benchmark contamination",
+        "zh": "基准测试污染"
+      },
+      "definition": {
+        "en": "The presence of a benchmark's test items in a model's training data, which can inflate the model's score on that benchmark.",
+        "zh": "基准的测试题目出现在模型训练数据中，可能使模型在该基准上的分数虚高。"
+      },
+      "topic": "evaluation-audits"
+    },
+    {
+      "id": "privacy-enhancing-technologies",
+      "term": {
+        "en": "Privacy-enhancing technologies (PETs)",
+        "zh": "隐私增强技术（PETs）"
+      },
+      "definition": {
+        "en": "Technologies that let parties compute on data while limiting what is revealed, such as secure enclaves, secure multiparty computation and differential privacy.",
+        "zh": "一类技术，让各方在计算数据的同时限制信息泄露，例如安全飞地、安全多方计算和差分隐私。"
+      },
+      "topic": "evaluation-audits"
+    },
+    {
+      "id": "double-blind-evaluation",
+      "term": {
+        "en": "Double-blind evaluation",
+        "zh": "双盲评测"
+      },
+      "definition": {
+        "en": "An evaluation in which the evaluator never sees the model's weights and the developer never sees the test items. One way to do this is to let the weights and the test items meet only inside a secure enclave.",
+        "zh": "一种评测：评测方看不到模型权重，开发者也看不到测试题目。一种做法是让模型权重和测试题目只在安全飞地内汇合。"
+      },
+      "topic": "evaluation-audits"
+    },
+    {
+      "id": "ai-assurance-level",
+      "term": {
+        "en": "AI Assurance Level (AAL)",
+        "zh": "AI 保障等级（AAL）"
+      },
+      "definition": {
+        "en": "One of four levels in a 2026 proposal for frontier AI auditing, where higher levels give greater confidence in an audit's findings.",
+        "zh": "2026 年一项前沿 AI 审计提案中定义的四个等级之一，等级越高，审计结论的可信度越高。"
+      },
+      "topic": "evaluation-audits"
+    },
+    {
+      "id": "software-bill-of-materials",
+      "term": {
+        "en": "Software bill of materials (SBOM)",
+        "zh": "软件物料清单（SBOM）"
+      },
+      "definition": {
+        "en": "A formal, machine-readable record of the components used to build a piece of software and their supply-chain relationships.",
+        "zh": "正式且机器可读的记录，列出构建某款软件所用的组件及其供应链关系。"
+      },
+      "topic": "supply-chain"
+    },
+    {
+      "id": "ai-bill-of-materials",
+      "term": {
+        "en": "AI bill of materials (AI-BOM)",
+        "zh": "AI 物料清单（AI-BOM）"
+      },
+      "definition": {
+        "en": "A machine-readable inventory of an AI system's models, datasets and dependencies, with their provenance (where each came from) and training information.",
+        "zh": "机器可读的清单，列出 AI 系统的模型、数据集和依赖项，以及它们的溯源信息（各自来自何处）和训练信息。"
+      },
+      "topic": "supply-chain"
+    },
+    {
+      "id": "model-signing",
+      "term": {
+        "en": "Model signing",
+        "zh": "模型签名"
+      },
+      "definition": {
+        "en": "Attaching a cryptographic signature to model files, or to a manifest of their hashes. Users can then verify who published a model and that it has not changed since.",
+        "zh": "为模型文件或其哈希清单附加密码学签名。用户据此可以核实模型由谁发布，以及此后是否被改动。"
+      },
+      "topic": "supply-chain"
+    },
+    {
+      "id": "build-provenance",
+      "term": {
+        "en": "Build provenance",
+        "zh": "构建溯源"
+      },
+      "definition": {
+        "en": "Verifiable metadata describing where, when and how a software artifact was built, including the build platform and its inputs.",
+        "zh": "描述软件制品在何时、何地以及如何构建的可验证元数据，包括构建平台及其输入。"
+      },
+      "topic": "supply-chain"
+    },
+    {
+      "id": "transparency-log",
+      "term": {
+        "en": "Transparency log",
+        "zh": "透明日志"
+      },
+      "definition": {
+        "en": "An append-only public log of entries such as signatures or software measurements. Anyone can check that an entry is included and detect if entries are later removed or rewritten.",
+        "zh": "一种只追加的公开日志，记录签名或软件度量值等条目。任何人都可以核查某个条目是否已被收录，也能发现事后的删除或改写。"
+      },
+      "topic": "supply-chain"
+    },
+    {
+      "id": "reproducible-build",
+      "term": {
+        "en": "Reproducible build",
+        "zh": "可复现构建"
+      },
+      "definition": {
+        "en": "A build that any party can repeat from the same source code, environment and instructions to obtain bit-for-bit identical artifacts.",
+        "zh": "一种构建：任何一方用相同的源代码、构建环境和指令重做一遍，都能得到逐位相同的制品。"
+      },
+      "topic": "supply-chain"
+    },
+    {
+      "id": "dataset-provenance",
+      "term": {
+        "en": "Dataset provenance",
+        "zh": "数据集溯源"
+      },
+      "definition": {
+        "en": "A traceable record of a dataset's sources, creators, license terms and subsequent uses.",
+        "zh": "可追溯的数据集记录，涵盖其来源、创建者、许可条款和后续使用情况。"
+      },
+      "topic": "supply-chain"
+    },
+    {
+      "id": "content-credentials",
+      "term": {
+        "en": "Content Credentials",
+        "zh": "内容凭证"
+      },
+      "definition": {
+        "en": "The term that the Coalition for Content Provenance and Authenticity (C2PA) uses for signed provenance manifests. A manifest is attached to or linked with a media asset and records claims about the asset's origin and edits.",
+        "zh": "内容来源与真实性联盟（C2PA）对签名溯源清单的称呼。这类清单附加在媒体资产上或与之关联，记录关于资产来源和编辑过程的声明。"
+      },
+      "topic": "content-provenance"
+    },
+    {
+      "id": "hard-binding",
+      "term": {
+        "en": "Hard binding",
+        "zh": "硬绑定"
+      },
+      "definition": {
+        "en": "In C2PA, one or more cryptographic hashes that tie a manifest to the exact bytes of an asset or of a portion of it.",
+        "zh": "在 C2PA 中，把清单与资产（或其一部分）的确切字节绑定在一起的一个或多个密码学哈希。"
+      },
+      "topic": "content-provenance"
+    },
+    {
+      "id": "soft-binding",
+      "term": {
+        "en": "Soft binding",
+        "zh": "软绑定"
+      },
+      "definition": {
+        "en": "In C2PA, a fingerprint or invisible watermark that links content to its manifest and can help recover the manifest when metadata has been lost.",
+        "zh": "在 C2PA 中，把内容与其清单关联起来的指纹或不可见水印，可在元数据丢失时帮助找回清单。"
+      },
+      "topic": "content-provenance"
+    },
+    {
+      "id": "watermark",
+      "term": {
+        "en": "Watermark",
+        "zh": "数字水印"
+      },
+      "definition": {
+        "en": "A signal embedded in content, usually one that people cannot perceive. A detector can later find it to identify the content's source, such as the model that generated it.",
+        "zh": "嵌入内容中的信号，人通常难以察觉。检测方之后可以找到它，借此识别内容的来源，例如生成该内容的模型。"
+      },
+      "topic": "content-provenance"
+    },
+    {
+      "id": "agent-identity",
+      "term": {
+        "en": "Agent identity",
+        "zh": "智能体身份"
+      },
+      "definition": {
+        "en": "An identifier and associated credentials that distinguish a particular AI agent, or an instance of one, from the person or organization it acts for.",
+        "zh": "一个标识符及其凭证，用来把某个 AI 智能体（或它的某个实例）与它所代表的个人或组织区分开。"
+      },
+      "topic": "agents-accountability"
+    },
+    {
+      "id": "delegated-authorization",
+      "term": {
+        "en": "Delegated authorization",
+        "zh": "委托授权"
+      },
+      "definition": {
+        "en": "A mechanism through which a person grants an agent limited authority to act on their behalf. Examples are a signed mandate and an authorization token that covers only specific permissions.",
+        "zh": "一种机制，个人借此授予智能体代表自己行事的有限权限。签名授权书和只涵盖特定权限的授权令牌都属于这类机制。"
+      },
+      "topic": "agents-accountability"
+    },
+    {
+      "id": "verifiable-credential",
+      "term": {
+        "en": "Verifiable credential",
+        "zh": "可验证凭证"
+      },
+      "definition": {
+        "en": "A credential, such as a digital driver's license or an education certificate, that records claims made by an issuer. Tampering with it can be detected, and who issued it can be checked cryptographically.",
+        "zh": "记载签发方所作声明的凭证，例如数字驾照或学历证书。可以检测它是否被篡改，也可以用密码学方法核查签发方是谁。"
+      },
+      "topic": "agents-accountability"
+    },
+    {
+      "id": "tamper-evident-log",
+      "term": {
+        "en": "Tamper-evident log",
+        "zh": "篡改可检测日志"
+      },
+      "definition": {
+        "en": "A log built with hash chains or hash trees so that any later deletion or alteration of entries can be detected.",
+        "zh": "利用哈希链或哈希树构建的日志，任何事后对条目的删除或修改都能被发现。"
+      },
+      "topic": "agents-accountability"
+    },
+    {
+      "id": "hardware-enabled-mechanisms",
+      "term": {
+        "en": "Hardware-enabled mechanisms (HEMs)",
+        "zh": "硬件赋能机制（HEM）"
+      },
+      "definition": {
+        "en": "Features built into AI chips or servers that can verifiably report or enforce properties such as location, usage or the amount of computing power used.",
+        "zh": "内置于 AI 芯片或服务器的功能，能以可验证的方式报告或执行位置、用途、算力用量等属性。"
+      },
+      "topic": "governance-compute"
+    },
+    {
+      "id": "location-verification",
+      "term": {
+        "en": "Location verification",
+        "zh": "位置验证"
+      },
+      "definition": {
+        "en": "Checking where an AI chip operates, for example by timing its signed responses to landmark servers at known locations.",
+        "zh": "核查 AI 芯片在哪里运行，例如测量芯片向位于已知地点的地标服务器返回签名响应要花多少时间。"
+      },
+      "topic": "governance-compute"
+    },
+    {
+      "id": "proof-of-training-data",
+      "term": {
+        "en": "Proof of training data",
+        "zh": "训练数据证明"
+      },
+      "definition": {
+        "en": "A protocol that lets a model trainer convince a verifier which training data produced a given set of model weights.",
+        "zh": "一种协议：模型训练方可以借此让验证方确信，某组模型权重由哪些训练数据产生。"
+      },
+      "topic": "governance-compute"
+    }
+  ]
+}

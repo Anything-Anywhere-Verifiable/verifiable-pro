@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "hollow-llm-attack-zero-knowledge-inference.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "0416afe09f614ef86fd37279659460c7c57cc09875b9b361f0b80094ca32de58",
+  "variants": {
+    "list": {
+      "file": "hollow-llm-attack-zero-knowledge-inference-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "ba3a26ea07095993040191e08771de58377a89791b5c6183e6257b684f422dd8"
+    },
+    "thumb": {
+      "file": "hollow-llm-attack-zero-knowledge-inference-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "abc829f4adbae686f970d5eb6d3d2d84809ed7d4b3655ac0f70df3c6326416cb"
+    },
+    "social": {
+      "file": "hollow-llm-attack-zero-knowledge-inference-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "d8e6522248fcacc2227b0d7463f6246e6d8ceda353d907077204db0152180eb8"
+    }
+  },
+  "edits": {
+    "source_sha256": "1f3c427998822bf30eb180c99115d5a92844f25b888db98299955e7de26a69bb",
+    "source_size": [4000, 2664],
+    "crop": [2, 0, 3995, 2664],
+    "social_crop": [2, 550, 3995, 2097],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A large red-brick and white-stone library with an arched central entrance stands behind a tall palm tree, leafy trees, a lawn and brick paths in warm sunlight.",
+    "zh": "一座红砖白石砌成的大型图书馆，正中是拱形入口，旁边有高大的棕榈树和枝叶繁茂的树木，楼前是草坪和红砖小路，沐浴在温暖的阳光下。"
+  },
+  "caption": {
+    "en": "The Doheny Memorial Library at the University of Southern California, where the paper's three authors work, in 2012. The photo does not show the researchers or their experiments.",
+    "zh": "南加州大学的 Doheny 纪念图书馆，摄于 2012 年，论文的三位作者都在该校工作。照片中没有研究人员，也没有他们的实验。"
+  },
+  "credit": "Bohao Zhao / Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:USC_Alumni_Park_-_panoramio.jpg",
+  "retrieved": "2026-10-24"
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "anthropic-claude-lean-fermat-proof.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "4bdcaf5f26996abb1df023a5ce3f18ed97bf5775bc59ae3cfa44ce6192e3ce69",
+  "variants": {
+    "list": {
+      "file": "anthropic-claude-lean-fermat-proof-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "ea87b66eae701fe21339fb27552b6a7e9993f05c63d90e2edc4337b1666066aa"
+    },
+    "thumb": {
+      "file": "anthropic-claude-lean-fermat-proof-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "f1d5502d3f08d2719ff11c0b335c2847c841b7ff667949052365110ee3af1c42"
+    },
+    "social": {
+      "file": "anthropic-claude-lean-fermat-proof-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "812e69773c69ecea3ee2bafb140aeb4747e70b50d2cea342fcb2fb314ab84bb7"
+    }
+  },
+  "edits": {
+    "source_sha256": "f7d76446856b9aed6117d942639325ebbf430b8cc882ca85d8fa404ab93688de",
+    "source_size": [3672, 3514],
+    "crop": [0, 41, 3672, 2449],
+    "social_crop": [0, 301, 3672, 1928],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Seen from below, a bust of Pierre de Fermat with long curled hair and a wide collar, its gray paint worn away in reddish patches, stands in a round niche with a gold rim above a pedestal with gilded trim.",
+    "zh": "从下方仰视：一尊 Pierre de Fermat 半身像，长发卷曲，衣领宽大，灰色涂层多处剥落、露出红褐色，安放在镶金边的圆形壁龛里，下方是饰有金边的底座。"
+  },
+  "caption": {
+    "en": "A bust of Pierre de Fermat, after whom the theorem is named, in the Capitole, Toulouse's city hall, in September 2012. The photo does not show the Lean proof or Anthropic's Claude agents.",
+    "zh": "图卢兹市政厅（Capitole）里的 Pierre de Fermat 半身像，摄于 2012 年 9 月，费马大定理即以他命名。照片中没有这份 Lean 证明，也没有 Anthropic 的 Claude 智能体。"
+  },
+  "credit": "Don-vip / Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Buste_de_Fermat_dans_la_Salle_des_Illustres_du_Capitole_de_Toulouse.jpg",
+  "retrieved": "2026-10-24"
+}

@@ -1,0 +1,176 @@
+{
+ "cards": {
+  "agents-accountability-en.png": {
+   "alt": "The verifiable.pro logo above the words “Agent identity & accountability”, marked as a topic, beside a drawing of an agent's path of actions above its tamper-evident log.",
+   "kicker": "Topic",
+   "lang": "en",
+   "motif": "trajectory",
+   "seed": "verifiable.pro social card: agents-accountability",
+   "title": "Agent identity & accountability",
+   "topic": "agents-accountability"
+  },
+  "agents-accountability-zh.png": {
+   "alt": "verifiable.pro 标志下方是“智能体身份与问责”，标为主题，旁边是一幅插图：智能体的行动路径及其下方的防篡改日志。",
+   "kicker": "主题",
+   "lang": "zh",
+   "motif": "trajectory",
+   "seed": "verifiable.pro social card: agents-accountability",
+   "title": "智能体身份与问责",
+   "topic": "agents-accountability"
+  },
+  "confidential-computing-en.png": {
+   "alt": "The verifiable.pro logo above the words “Confidential computing & attestation”, marked as a topic, beside a drawing of memory pages around a sealed, measured region.",
+   "kicker": "Topic",
+   "lang": "en",
+   "motif": "enclave",
+   "seed": "verifiable.pro social card: confidential-computing",
+   "title": "Confidential computing & attestation",
+   "topic": "confidential-computing"
+  },
+  "confidential-computing-zh.png": {
+   "alt": "verifiable.pro 标志下方是“机密计算与远程证明”，标为主题，旁边是一幅插图：内存页环绕着一块经过度量的封闭区域。",
+   "kicker": "主题",
+   "lang": "zh",
+   "motif": "enclave",
+   "seed": "verifiable.pro social card: confidential-computing",
+   "title": "机密计算与远程证明",
+   "topic": "confidential-computing"
+  },
+  "content-provenance-en.png": {
+   "alt": "The verifiable.pro logo above the words “Content provenance & watermarking”, marked as a topic, beside a drawing of an image with an embedded signal beside a signed manifest.",
+   "kicker": "Topic",
+   "lang": "en",
+   "motif": "credential",
+   "seed": "verifiable.pro social card: content-provenance",
+   "title": "Content provenance & watermarking",
+   "topic": "content-provenance"
+  },
+  "content-provenance-zh.png": {
+   "alt": "verifiable.pro 标志下方是“内容溯源与水印”，标为主题，旁边是一幅插图：一幅嵌有信号的图像和一份签名清单。",
+   "kicker": "主题",
+   "lang": "zh",
+   "motif": "credential",
+   "seed": "verifiable.pro social card: content-provenance",
+   "title": "内容溯源与水印",
+   "topic": "content-provenance"
+  },
+  "evaluation-audits-en.png": {
+   "alt": "The verifiable.pro logo above the words “Verifiable evaluation & audits”, marked as a topic, beside a drawing of many test runs inside a confidence band, with the failures marked.",
+   "kicker": "Topic",
+   "lang": "en",
+   "motif": "samples",
+   "seed": "verifiable.pro social card: evaluation-audits",
+   "title": "Verifiable evaluation & audits",
+   "topic": "evaluation-audits"
+  },
+  "evaluation-audits-zh.png": {
+   "alt": "verifiable.pro 标志下方是“可验证评测与审计”，标为主题，旁边是一幅插图：置信区间内的多次测试运行，失败的几次被标出。",
+   "kicker": "主题",
+   "lang": "zh",
+   "motif": "samples",
+   "seed": "verifiable.pro social card: evaluation-audits",
+   "title": "可验证评测与审计",
+   "topic": "evaluation-audits"
+  },
+  "formal-verification-en.png": {
+   "alt": "The verifiable.pro logo above the words “Formal verification”, marked as a topic, beside a drawing of proof obligations discharged one by one across a grid.",
+   "kicker": "Topic",
+   "lang": "en",
+   "motif": "lattice",
+   "seed": "verifiable.pro social card: formal-verification",
+   "title": "Formal verification",
+   "topic": "formal-verification"
+  },
+  "formal-verification-zh.png": {
+   "alt": "verifiable.pro 标志下方是“形式化验证”，标为主题，旁边是一幅插图：证明义务在网格上逐一完成。",
+   "kicker": "主题",
+   "lang": "zh",
+   "motif": "lattice",
+   "seed": "verifiable.pro social card: formal-verification",
+   "title": "形式化验证",
+   "topic": "formal-verification"
+  },
+  "governance-compute-en.png": {
+   "alt": "The verifiable.pro logo above the words “Governance & compute verification”, marked as a topic, beside a drawing of a chip whose cores are metered.",
+   "kicker": "Topic",
+   "lang": "en",
+   "motif": "die",
+   "seed": "verifiable.pro social card: governance-compute",
+   "title": "Governance & compute verification",
+   "topic": "governance-compute"
+  },
+  "governance-compute-zh.png": {
+   "alt": "verifiable.pro 标志下方是“治理与算力核查”，标为主题，旁边是一幅插图：一块各个核心都被计量的芯片。",
+   "kicker": "主题",
+   "lang": "zh",
+   "motif": "die",
+   "seed": "verifiable.pro social card: governance-compute",
+   "title": "治理与算力核查",
+   "topic": "governance-compute"
+  },
+  "site-en.png": {
+   "alt": "The verifiable.pro logo above the words “Verifiable AI, starting from trusted execution environments” and “Evidence you can check, from the chip up”, beside a drawing of memory pages around a sealed, measured region.",
+   "kicker": "Evidence you can check, from the chip up",
+   "lang": "en",
+   "motif": "enclave",
+   "seed": "verifiable.pro social card: site",
+   "title": "Verifiable AI, starting from trusted execution environments",
+   "topic": null
+  },
+  "site-zh.png": {
+   "alt": "verifiable.pro 标志下方是“可验证 AI，从可信执行环境出发”和“从芯片往上，你能核查的证据”，旁边是一幅插图：内存页环绕着一块经过度量的封闭区域。",
+   "kicker": "从芯片往上，你能核查的证据",
+   "lang": "zh",
+   "motif": "enclave",
+   "seed": "verifiable.pro social card: site",
+   "title": "可验证 AI，从可信执行环境出发",
+   "topic": null
+  },
+  "supply-chain-en.png": {
+   "alt": "The verifiable.pro logo above the words “Model & data supply chain”, marked as a topic, beside a drawing of records linked one to the next by hashes.",
+   "kicker": "Topic",
+   "lang": "en",
+   "motif": "chain",
+   "seed": "verifiable.pro social card: supply-chain",
+   "title": "Model & data supply chain",
+   "topic": "supply-chain"
+  },
+  "supply-chain-zh.png": {
+   "alt": "verifiable.pro 标志下方是“模型与数据供应链”，标为主题，旁边是一幅插图：以哈希逐条相连的记录。",
+   "kicker": "主题",
+   "lang": "zh",
+   "motif": "chain",
+   "seed": "verifiable.pro social card: supply-chain",
+   "title": "模型与数据供应链",
+   "topic": "supply-chain"
+  },
+  "verifiable-inference-en.png": {
+   "alt": "The verifiable.pro logo above the words “Verifiable inference & computation”, marked as a topic, beside a drawing of layers of computation folding into a single commitment.",
+   "kicker": "Topic",
+   "lang": "en",
+   "motif": "proof_tree",
+   "seed": "verifiable.pro social card: verifiable-inference",
+   "title": "Verifiable inference & computation",
+   "topic": "verifiable-inference"
+  },
+  "verifiable-inference-zh.png": {
+   "alt": "verifiable.pro 标志下方是“可验证推理与计算”，标为主题，旁边是一幅插图：多层计算汇聚成一个承诺。",
+   "kicker": "主题",
+   "lang": "zh",
+   "motif": "proof_tree",
+   "seed": "verifiable.pro social card: verifiable-inference",
+   "title": "可验证推理与计算",
+   "topic": "verifiable-inference"
+  }
+ },
+ "icons": {
+  "apple-touch-icon.png": 180,
+  "icon-192.png": 192,
+  "icon-512.png": 512
+ },
+ "note": "Written by tools/og_images.py: the words on each social card and its alt text, which the build uses for og:image:alt. Redraw the cards instead of editing this file.",
+ "size": [
+  1200,
+  630
+ ]
+}

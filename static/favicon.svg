@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="verifiable.pro">
+  <style>@media (prefers-color-scheme: dark) { .tile { fill: #e6e8ea } .glyph { stroke: #141618 } .seal { fill: #c8321f } }</style>
+  <rect class="tile" width="48" height="48" fill="#1d2023"/>
+  <path class="glyph" d="M10.5 10.5 19.5 29.5 28.5 10.5" fill="none" stroke="#ffffff" stroke-width="5.5" stroke-linejoin="miter" stroke-miterlimit="4"/>
+  <rect class="seal" x="30" y="27" width="9" height="9" fill="#e2412f"/>
+</svg>

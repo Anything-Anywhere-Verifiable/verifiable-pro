@@ -1,0 +1,77 @@
+name: Story tip
+description: Suggest a development for a news brief, analysis or guide.
+title: "[Story] "
+labels: [story-tip, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We cover a development when it changes what someone outside the developer can check about an AI system. An editor reads every tip, though not every tip becomes an article. Write in English or Chinese. Thank you for the tip.
+  - type: input
+    id: source
+    attributes:
+      label: Primary source
+      description: The organization's own announcement, paper, standard or documentation. Link to coverage only if no primary source exists.
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: event_date
+    attributes:
+      label: Date announced
+      description: The date on the primary source (YYYY-MM-DD).
+      placeholder: "2026-10-20"
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: State only what the source says, in two or three sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters
+      description: Which claim about an AI system becomes checkable, who can check it and with what evidence.
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - Confidential computing & attestation
+        - Verifiable inference & computation
+        - Formal verification
+        - Verifiable evaluation & audits
+        - Model & data supply chain
+        - Content provenance & watermarking
+        - Agent identity & accountability
+        - Governance & compute verification
+        - Not sure
+  - type: textarea
+    id: more
+    attributes:
+      label: Other sources
+      description: One link per line to papers, code, standards or reporting that help check the story.
+  - type: input
+    id: credit
+    attributes:
+      label: Name to credit
+      description: Optional. If your tip becomes an article, its byline says "Submitted by" and this name. Leave it blank for no credit. Like the rest of this issue, the name is public.
+      placeholder: Your name, as you want it shown
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to the story
+      description: We disclose relationships in the article. A relationship does not disqualify a tip.
+      options:
+        - None
+        - I work for or advise an organization involved
+        - I am an author of the work
+        - Other (explain below)
+    validations:
+      required: true
+  - type: textarea
+    id: disclosure
+    attributes:
+      label: Relationship details
+      description: Fill in if you chose anything other than "None".

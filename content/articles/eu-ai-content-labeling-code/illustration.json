@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "eu-ai-content-labeling-code.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "43c24bb0dc069a2f107aada1e9482a17fba067731b1e9fa73f03a7c95227cceb",
+  "variants": {
+    "list": {
+      "file": "eu-ai-content-labeling-code-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "28da489a562348e415e9c1e484e24f455d1fa7564f84f44dc8846d59655e887d"
+    },
+    "thumb": {
+      "file": "eu-ai-content-labeling-code-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "e8614bac67526c1662d8074c3cb68065ee4bbc4c02aeb41d5ed3898b99871b87"
+    },
+    "social": {
+      "file": "eu-ai-content-labeling-code-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "e76154ca22233bdd98042f9de0e7fe3ab745c113132810f3f7f274ea7daa16dc"
+    }
+  },
+  "edits": {
+    "source_sha256": "d70c7f6024acaf42a8fad4f58937c6a324e465c3417ac9cba5013d619533f8e4",
+    "source_size": [5184, 3456],
+    "crop": [0, 0, 5184, 3456],
+    "social_crop": [0, 367, 5184, 2722],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A row of blue European Union flags on tall steel poles runs diagonally in front of a large office building with a gray grid facade.",
+    "zh": "一排挂在高大钢制旗杆上的蓝色欧盟旗帜斜向排开，后方是一座立面为灰色网格的大型办公楼。"
+  },
+  "caption": {
+    "en": "European Union flags outside the Berlaymont, the European Commission's headquarters in Brussels, in June 2015.",
+    "zh": "布鲁塞尔 Berlaymont 大楼外的欧盟旗帜，摄于 2015 年 6 月。这座大楼是欧盟委员会总部。"
+  },
+  "credit": "Fred Romero / Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Bruxelles_-_Commission_Europ%C3%A9enne_Berlaymont_(23191436909).jpg",
+  "retrieved": "2026-10-24"
+}

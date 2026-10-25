@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "ddrop-ddr5-interposer-attack.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "083db41daea2d2e4b9b318bc648d3d51a15b1ca4c8a9dd64e4db4b34eabbe7fe",
+  "variants": {
+    "list": {
+      "file": "ddrop-ddr5-interposer-attack-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "f6925a098abfc40c9fe4bf7c78ddfa94516f8ca21b4f1eb8eca092490404014b"
+    },
+    "thumb": {
+      "file": "ddrop-ddr5-interposer-attack-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "689b3140ebc204f3996f8f558f63201bc0100104b76e3826bc593d5d18fef971"
+    },
+    "social": {
+      "file": "ddrop-ddr5-interposer-attack-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "656c270832a3434b50d14aaf66de37fa090a96d0cd60ba801b4580395f81ab19"
+    }
+  },
+  "edits": {
+    "source_sha256": "f03adae9205fca0e6d8c52f8a1c6b65922844832815a53e14ea7e6a50982f0cb",
+    "source_size": [6669, 1740],
+    "crop": [1763, 0, 2609, 1740],
+    "social_crop": [1763, 185, 2609, 1370],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Close-up of the middle of a green memory module: black memory chips in two rows on either side of a small black chip flanked by four gray square components, above a row of gold contacts with a notch.",
+    "zh": "一条绿色内存条中段的特写：两侧是上下两排黑色内存芯片，中间一颗小小的黑色芯片两旁排着四个灰色方形元件，下沿是一排带缺口的金色触点。"
+  },
+  "caption": {
+    "en": "Part of a DDR5 server memory module, photographed in April 2024. The photo does not show the DDRop interposer, which sits on a server's DDR5 memory bus.",
+    "zh": "一条 DDR5 服务器内存条的局部，摄于 2024 年 4 月。照片中并非 DDRop 插入器，DDRop 接在服务器的 DDR5 内存总线上。"
+  },
+  "credit": "PantheraLeo1359531 / Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Micron_MTC40F204681RC48BA1R_HOF1687_RAW-Export_000109.png",
+  "retrieved": "2026-10-24"
+}

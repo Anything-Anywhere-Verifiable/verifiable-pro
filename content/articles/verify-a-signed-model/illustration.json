@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "verify-a-signed-model.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "fd82da36607cf31c4a23b670e251fc258459635ec2fe0db7f9ff48897daf01f0",
+  "variants": {
+    "list": {
+      "file": "verify-a-signed-model-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "a9a011bb48e421526c6391454eb4f8a34ebdcf76da6d8bc6c0b374a4b6b74416"
+    },
+    "thumb": {
+      "file": "verify-a-signed-model-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "c9ab23508e79a1bfb0f372f49b1f2028000c45fd9f62f3fc4b265678ed8551c0"
+    },
+    "social": {
+      "file": "verify-a-signed-model-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "3663caf7c1b6eb65e775cb817c42951bcb94f631d7e1bc185343801848ffb39d"
+    }
+  },
+  "edits": {
+    "source_sha256": "31505dcb1d9ac2a06e1d5b88bd3266e7c83df56ebee890dd186774b0a2746411",
+    "source_size": [3000, 1987],
+    "crop": [20, 0, 2980, 1987],
+    "social_crop": [20, 311, 2980, 1564],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A close-up of a server's front panel: a row of silver drive trays with green status lights, sharp in the middle and blurred toward the edges.",
+    "zh": "服务器前面板特写：一排银色硬盘托架亮着绿色状态灯，画面中部清晰，向两侧逐渐模糊。"
+  },
+  "caption": {
+    "en": "Hard drives in a server's drive bays. The photo does not show the model files or the signatures this guide checks.",
+    "zh": "服务器硬盘仓中的一排硬盘。照片没有展示本指南要核查的模型文件或签名。"
+  },
+  "credit": "Domaintechnik / Unsplash",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license",
+  "source_url": "https://unsplash.com/photos/server-rack-with-blinking-green-lights-VHmBX7FnXw0",
+  "retrieved": "2026-10-24"
+}

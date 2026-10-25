@@ -1,0 +1,59 @@
+{
+  "schema": "verifiable.pro/attestation/v1",
+  "attestation_id": "att_mock_e073c438128f3e34",
+  "mode": "mock",
+  "nonce": "911824f1942f545b4304c5742abebad8b508e4326f2318e659ba3811ee28658a",
+  "issued_at": "2026-10-20T14:02:11Z",
+  "expires_at": "2026-10-20T14:12:11Z",
+  "keyset": {
+    "epoch": "2026-10-20T13:55:00Z",
+    "hpke": null,
+    "receipt": null,
+    "tls_spki_sha256": null,
+    "release": null
+  },
+  "keyset_digest": "d09f6cea75c967654a7df1d6e8d839ffb4a8c680701a40b60d8be7b1cb59ead5",
+  "binding": {
+    "method": "none",
+    "description": "Mock backend: there is no hardware report, so nothing binds this keyset or nonce to a TEE.",
+    "gpu_nonce": null
+  },
+  "evidence": [],
+  "collateral": [],
+  "release": null,
+  "server_checks": [],
+  "summary": {
+    "tee": {
+      "cpu": "none",
+      "label": "None (mock backend; nothing is attested)",
+      "platform": "mock",
+      "tcb_status": null,
+      "debug": null
+    },
+    "gpu": null,
+    "cc_mode": "off",
+    "model": {
+      "id": "mock-extractive",
+      "revision": null,
+      "license": null,
+      "engine": "mock (quotes the supplied passages; no model)",
+      "display": "Extractive mock (no model)"
+    },
+    "model_digest": null,
+    "image_digest": null,
+    "measurement": null,
+    "code": null,
+    "system_prompt_sha256": null,
+    "corpus": null,
+    "verified_by": [],
+    "verified_at": null,
+    "report_url": null,
+    "nonce": "911824f1942f545b4304c5742abebad8b508e4326f2318e659ba3811ee28658a",
+    "claims": {
+      "operator_can_read_plaintext": true,
+      "basis": "Mock backend: requests arrive as plaintext JSON and nothing is attested. Whoever runs this server, and anything between it and the browser, can read every question."
+    }
+  },
+  "report_url": null,
+  "notice": "MOCK BACKEND. Nothing here is attested: no trusted execution environment, no GPU confidential computing, no hardware evidence, no encryption to an enclave key. Clients must show the demo status."
+}

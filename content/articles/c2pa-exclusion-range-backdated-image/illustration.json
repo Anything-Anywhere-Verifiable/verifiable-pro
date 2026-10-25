@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "c2pa-exclusion-range-backdated-image.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "0a3592cb37d99005d7897273fa14d141ab0a49e0328b278c13317ef4d49699df",
+  "variants": {
+    "list": {
+      "file": "c2pa-exclusion-range-backdated-image-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "b27b14e50448ae66f7426647f55e275b616b6c5546fe844b552952420847685a"
+    },
+    "thumb": {
+      "file": "c2pa-exclusion-range-backdated-image-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "daa67204bed5fa5e8de9f2a47159fcaa111c591e621c33142a1c373d9275725b"
+    },
+    "social": {
+      "file": "c2pa-exclusion-range-backdated-image-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "bb61b5dc804ab6e37f9b828203b658255941f701f479af306c7b1dc64d57d597"
+    }
+  },
+  "edits": {
+    "source_sha256": "61869d2ab41252cbfd3ab3beb2765f1fba64a2d98ffbb6791af50201e7ac3a50",
+    "source_size": [4592, 3448],
+    "crop": [0, 365, 4592, 3062],
+    "social_crop": [0, 691, 4592, 2411],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A hand with a red pen marks blue crosses on a lottery play slip printed with grids of red numbers.",
+    "zh": "一只手握着红色圆珠笔，在印有红色数字方格的彩票投注单上画出蓝色的叉。"
+  },
+  "caption": {
+    "en": "A hand marks numbers on a lottery play slip in Finland in February 2018. The photo is not Buchanan's lottery-ticket image and does not show any Content Credentials.",
+    "zh": "一只手在彩票投注单上勾选号码，2018 年 2 月摄于芬兰。照片并非 Buchanan 的彩票图片，也没有展示任何内容凭证。"
+  },
+  "credit": "Santeri Viinamäki / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Filling_lottery_ticket_20180215.jpg",
+  "retrieved": "2026-10-24"
+}

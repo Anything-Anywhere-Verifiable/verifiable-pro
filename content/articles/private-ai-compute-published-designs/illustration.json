@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "private-ai-compute-published-designs.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "4ddd2e646f9a1549e26ceee0469317b9a1c7280bf7a81edc6173970a93fb3ef5",
+  "variants": {
+    "list": {
+      "file": "private-ai-compute-published-designs-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "e6b6a4f2fce6e31ea8e256a0bc6d03365093f2ea373a4d08bac812a3a0408630"
+    },
+    "thumb": {
+      "file": "private-ai-compute-published-designs-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "6e3bf19267a621fc79992e72374568570f76e753ad6451705207de8059058fba"
+    },
+    "social": {
+      "file": "private-ai-compute-published-designs-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "941bd60f97c5955dbffc990b933f55f060c7d9c7bda0d36ac469376e60a9a810"
+    }
+  },
+  "edits": {
+    "source_sha256": "04698f08dc34fe2385f43910fc5f07f0af9b4259724a491fbdb2484a6dd469c5",
+    "source_size": [6028, 4012],
+    "crop": [6, 0, 6016, 4012],
+    "social_crop": [6, 427, 6016, 3158],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A silicon wafer patterned with a grid of rectangular chips shimmers in bands of blue, pink, yellow and green against a black background.",
+    "zh": "一片硅晶圆上整齐排列着矩形芯片，在黑色背景前泛出蓝、粉、黄、绿相间的光泽。"
+  },
+  "caption": {
+    "en": "A silicon wafer patterned with chips, photographed in February 2019. The photo does not show the chips or servers of Apple, Meta, Google or Cohere.",
+    "zh": "一片布满芯片的硅晶圆，摄于 2019 年 2 月。照片中没有 Apple、Meta、Google 或 Cohere 的芯片和服务器。"
+  },
+  "credit": "Enrique Jiménez / Wikimedia Commons",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Silicon_Wafer_20190210.jpg",
+  "retrieved": "2026-10-24"
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "anthropic-metr-embedded-evaluators.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "92cbe47ded76f8067c0bedd3119fe1a37c5af01b615eb6891c213538b7dbb79e",
+  "variants": {
+    "list": {
+      "file": "anthropic-metr-embedded-evaluators-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "69e3389dfd018df063be6ead1590a19e2fcb46289d0027b2a625c5b5e6471c21"
+    },
+    "thumb": {
+      "file": "anthropic-metr-embedded-evaluators-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "f1a0dbf30d96a0121fc8522807b589ab53012c93e951d7fbffde6f92b915f2d1"
+    },
+    "social": {
+      "file": "anthropic-metr-embedded-evaluators-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "f99c255cbe530396b8d56c047fa02313b19255d2a77871aa4a510d66b6a9ab06"
+    }
+  },
+  "edits": {
+    "source_sha256": "f699773898237c9bd16bb47ed23c29e166ba5aa9562599eef1c8c0c750aa6a55",
+    "source_size": [6016, 4016],
+    "crop": [0, 0, 6016, 4012],
+    "social_crop": [0, 228, 6016, 3158],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A person seen from behind sits in a black mesh chair at a white desk with two computer monitors and a desk phone, in front of bright office windows.",
+    "zh": "一个人背对镜头，坐在白色办公桌前的黑色网面椅上，桌上有两台电脑显示器和一部座机电话，前方是明亮的办公室窗户。"
+  },
+  "caption": {
+    "en": "A person works at a desk with two monitors in an office. The photo does not show Anthropic's offices or METR's evaluators.",
+    "zh": "办公室里，一个人在配有两台显示器的办公桌前工作。照片中并非 Anthropic 的办公场所或 METR 的评测人员。"
+  },
+  "credit": "Christina Morillo / Pexels",
+  "license": "Pexels License",
+  "license_url": "https://www.pexels.com/license/",
+  "source_url": "https://www.pexels.com/photo/woman-sits-on-black-rolling-armchair-1181526/",
+  "retrieved": "2026-10-24"
+}

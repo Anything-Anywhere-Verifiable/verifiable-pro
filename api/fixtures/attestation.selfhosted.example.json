@@ -1,0 +1,163 @@
+{
+  "example": true,
+  "notice": "EXAMPLE ONLY: realistic shape, fake values. No quote, token, key, signature or digest in this file is real. It exists to lay out the verification panel; a running backend must never serve it.",
+  "schema": "verifiable.pro/attestation/v1",
+  "attestation_id": "att_EXAMPLE_0000000000000000",
+  "mode": "self_hosted",
+  "nonce": "911824f1942f545b4304c5742abebad8b508e4326f2318e659ba3811ee28658a",
+  "issued_at": "2026-10-20T14:02:11Z",
+  "expires_at": "2026-10-20T14:12:11Z",
+  "keyset": {
+    "epoch": "2026-10-20T13:55:00Z",
+    "hpke": {
+      "kem": "DHKEM(X25519,HKDF-SHA256)",
+      "kdf": "HKDF-SHA256",
+      "aead": "AES-256-GCM",
+      "public_key": "EXAMPLE-HPKE-KEY-NOT-REALAAAAAAAAAAAAAAAAAA"
+    },
+    "receipt": {
+      "alg": "Ed25519",
+      "public_key": "EXAMPLE-RECEIPT-KEY-NOT-REALAAAAAAAAAAAAAAA"
+    },
+    "tls_spki_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "release": {
+      "repo": "github.com/OWNER/verifiable-pro-chat",
+      "tag": "v0.3.0-example",
+      "commit": "0123456789abcdef0123456789abcdef01234567"
+    }
+  },
+  "keyset_digest": "71f03e743eae3547925e4756083f850ba2fbf701bcdee4b6c28ea755630047ec",
+  "binding": {
+    "method": "gcp-cs-eat-nonce-v1",
+    "description": "Confidential Space token eat_nonce = [nonce, keyset_digest]; GPU evidence nonce = sha256(nonce || keyset_digest).",
+    "gpu_nonce": "12ccc8c989ec16a847962f7ad763f2fd2d9fe830f611699ed9b6ba5e1a02f2c8"
+  },
+  "evidence": [
+    {
+      "kind": "gcp_cs_token",
+      "format": "jwt-pki",
+      "data": "eyJhbGciOiJFWEFNUExFIn0.eyJleGFtcGxlIjp0cnVlfQ.EXAMPLE-NOT-A-SIGNATURE"
+    },
+    {
+      "kind": "nvidia_eat",
+      "format": "nras-detached-eat",
+      "data": [
+        [
+          "JWT",
+          "eyJhbGciOiJFWEFNUExFIn0.eyJleGFtcGxlIjp0cnVlfQ.EXAMPLE-NOT-A-SIGNATURE"
+        ],
+        {
+          "GPU-0": "eyJhbGciOiJFWEFNUExFIn0.eyJleGFtcGxlIjp0cnVlfQ.EXAMPLE-NOT-A-SIGNATURE"
+        }
+      ],
+      "cached": false
+    },
+    {
+      "kind": "nvidia_evidence",
+      "format": "nvattest-gpu-evidence",
+      "url": "https://api.example.invalid/v1/attestation/att_EXAMPLE_0000000000000000/evidence/gpu"
+    }
+  ],
+  "collateral": [
+    {
+      "kind": "nvidia_nras_jwk",
+      "data": {
+        "kty": "EC",
+        "crv": "P-384",
+        "kid": "EXAMPLE-KID",
+        "x": "EXAMPLE",
+        "y": "EXAMPLE",
+        "x5c": [
+          "EXAMPLE-LEAF-CERT",
+          "EXAMPLE-INTERMEDIATE-CERT"
+        ]
+      }
+    }
+  ],
+  "release": {
+    "release_json_url": "https://github.com/OWNER/verifiable-pro-chat/releases/download/v0.3.0-example/release.json",
+    "sigstore_bundle": null,
+    "expected": {
+      "image_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "model_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "system_prompt_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "gpu_policy_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    }
+  },
+  "server_checks": [
+    {
+      "id": "gpu_policy_at_boot",
+      "result": "pass",
+      "at": "2026-10-20T13:55:02Z",
+      "detail": "EXAMPLE: nvattest local: cc_mode=on, dbgstat=disabled, measres=success, ocsp=good"
+    },
+    {
+      "id": "model_files_hash",
+      "result": "pass",
+      "detail": "EXAMPLE: 42 files match release model list"
+    }
+  ],
+  "summary": {
+    "tee": {
+      "cpu": "intel-tdx",
+      "label": "Intel TDX (example)",
+      "platform": "gcp-confidential-space",
+      "tcb_status": "UpToDate",
+      "debug": false
+    },
+    "gpu": {
+      "vendor": "nvidia",
+      "model": "H100 80GB HBM3",
+      "arch": "hopper",
+      "count": 1,
+      "driver_version": "000.00-example",
+      "vbios_version": "00.00.00.00.00-example"
+    },
+    "cc_mode": "on",
+    "model": {
+      "id": "Qwen/Qwen3.5-9B",
+      "revision": "0000000000000000000000000000000000000000",
+      "license": "apache-2.0",
+      "engine": "vllm@example",
+      "display": "Qwen3.5-9B"
+    },
+    "model_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "image_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "measurement": {
+      "type": "gcp-cs",
+      "swname": "CONFIDENTIAL_SPACE",
+      "image_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "code": {
+      "repo": "github.com/OWNER/verifiable-pro-chat",
+      "tag": "v0.3.0-example",
+      "commit": "0123456789abcdef0123456789abcdef01234567",
+      "release_url": "https://github.com/OWNER/verifiable-pro-chat/releases/tag/v0.3.0-example"
+    },
+    "system_prompt_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "corpus": {
+      "manifest_digest": "5232b98439ed3f5125b3ee397e5de7371be5c7a1d45d6f2eeb65395bf86d4f8d",
+      "manifest_url": "https://verifiable.pro/manifest.json"
+    },
+    "verified_by": [
+      {
+        "party": "google-cloud-attestation",
+        "subject": "cpu",
+        "issuer": "https://confidentialcomputing.googleapis.com"
+      },
+      {
+        "party": "nvidia-nras",
+        "subject": "gpu",
+        "issuer": "https://nras.attestation.nvidia.com"
+      }
+    ],
+    "verified_at": "2026-10-20T14:02:11Z",
+    "report_url": "https://api.example.invalid/v1/attestation/att_EXAMPLE_0000000000000000/evidence",
+    "nonce": "911824f1942f545b4304c5742abebad8b508e4326f2318e659ba3811ee28658a",
+    "claims": {
+      "operator_can_read_plaintext": false,
+      "basis": "Request bodies are HPKE-encrypted to keyset.hpke.public_key, bound to the attested CVM via binding.method."
+    }
+  },
+  "report_url": "https://api.example.invalid/v1/attestation/att_EXAMPLE_0000000000000000/evidence"
+}

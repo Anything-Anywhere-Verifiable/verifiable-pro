@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "google-private-ai-compute-memory.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "7dd7e6708c221650a98eb668a2153343ffcfebbc6c3e8df705d12187eeb41505",
+  "variants": {
+    "list": {
+      "file": "google-private-ai-compute-memory-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "729fb69330983d52d055e62f4cd915c89f191d251906b84db70cc189a3a9f7a0"
+    },
+    "thumb": {
+      "file": "google-private-ai-compute-memory-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "c48dd457c12e9e9da851acd9f67f3d7b039e8ee9da8e23544265607a3269eaad"
+    },
+    "social": {
+      "file": "google-private-ai-compute-memory-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "69d87aefbaf093c43d0ceb4178d512e11114427a1ac1eaec85b6b73ebb101267"
+    }
+  },
+  "edits": {
+    "source_sha256": "ff54c410e22d7297cfddaa057ee251ae8619eca8dbbeb817dc3c9bfdecc1b87f",
+    "source_size": [2048, 1536],
+    "crop": [0, 85, 2048, 1366],
+    "social_crop": [0, 230, 2048, 1075],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A green circuit board seen from above on a white background, with four chips under metal cooling plates linked by red, blue, yellow and green coolant hoses.",
+    "zh": "白色背景上俯拍的一块绿色电路板，板上四颗芯片覆着金属冷板，红、蓝、黄、绿色的冷却液软管连接其间。"
+  },
+  "caption": {
+    "en": "A board with four liquid-cooled Google TPU v4 chips, from a 2023 research paper. The photo does not show the servers that run Private AI Compute.",
+    "zh": "一块装有四颗液冷 Google TPU v4 芯片的电路板，取自 2023 年的一篇研究论文。照片没有展示运行 Private AI Compute 的服务器。"
+  },
+  "credit": "Norman P. Jouppi et al. / Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:TPU_v4.png",
+  "retrieved": "2026-10-24"
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "how-to-read-a-remote-attestation-report.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "c1b2a791f4f1cc9518ce8115be6d72cc844abf64ae93fbfd7bb8590fb52410d2",
+  "variants": {
+    "list": {
+      "file": "how-to-read-a-remote-attestation-report-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "cf48838db1e3d5ea616d796e163b8797269c35d59884b8a30b925d2e4eb5529d"
+    },
+    "thumb": {
+      "file": "how-to-read-a-remote-attestation-report-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "41a31c68ee9f540a1442ddd1486e0dcdc6e7167a4bd1bc33bda8b0390874adbe"
+    },
+    "social": {
+      "file": "how-to-read-a-remote-attestation-report-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "af3fd55f56ade4036b2ad422c2583cd2c63b5bfe3243025a6067af2e1e4c5f28"
+    }
+  },
+  "edits": {
+    "source_sha256": "c36b2e63c8b84a280d7aed36dfabbaaeb1562f50ba658486da4c7106a0eae700",
+    "source_size": [3506, 2726],
+    "crop": [0, 194, 3506, 2338],
+    "social_crop": [0, 442, 3506, 1841],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A server processor with its lid removed: eight small chips and one large central chip, covered in silvery solder residue, sit on a teal circuit board ringed by rows of tiny components.",
+    "zh": "一枚揭开顶盖的服务器处理器：八块小芯片和中间一块大芯片覆盖着银色焊料残留，排列在青绿色基板上，四周环绕着成排的微小元件。"
+  },
+  "caption": {
+    "en": "An AMD EPYC server processor with its lid removed, photographed in October 2019. The photo does not show the hardware of any service in this guide.",
+    "zh": "一枚揭开顶盖的 AMD EPYC 服务器处理器，摄于 2019 年 10 月。照片中并非本指南涉及的任何服务所用的硬件。"
+  },
+  "credit": "Fritzchens Fritz / Wikimedia Commons",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:AMD@7nm(12nmIOD)@Zen2@Rome@EPYC_7702_ES@2S1404E2VJUG5_BB_ES_DSCx3.jpg",
+  "retrieved": "2026-10-24"
+}

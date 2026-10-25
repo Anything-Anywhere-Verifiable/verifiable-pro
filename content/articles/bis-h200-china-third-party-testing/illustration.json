@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "bis-h200-china-third-party-testing.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "eb360e8e524c838576d4a748d94974ce4d373ad1a578fa14a2c2956573f4c865",
+  "variants": {
+    "list": {
+      "file": "bis-h200-china-third-party-testing-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "1b3d4623c3cfe1a9c7f603eacf6baacfb89211e5cb6cb4023d3ba52bc86048f0"
+    },
+    "thumb": {
+      "file": "bis-h200-china-third-party-testing-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "af27644f9fdc5148fb6218c87f1bf91b7a1ed5d612c05691a69c012420bbf3bc"
+    },
+    "social": {
+      "file": "bis-h200-china-third-party-testing-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "75bc385bdb88a6ceb05f509d93521b44248ad047516e0364e3ed2ec45e3d6a67"
+    }
+  },
+  "edits": {
+    "source_sha256": "a15e0653c95303e1880741dfd5bb18a9181a1529cee934b6af935268a948cc95",
+    "source_size": [3840, 2560],
+    "crop": [0, 0, 3840, 2560],
+    "social_crop": [0, 544, 3840, 2016],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The stone pediment and columns of a large neoclassical government building glow orange in low sunlight against a deep blue sky, under dark tree branches.",
+    "zh": "一座新古典主义政府大楼的石砌山墙和立柱在低斜的阳光下泛着橙色，背后是深蓝色的天空，上方垂着深色的树枝。"
+  },
+  "caption": {
+    "en": "The Herbert C. Hoover Building in Washington, DC, headquarters of the US Department of Commerce, in May 2024. BIS is one of the department's bureaus.",
+    "zh": "华盛顿特区的 Herbert C. Hoover 大楼，美国商务部总部所在地，摄于 2024 年 5 月。BIS 是商务部下属的一个局。"
+  },
+  "credit": "Tony Webster / Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Herbert_C._Hoover_Federal_Building_in_Washington_D.C..jpg",
+  "retrieved": "2026-10-24"
+}

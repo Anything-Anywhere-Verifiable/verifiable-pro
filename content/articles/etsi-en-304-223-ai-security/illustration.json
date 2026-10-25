@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "etsi-en-304-223-ai-security.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "10ed2f4b998b7b4826812c99da02c6d19b7803712030615463000d5270e9adde",
+  "variants": {
+    "list": {
+      "file": "etsi-en-304-223-ai-security-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "7bdd77e699d2d6666f38d128d9c12f10bf9b3e0dd071eaf1ff08288c10b8081d"
+    },
+    "thumb": {
+      "file": "etsi-en-304-223-ai-security-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "73e3409f30ea8e0d6aa62abf9401ab446405838c61b5486c169c956df5f62409"
+    },
+    "social": {
+      "file": "etsi-en-304-223-ai-security-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "874a413fc497103ff243d7f3a786890a21e88b8aa299d9621fd544648caaca50"
+    }
+  },
+  "edits": {
+    "source_sha256": "f016b4d40227d373f70ac6e134788ec734271370580ba9ea3e5df643132d3db2",
+    "source_size": [3840, 2560],
+    "crop": [0, 0, 3840, 2560],
+    "social_crop": [0, 144, 3840, 2016],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The inside of an opened hard disk drive in dim light, its mirror-like platter, spindle and read arm catching orange highlights.",
+    "zh": "一块拆开的机械硬盘内部，光线昏暗，镜面般的盘片、主轴和读写臂上映着橙色的高光。"
+  },
+  "caption": {
+    "en": "The inside of an opened hard disk drive. The photo does not show ETSI's standard or any AI model or dataset.",
+    "zh": "一块拆开的机械硬盘内部。照片没有展示 ETSI 的标准，也没有展示任何 AI 模型或数据集。"
+  },
+  "credit": "Benjamin Lehman / Unsplash",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license",
+  "source_url": "https://unsplash.com/photos/black-and-silver-turntable-on-brown-wooden-table-GNyjCePVRs8",
+  "retrieved": "2026-10-24"
+}

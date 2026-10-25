@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "korea-ai-basic-act-labeling-duties.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "530545ccbf49ed1c96411b839b81b08a512915a2a40bd4bd026cfe5b681297c1",
+  "variants": {
+    "list": {
+      "file": "korea-ai-basic-act-labeling-duties-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "be617bd0de5d4cfc616b515428fe1f9cc8c778ae143672e32c81071c9d3b1ada"
+    },
+    "thumb": {
+      "file": "korea-ai-basic-act-labeling-duties-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "636bb02c5da085cdc0f6f86d1376422625b8856ebfd1a72d839d2ed9b283aa87"
+    },
+    "social": {
+      "file": "korea-ai-basic-act-labeling-duties-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "9325d990d49599bb77ba9a17519d69773583964aa206b3bb60064ee566301f15"
+    }
+  },
+  "edits": {
+    "source_sha256": "38449496f4d9080ec90a013d5def748ed7d5cc0bcf7d83fb0df4593b12867356",
+    "source_size": [3840, 2160],
+    "crop": [262, 0, 3239, 2160],
+    "social_crop": [262, 338, 3239, 1700],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A wide white parliament building with a green dome and a row of tall square columns stands behind a lawn and pine trees, with two flags in front, under a blue sky.",
+    "zh": "一座宽阔的白色议会大楼，顶部是绿色穹顶，正面立着一排高大的方柱，前方是草坪和松树，楼前飘着两面旗帜，天空湛蓝。"
+  },
+  "caption": {
+    "en": "The National Assembly building in Seoul, seat of South Korea's legislature, in July 2023.",
+    "zh": "首尔的国会议事堂，韩国国会所在地，摄于 2023 年 7 月。"
+  },
+  "credit": "Cjb8293 / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Republic_of_Korea_capitol.jpg",
+  "retrieved": "2026-10-24"
+}

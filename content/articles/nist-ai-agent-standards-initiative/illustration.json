@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "nist-ai-agent-standards-initiative.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "81b2cde8ddbd34f1c5a91f2389d5441dccb2031a61af52e172c8850c5d65ed41",
+  "variants": {
+    "list": {
+      "file": "nist-ai-agent-standards-initiative-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "de3ef02551201b7107f121ef99a2c6478760fb9306036a05b6804a04c4cfda9d"
+    },
+    "thumb": {
+      "file": "nist-ai-agent-standards-initiative-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "67759f18b6ff85e3221072d042fb05f42d7bc1ad0010b75e36313460c66fdc36"
+    },
+    "social": {
+      "file": "nist-ai-agent-standards-initiative-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "a90ddab7a8dd8e2aebe0569b8822e713f28a6432c3bdb06fb7a6c333cb6ad6a1"
+    }
+  },
+  "edits": {
+    "source_sha256": "dca8214cc67d12a7e12832abac8faa63c0af7dba9c67b25fe908495504c45e36",
+    "source_size": [2100, 1370],
+    "crop": [23, 0, 2054, 1370],
+    "social_crop": [23, 146, 2054, 1078],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A long, low laboratory complex with gray metal-clad and beige brick wings stands behind a wide green lawn and a small tree under a blue sky.",
+    "zh": "宽阔的绿色草坪和一棵小树后面，是一座低矮狭长的实验楼群，外墙由灰色金属板和米色砖墙构成，上方是蓝天。"
+  },
+  "caption": {
+    "en": "NIST's Advanced Measurement Laboratory on its campus in Gaithersburg, Maryland.",
+    "zh": "美国国家标准与技术研究院（NIST）位于马里兰州盖瑟斯堡园区的 Advanced Measurement Laboratory。"
+  },
+  "credit": "Gail Porter/NIST",
+  "license": "Public domain",
+  "license_url": "https://www.nist.gov/copyrights-disclaimers",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Advanced_Measurement_Laboratory_(5887269609).jpg",
+  "retrieved": "2026-10-24"
+}

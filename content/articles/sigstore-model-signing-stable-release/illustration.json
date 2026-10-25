@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "sigstore-model-signing-stable-release.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "733f841c3c1a7cb8332ce36102e53ae981e7ca2dce0a40502fe229a40b13b39b",
+  "variants": {
+    "list": {
+      "file": "sigstore-model-signing-stable-release-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "402a09fcffbeaecb96f60c37f2a0e76ce129ec19676b7e2433c20c8c055ab2f5"
+    },
+    "thumb": {
+      "file": "sigstore-model-signing-stable-release-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "72cba3a047c2cf44223da6c588f916b7f9a15c1cf7c6ca3765f3c9caa112facb"
+    },
+    "social": {
+      "file": "sigstore-model-signing-stable-release-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "4da4268e9a2d3c8ce570794211d182ca2676f31e672e3def478ed14ab87b778e"
+    }
+  },
+  "edits": {
+    "source_sha256": "f9e368e4152f3ae5187d917bba5fa6520776589b90a565abde41e4f5b3c629bf",
+    "source_size": [4000, 2670],
+    "crop": [0, 0, 4000, 2670],
+    "social_crop": [0, 285, 4000, 2100],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A yellow plastic seal locks the steel handle of a dark red shipping container door, beside the door's vertical locking bars.",
+    "zh": "一枚黄色塑料封条锁住深红色集装箱门上的钢制把手，旁边是门上竖直的锁杆。"
+  },
+  "caption": {
+    "en": "A numbered bolt seal on the door of a shipping container, in 2017. The photo does not show model files, Sigstore or a model signature.",
+    "zh": "集装箱门上一枚带编号的施封锁，摄于 2017 年。照片没有展示模型文件、Sigstore 或模型签名。"
+  },
+  "credit": "YWAM Orlando / Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Container_sealed.jpg",
+  "retrieved": "2026-10-24"
+}

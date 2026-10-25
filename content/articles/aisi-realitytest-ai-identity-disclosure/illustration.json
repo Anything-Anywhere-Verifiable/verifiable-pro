@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "aisi-realitytest-ai-identity-disclosure.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "93b5088e5f8e5fbd4bcb8e245cc6530ff54e881224cc293b8ee3554d28a9eaf9",
+  "variants": {
+    "list": {
+      "file": "aisi-realitytest-ai-identity-disclosure-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "41ead407ed7841f59144947b1f3052e26328cf73bc329c7d9fa190a6ac2a4ce7"
+    },
+    "thumb": {
+      "file": "aisi-realitytest-ai-identity-disclosure-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "950b2eeeae77f85e86290fcf0e17f10413696bc45c350149962acd98f1d6b100"
+    },
+    "social": {
+      "file": "aisi-realitytest-ai-identity-disclosure-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "80828a8c8c7c9598c60405287ea6a11ee227bf7a16f679975ea415e266be50b3"
+    }
+  },
+  "edits": {
+    "source_sha256": "8a2fa1c6bd0ffff644fae3c3dd4374fbdad74d94d69ca1d5390f7a00665fcee5",
+    "source_size": [3840, 2560],
+    "crop": [0, 0, 3840, 2560],
+    "social_crop": [0, 144, 3840, 2016],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A man, seen in silhouette from the side, looks down at a smartphone in his hands against a glowing orange sky.",
+    "zh": "一名男子的侧面剪影，他低头看着手中的智能手机，背景是橙黄色的天空。"
+  },
+  "caption": {
+    "en": "A person in silhouette looks at a smartphone. The photo does not show AISI's tests or any of the models tested.",
+    "zh": "一个人的剪影，正低头看智能手机。照片没有展示 AISI 的测试或任何受测模型。"
+  },
+  "credit": "Marwan Ahmed / Unsplash",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license",
+  "source_url": "https://unsplash.com/photos/a-silhouette-of-a-man-using-a-cell-phone-qEE5xDba9R0",
+  "retrieved": "2026-10-24"
+}

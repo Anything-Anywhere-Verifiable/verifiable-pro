@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "g7-ai-sbom-minimum-elements.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "8b57ec4ddde298a9ec74fe6d5101b1cc4691d1d6efdfdf985170bef534004018",
+  "variants": {
+    "list": {
+      "file": "g7-ai-sbom-minimum-elements-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "0e9e38db2574f6d560c4e9a3f8b52aaa2994added78247bb0a49fb920c012d43"
+    },
+    "thumb": {
+      "file": "g7-ai-sbom-minimum-elements-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "55d1fce168bd8403a7347b7d3fd4dbdb0bfb5304a82a45d2cf81b0bd424d93e3"
+    },
+    "social": {
+      "file": "g7-ai-sbom-minimum-elements-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "979fe840b98de92ad6538d908ff3531320efba360a0540b7251429d8b4ff6e97"
+    }
+  },
+  "edits": {
+    "source_sha256": "0d7f7dfaefe90daa0a56e2e2a1941e0165a9c23cc0795c03f4a58d8fa5897a99",
+    "source_size": [4032, 2268],
+    "crop": [316, 0, 3401, 2268],
+    "social_crop": [316, 241, 3401, 1786],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Aerial view of a tall gray office block beside a darker glass building in Bonn, surrounded by lower buildings, parked cars, trees and a road with tram tracks.",
+    "zh": "波恩的航拍画面：一栋高大的灰色办公楼旁边是一栋颜色更深的玻璃幕墙大楼，四周是较矮的楼房、停放的汽车、树木和一条铺有电车轨道的道路。"
+  },
+  "caption": {
+    "en": "Offices of Germany's Federal Office for Information Security (BSI) on Godesberger Allee in Bonn, seen from the air in April 2014. The guidance is published on BSI's website. The photo does not show CISA or the guidance itself.",
+    "zh": "2014 年 4 月航拍的德国联邦信息安全办公室（BSI）位于波恩 Godesberger Allee 的办公楼。这份指南发布在 BSI 的网站上。照片中并非 CISA，也不是这份指南本身。"
+  },
+  "credit": "Wolkenkratzer / Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Bonn,_Bundesamt_f%C3%BCr_Sicherheit_in_der_Informationstechnik.jpg",
+  "retrieved": "2026-10-24"
+}

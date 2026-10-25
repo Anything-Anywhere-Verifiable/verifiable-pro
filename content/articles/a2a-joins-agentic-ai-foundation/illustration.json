@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "a2a-joins-agentic-ai-foundation.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "4ee975a4672cc6110809266deaa0ea9e0c37bef7c28fd2941e62cb7f43992ca3",
+  "variants": {
+    "list": {
+      "file": "a2a-joins-agentic-ai-foundation-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "57a8adab6a63b58e146107c672a357c5de531846f4b392d4860e7143cd2343af"
+    },
+    "thumb": {
+      "file": "a2a-joins-agentic-ai-foundation-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "82f67d26e309f45da8680200f4df31cde344b1e0f4c08b7264b480e6782d1036"
+    },
+    "social": {
+      "file": "a2a-joins-agentic-ai-foundation-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "9d5c774ea1033978e9f5374f5ac15b1a4dbb6a43017a6d2e6355c7cea5dd4470"
+    }
+  },
+  "edits": {
+    "source_sha256": "f54deaca36504db9d11c12253e589200729e73b06dc69a88a514e37f4542a07d",
+    "source_size": [6000, 4000],
+    "crop": [0, 0, 6000, 4000],
+    "social_crop": [0, 425, 6000, 3150],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Close-up of a network switch: a row of square ports glows orange and green under printed port numbers, with blurred plugs and cables in the foreground.",
+    "zh": "一台网络交换机的特写：一排方形端口亮着橙色和绿色的光，上方印有端口编号，前景中是几只虚化的插头和线缆。"
+  },
+  "caption": {
+    "en": "Ports on a network switch at Ifremer's Datarmor computing center in Brest, France, in May 2025. The photo does not show A2A, an agent card or any agent.",
+    "zh": "法国布雷斯特 Ifremer 旗下 Datarmor 计算中心一台网络交换机的端口，摄于 2025 年 5 月。照片没有展示 A2A、智能体卡片或任何智能体。"
+  },
+  "credit": "Gregory Rocher, Ifremer / Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Le_Centre_Datarmor,_les_coulisses_(Ifremer_00957-106840_-_54951).jpg",
+  "retrieved": "2026-10-24"
+}

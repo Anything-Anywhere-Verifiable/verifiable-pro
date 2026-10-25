@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "eu-digital-omnibus-ai-act-timeline.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "ca2b5774d6669cc63f17dd97cb0fe0ef913a4de0ba5e94e9c4ba3304c51bafbc",
+  "variants": {
+    "list": {
+      "file": "eu-digital-omnibus-ai-act-timeline-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "bee87355e295242c76df634ef5532195414116803520a1ea26cc6f40cc8783d2"
+    },
+    "thumb": {
+      "file": "eu-digital-omnibus-ai-act-timeline-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "0ce9a9d1666cf3f97580e80b4bc87ebd7e2645a063c2f69430cf76b40f6eef50"
+    },
+    "social": {
+      "file": "eu-digital-omnibus-ai-act-timeline-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "26b9be0661c05a380d5d8ff8e7ed30a70fbea91f89f0692e8d594994d801b604"
+    }
+  },
+  "edits": {
+    "source_sha256": "bbd694db60f773b286a5ce99b298b685e6dbd515789af4be6837ff497ac7e507",
+    "source_size": [3840, 2560],
+    "crop": [0, 0, 3840, 2560],
+    "social_crop": [0, 16, 3840, 2016],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A wide view of the European Parliament's semicircular chamber, its rows of blue desks filled with members voting, under a white ceiling, with the EU flag and national flags behind the presiding officers.",
+    "zh": "欧洲议会半圆形会议厅的全景：一排排蓝色议席坐满正在表决的议员，上方是白色天花板，主席台后方挂着欧盟旗和各成员国国旗。"
+  },
+  "caption": {
+    "en": "Members of the European Parliament vote on amendments to the AI Act, then still a proposal, in Strasbourg on 14 June 2023. The photo does not show the vote of 16 June 2026 on the Digital Omnibus on AI.",
+    "zh": "2023 年 6 月 14 日，欧洲议会议员在斯特拉斯堡就《人工智能法》修正案进行表决，该法当时仍是提案。照片中并非 2026 年 6 月 16 日对 Digital Omnibus on AI 的表决。"
+  },
+  "credit": "© European Union 2023 – Source: EP / Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:European_Parliament_hemicycle.jpg",
+  "retrieved": "2026-10-24"
+}

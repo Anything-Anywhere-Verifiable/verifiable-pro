@@ -1,0 +1,87 @@
+name: Resource suggestion
+description: Suggest a paper, standard, tool, dataset or organization for the resource library.
+title: "[Resource] "
+labels: [resource, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The library lists public resources that help someone check a claim about an AI system; a listing is not an endorsement. You can also add the entry to `content/resources.json` in a pull request (see CONTENT_GUIDE.md, "Data files").
+  - type: input
+    id: url
+    attributes:
+      label: Link
+      description: The canonical page (arXiv abstract, standard landing page, repository).
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+    validations:
+      required: true
+  - type: input
+    id: org
+    attributes:
+      label: Authors or organization
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: Year
+      placeholder: "2026"
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [paper, standard, specification, tool, project, organization, report, benchmark, course, dataset]
+    validations:
+      required: true
+  - type: dropdown
+    id: topics
+    attributes:
+      label: Topics
+      description: Choose the main topic first; it decides the catalog section.
+      multiple: true
+      options:
+        - confidential-computing
+        - verifiable-inference
+        - formal-verification
+        - evaluation-audits
+        - supply-chain
+        - content-provenance
+        - agents-accountability
+        - governance-compute
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: One neutral sentence
+      description: Say what it is, without judging it. A Chinese sentence is welcome but optional.
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to the resource
+      options:
+        - None
+        - I am an author or maintainer
+        - I work for the organization
+        - Other (explain in the sentence above)
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: The resource is public and does not require an account to read.
+          required: true
+        - label: The link goes to primary documentation, not a summary of it.
+          required: true

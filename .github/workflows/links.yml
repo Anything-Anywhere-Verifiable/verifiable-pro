@@ -1,0 +1,78 @@
+# Weekly check of external links (sources, resources, in-text links).
+# Internal links are checked on every pull request by tools/check_links.py.
+# Results go to one open issue labelled link-rot, which this workflow creates
+# or updates. Lychee is a third-party action, pinned to a commit SHA.
+name: Link rot
+
+on:
+  schedule:
+    - cron: "17 6 * * 1" # Mondays 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# bash -eo pipefail, so a failure inside a pipeline fails the step
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  external-links:
+    name: External links
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      issues: write # create the link-rot label, open or update the link-rot issue
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      # A preview build has relative internal links, so lychee only meets
+      # external links (and skips the site's own domain, below).
+      - name: Build
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python build.py --mode preview --chat demo --out _site-links
+
+      - name: Check external links
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          # English pages only: the Chinese pages link to the same sources.
+          # --no-ignore: the build directory is in .gitignore, which lychee
+          # would otherwise honour.
+          args: >-
+            --no-progress
+            --no-ignore
+            --scheme https --scheme http
+            --exclude-path '_site-links/zh/'
+            --exclude '^https?://(www\.)?verifiable\.pro(/|$)'
+            --max-concurrency 8 --max-retries 2 --timeout 30
+            --accept '200..=299,403,429'
+            '_site-links/**/*.html'
+          output: lychee/report.md
+          format: markdown
+          jobSummary: true
+          fail: false
+
+      - name: Open or update the link-rot issue
+        if: steps.lychee.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh label create link-rot --color B60205 \
+            --description "External links that no longer resolve" --force
+          number=$(gh issue list --state open --label link-rot --json number --jq '.[0].number // empty')
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body-file lychee/report.md
+            gh issue comment "$number" --body "Updated by run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          else
+            gh issue create --title "Link rot report" --label link-rot --body-file lychee/report.md
+          fi

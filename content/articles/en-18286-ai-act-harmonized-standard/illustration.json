@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "en-18286-ai-act-harmonized-standard.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "a347b08bc7e85859fa3de5756b6ace39713e852b9145ee48d860b5dc7bbdfe23",
+  "variants": {
+    "list": {
+      "file": "en-18286-ai-act-harmonized-standard-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "9c4244d22a4bc6d919760d032e859b0f88913f5983efd202d4f13cdf33be1d4d"
+    },
+    "thumb": {
+      "file": "en-18286-ai-act-harmonized-standard-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "306b296bb1f2eb314c2057c2395bbddbf73f8adb4da54ac5892cdaa253f48435"
+    },
+    "social": {
+      "file": "en-18286-ai-act-harmonized-standard-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "5752be92b2b945c55503abe67c9c012e960249d7a9402965ac48aea4db8d51dd"
+    }
+  },
+  "edits": {
+    "source_sha256": "dbb8ccdb77be692640eb5caf5dc5a74d4772f0537cb7c288983a50eeaaa31343",
+    "source_size": [3840, 2592],
+    "crop": [360, 0, 3480, 2320],
+    "social_crop": [360, 246, 3480, 1827],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The curved, pale gray facade of the Berlaymont building in Brussels fills the frame under a light sky, with three blue European Union flags flying in front of it at lower right.",
+    "zh": "布鲁塞尔 Berlaymont 大楼弧形的浅灰色立面占满画面，上方是淡色的天空，右下方大楼前飘着三面蓝色的欧盟旗帜。"
+  },
+  "caption": {
+    "en": "European Union flags outside the Berlaymont building in Brussels, the European Commission's headquarters, in October 2022. The photo does not show CEN-CENELEC, which drafted EN 18286.",
+    "zh": "2022 年 10 月，欧盟委员会总部所在的布鲁塞尔 Berlaymont 大楼外的欧盟旗帜。照片中并非起草 EN 18286 的 CEN-CENELEC。"
+  },
+  "credit": "Sarra Benyaich, S'Artist Photography (Euro Pictures) / Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Berlaymont_building_2022.jpg",
+  "retrieved": "2026-10-24"
+}

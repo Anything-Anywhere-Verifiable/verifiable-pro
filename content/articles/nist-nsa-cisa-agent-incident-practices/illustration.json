@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "nist-nsa-cisa-agent-incident-practices.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "01f0b1a18a7047a37b51adbdc159b188d444c2257f3e531db7fcbf694c5bd2de",
+  "variants": {
+    "list": {
+      "file": "nist-nsa-cisa-agent-incident-practices-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "830cda7e5e52718035783616f4bf8137f1a67276b633621065424df3ffe090fe"
+    },
+    "thumb": {
+      "file": "nist-nsa-cisa-agent-incident-practices-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "5323367e5cd68ee6afbf21bec167b1b81b01289895234cda6d6e8b181426e3c1"
+    },
+    "social": {
+      "file": "nist-nsa-cisa-agent-incident-practices-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "a8bf0da1d473b6cde66eb0cb725cad6b6b4f835986766bc07c6f4a057ba10367"
+    }
+  },
+  "edits": {
+    "source_sha256": "42be9fb2c11ccf15dec52293315c9bc56c32a689c9915d0c58b2d6bca1c2da1b",
+    "source_size": [2904, 2265],
+    "crop": [0, 328, 2904, 1937],
+    "social_crop": [0, 596, 2904, 1525],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Aerial view of two dark glass office buildings with white top floors beside paler office blocks, surrounded by parking lots full of cars, with woods fading into haze behind them.",
+    "zh": "航拍画面：两栋顶部为白色的深色玻璃办公楼与几栋颜色较浅的办公楼相邻，四周的停车场停满了汽车，后方的树林隐没在雾霭中。"
+  },
+  "caption": {
+    "en": "An undated aerial photograph of the National Security Agency's headquarters at Fort Meade, Maryland. The photo does not show NIST or CISA, the other two publishers.",
+    "zh": "美国国家安全局（NSA）位于马里兰州米德堡的总部，航拍照片，拍摄日期不详。照片中没有另外两家发布机构 NIST 和 CISA。"
+  },
+  "credit": "National Security Agency / Wikimedia Commons",
+  "license": "Public domain",
+  "license_url": "https://commons.wikimedia.org/wiki/Template:PD-USGov-NSA",
+  "source_url": "https://commons.wikimedia.org/wiki/File:National_Security_Agency_headquarters,_Fort_Meade,_Maryland.jpg",
+  "retrieved": "2026-10-24"
+}

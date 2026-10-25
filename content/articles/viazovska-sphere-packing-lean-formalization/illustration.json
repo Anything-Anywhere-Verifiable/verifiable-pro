@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "viazovska-sphere-packing-lean-formalization.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "f9a0ba3fb90c55d1c797141a667f188c79bf3bb882546e74d7a322d3080eb5b0",
+  "variants": {
+    "list": {
+      "file": "viazovska-sphere-packing-lean-formalization-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "558d17f3eb11fa0b42ff71d2d522d18f93a6740d51efba78b08f58f4637225ae"
+    },
+    "thumb": {
+      "file": "viazovska-sphere-packing-lean-formalization-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "fbffeb3a7ecbf7433170e1579beb4999696d98c6c82a4124c1bda9a6ecc6ed0e"
+    },
+    "social": {
+      "file": "viazovska-sphere-packing-lean-formalization-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "d39c7996fd61c5e445c047d9575f0f6d0ed55c74c828313a706911cfcab00e90"
+    }
+  },
+  "edits": {
+    "source_sha256": "fbccb31ae4fe426e0eb3fb8832767f839fb339bcd1c3d2fe0d92967f698e48ad",
+    "source_size": [4024, 2756],
+    "crop": [0, 0, 4024, 2684],
+    "social_crop": [0, 184, 4024, 2113],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A square pyramid of rusted iron cannonballs sits in a low stone frame on a paved terrace, with blue sea and sky behind it.",
+    "zh": "铺石平台上，锈迹斑斑的铁炮弹在低矮的石框里堆成一座方锥形，背后是蓝色的大海和天空。"
+  },
+  "caption": {
+    "en": "Cannonballs stacked in a pyramid, a packing of spheres in three dimensions, at Castillo San Felipe del Morro in San Juan, Puerto Rico, in October 2013. The photo does not show the packings in dimensions 8 and 24 that Viazovska's proofs concern.",
+    "zh": "波多黎各圣胡安圣费利佩德尔莫罗城堡里堆成方锥形的炮弹，这是三维空间中的一种球堆积，摄于 2013 年 10 月。照片没有展示 Viazovska 的数学证明所涉及的 8 维和 24 维球堆积。"
+  },
+  "credit": "LBM1948 / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:San_Juan,_castillo_del_Morro_30.jpg",
+  "retrieved": "2026-10-24"
+}

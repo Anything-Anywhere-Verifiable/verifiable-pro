@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "india-synthetic-media-labeling-rules.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "b068d5f55a09be7d1d194046f027e81b82830a1ef3cedb67cef81e87a280e63b",
+  "variants": {
+    "list": {
+      "file": "india-synthetic-media-labeling-rules-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "2a854ee9043123df1b3f0f3dc231fb06baf0935834074fee41d535902fae41a9"
+    },
+    "thumb": {
+      "file": "india-synthetic-media-labeling-rules-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "3266f8b0c043bc72349c5c7469932c16bd84bd4580b0b42aedc5b683667c0454"
+    },
+    "social": {
+      "file": "india-synthetic-media-labeling-rules-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "7aadf8169aa72673ebf865ff2a3e05b62a70acaae978ed662ce06d3fb69e54ea"
+    }
+  },
+  "edits": {
+    "source_sha256": "6706956dccb2d033e7620558cb151748cb37f577af3f98a2553c90e70843b82b",
+    "source_size": [4752, 3168],
+    "crop": [0, 0, 4752, 3168],
+    "social_crop": [0, 20, 4752, 2495],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A long sandstone building with a central dome, lit by lamps at night, is reflected in a still pool in the foreground.",
+    "zh": "夜色中，一座带中央穹顶的狭长砂岩建筑被灯光照亮，倒映在前景平静的水池中。"
+  },
+  "caption": {
+    "en": "North Block of the Central Secretariat in New Delhi, lit at night, in 2013. The photo does not show the offices of the Ministry of Electronics and Information Technology, which issued the amendments.",
+    "zh": "新德里中央秘书处北楼的夜景，摄于 2013 年。照片中并非发布这些修订的印度电子和信息技术部（MeitY）的办公场所。"
+  },
+  "credit": "Edmund Gall / Wikimedia Commons",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:North_Block,_Central_Secretariat_illuminated.jpg",
+  "retrieved": "2026-10-24"
+}

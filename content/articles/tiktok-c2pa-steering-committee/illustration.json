@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "tiktok-c2pa-steering-committee.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "d733c619ec9e0917530ea831d85d356ae51731509d250a25dfa13094fd2f0a7c",
+  "variants": {
+    "list": {
+      "file": "tiktok-c2pa-steering-committee-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "a50bcfe2062b640d626e683cce654add14269a5fb872ad351616797b6fdbd79f"
+    },
+    "thumb": {
+      "file": "tiktok-c2pa-steering-committee-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "077d5817c546c37ca5f6ce9e58d4ec0ad0a329fdbd5e0446677b0ec16f9a8f2f"
+    },
+    "social": {
+      "file": "tiktok-c2pa-steering-committee-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "4d88da542e72a14e7a43474616a36cdc9c6a6bf7f8df389407f0c7e9ade3289d"
+    }
+  },
+  "edits": {
+    "source_sha256": "e360793b750c4976f29277d30c5565ea1c4c20a8b03f84cbbe3818886e5d18f0",
+    "source_size": [4584, 3668],
+    "crop": [130, 0, 4320, 2880],
+    "social_crop": [130, 306, 4320, 2268],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A concrete and glass office building with balconies on each floor rises behind trees, linked to a neighboring building by two diagonal walkways with blue and green zigzag accents.",
+    "zh": "一座每层都有阳台的混凝土玻璃办公楼矗立在树木后方，两条带蓝色和绿色折线装饰的斜向连廊把它与旁边的建筑相连。"
+  },
+  "caption": {
+    "en": "The office building in Culver City, California, that housed TikTok's headquarters in June 2024.",
+    "zh": "美国加利福尼亚州卡尔弗城的一座办公楼，2024 年 6 月时 TikTok 总部设在这里。"
+  },
+  "credit": "Coolcaesar / Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:TikTok_Headquarters.jpg",
+  "retrieved": "2026-10-24"
+}

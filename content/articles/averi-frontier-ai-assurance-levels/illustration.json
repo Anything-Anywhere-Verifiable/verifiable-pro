@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "averi-frontier-ai-assurance-levels.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "a99b6f7f14a03b84ff23a793253ac414e8b3c806a6fc8d5031c7b7028c1cf9e0",
+  "variants": {
+    "list": {
+      "file": "averi-frontier-ai-assurance-levels-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "41db5bf31ca03662745736e923fe28ae065605cee2e39f7fecd0680ca18d7a08"
+    },
+    "thumb": {
+      "file": "averi-frontier-ai-assurance-levels-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "cbb3c64df45ab1896cadbff7062447be030dc91f3e48cb01d7399d88421486f9"
+    },
+    "social": {
+      "file": "averi-frontier-ai-assurance-levels-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "aa8c8564860f469dbf5e891b8328cc0b1aa90b155b0372430599d2791edc75ff"
+    }
+  },
+  "edits": {
+    "source_sha256": "393a1db2a2dfbbfb3066c6b11708ab3b2efa1114a5fa8375ff1a7a3c57b940b2",
+    "source_size": [1886, 2835],
+    "crop": [0, 392, 1886, 1258],
+    "social_crop": [0, 526, 1886, 990],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The back of a server rack in the dark: a stack of metal servers with small green, orange and blue lights, crossed by bundles of green, gray and black cables.",
+    "zh": "黑暗中一个服务器机柜的背面：一台台金属服务器叠放在一起，亮着绿色、橙色和蓝色的小指示灯，成束的绿色、灰色和黑色线缆从上面横穿而过。"
+  },
+  "caption": {
+    "en": "Servers in a rack, photographed in 2011. The photo does not show AVERI, an AI developer's systems or an audit.",
+    "zh": "机柜中的服务器，摄于 2011 年。照片中并非 AVERI、任何 AI 开发者的系统或某次审计。"
+  },
+  "credit": "Abigor / Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Servers_in_a_Rack.jpg",
+  "retrieved": "2026-10-24"
+}

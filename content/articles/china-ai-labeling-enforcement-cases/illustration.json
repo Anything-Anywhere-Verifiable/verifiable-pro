@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "china-ai-labeling-enforcement-cases.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "539591325a3c29ca9f3abfbc9fd4c13c45d2f2251ef65504fe1351e213fa0bf4",
+  "variants": {
+    "list": {
+      "file": "china-ai-labeling-enforcement-cases-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "5c51a89f0750a954bcd3d6526c687fd75bc8591cb35ca42d423517c43bec7e61"
+    },
+    "thumb": {
+      "file": "china-ai-labeling-enforcement-cases-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "730f759cd596438927292620042c31ff8ce5c750b975f2c0184ddeff2b699de8"
+    },
+    "social": {
+      "file": "china-ai-labeling-enforcement-cases-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "f455000092a89a2ff2f7653fd7bc21c31f670aeceb7904f8bb5c9c9243f9e6a5"
+    }
+  },
+  "edits": {
+    "source_sha256": "aa3093d86d70fabf57d492c1fe4f5751af1753518e8a0a2fed16b845ea133025",
+    "source_size": [4608, 3072],
+    "crop": [0, 0, 4608, 3072],
+    "social_crop": [0, 326, 4608, 2419],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Glass and stone skyscrapers, one much taller than the rest, rise above low apartment blocks and an elevated road under a clear blue sky.",
+    "zh": "晴朗的蓝天下，玻璃和石材外墙的摩天大楼耸立在低矮的住宅楼和高架路之上，其中一栋明显高于其他建筑。"
+  },
+  "caption": {
+    "en": "Towers of Beijing's central business district in January 2019. The photo does not show the Cyberspace Administration of China or the companies in these cases.",
+    "zh": "北京中央商务区的高楼，摄于 2019 年 1 月。照片中并非国家网信办或这些案例涉及的企业。"
+  },
+  "credit": "N509FZ / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Beijing_CBD_Skyline_(20190104160952).jpg",
+  "retrieved": "2026-10-24"
+}

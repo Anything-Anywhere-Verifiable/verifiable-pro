@@ -1,0 +1,50 @@
+{
+  "domain": "verifiable.pro",
+  "base_url": "https://verifiable.pro",
+  "alternate_name": "Verifiable AI Systems",
+  "description": {
+    "en": "verifiable.pro reports in English and Simplified Chinese on verifiable AI: evidence that lets someone other than an AI provider check the provider's claims, such as which model answered a request or which software handled it. Coverage starts from trusted execution environments (TEEs), remote attestation and confidential computing. It compares them with other ways to check a claim: zkML, verifiable inference and formal verification check computations and code, while AI evaluations, audits, model signing and supply-chain provenance check models and their origins. The comparison also extends to content credentials (C2PA) and watermarking, agent accountability and the verification of AI governance commitments. The site publishes news briefs, analysis, explainers and guides, a resource library and a glossary.",
+    "zh": "verifiable.pro 以中英双语报道可验证 AI：让 AI 服务商以外的人得以核查其声明的证据，例如是哪个模型回答了请求、是哪些软件处理了请求。报道从可信执行环境（TEE）、远程证明和机密计算出发，并把它们与核查声明的其他方法相比较。零知识机器学习（zkML）、可验证推理和形式化验证核查的是计算与代码，AI 评测、审计、模型签名和供应链溯源核查的则是模型及其来源。比较还延伸到内容凭证（C2PA）与水印、智能体问责，以及 AI 治理承诺的核查。本站发布新闻简报、分析、解读与指南，并提供资源库和术语表。"
+  },
+  "contact_email": "hello@verifiable.pro",
+  "repo_url": "https://github.com/sept-usc/verifiable-pro",
+  "repo_branch": "main",
+  "agents": {
+    "daily": {
+      "name": {"en": "verifiable.pro Wire", "zh": "verifiable.pro 快讯"},
+      "description": {
+        "en": "Automated news gathering: software built on Anthropic's Claude models scans primary sources every day and drafts news briefs; the editor decides what is published.",
+        "zh": "自动采编：基于 Anthropic Claude 模型的程序每天检索一手来源并起草新闻简报，由编辑决定是否发布。"
+      }
+    },
+    "research": {
+      "name": {"en": "verifiable.pro Research", "zh": "verifiable.pro 研究"},
+      "description": {
+        "en": "Automated research: software built on Anthropic's Claude models studies the sources on a subject and drafts explainers, analysis and guides; the editor decides what is published.",
+        "zh": "自动调研：基于 Anthropic Claude 模型的程序围绕选题查阅资料，起草解读、分析与指南，由编辑决定是否发布。"
+      }
+    }
+  },
+  "illustrations": false,
+  "lead_image_kinds": ["news"],
+  "chat": {
+    "mode": "demo",
+    "api_base": "",
+    "launcher": "header",
+    "allow_demo_fallback": true,
+    "suggestions": {
+      "en": [
+        "What does a remote attestation report establish?",
+        "How do proofs, enclaves and re-execution compare?",
+        "What can outsiders check about private AI compute services?",
+        "How do I check a Content Credential?"
+      ],
+      "zh": [
+        "远程证明报告能确立什么？",
+        "零知识证明、安全飞地与重新执行有何不同？",
+        "外界能核查私密 AI 计算服务的哪些方面？",
+        "怎样核验一份内容凭证？"
+      ]
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "api_version": "1",
+  "lang": "en",
+  "nonce": "911824f1942f545b4304c5742abebad8b508e4326f2318e659ba3811ee28658a",
+  "page": {
+    "path": "/articles/remote-attestation-for-ai-workloads-explained/",
+    "source_sha256": "dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2"
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "What does a valid remote attestation report prove, and what does it leave open?"
+    }
+  ],
+  "context": {
+    "manifest_digest": "76d137e218ad454848df470b9e32f674d7d96f08392fb57ac283dd1546326cf4",
+    "chunks": [
+      {
+        "n": 1,
+        "id": "remote-attestation-for-ai-workloads-explained/en#intro/0",
+        "slug": "remote-attestation-for-ai-workloads-explained",
+        "lang": "en",
+        "kind": "explainer",
+        "title": "Remote attestation for AI workloads, explained",
+        "heading": null,
+        "url": "/articles/remote-attestation-for-ai-workloads-explained/",
+        "source": "/articles/remote-attestation-for-ai-workloads-explained/en.md",
+        "source_sha256": "dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2",
+        "start": 2820,
+        "end": 3511,
+        "text": "Remote attestation lets one party obtain hardware-signed evidence about another machine's software state before trusting it with data or work.[^1, 2] For AI workloads, a user's device may want to know which software will receive a prompt before encrypting it, and a model owner may want the same evidence before releasing the key that decrypts its weights.[^1, 8] The evidence comes from a trusted execution environment (TEE). A TEE is a hardware-isolated execution mode of a processor that records what it loads and signs a report about it.[^2, 3] A valid report tells that party what was loaded and on which hardware. It does not show that the loaded software behaves as its operator says."
+      },
+      {
+        "n": 2,
+        "id": "remote-attestation-for-ai-workloads-explained/en#what-a-valid-report-establishes-and-what-it-leaves-open/0",
+        "slug": "remote-attestation-for-ai-workloads-explained",
+        "lang": "en",
+        "kind": "explainer",
+        "title": "Remote attestation for AI workloads, explained",
+        "heading": "What a valid report establishes and what it leaves open",
+        "url": "/articles/remote-attestation-for-ai-workloads-explained/#what-a-valid-report-establishes-and-what-it-leaves-open",
+        "source": "/articles/remote-attestation-for-ai-workloads-explained/en.md",
+        "source_sha256": "dfe18c75b5df8fe8de037069792017d4d3717525bda3f150f350d2acd1f1dff2",
+        "start": 9877,
+        "end": 10465,
+        "text": "A report that passes these checks shows that genuine hardware at known firmware versions loaded the measured software in a protected mode, with fresh evidence tied to the connection. Four gaps remain.\n\n**Behavior and later inputs are outside the report.** A measurement identifies code. It does not show that the code enforces its policy, and it says nothing about inputs loaded afterward. The WhatsApp audit found configuration files with environment variables that were loaded after measurement. An insider could have used them to load malicious code while attestation still passed.[^7]"
+      },
+      {
+        "n": 3,
+        "id": "how-to-read-a-remote-attestation-report/en#step-5-confirm-the-report-is-fresh/0",
+        "slug": "how-to-read-a-remote-attestation-report",
+        "lang": "en",
+        "kind": "guide",
+        "title": "How to read a remote attestation report",
+        "heading": "Step 5: Confirm the report is fresh",
+        "url": "/articles/how-to-read-a-remote-attestation-report/#step-5-confirm-the-report-is-fresh",
+        "source": "/articles/how-to-read-a-remote-attestation-report/en.md",
+        "source_sha256": "574e7c4e29d84091ac878c71d8bed8443ed070cb40876eae6c8c61c5d7d3ad69",
+        "start": 8186,
+        "end": 8921,
+        "text": "Send a nonce, an unpredictable value used once, and check that the signed report contains it. A valid report from last week says nothing about the machine today. Under the nonce approach in RFC 9334, the appraising party sends the nonce, and the attester includes it in the signed evidence. A match shows that the claims were signed after the nonce was generated.[^1]\n\nBoth technologies offer a 64-byte field for such data. In SEV-SNP it is REPORT_DATA, which the firmware does not interpret.[^2] In TDX it is REPORTDATA, which Intel suggests can hold a verifier's nonce.[^5] WhatsApp's reports originally carried no client-supplied value, so an attacker who compromised a TEE once could have replayed its attestation indefinitely.[^7]"
+      }
+    ]
+  },
+  "options": {
+    "max_output_tokens": 700,
+    "temperature": 0.2
+  }
+}

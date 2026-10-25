@@ -1,0 +1,4 @@
+# Keep LF line endings in every checkout: the build hashes each source file
+# byte for byte, so a CRLF checkout would change the manifest digests.
+* text=auto eol=lf
+*.png binary

@@ -1,0 +1,51 @@
+{
+  "api_version": "1",
+  "lang": "zh",
+  "nonce": "911824f1942f545b4304c5742abebad8b508e4326f2318e659ba3811ee28658a",
+  "page": null,
+  "messages": [
+    {
+      "role": "user",
+      "content": "远程证明能证明什么？还有哪些地方要靠信任？"
+    }
+  ],
+  "context": {
+    "manifest_digest": "76d137e218ad454848df470b9e32f674d7d96f08392fb57ac283dd1546326cf4",
+    "chunks": [
+      {
+        "n": 1,
+        "id": "proofs-enclaves-and-re-execution-compared/zh#安全飞地开销可以很小但信任转移到硬件和度量值上/0",
+        "slug": "proofs-enclaves-and-re-execution-compared",
+        "lang": "zh",
+        "kind": "analysis",
+        "title": "核查 AI 回答的三种方法对比：零知识证明、安全飞地与重新执行",
+        "heading": "安全飞地开销可以很小，但信任转移到硬件和度量值上",
+        "url": "/zh/articles/proofs-enclaves-and-re-execution-compared/#安全飞地开销可以很小但信任转移到硬件和度量值上",
+        "source": "/articles/proofs-enclaves-and-re-execution-compared/zh.md",
+        "source_sha256": "974782930afcb09de40d9d4a5e2ab91aae30ddc98d54d70ab245327e9d7abcd6",
+        "start": 1254,
+        "end": 1682,
+        "text": "可信执行环境（TEE）是由硬件隔离的执行环境，设计目标是让宿主机操作系统和虚拟机监控器无法接触其内存。虚拟机监控器是管理虚拟机的软件。机密虚拟机是作为 TEE 运行的虚拟机，可以基于 Intel Trust Domain Extensions（TDX），并搭配处于机密计算模式的 NVIDIA GPU。随后，远程证明会给出启动时所加载软件的度量值，也就是一个由硬件签名的密码学哈希[^4]。Confidential.ai 的作者在一篇预印本中做了测试：在 NVIDIA B200 GPU 上，为一个 2290 亿参数的模型提供以生成为主的服务。使用调优后的软件栈时，他们测得吞吐量开销约为 1% 至 3%；换用现成的推理软件栈，吞吐量则下降 30% 至 40%[^4]。\n\n安全飞地的设计目标是不让运营方接触提示词和权重，远程证明则是关于加载了哪些软件的证据[^4]。两者都不能说明软件正确计算了所宣称的模型，因此信任输出，就意味着信任被度量的推理软件栈。"
+      },
+      {
+        "n": 2,
+        "id": "proofs-enclaves-and-re-execution-compared/zh#安全飞地开销可以很小但信任转移到硬件和度量值上/1",
+        "slug": "proofs-enclaves-and-re-execution-compared",
+        "lang": "zh",
+        "kind": "analysis",
+        "title": "核查 AI 回答的三种方法对比：零知识证明、安全飞地与重新执行",
+        "heading": "安全飞地开销可以很小，但信任转移到硬件和度量值上",
+        "url": "/zh/articles/proofs-enclaves-and-re-execution-compared/#安全飞地开销可以很小但信任转移到硬件和度量值上",
+        "source": "/articles/proofs-enclaves-and-re-execution-compared/zh.md",
+        "source_sha256": "974782930afcb09de40d9d4a5e2ab91aae30ddc98d54d70ab245327e9d7abcd6",
+        "start": 1684,
+        "end": 2016,
+        "text": "按照互联网工程任务组（IETF）的远程证明架构，验证方把证据与参考值比对，例如已知良好的度量值[^5]。这种比对只覆盖已度量、并且与当前会话绑定的内容。Trail of Bits 在 WhatsApp 基于 TEE 的 AI 处理功能上线前做过审计，发现了这两类缺口。度量之后才加载的配置可能让内部人员运行恶意代码，而远程证明照样通过。此外，证明报告缺少客户端提供的新鲜值，因此任何曾经攻破过一次安全飞地的人都能重放这些报告，把旧报告当作新报告出示。Meta 已修复这两个问题[^6]。\n\n审计人员的规则是，每个加载的输入要么经过度量，要么按恶意输入对待[^6]。照此规则，启动后才加载的权重，只有经过已度量代码的检查（例如与公开的哈希值比对），才在覆盖范围之内。"
+      }
+    ]
+  },
+  "options": {
+    "max_output_tokens": 700,
+    "temperature": 0.2
+  }
+}

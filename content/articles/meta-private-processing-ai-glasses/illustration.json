@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "meta-private-processing-ai-glasses.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "24ec155d1f38d9b98571537d3cf2e01ab0d4d72c24ac3d05d09068842d0566d6",
+  "variants": {
+    "list": {
+      "file": "meta-private-processing-ai-glasses-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "91872334ffdfc1d70d342697d1d1a93e129bab6c700cd62473d95dce14c4e4ae"
+    },
+    "thumb": {
+      "file": "meta-private-processing-ai-glasses-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "013b71d45d746ac140152ac5781419ae1a9fabc177934f860d3cf67492f235a8"
+    },
+    "social": {
+      "file": "meta-private-processing-ai-glasses-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "ff06adb04589a78315d9b312deeb5e6e54030ebe4890cf9c9ee65d9b1f11f576"
+    }
+  },
+  "edits": {
+    "source_sha256": "156c50658d28fd94a706604c358fb525121808ef4eddf4271a2071f89c852b9e",
+    "source_size": [4000, 3000],
+    "crop": [0, 0, 4000, 2668],
+    "social_crop": [0, 270, 4000, 2100],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A pair of black smart glasses lies folded on a white glossy surface, with a small round camera lens at one outer corner of the frame and an indicator light at the other.",
+    "zh": "一副黑色智能眼镜折叠着放在白色反光台面上，镜框一侧外角嵌着小小的圆形摄像头镜头，另一侧外角是一盏指示灯。"
+  },
+  "caption": {
+    "en": "A pair of Ray-Ban Meta smart glasses, part of Meta's range of AI glasses, photographed in April 2026. The photo does not show Private Processing or Meta's servers.",
+    "zh": "一副 Ray-Ban Meta 智能眼镜，属于 Meta 的 AI 眼镜产品线，摄于 2026 年 4 月。照片没有展示 Private Processing，也没有展示 Meta 的服务器。"
+  },
+  "credit": "ItzANormalFioko / Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Rayban_x_Meta_glasses_Generazione_2_con_lenti_Polaroid,_wayfarer.jpg",
+  "retrieved": "2026-10-24"
+}

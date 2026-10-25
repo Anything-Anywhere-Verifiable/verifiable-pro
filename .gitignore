@@ -1,0 +1,60 @@
+# Build output. CI builds the site from source; never commit it.
+/public/
+/dist/
+/dist-*/
+/_site*/
+
+# Agent and tool scratch space
+/.build/
+/.cache/
+/.claude/
+/.codex/
+/tmp/
+/shots/
+
+# Design explorations and raw research stay outside the public repository
+/design/
+/research/
+
+# Hosting configuration from the ChatGPT Sites prototype
+/.openai/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Node (tools/cdp.mjs)
+node_modules/
+
+# Ask assistant backends: local settings, model weights and generated indexes
+/backend/**/models/
+*.gguf
+*.safetensors
+
+# Secrets and local overrides
+.env
+.env.*
+!.env.example
+*.local.*
+*.pem
+*.key
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+*.bak
+*.orig
+
+# Archives and logs
+*.tar.gz
+*.tgz
+*.zip
+*.log

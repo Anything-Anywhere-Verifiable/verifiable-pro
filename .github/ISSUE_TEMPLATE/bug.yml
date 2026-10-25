@@ -1,0 +1,62 @@
+name: Site bug
+description: Something on the site or in the Ask assistant does not display or work as expected.
+title: "[Bug] "
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report a security problem privately, with "Report a vulnerability" on the repository's Security tab, not in an issue.
+
+        For a problem with the Ask assistant, leave out anything private you typed into it.
+  - type: input
+    id: page
+    attributes:
+      label: Page address
+      placeholder: https://verifiable.pro/...
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: List the steps that lead to the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Layout or typography
+        - Navigation or links
+        - Search
+        - Light or dark theme
+        - Chinese edition
+        - Feed or sitemap
+        - Manifest or digest verification
+        - Ask assistant
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: assistant_status
+    attributes:
+      label: Assistant status line
+      description: For an Ask assistant problem, copy the status at the top of its panel, for example "Demo, not attested".
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, system and screen width
+      placeholder: Safari 19, iOS 26, 390 px
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional. Drag images here.

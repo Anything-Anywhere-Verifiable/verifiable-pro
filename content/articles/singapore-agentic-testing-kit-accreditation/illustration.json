@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "singapore-agentic-testing-kit-accreditation.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "bf7be4f0ad674c9f67da7786876e190763c3422c897d52917e7c6e5f264f3d9d",
+  "variants": {
+    "list": {
+      "file": "singapore-agentic-testing-kit-accreditation-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "78be65266eb7bd4aaa81ca7a917b69b89877fdedb5a5d451fb20076baedf99af"
+    },
+    "thumb": {
+      "file": "singapore-agentic-testing-kit-accreditation-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "d3b8acf8a1f7d0c8c66339bdf6789c19f8a64180404e1282b2b6959bc8edba5b"
+    },
+    "social": {
+      "file": "singapore-agentic-testing-kit-accreditation-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "a728975b1a795a600cf0635bc84781b195482c4b8f92d15724072d204b58224c"
+    }
+  },
+  "edits": {
+    "source_sha256": "5c94dc0c5c25b04239f55f033434c6a6a50e2e5730b3ad8bd915f606d7de28d9",
+    "source_size": [3840, 2160],
+    "crop": [300, 0, 3239, 2160],
+    "social_crop": [300, 122, 3239, 1700],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Office towers along a waterfront glow in the evening under a pale blue sky, their lights reflected in calm water beside a long, low bridge.",
+    "zh": "傍晚时分，滨水而立的写字楼亮起灯光，天空淡蓝，灯影倒映在平静的水面上，旁边是一座低矮的长桥。"
+  },
+  "caption": {
+    "en": "The skyline of Singapore's Central Business District, seen across the water on an evening in June 2018. The photo does not show IMDA, the AI Verify Foundation or any accredited firm.",
+    "zh": "2018 年 6 月的一个傍晚，隔着水面望去的新加坡中央商务区天际线。照片没有展示 IMDA、AI Verify 基金会或任何获得认可的公司。"
+  },
+  "credit": "Basile Morin / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Skyline_of_the_Central_Business_District_of_Singapore_with_Esplanade_Bridge_in_the_evening.jpg",
+  "retrieved": "2026-10-24"
+}

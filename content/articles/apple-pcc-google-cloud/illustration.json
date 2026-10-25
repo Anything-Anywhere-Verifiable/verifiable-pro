@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "apple-pcc-google-cloud.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "3f68ce2c149fe91d7832096c3a9b89bb4135c605fdafd598fe86a0512cd3682c",
+  "variants": {
+    "list": {
+      "file": "apple-pcc-google-cloud-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "5e970673c51c9c37396dbe77e6da5f53d24bbb9118618562baf2daf397a650cb"
+    },
+    "thumb": {
+      "file": "apple-pcc-google-cloud-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "d28e973b45876181617c1aa49efe10286be5cb4d413636e2185d475436cced35"
+    },
+    "social": {
+      "file": "apple-pcc-google-cloud-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "17d81ef63ca3a8f3196bb379b40583e92f09af7ea4f55883c634de027b0e1026"
+    }
+  },
+  "edits": {
+    "source_sha256": "226dffce0d708a3ae4ce00eb708a2f8b03628ab4b3e35d107440e2ae47e5625b",
+    "source_size": [4000, 2250],
+    "crop": [473, 0, 3374, 2250],
+    "social_crop": [473, 240, 3374, 1771],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An aerial view at sunset of a long, low gray building lined with cooling units, beside a lake, a highway and bare winter trees.",
+    "zh": "日落时分的航拍画面：一座低矮狭长的灰色建筑，一侧排列着冷却设备，旁边是湖泊、公路和冬日光秃的树木。"
+  },
+  "caption": {
+    "en": "A Google data center in Council Bluffs, Iowa, seen from the air at sunset in February 2017. The photo does not show the servers or GPUs that Apple's announcement describes.",
+    "zh": "日落时分航拍的美国艾奥瓦州康瑟尔布拉夫斯一座 Google 数据中心，摄于 2017 年 2 月。照片没有展示 Apple 公告中描述的服务器和 GPU。"
+  },
+  "credit": "Chad Davis / Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Google_Data_Center,_Council_Bluffs_Iowa_(49062863796).jpg",
+  "retrieved": "2026-10-24"
+}

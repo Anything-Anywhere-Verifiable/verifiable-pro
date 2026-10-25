@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "mcp-july-2026-specification.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "872a2cdf09bb826b03b702cabf980a04935d68b71a433c9dc9d7e39ac02ffedd",
+  "variants": {
+    "list": {
+      "file": "mcp-july-2026-specification-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "bcc6855a6c82c4cc6ca17c21260c4a2e1786fc9ff407710aa841cdd0be2551ad"
+    },
+    "thumb": {
+      "file": "mcp-july-2026-specification-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "63e80ed4bebe664f908fa0b34e03fc724511f8b49d39a13bc0c64ec41d9b9b6a"
+    },
+    "social": {
+      "file": "mcp-july-2026-specification-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "fecfa0bc796dcd94d70672c7c415ff1596e6a2a0655e873b7fa6e524891e42ef"
+    }
+  },
+  "edits": {
+    "source_sha256": "efb6ee845d56d4eec816e2442e0148d9dc92aec0fadb3a487bc2aabdc83479af",
+    "source_size": [3008, 2000],
+    "crop": [4, 0, 2999, 2000],
+    "social_crop": [4, 213, 2999, 1574],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Gray and blue network cables plug into the numbered ports of two stacked network switches, shown close up.",
+    "zh": "特写镜头中，灰色和蓝色的网线插在两台叠放的网络交换机带编号的端口上。"
+  },
+  "caption": {
+    "en": "Network cables plugged into two switches. The photo does not show MCP messages or the servers and gateways that handle them.",
+    "zh": "插在两台交换机上的网线。照片没有展示 MCP 消息或处理这些消息的服务器和网关。"
+  },
+  "credit": "Jon 'ShakataGaNai' Davis / Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Network_switches.jpg",
+  "retrieved": "2026-10-24"
+}

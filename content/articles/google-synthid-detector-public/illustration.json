@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "google-synthid-detector-public.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "73acead5ffda36a69398782e2da8fdadcc9aec791550b4c0930a405031dbc067",
+  "variants": {
+    "list": {
+      "file": "google-synthid-detector-public-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "1c93742c078321219edfce6116a46641cd24141052d9eba25831d60e3a714a89"
+    },
+    "thumb": {
+      "file": "google-synthid-detector-public-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "ed0cc28968a4b536cba3aca102640789803e14fd311b3298ca5022b5c3a5bc46"
+    },
+    "social": {
+      "file": "google-synthid-detector-public-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "0fc06be9f5411c09d4983d9700db7ab420209689f4ed5aaf85807d35cc918426"
+    }
+  },
+  "edits": {
+    "source_sha256": "a199dcc4ba8d3df16b8724a812625517c4d5b295e40f652a3803f685a03023aa",
+    "source_size": [8192, 5464],
+    "crop": [0, 0, 8192, 5464],
+    "social_crop": [0, 582, 8192, 4301],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The glass and pale stone facade of a long office building curves in waves under a clear blue sky, with trees on its roof terraces and in the street below.",
+    "zh": "晴朗的蓝天下，一座长条形办公楼的玻璃与浅色石材立面呈波浪状起伏，屋顶露台上和楼前街道上都种着树。"
+  },
+  "caption": {
+    "en": "Platform 37, Google's office building at King's Cross in London, in April 2026. The photo does not show the SynthID Detector.",
+    "zh": "Google 在伦敦国王十字地区的办公楼 Platform 37，摄于 2026 年 4 月。照片没有展示 SynthID Detector。"
+  },
+  "credit": "The wub / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Platform_37_-_2026-04-25_1.jpg",
+  "retrieved": "2026-10-24"
+}

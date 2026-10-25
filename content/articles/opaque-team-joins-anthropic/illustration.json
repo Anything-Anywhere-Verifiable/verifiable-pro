@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "opaque-team-joins-anthropic.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "f889600ceed44983a93a61d8e7c4ed8de52c6a7a36899b4af14e00171627c151",
+  "variants": {
+    "list": {
+      "file": "opaque-team-joins-anthropic-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "ced8b353eda9f199cb72e071cc7c54f79711e9d317a344277285d073ef748e2f"
+    },
+    "thumb": {
+      "file": "opaque-team-joins-anthropic-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "99b52f5740db8b6978155f1312180a0a0dd1d54b38fde11c9fd6f18988526e75"
+    },
+    "social": {
+      "file": "opaque-team-joins-anthropic-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "85d6eca7697285a66a726179da3563ca13f068ca69c0e5fc8059fbf4d8e144e4"
+    }
+  },
+  "edits": {
+    "source_sha256": "6d3bbef754a54160ccfa17739facad4b70e013dbd00afb7f8e8ca751c18c22c9",
+    "source_size": [3840, 2478],
+    "crop": [62, 0, 3716, 2478],
+    "social_crop": [62, 264, 3716, 1951],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A tall white stone clock tower with a pointed green-gray spire rises above a lawn, a winding path and a columned library building, under a blue sky with thin clouds.",
+    "zh": "一座高耸的白色石砌钟楼，尖顶呈灰绿色，耸立在草坪、蜿蜒的小路和一座带柱廊的图书馆大楼之上，天空湛蓝，飘着薄云。"
+  },
+  "caption": {
+    "en": "Sather Tower at the University of California, Berkeley, in July 2023. OPAQUE began as a research project at the university's RISELab. The photo does not show OPAQUE or Anthropic.",
+    "zh": "加州大学伯克利分校的萨瑟塔，摄于 2023 年 7 月。OPAQUE 起步于该校 RISELab 的一个研究项目。照片没有展示 OPAQUE 或 Anthropic。"
+  },
+  "credit": "Coolcaesar / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Sather_Tower_from_Memorial_Glade.jpg",
+  "retrieved": "2026-10-24"
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "jolt-atlas-lookup-based-zkml.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "b769ae3f0ddd30cc7b56a7d5e9276d8fda6b32b313f048d9d6949629281a4b62",
+  "variants": {
+    "list": {
+      "file": "jolt-atlas-lookup-based-zkml-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "497f027909c8ffcbe732643439031ad2c19aa735f7c0678e49f1c61ff7393b45"
+    },
+    "thumb": {
+      "file": "jolt-atlas-lookup-based-zkml-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "1e87244359a33aaa6fe62ed0fca8fd08ed96b4f3b7c475b145a5c53115f9c737"
+    },
+    "social": {
+      "file": "jolt-atlas-lookup-based-zkml-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "ce5345cfe7907b41b1866d937ba83c1e918241e3a0cc696548ae23bb5e1ce9bf"
+    }
+  },
+  "edits": {
+    "source_sha256": "b76196b9ce54bb94e48c1d05e9a22a375cda9ad064059271fc95621237908993",
+    "source_size": [4000, 3000],
+    "crop": [0, 16, 4000, 2668],
+    "social_crop": [0, 300, 4000, 2100],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Close-up of black laptop keys in the dark, lit from below so that blue light glows around the edge of each key.",
+    "zh": "黑暗中笔记本电脑黑色按键的特写，按键从下方被照亮，每个键的边缘都透出蓝光。"
+  },
+  "caption": {
+    "en": "The backlit keyboard of a MacBook Pro laptop, photographed in November 2025. The photo does not show the M3 MacBook Pro that the researchers used.",
+    "zh": "一台 MacBook Pro 笔记本电脑的背光键盘，摄于 2025 年 11 月。照片中并非研究人员所用的那台 M3 MacBook Pro。"
+  },
+  "credit": "© Eugene Alvin Villar (commons.wikimedia.org/wiki/User:Seav), 2025",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Backlit_MacBook_Pro_keyboard.jpg",
+  "retrieved": "2026-10-24"
+}

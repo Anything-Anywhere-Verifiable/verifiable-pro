@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "cset-ai-chip-location-verification.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "1c8a2a0d647d90f12534588aeaafe5df0e8572b121af5735045d7e28269cf376",
+  "variants": {
+    "list": {
+      "file": "cset-ai-chip-location-verification-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "423a686eb0fd4ea474a4c8cb6bf175776a64f01a6fc2f9583fdc13eb75ba9c03"
+    },
+    "thumb": {
+      "file": "cset-ai-chip-location-verification-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "632522b766e091beeb602e28c09b71ccaf283d227081d47dfb45a394f04d995a"
+    },
+    "social": {
+      "file": "cset-ai-chip-location-verification-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "785b1783ab3a2aca68e13072ed6b900eadc13a37c77384c825dbab255cce4991"
+    }
+  },
+  "edits": {
+    "source_sha256": "166cd83d0368185c31e0c125f64a87d65c594d4240a01b75390f3121a0e3f8a4",
+    "source_size": [2977, 3021],
+    "crop": [0, 540, 2977, 1985],
+    "social_crop": [0, 751, 2977, 1563],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Four black heat sinks with brass-colored tops stand in a row on a server board resting on a wooden table, with more heat sinks behind them.",
+    "zh": "木桌上放着一块服务器主板，四个顶部呈黄铜色的黑色散热器在主板上排成一排，后面还有更多散热器。"
+  },
+  "caption": {
+    "en": "An NVIDIA HGX B200 board, which carries eight AI chips under its heat sinks. The photo does not show the landmark servers or the physical inspections that CSET's report describes.",
+    "zh": "一块 NVIDIA HGX B200 主板，散热器下方是八块 AI 芯片。照片没有展示 CSET 报告所述的地标服务器或实地检查。"
+  },
+  "credit": "Pokiiri / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Nvidia_DGX-B200-HGX.jpg",
+  "retrieved": "2026-10-24"
+}

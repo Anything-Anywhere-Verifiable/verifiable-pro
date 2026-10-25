@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "c2pa-security-analysis-umbc.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "dc11736d16cc5dd8a76f24945053df09dbb0a3a7f706a501a105a3ee73c59f73",
+  "variants": {
+    "list": {
+      "file": "c2pa-security-analysis-umbc-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "48198f4278e4f0b681ec61391392454261c78b4e01f32adff88de1ff6fd247aa"
+    },
+    "thumb": {
+      "file": "c2pa-security-analysis-umbc-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "a7ff8d7c9eb298e1199103929e689d1d0e77ba2294dc018f264dc50f14887854"
+    },
+    "social": {
+      "file": "c2pa-security-analysis-umbc-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "966651164ae80db70c962b0d0ab069692c0207031b047f8170965e78adf996fe"
+    }
+  },
+  "edits": {
+    "source_sha256": "74dcf890d5655311f57f2cec6a579d61c6a4a3250945e3a5fbec0e142e0675b4",
+    "source_size": [7695, 5130],
+    "crop": [0, 0, 7695, 5130],
+    "social_crop": [0, 545, 7695, 4040],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A black Nikon Z6 III mirrorless camera, seen from the front with a cap over its lens mount, stands on a glossy surface against a dark gray background.",
+    "zh": "一台黑色 Nikon Z6 III 无反光镜相机正面朝前，镜头卡口盖着机身盖，立在反光的台面上，背景为深灰色。"
+  },
+  "caption": {
+    "en": "A Nikon Z6 III, the camera model in the researchers' example of a revoked signing certificate, photographed in August 2024. The photo does not show the researchers' tests or any signed image.",
+    "zh": "一台 Nikon Z6 III 相机，摄于 2024 年 8 月。研究人员所举签名证书被吊销的例子，涉及的正是这一型号的相机。照片没有展示研究人员的测试，也没有展示任何经过签名的图像。"
+  },
+  "credit": "Henry Söderlund / Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Nikon_Z6III_(by_Henry_S%C3%B6derlund).jpg",
+  "retrieved": "2026-10-24"
+}

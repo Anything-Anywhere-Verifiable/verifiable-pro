@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "remote-attestation-for-ai-workloads-explained.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "4b2f531dc022f87f60e74a147a0542349c5651cd1a308ac9e9cb1d2c968e4d52",
+  "variants": {
+    "list": {
+      "file": "remote-attestation-for-ai-workloads-explained-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "91f8ac9c8397e8b295e95545b8a4b678cde4bc61e803f2379494456445f54464"
+    },
+    "thumb": {
+      "file": "remote-attestation-for-ai-workloads-explained-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "13ca62b5db59ea8d18f7744c2b2505f0229fad153059e1552954af42d829ea55"
+    },
+    "social": {
+      "file": "remote-attestation-for-ai-workloads-explained-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "b32016f7c0b54f8882ab483064894b606ad24c7004642d489f1f774822495f7e"
+    }
+  },
+  "edits": {
+    "source_sha256": "ab225614a2fcaece4a46fc22768c2b6b40f6b34a9233742e9bb9562546e7516a",
+    "source_size": [3840, 2160],
+    "crop": [480, 0, 3240, 2160],
+    "social_crop": [480, 230, 3240, 1701],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A long, gold-colored GPU card with a perforated metal bracket at one end stands on its edge on a white surface against a black background.",
+    "zh": "一块金色的长条形 GPU 加速卡侧立在白色台面上，一端是带散热孔的金属挡板，背景为黑色。"
+  },
+  "caption": {
+    "en": "An NVIDIA H100 PCIe card, a GPU whose confidential computing mode this explainer describes. The image is a still from a video published in June 2023 and does not show any of the machines or services described here.",
+    "zh": "一块 NVIDIA H100 PCIe 加速卡，本文介绍了这款 GPU 的机密计算模式。图片截自 2023 年 6 月发布的一段视频，其中没有本文介绍的任何机器或服务。"
+  },
+  "credit": {"en": "Geekerwan / Wikimedia Commons", "zh": "极客湾 Geekerwan / Wikimedia Commons"},
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:NVIDIA_H100_(%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan)_014.png",
+  "retrieved": "2026-10-24"
+}

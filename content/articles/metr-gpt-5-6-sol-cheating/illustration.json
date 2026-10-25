@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "metr-gpt-5-6-sol-cheating.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "15297a93bca0f61af51846fb39600fe6940810a70667296d1cd50eb2528a0e12",
+  "variants": {
+    "list": {
+      "file": "metr-gpt-5-6-sol-cheating-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "f58af09b2eb8886d6e81628638239689c3105c479859f48383b1d71473262329"
+    },
+    "thumb": {
+      "file": "metr-gpt-5-6-sol-cheating-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "79646129c55630a3172137e8725f21cc7c9b3b064ad3bb5a5e53e4eb78edb42b"
+    },
+    "social": {
+      "file": "metr-gpt-5-6-sol-cheating-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "82a4f3a6cc12019d231c4ed340f2cbaf4a9ec60ea9e2b9cefb788520d27fe310"
+    }
+  },
+  "edits": {
+    "source_sha256": "6cac057a230ca999de14c792c4106ccf77a0baac1512e67e54171c5a0aa26c23",
+    "source_size": [6000, 4000],
+    "crop": [0, 0, 6000, 4000],
+    "social_crop": [0, 225, 6000, 3150],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A large glass office building with bronze-colored vertical fins behind its facade stands on a sunny street corner lined with palm trees, under a clear blue sky crossed by overhead wires.",
+    "zh": "一座大型玻璃幕墙办公楼立在阳光明媚的街角，幕墙后是古铜色的竖向格栅，街边种着棕榈树，晴朗的蓝天上横着几根架空电线。"
+  },
+  "caption": {
+    "en": "The office building at 1515 Third Street in San Francisco, which housed OpenAI's headquarters when this photo was taken in June 2025. The photo does not show METR's evaluation or the model.",
+    "zh": "旧金山第三街 1515 号的办公楼。2025 年 6 月拍摄这张照片时，OpenAI 总部设在这栋楼里。照片没有展示 METR 的评测过程或这一模型。"
+  },
+  "credit": "Coolcaesar / Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:1515_Third_Street.jpg",
+  "retrieved": "2026-10-24"
+}

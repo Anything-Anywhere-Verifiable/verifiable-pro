@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "cohere-model-vault-confidential-computing.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "6dc941e3831530e5cf3e984ee21cb8c795969cce463c6b520339a401392d4e4b",
+  "variants": {
+    "list": {
+      "file": "cohere-model-vault-confidential-computing-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "1f0be801e48d39e0595fcb1be00bf78566d5628caa6912dd92b338237a212a49"
+    },
+    "thumb": {
+      "file": "cohere-model-vault-confidential-computing-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "d36c84df3835ae0d33584a863655e9f6f70cb5c4424c0a630d1ba4eaa58c9507"
+    },
+    "social": {
+      "file": "cohere-model-vault-confidential-computing-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "9a279d8a1012f512677cecc278b9e72e76348e0df8fe2bc9809a156665dab464"
+    }
+  },
+  "edits": {
+    "source_sha256": "8066935fafa369798aaf966c7130988ba47f2df77013d47b6c7aeedfe60f470e",
+    "source_size": [3840, 2160],
+    "crop": [262, 0, 3239, 2160],
+    "social_crop": [262, 230, 3239, 1700],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The bare silicon die of a large graphics processor lies at an angle on a white surface, its circuitry shimmering orange, yellow and green.",
+    "zh": "一块大型图形处理器的裸硅芯片斜放在白色表面上，电路闪着橙、黄、绿色的光泽。"
+  },
+  "caption": {
+    "en": "The silicon die of an NVIDIA Tesla P100, an earlier data center GPU, photographed in December 2021. The photo does not show the hardware that runs Model Vault.",
+    "zh": "NVIDIA 早期数据中心 GPU Tesla P100 的硅芯片，摄于 2021 年 12 月。照片中并非运行 Model Vault 的硬件。"
+  },
+  "credit": "Fritzchens Fritz / Wikimedia Commons",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Nvidia@16nm@Pascal@GP100@Tesla_P100@T_Taiwan_1912A1_PN9G70.S6W_GP100-897-A1_DSC06755-DSC06929.jpg",
+  "retrieved": "2026-10-24"
+}

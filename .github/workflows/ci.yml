@@ -1,0 +1,276 @@
+# Checks every pull request and every push to main.
+# The workflow has a read-only token and uses no secrets, so it is safe to run
+# on pull requests from forks. Actions are pinned to commit SHAs; Dependabot
+# keeps the pins current (see .github/dependabot.yml).
+# The job names ("Unit tests", "Mock backend on Python 3.9", "Build and check",
+# "Content checks") are the required status checks in the ruleset on main
+# (docs/MAINTAINING.md). Renaming a job means updating the ruleset.
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, labeled, unlabeled]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+# bash -eo pipefail, so a failure inside a pipeline fails the step
+defaults:
+  run:
+    shell: bash
+
+env:
+  PYTHON_VERSION: "3.12"
+  PYTHONDONTWRITEBYTECODE: "1"
+  PYTHONUTF8: "1"
+
+jobs:
+  test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Site tests (generator, content, Ask widget build)
+        run: python -m unittest discover -s tests -t . -v
+
+      - name: Mock backend tests
+        run: |
+          if [ -d backend/mock ] && [ -n "$(find backend/mock -name 'test*.py' -print -quit)" ]; then
+            python -m unittest discover -s backend/mock -v
+          else
+            echo "::notice::backend/mock has no tests; skipped"
+          fi
+
+      - name: Check that the API schema and fixtures are valid JSON
+        run: |
+          status=0
+          for f in api/*.json api/fixtures/*.json; do
+            [ -e "$f" ] || continue
+            python -m json.tool "$f" > /dev/null || { echo "::error file=$f::not valid JSON"; status=1; }
+          done
+          exit $status
+
+  mock-py39:
+    name: Mock backend on Python 3.9
+    # backend/mock promises Python 3.9 compatibility. Python 3.9 builds exist
+    # for this runner image; ubuntu-latest may move to an image without them.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.9"
+
+      - name: Parse every mock backend file with Python 3.9
+        run: |
+          files=""
+          if [ -d backend/mock ]; then
+            files=$(find backend/mock -name '*.py' | sort)
+          fi
+          if [ -z "$files" ]; then
+            echo "::notice::backend/mock has no Python files; skipped"
+            exit 0
+          fi
+          python - $files <<'PY'
+          import ast, sys
+          for path in sys.argv[1:]:
+              with open(path, encoding="utf-8") as f:
+                  ast.parse(f.read(), path)
+          print(f"parsed {len(sys.argv) - 1} files with Python {sys.version.split()[0]}")
+          PY
+
+      - name: Mock backend tests
+        run: |
+          if [ -d backend/mock ] && [ -n "$(find backend/mock -name 'test*.py' -print -quit)" ]; then
+            python -m unittest discover -s backend/mock -v
+          else
+            echo "::notice::backend/mock has no tests; skipped"
+          fi
+
+  build:
+    name: Build and check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      # The build checks each lead illustration only against the svg_sha256 beside it;
+      # this draws every picture again from its spec, so none can be edited by hand.
+      - name: Check that each lead illustration matches a fresh draw
+        run: python tools/illustrate.py --check
+
+      # The build checks each lead photo and its copies only against the digests, types and
+      # sizes in its spec; this also holds them to the names, the grade and the absence of
+      # metadata that tools/photos.py gives them, and fails on a file in static/media/ that no
+      # spec names. It needs no browser.
+      - name: Check that each lead photo and its copies match their spec
+        run: python tools/photos.py --check
+
+      # The preview build is what reviewers download. Demo mode keeps the Ask
+      # assistant in the browser, so a preview never calls a backend.
+      - name: Build preview (relative links, Ask in demo mode)
+        run: python build.py --mode preview --chat demo --out _site-preview
+      - name: Check internal links and anchors
+        run: python tools/check_links.py _site-preview
+      - name: Verify the preview manifest
+        run: python tools/verify_manifest.py _site-preview
+
+      - name: Build and check with the Ask assistant turned off
+        run: |
+          python build.py --mode preview --chat off --out "$RUNNER_TEMP/site-chat-off"
+          python tools/check_links.py "$RUNNER_TEMP/site-chat-off"
+
+      # Same command as deploy.yml: the assistant mode comes from content/site.json.
+      - name: Build production (absolute links)
+        run: python build.py --out public
+      - name: Verify the production manifest
+        run: python tools/verify_manifest.py public
+      - name: Check that a second build is byte-identical
+        run: |
+          python build.py --out "$RUNNER_TEMP/public-again"
+          diff -r public "$RUNNER_TEMP/public-again"
+      - name: Check for files that must not be published
+        run: |
+          leaks=$(find public \( -name '.*' -o -name '*.bak' -o -name '*.pyc' -o -name '*.log' \
+                  -o -name '*.local.*' -o -name '*.env' -o -name '*.pem' -o -name '*.key' \) -print)
+          if [ -n "$leaks" ]; then
+            echo "::error::Unexpected files in the build output"
+            echo "$leaks"
+            exit 1
+          fi
+
+      - name: Write the job summary
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          digest=$(python -c 'import json; print(json.load(open("public/manifest.json", encoding="utf-8"))["digest"])')
+          {
+            echo "### Build"
+            echo
+            echo "| Item | Value |"
+            echo "| --- | --- |"
+            echo "| Commit | \`$HEAD_SHA\` |"
+            echo "| Manifest digest | \`$digest\` |"
+            echo "| HTML pages | $(find public -name '*.html' | wc -l) |"
+            echo "| Files | $(find public -type f | wc -l) |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the preview build
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: site-preview
+          path: _site-preview
+          retention-days: 14
+          if-no-files-found: error
+
+  content:
+    name: Content checks
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 2 # the test merge commit and its first parent, the base branch
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: List changed articles
+        id: changed
+        run: |
+          git diff --name-only HEAD^1 HEAD -- content/articles \
+            | awk -F/ 'NF >= 4 { print $3 }' | sort -u > "$RUNNER_TEMP/changed.txt"
+          echo "count=$(wc -l < "$RUNNER_TEMP/changed.txt" | tr -d ' ')" >> "$GITHUB_OUTPUT"
+          cat "$RUNNER_TEMP/changed.txt"
+
+      - name: Check slugs and language pairs
+        if: steps.changed.outputs.count != '0'
+        env:
+          EN_ONLY: ${{ contains(github.event.pull_request.labels.*.name, 'en-only') }}
+        run: |
+          status=0
+          while IFS= read -r slug; do
+            if ! printf '%s' "$slug" | grep -Eq '^[a-z0-9]+(-[a-z0-9]+)*$'; then
+              echo "::error::An article folder name is not a valid slug (lowercase ASCII words joined by hyphens)"
+              printf 'invalid slug: %q\n' "$slug"
+              status=1
+              continue
+            fi
+            dir="content/articles/$slug"
+            if [ ! -d "$dir" ]; then
+              echo "$slug: removed in this pull request"
+              continue
+            fi
+            if [ ! -f "$dir/zh.md" ] && [ "$EN_ONLY" != "true" ]; then
+              echo "::error file=$dir/en.md::$slug has no zh.md. Add the Chinese edition, or ask an editor to apply the en-only label."
+              status=1
+            fi
+          done < "$RUNNER_TEMP/changed.txt"
+          exit $status
+
+      - name: Lint changed articles
+        if: ${{ !cancelled() && steps.changed.outputs.count != '0' }}
+        run: |
+          slugs=""
+          while IFS= read -r s; do
+            if printf '%s' "$s" | grep -Eq '^[a-z0-9]+(-[a-z0-9]+)*$' && [ -f "content/articles/$s/en.md" ]; then
+              slugs="$slugs $s"
+            fi
+          done < "$RUNNER_TEMP/changed.txt"
+          [ -n "$slugs" ] || exit 0
+          python tools/lint_content.py $slugs > "$RUNNER_TEMP/lint.txt"
+          cat "$RUNNER_TEMP/lint.txt"
+          # Structural problems block the merge; style warnings are left to review.
+          # Keep this list in step with "What CI blocks" in CONTRIBUTING.md.
+          blocking='^(zh: citations|zh: missing :::|en: news brief lacks|en: cites|en: sources never cited|en: sources listed but never cited)'
+          status=0
+          while IFS= read -r line; do
+            case "$line" in *" articles, "*" warnings") continue ;; esac
+            slug=${line%%: *}
+            msg=${line#*: }
+            file="content/articles/$slug/en.md"
+            case "$msg" in
+              zh:*) file="content/articles/$slug/zh.md" ;;
+              illustration.json:*) file="content/articles/$slug/illustration.json" ;;
+            esac
+            if printf '%s' "$msg" | grep -Eq "$blocking"; then
+              echo "::error file=$file,title=Content lint::$msg"
+              status=1
+            else
+              echo "::warning file=$file,title=Content lint::$msg"
+            fi
+          done < "$RUNNER_TEMP/lint.txt"
+          exit $status
+
+      - name: Lint all articles (report only)
+        run: |
+          {
+            echo "### Content lint (whole site)"
+            echo
+            python tools/lint_content.py | tail -n 1
+          } >> "$GITHUB_STEP_SUMMARY"
