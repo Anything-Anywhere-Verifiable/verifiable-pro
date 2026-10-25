@@ -299,7 +299,7 @@ The widget has two transports. `demo` answers entirely in the browser from the s
 | `meta.json` | Mock `GET /v1/meta` | Generated |
 | `attestation.mock.json` | Mock bundle for the fixture nonce | Generated |
 | `attestation.selfhosted.example.json` | P2 bundle with realistic shape and fake values, marked `"example": true`; for laying out the verification panel only | Curated; its `keyset_digest` and `gpu_nonce` are computed correctly from its fake values |
-| `chat.request.json`, `chat.request.zh.json` | Requests with real passages, three from two EN articles and two from one zh article, with offsets and source digests from the build whose manifest digest is `d78789be…` | Curated: the questions and the chosen passages; `backend/mock/refresh_requests.py` refreshes the rest from a build |
+| `chat.request.json`, `chat.request.zh.json` | Requests with real passages, three from two EN articles and two from one zh article, with offsets and source digests from the build whose manifest digest is `9a571c4d…` | Curated: the questions and the chosen passages; `backend/mock/refresh_requests.py` refreshes the rest from a build |
 | `chat.sse.json`, `chat.sse.zh.json` | The mock's streams for those requests, as parsed events and as raw text | Generated |
 | `chat.sse.error.json` | The `error` test trigger: a few deltas, then `error` and no `done` | Generated |
 | `errors.json` | Error responses: 400, 409, 412, 413 and 429 from the mock, plus a P1 503 | Generated |
