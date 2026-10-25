@@ -6,8 +6,8 @@ message: >-
 title: "verifiable.pro: bilingual reporting on verifiable AI systems"
 abstract: >-
   verifiable.pro reports in English and Simplified Chinese on verifiable AI: evidence that
-  lets someone other than an AI provider check the provider's claims, such as which model
-  answered a request or which software handled it. Coverage starts from trusted execution
+  lets people check what AI services claim, such as which model answered a request or
+  which software handled it, before trusting them. Coverage starts from trusted execution
   environments (TEEs), remote attestation and confidential computing. It compares them with
   other ways to check a claim: zkML, verifiable inference and formal verification check
   computations and code, while AI evaluations, audits, model signing and supply-chain
