@@ -47,6 +47,7 @@ PAGE_IDS = (
     "main", "f-read", "chat-config", "details-title", "record-title", "chat-aside-title", "disclosure-title",
     "toc-title", "sources-title", "changes-title", "check-title", "related-title",
     "chat-panel", "chat-title", "chat-input", "chat-status", "chat-disclosure", "chat-att-line", "chat-att-panel",
+    "analytics-config", "analytics-choice", "analytics-title",
 )
 # Interface strings that content/strings.json may not define yet; a key there
 # takes precedence. Move these into strings.json when it is next edited.
@@ -347,6 +348,7 @@ class Site:
         self.build_digest = ""
         self.year = dt.date.today().year
         self.chat = chat_settings(model["site"])
+        self.analytics_id = content.analytics_id(model["site"]) if mode == "prod" else ""
         # The home hero; build.py sets these. hero_svg is the scene template with
         # {{SCENE_TITLE}}, {{SCENE_DESC}} and {{SCENE_DESC_LIVE}} still to fill, and hero_anchors
         # says where each layer's leader line starts (sitegen/templates/hero-anchors.json).
@@ -695,6 +697,9 @@ class Site:
             contribute.append(f'<li><a href="{esc(repo)}/issues/new/choose" rel="noopener">{esc(self.s("footer_suggest"))}{ext}</a></li>')
         contribute.append(f"<li>{self.a(L('/about/') + '#contribute', esc(self.s('footer_contribute')))}</li>")
         contribute.append(f"<li>{self.a(L('/about/') + '#corrections', esc(self.s('footer_corrections')))}</li>")
+        contribute.append(f"<li>{self.a(L('/privacy/'), esc(self.s('footer_privacy')))}</li>")
+        if self.analytics_id:
+            contribute.append(f'<li><button type="button" class="footer-analytics" data-analytics-open hidden>{esc(self.s("analytics_choices"))}</button></li>')
         contribute.append(f'<li class="footer-labelled"><span class="footer-label">{esc(self.s("footer_email"))}</span><span class="email">{email}</span></li>')
         machine = [
             (self.loc("/feed.xml", "en"), self.s("footer_feed_en"), ' hreflang="en"'),
@@ -721,6 +726,21 @@ class Site:
   </div>
   <div class="wrap footer-bottom"><p>{esc(self.s('copyright', year=self.year))} · {self.a(self.loc("/vision/") + "#editor", esc(self.s("home_editor")), cls="footer-editor")}</p></div>
 </footer>"""
+
+    def analytics_block(self):
+        """Local consent UI only; analytics.js loads Google solely after Allow."""
+        if not self.analytics_id:
+            return ""
+        config = {"id": self.analytics_id, "origin": self.base_url,
+                  "on": self.s("analytics_on"), "off": self.s("analytics_off"),
+                  "unsaved": self.s("analytics_unsaved")}
+        return f'''<script type="application/json" id="analytics-config">{json_script(config)}</script>
+<section class="analytics-choice" id="analytics-choice" aria-labelledby="analytics-title" hidden>
+  <h2 id="analytics-title">{esc(self.s("analytics_title"))}</h2>
+  <p>{esc(self.s("analytics_text"))} {self.a(self.loc('/privacy/'), esc(self.s('footer_privacy')))}</p>
+  <p class="analytics-status" data-analytics-status role="status" hidden></p>
+  <div class="analytics-actions"><button type="button" data-analytics-allow>{esc(self.s("analytics_allow"))}</button><button type="button" data-analytics-decline>{esc(self.s("analytics_decline"))}</button></div>
+</section>'''
 
     def layout(self, *, path, title, description, section, body, alt_path, page_class, og_type="website", head_extra="", jsonld=None,
                chat_page=None, alternate=True, indexable=True, hero_script=False, image=None, source=None, article=None,
@@ -756,6 +776,8 @@ class Site:
             chat_assets += (f'\n<script src="{esc(self.href("/assets/hero.js"))}" defer></script>'
                             f'\n<script>{HERO_GUARD}</script>')
         head_extra = chat_assets + head_extra
+        if self.analytics_id:
+            head_extra += f'\n<script src="{esc(self.href("/assets/analytics.js"))}" defer></script>'
         if jsonld:
             head_extra += f'\n<script type="application/ld+json">{json_script(jsonld)}</script>'
         lang_attr = self.s("html_lang")
@@ -805,7 +827,7 @@ class Site:
 <main id="main">
 {body}
 </main>
-{self.footer()}{chat_block}{stack_data}
+{self.footer()}{chat_block}{stack_data}{self.analytics_block()}
 </div>"""
         if self.mode == "artifact" and path == "/":
             return head + "\n" + page + "\n"

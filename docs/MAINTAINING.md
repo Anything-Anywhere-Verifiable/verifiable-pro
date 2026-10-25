@@ -168,6 +168,14 @@ gh label create link-rot    --color B60205 --description "External links that no
 
 **Ask assistant mode.** `chat.mode` in `content/site.json` (`demo`, `live` or `off`) and `chat.api_base` are publishing decisions and go through a pull request like any content change. Pull request previews built by CI always use `--chat demo`, so they never call a backend. Before switching to `live`, the backend must implement `api/chat-v1.md`, serve HTTPS and allow the origin `https://verifiable.pro`; see `backend/README.md` and `docs/assistant-architecture.md`.
 
+## Optional visit statistics
+
+`analytics.ga4_measurement_id` in `content/site.json` selects the GA4 stream. An empty string omits the consent controls, configuration and script reference. Preview and artifact builds also omit them; a production build only activates them over HTTPS on the configured `base_url` origin.
+
+The local `analytics.js` asks before loading Google's tag. **Allow** stores consent in the browser and starts measurement; **Decline** leaves the site usable without sending analytics requests. **Statistics choice** in the footer reopens the choice. Withdrawal disables measurement, deletes this site's host-only Analytics cookies and reloads to unload the tag. If browser storage refuses the change, measurement stays disabled on the current page and the control explains that the choice could not be saved. The bilingual `/privacy/` pages describe the data and choice.
+
+In the GA4 web stream, keep **all Enhanced measurement off**, including page changes, site search, forms and outbound clicks. The implementation queues a page view with `page_location` limited to the origin and path, a referrer without query or fragment, and the path as its title. It sends no search query, Ask message, conversation or user ID. Google Analytics can also generate its standard session and engagement events. Google Signals and advertising personalization are disabled in the tag configuration; keep Google Signals, user-provided data collection and advertising features off in the Analytics property too. Changing those settings changes the site's privacy behavior and requires a review of the notice and tests.
+
 ## Discoverability
 
 Every build writes what search engines, AI answer engines and agents read: `robots.txt`, `llms.txt` and the two `llms-full.txt` files, the Atom and JSON Feeds, the sitemap, the web app manifests, and in each page's head the language alternates, the Markdown alternate, the structured data and the social tags. The README's [Machine-readable files](../README.md#machine-readable-files) section lists them; `sitegen/discover.py` generates them and `tests/test_discoverability.py` checks a production build of them. The site's description in these files is `description` in `content/site.json`, and the alternate name in the structured data is `alternate_name`.

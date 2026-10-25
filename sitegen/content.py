@@ -1203,10 +1203,23 @@ def _check_byline(a, agents, not_people, en=None):
                                "takes it from (zh.md may give the name in its Chinese form)")
 
 
+def analytics_id(site):
+    """An optional GA4 ID; no scripts or controls are rendered when it is empty."""
+    value = site.get("analytics", {})
+    where = "content/site.json: analytics"
+    if not isinstance(value, dict) or set(value) - {"ga4_measurement_id"}:
+        raise ContentError(f"{where}: expected an object with ga4_measurement_id")
+    identifier = value.get("ga4_measurement_id", "")
+    if not isinstance(identifier, str) or (identifier and not re.fullmatch(r"G-[A-Z0-9]{4,20}", identifier)):
+        raise ContentError(f"{where}.ga4_measurement_id: expected an empty string or a GA4 ID such as G-XXXXXXXXXX")
+    return identifier
+
+
 def load(root, drafts=False):
     root = Path(root)
     content = root / "content"
     site = _json(content / "site.json")
+    analytics_id(site)
     strings = _json(content / "strings.json")
     raw_data, parsed = {}, {}
     for name in DATA_FILES:

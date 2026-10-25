@@ -9,6 +9,9 @@
   "contact_email": "hello@verifiable.pro",
   "repo_url": "https://github.com/sept-usc/verifiable-pro",
   "repo_branch": "main",
+  "analytics": {
+    "ga4_measurement_id": "G-T734VCE3Y5"
+  },
   "agents": {
     "daily": {
       "name": {"en": "verifiable.pro Wire", "zh": "verifiable.pro 快讯"},
