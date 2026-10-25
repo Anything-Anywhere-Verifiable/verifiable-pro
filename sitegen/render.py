@@ -744,7 +744,7 @@ class Site:
 
     def layout(self, *, path, title, description, section, body, alt_path, page_class, og_type="website", head_extra="", jsonld=None,
                chat_page=None, alternate=True, indexable=True, hero_script=False, image=None, source=None, article=None,
-               crumbs=None):
+               crumbs=None, meta_title=None, meta_description=None):
         """alternate: alt_path is this page in the other language (not a fallback such
         as Latest for an untranslated article). indexable: False for pages that search
         engines should not index: the 404 pages, which hosts serve at any missing
@@ -758,7 +758,9 @@ class Site:
         link previews, as discover.photo_card() gives it. source: the page's Markdown
         source, linked as its text/markdown alternate. article: dates, section and
         tags for the article:* tags (sitegen/discover.py). crumbs: the trail above
-        the title, which page_head() records, for the BreadcrumbList."""
+        the title, which page_head() records, for the BreadcrumbList. meta_title and
+        meta_description let an index page describe its subject in search results
+        while keeping its short visible heading and full introduction."""
         self.current = path
         crumbs = crumbs if crumbs is not None else self.__dict__.pop("crumbs", None)
         self.__dict__.pop("crumbs", None)
@@ -784,7 +786,9 @@ class Site:
         # the site's name follows the page's title, unless the title names the site already: the
         # home pages' title starts with it (home_title), and About is "About verifiable.pro"
         name = discover.site_name(self.m)
-        full_title = title if path in ("/", "/zh/") or name.lower() in title.lower() else f"{title} | {name}"
+        search_title = meta_title or title
+        search_description = meta_description or description
+        full_title = search_title if path in ("/", "/zh/") or name.lower() in search_title.lower() else f"{search_title} | {name}"
         canonical = self.base_url + path
         alt_lang = "zh-CN" if self.lang == "en" else "en"
         if not indexable:
@@ -801,14 +805,14 @@ class Site:
         social = discover.social_meta(self, image_topic=image, alternate=alternate and indexable, article=article)
         viewer = f"\n{ARTIFACT_VIEWER_HINT}" if self.mode == "artifact" else ""
         head = f"""<title>{esc(full_title)}</title>{viewer}
-<meta name="description" content="{esc(description)}">
+<meta name="description" content="{esc(search_description)}">
 {urls}
 <link rel="alternate" type="application/atom+xml" title="verifiable.pro" href="{esc(self.href(self.loc('/feed.xml')))}">
 {discover.head_links(self, source)}
 <link rel="icon" href="{esc(self.href('/assets/favicon.svg'))}" type="image/svg+xml">
 <meta property="og:site_name" content="verifiable.pro">
-<meta property="og:title" content="{esc(title)}">
-<meta property="og:description" content="{esc(description)}">
+<meta property="og:title" content="{esc(search_title)}">
+<meta property="og:description" content="{esc(search_description)}">
 <meta property="og:type" content="{og_type}">{og_url}
 {social}
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -1745,7 +1749,8 @@ class Site:
         path = L("/latest/")
         ld = discover.collection(self, path, self.s("latest_title"), self.s("latest_dek"), discover.article_items(self, articles))
         return path, self.layout(path=path, title=self.s("latest_title"), description=self.s("latest_dek"), section="latest",
-                                 body=body, alt_path=self.loc("/latest/", self.other()), page_class="page-latest", jsonld=ld)
+                                 body=body, alt_path=self.loc("/latest/", self.other()), page_class="page-latest", jsonld=ld,
+                                 meta_title=self.s("latest_meta_title"), meta_description=self.s("latest_meta_description"))
 
     def article(self, a_obj, articles, has_other):
         self.current = self.article_url(a_obj)
@@ -1930,7 +1935,8 @@ class Site:
                                  [(self.base_url + L(f"/topics/{tid}/"), self.t(self.topics[tid]["name"]))
                                   for tid in self.topic_order])
         return path, self.layout(path=path, title=self.s("topics_page_title"), description=self.s("topics_page_dek"), section="topics",
-                                 body=body, alt_path=self.loc("/topics/", self.other()), page_class="page-topics", jsonld=ld)
+                                 body=body, alt_path=self.loc("/topics/", self.other()), page_class="page-topics", jsonld=ld,
+                                 meta_description=self.s("topics_meta_description"))
 
     def topic_page(self, tid, articles):
         self.current = self.loc(f"/topics/{tid}/")
@@ -2146,7 +2152,7 @@ class Site:
         ld = discover.collection(self, path, title, self.s("hub_dek"), discover.article_items(self, listed))
         return path, self.layout(path=path, title=title, description=self.s("hub_dek"), section="tee", body=body,
                                  alt_path=self.loc(HUB_PATH, self.other()), page_class="page-topic page-tee",
-                                 jsonld=ld, image=TEE_TOPIC)
+                                 jsonld=ld, image=TEE_TOPIC, meta_description=self.s("hub_meta_description"))
 
     def platform_card(self, p):
         """A CPU or GPU platform: what it isolates stays open; signing, reference values,
@@ -2251,7 +2257,8 @@ class Site:
         ld = discover.collection(self, path, self.s("learn_title"), self.s("learn_dek"),
                                  discover.article_items(self, listed.values()))
         return path, self.layout(path=path, title=self.s("learn_title"), description=self.s("learn_dek"), section="learn",
-                                 body=body, alt_path=self.loc("/learn/", self.other()), page_class="page-learn", jsonld=ld)
+                                 body=body, alt_path=self.loc("/learn/", self.other()), page_class="page-learn", jsonld=ld,
+                                 meta_title=self.s("learn_meta_title"), meta_description=self.s("learn_meta_description"))
 
     def resource_item(self, r, compact=False, group=None, level=3, current=None):
         """A resource entry: the title, then the publisher, year, type and "Link checked"
@@ -2374,7 +2381,8 @@ class Site:
         ld = discover.collection(self, path, self.s("resources_page_title"), self.s("resources_dek"),
                                  [(r["url"], r["title"]) for r in listed])
         return path, self.layout(path=path, title=self.s("resources_page_title"), description=self.s("resources_dek"), section="resources",
-                                 body=body, alt_path=self.loc("/resources/", self.other()), page_class="page-resources", jsonld=ld)
+                                 body=body, alt_path=self.loc("/resources/", self.other()), page_class="page-resources", jsonld=ld,
+                                 meta_title=self.s("resources_meta_title"), meta_description=self.s("resources_meta_description"))
 
     def glossary(self):
         self.current = self.loc("/glossary/")
@@ -2411,7 +2419,8 @@ class Site:
         path = L("/glossary/")
         ld = discover.glossary_ld(self, path, self.s("glossary_title"), self.s("glossary_dek"), terms)
         return path, self.layout(path=path, title=self.s("glossary_title"), description=self.s("glossary_dek"), section="glossary",
-                                 body=body, alt_path=self.loc("/glossary/", self.other()), page_class="page-glossary", jsonld=ld)
+                                 body=body, alt_path=self.loc("/glossary/", self.other()), page_class="page-glossary", jsonld=ld,
+                                 meta_title=self.s("glossary_meta_title"))
 
     def includes(self, page):
         """A page body with its <div data-include="..."></div> lines filled: "positioning"

@@ -8,6 +8,7 @@ the Markdown alternates. Preview and artifact builds must still work.
 """
 
 import datetime as dt
+from collections import deque
 import json
 import os
 import re
@@ -17,6 +18,7 @@ import sys
 import tempfile
 import unittest
 import urllib.robotparser
+from urllib.parse import urljoin, urlsplit
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
@@ -433,9 +435,9 @@ class DiscoverabilityTests(unittest.TestCase):
         citations = art.get("citation", [])
         self.assertEqual([c["url"] for c in citations], [s["url"] for s in a.sources], rel)
         for c, s in zip(citations, a.sources):
-            # the publisher is the source line's text, often authors and venue, so it carries no type
-            self.assertEqual((c["@type"], c["name"], c["publisher"]), ("CreativeWork", s["title"], " ".join(s["publisher"].split())),
-                             rel)
+            self.assertEqual((c["@type"], c["name"]), ("CreativeWork", s["title"]), rel)
+            # Mixed authors/venue labels stay in sources, not invented as entities.
+            self.assertNotIn("publisher", c, rel)
             if re.match(r"^\d{4}(-\d{2}){0,2}$", s["date"]):
                 self.assertEqual(c["datePublished"], s["date"], rel)
             else:
@@ -614,7 +616,72 @@ class DiscoverabilityTests(unittest.TestCase):
             for name in ("about", "vision"):
                 page = self.model["pages"][lang][name]
                 self.assertEqual(self.head(f"{prefix}{name}/index.html").meta("og:title"), [page.title], (lang, name))
-        self.assertEqual(self.head("latest/index.html").title, f"{self.model['strings']['en']['latest_title']} | {domain}")
+        self.assertEqual(self.head("latest/index.html").title, f"{self.model['strings']['en']['latest_meta_title']} | {domain}")
+
+    def test_section_search_metadata_names_the_subject_without_replacing_visible_headings(self):
+        sections = (("latest", "latest_title"), ("learn", "learn_title"),
+                    ("resources", "resources_page_title"), ("glossary", "glossary_title"))
+        for lang in content.LANGS:
+            prefix = "zh/" if lang == "zh" else ""
+            strings = self.model["strings"][lang]
+            for path, visible_key in sections:
+                rel = f"{prefix}{path}/index.html"
+                head = self.head(rel)
+                self.assertIn("AI", head.title, rel)
+                self.assertLessEqual(len(head.title), 70 if lang == "en" else 45, rel)
+                # Short navigation/heading labels stay as the visible page labels.
+                headings = re.findall(r'<h1\b[^>]*>(.*?)</h1>', self.read(rel), re.S)
+                self.assertEqual(headings, [strings[visible_key]], rel)
+            for path in ("latest", "learn", "resources", "topics", "topics/confidential-computing"):
+                rel = f"{prefix}{path}/index.html"
+                description = self.head(rel).meta("description")[0]
+                self.assertLessEqual(len(description), 160 if lang == "en" else 85, rel)
+                self.assertEqual(self.head(rel).meta("og:description"), [description], rel)
+
+    def test_indexable_pages_have_unique_titles_and_descriptions(self):
+        titles, descriptions = {}, {}
+        for rel in self.pages:
+            if rel in UNLISTED:
+                continue
+            head = self.head(rel)
+            self.assertTrue(head.title and head.meta("description")[0].strip(), rel)
+            self.assertNotIn(head.title, titles, (rel, titles.get(head.title)))
+            self.assertNotIn(head.meta("description")[0], descriptions,
+                             (rel, descriptions.get(head.meta("description")[0])))
+            titles[head.title] = rel
+            descriptions[head.meta("description")[0]] = rel
+
+    def test_every_indexable_page_is_reachable_by_html_links_from_its_home(self):
+        class Links(HTMLParser):
+            def __init__(self, text):
+                super().__init__()
+                self.hrefs = []
+                self.feed(text)
+
+            def handle_starttag(self, tag, attrs):
+                href = dict(attrs).get("href")
+                if tag == "a" and href:
+                    self.hrefs.append(href)
+
+        links = {self.url_of(rel): Links(self.read(rel)).hrefs for rel in self.pages}
+        host = urlsplit(self.base).netloc
+        for lang in content.LANGS:
+            home = self.base + ("/zh/" if lang == "zh" else "/")
+            distances, queue = {home: 0}, deque([home])
+            while queue:
+                url = queue.popleft()
+                for href in links[url]:
+                    target = urlsplit(urljoin(url, href))
+                    if target.netloc != host:
+                        continue
+                    canonical = self.base + target.path
+                    if canonical in links and canonical not in distances:
+                        distances[canonical] = distances[url] + 1
+                        queue.append(canonical)
+            for rel in self.pages:
+                if rel not in UNLISTED and self.lang_of(rel) == lang:
+                    self.assertIn(self.url_of(rel), distances, rel)
+                    self.assertLessEqual(distances[self.url_of(rel)], 4, rel)
 
     def test_search_and_404_pages_ask_not_to_be_indexed_and_stay_unlisted(self):
         for rel in self.pages:

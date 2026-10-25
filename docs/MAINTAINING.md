@@ -178,6 +178,10 @@ In the GA4 web stream, keep **all Enhanced measurement off**, including page cha
 
 ## Discoverability
 
+**Search titles and navigation.** Latest, Learn, Resources and Glossary have concise titles that name their subject in both languages. The `*_meta_title` and `*_meta_description` strings describe these sections in search results and link previews; their short visible headings and full introductions stay in the page body. The Stack and TEE hub also have shorter search summaries. Article and other page metadata come from their own titles and introductions. Tests check unique titles and descriptions, and that ordinary HTML links from each edition's home page reach every indexable page.
+
+Google selects [sitelinks automatically](https://developers.google.com/search/docs/appearance/sitelinks), using the site's structure and link text. Keep category links descriptive and the hierarchy useful to readers. The breadcrumb data describes that hierarchy; it does not request or guarantee sitelinks. Source citations retain their complete labels in the page and Markdown. Their structured data gives the work's title, URL and date, and omits a publisher entity when the source label combines authors and venues, because [Schema.org requires a Person or Organization](https://schema.org/publisher).
+
 Every build writes what search engines, AI answer engines and agents read: `robots.txt`, `llms.txt` and the two `llms-full.txt` files, the Atom and JSON Feeds, the sitemap, the web app manifests, and in each page's head the language alternates, the Markdown alternate, the structured data and the social tags. The README's [Machine-readable files](../README.md#machine-readable-files) section lists them; `sitegen/discover.py` generates them and `tests/test_discoverability.py` checks a production build of them. The site's description in these files is `description` in `content/site.json`, and the alternate name in the structured data is `alternate_name`.
 
 **robots.txt.** Every crawler may fetch every page. The file also names crawlers in four groups (`ROBOTS_GROUPS` in `sitegen/discover.py`), each with the token its operator documents:

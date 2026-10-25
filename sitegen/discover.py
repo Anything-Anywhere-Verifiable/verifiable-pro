@@ -362,11 +362,10 @@ def byline(site, a_obj, lang):
 
 def citation(source):
     """A numbered source as a CreativeWork, with its publication date when it gives one.
-    The publisher stays the text the source line gives: for a paper it often names the
-    authors and the venue ("Brundage et al., arXiv"), so it is not typed as an Organization."""
+    Source labels may combine authors and venues ("Brundage et al., arXiv"). Keep
+    those labels in the visible sources instead of inventing a publisher entity:
+    Schema.org's publisher property requires a Person or Organization."""
     work = {"@type": "CreativeWork", "name": source["title"], "url": source["url"]}
-    if source.get("publisher"):
-        work["publisher"] = one_line(source["publisher"])
     if SOURCE_DATE_RE.match(source.get("date", "")):
         work["datePublished"] = source["date"]
     return work
