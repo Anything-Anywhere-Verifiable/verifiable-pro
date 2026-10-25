@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "knox-tee-regulatory-sandbox-agents.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "729c5ec992376f6b530a355e3011e48c6ec3aed40c06297d2ea588c1b47f88a1",
+  "variants": {
+    "list": {
+      "file": "knox-tee-regulatory-sandbox-agents-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "8f8df031508441614ee0e0e82aa5751628455b8ede0bb40d4d37ffa06df357fe"
+    },
+    "thumb": {
+      "file": "knox-tee-regulatory-sandbox-agents-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "d0271584010c92c436c7a2eab3d6bd4bacd693b73835186d5a02a0059b43ce8b"
+    },
+    "social": {
+      "file": "knox-tee-regulatory-sandbox-agents-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "6d582053b5afd88ea6f77807321bd152652415f2cb7cf7f59ea4bbd878b9da23"
+    }
+  },
+  "edits": {
+    "source_sha256": "0350f9eedaaf9e7d3903a0fd1038700575b317a2910d96352ad0ae153ba515e2",
+    "source_size": [6000, 3376],
+    "crop": [469, 0, 5062, 3376],
+    "social_crop": [469, 359, 5062, 2658],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The Davis Centre, a University of Waterloo building with a curved wall of glass panels, large gray pipes arching over its roof and red posts at its entrance, seen across a paved plaza with concrete planters under a blue sky.",
+    "zh": "滑铁卢大学的 Davis Centre 大楼：弧形的玻璃幕墙上方弯着几根粗大的灰色管道，入口处立着红色立柱；楼前是铺砖广场和混凝土花坛，天空湛蓝。"
+  },
+  "caption": {
+    "en": "The Davis Centre, a University of Waterloo building in Waterloo, Ontario, in June 2025. All three authors list the university as an affiliation. The photo does not show the researchers or their work.",
+    "zh": "滑铁卢大学的 Davis Centre 大楼，位于安大略省滑铁卢，摄于 2025 年 6 月。论文的三位作者都把该校列为所属机构。照片中没有研究人员，也没有他们的研究工作。"
+  },
+  "credit": "JFVoll / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Davis_Centre_(University_of_Waterloo)_-_Waterloo,_ON.jpg",
+  "retrieved": "2026-10-25"
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "google-confidential-g4-blackwell-ga.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "d25a2685379c93b0c5e9aff86f4fdbe7187d8130763de85379f4eb6b06bc21c5",
+  "variants": {
+    "list": {
+      "file": "google-confidential-g4-blackwell-ga-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "29a18984121aa87e6bf5776d365b4a73fb46e03cbfddb120bb52ef057759833c"
+    },
+    "thumb": {
+      "file": "google-confidential-g4-blackwell-ga-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "d814a2f9b75dea2e846a234c44dc77527e48e11ffa04253234e4a9975c787839"
+    },
+    "social": {
+      "file": "google-confidential-g4-blackwell-ga-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "8c6750a976747ab8560445227b73e697693929ea5462a11e158f3aaa519aee9c"
+    }
+  },
+  "edits": {
+    "source_sha256": "e490988b18af426e1b1ef03abbfb561ecbdc54f18b2e58f275a0939c4dbb5b04",
+    "source_size": [5184, 3456],
+    "crop": [0, 0, 5184, 3456],
+    "social_crop": [0, 367, 5184, 2722],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The back of a server rack: several rack-mounted servers wired with blue and green network cables and black power cords with orange plugs, lit by small blue and green status lights.",
+    "zh": "服务器机柜的背面：几台机架式服务器接着蓝色和绿色网线，以及带橙色插头的黑色电源线，亮着蓝色和绿色的小状态灯。"
+  },
+  "caption": {
+    "en": "Servers of the Wikimedia Foundation, photographed in July 2012. The photo does not show Google's systems.",
+    "zh": "维基媒体基金会的服务器，摄于 2012 年 7 月。照片并非 Google 的系统。"
+  },
+  "credit": "Victorgrigas / Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Wikimedia_Foundation_Servers-8055_02.jpg",
+  "retrieved": "2026-10-25"
+}

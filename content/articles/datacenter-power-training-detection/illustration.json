@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "datacenter-power-training-detection.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "a7a098fd8adbab92c052803ea1b396b7170c86af34c9316bb78ddb1c5b30c636",
+  "variants": {
+    "list": {
+      "file": "datacenter-power-training-detection-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "925939b5b59e6aa8168997881a5387f064e55fb7c1c65941c0a04dae596d0c7e"
+    },
+    "thumb": {
+      "file": "datacenter-power-training-detection-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "19bae472443eb620a70ae102339650e275961e9e80388d3d62960f4e40c8b3fc"
+    },
+    "social": {
+      "file": "datacenter-power-training-detection-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "6384fa40f366dc2c12e8e457982870577dd5210d7072ba6fb05d61751dd8c7ef"
+    }
+  },
+  "edits": {
+    "source_sha256": "3b9943cb6f7ba20be3a0234ac5e69409738a86f1655c2e93e8f4a19a8c414ef4",
+    "source_size": [3456, 2592],
+    "crop": [0, 0, 3456, 2305],
+    "social_crop": [0, 78, 3456, 1814],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A row of gray switchgear cabinets stands in an electrical room, with metal conduits rising to the ceiling. One cabinet carries a round, glass-covered electricity meter with a digital display and a blue tag, below a second round fitting.",
+    "zh": "电气室里立着一排灰色开关柜，金属导管向上通到天花板。其中一个柜体上装着一块罩着玻璃的圆形电表，带数字显示屏和一个蓝色标签，上方还有另一个圆形装置。"
+  },
+  "caption": {
+    "en": "Main service switchgear fitted with an electricity meter in a data center power room, photographed in 2012. The photo does not show a verifier's meter or the equipment the researchers used.",
+    "zh": "数据中心配电室里的主进线开关柜，柜上装有电表，摄于 2012 年。照片中并非验证方的电表，也没有研究人员所用的设备。"
+  },
+  "credit": "Robert.Harker / Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Main_Service_Branch.jpg",
+  "retrieved": "2026-10-25"
+}

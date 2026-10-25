@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "nvidia-confidential-bare-metal.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "381e1093cc502ba415aedd3fd15e07c436bcf74c4a17134f52fd2a14c97d51a2",
+  "variants": {
+    "list": {
+      "file": "nvidia-confidential-bare-metal-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "8048ab32a78718d8cbac264fce2da054cba858a37d4ce7a24a0ae08e28c594fd"
+    },
+    "thumb": {
+      "file": "nvidia-confidential-bare-metal-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "38f02572df4d074c758811a8902f91c5595c006b66c81e1c08fd7c7d43af3022"
+    },
+    "social": {
+      "file": "nvidia-confidential-bare-metal-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "6dd99e89af5ac38c77bd6d124bfb4f1f3fa785a3733d215c2a0d497c1f7389c7"
+    }
+  },
+  "edits": {
+    "source_sha256": "090e32b90a61fdf60f3bc39c76f147fa130ff36edfc843deb844a8d362b5f1d6",
+    "source_size": [3840, 2160],
+    "crop": [454, 0, 3239, 2160],
+    "social_crop": [454, 230, 3239, 1700],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "Seen from above, an open server tray holds two black plates printed with GB200 over copper cooling blocks and pipes, with thick black hoses along both sides.",
+    "zh": "俯视一个打开的服务器托盘：两块印有 GB200 字样的黑色面板覆盖在铜制散热块和铜管上，两侧是粗大的黑色软管。"
+  },
+  "caption": {
+    "en": "An NVIDIA GB200 server system on display at Computex 2024, in a still from a video of the show. The photo does not show a system running Confidential Bare Metal.",
+    "zh": "2024 年 Computex 展会上展出的一套 NVIDIA GB200 服务器系统，截自一段展会视频。照片并非运行 Confidential Bare Metal 的系统。"
+  },
+  "credit": {"en": "Geekerwan / Wikimedia Commons", "zh": "极客湾 Geekerwan / Wikimedia Commons"},
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Eindr%C3%BCcke_von_der_COMPUTEX_2024_(_%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan)_22.png",
+  "retrieved": "2026-10-25"
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "brave-leo-attested-near-ai-enclaves.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "f4bab0b3a54e6d71b9f0e3775de03d57d5191a0f742508699ead910aae61c5e2",
+  "variants": {
+    "list": {
+      "file": "brave-leo-attested-near-ai-enclaves-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "6a695e0cacb913c4ad7de10ac18de846a2dd81852d5914edd09e1c694f3740e2"
+    },
+    "thumb": {
+      "file": "brave-leo-attested-near-ai-enclaves-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "faa8b931af040dd6c9c2a01f1629db8aa8a3b871d3871ab5e3502b90bbe32e16"
+    },
+    "social": {
+      "file": "brave-leo-attested-near-ai-enclaves-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "e6d195f8fc8532f1be4e6389f30522ec2111e0fc842b2fc565bd1ae09fea80ce"
+    }
+  },
+  "edits": {
+    "source_sha256": "c458f548254eefe4954fd821b98f18bd5ffa5004c312a6d825b8e1b18636938f",
+    "source_size": [3837, 2854],
+    "crop": [0, 148, 3837, 2559],
+    "social_crop": [0, 420, 3837, 2014],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A server processor with its lid removed, seen from above: a large, dark, mirror-like silicon die with a pale gray border sits in the middle of a teal circuit board, surrounded by strips of gray sealant and rows of tiny components.",
+    "zh": "从上方俯视一枚揭开顶盖的服务器处理器：一块深色、像镜面一样反光的大硅芯片镶着浅灰色边框，位于青绿色基板中间，四周是灰色的密封胶条和成排的微小元件。"
+  },
+  "caption": {
+    "en": "An engineering sample of an Intel Xeon server processor from the earlier Skylake-SP generation, with its lid removed, photographed in July 2020. The photo does not show NEAR AI's hardware.",
+    "zh": "一枚揭开顶盖的 Intel Xeon 服务器处理器工程样品，属于较早的 Skylake-SP 一代，摄于 2020 年 7 月。照片并非 NEAR AI 所用的硬件。"
+  },
+  "credit": "Fritzchens Fritz / Wikimedia Commons",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Intel@14nm@Skylake@Skylake-SP(XCC)@Xeon(ES)@QJW5_DSCx3.jpg",
+  "retrieved": "2026-10-25"
+}

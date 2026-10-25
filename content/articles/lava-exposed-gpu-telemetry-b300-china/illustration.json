@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "lava-exposed-gpu-telemetry-b300-china.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "3be04791f5e845b5bc8c9038821a79ad4e3ee7a25ad69aff13b7854cc49fa06b",
+  "variants": {
+    "list": {
+      "file": "lava-exposed-gpu-telemetry-b300-china-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "b3444edac50ac20775ad3468a659a6011b3b673615feeb31e64cf651e770a385"
+    },
+    "thumb": {
+      "file": "lava-exposed-gpu-telemetry-b300-china-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "78971ff1a7f0fbd8cd71495046fbbba7fc81f6f6bc850a9ef438bd7864aea6a6"
+    },
+    "social": {
+      "file": "lava-exposed-gpu-telemetry-b300-china-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "88cc22f024a067d6dcd2c37ddbbee091762cecc3737f340f94a2f12023771800"
+    }
+  },
+  "edits": {
+    "source_sha256": "ff616e0decedff358061b3590138b9119c036e1b0f639a886ba2292e6503b68b",
+    "source_size": [4852, 3171],
+    "crop": [0, 0, 4755, 3171],
+    "social_crop": [0, 242, 4755, 2496],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A bare graphics card circuit board lies on a gray surface, with a square silver processor package at its center ringed by black memory chips, rows of small cylindrical capacitors and video connectors along its left edge.",
+    "zh": "一块裸露的显卡电路板平放在灰色表面上，中央是方形的银色处理器封装，周围环绕着黑色显存芯片和成排的小型圆柱形电容，左侧边缘排列着视频接口。"
+  },
+  "caption": {
+    "en": "The circuit board of an NVIDIA GeForce RTX 4090 graphics card, with its AD102 processor at the center, photographed in August 2023. The photo does not show the GPUs that Lava counted.",
+    "zh": "NVIDIA GeForce RTX 4090 显卡的电路板，中央是 AD102 处理器，摄于 2023 年 8 月。照片并非 Lava 统计到的 GPU。"
+  },
+  "credit": "Fritzchens Fritz / Wikimedia Commons",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Nvidia@5nm@AdaLovelace@AD102@GeForce_RTX_4090@S_TW_2324A1_U2F028.MOW_AD102-301-A1_DSCx3@VIS.jpg",
+  "retrieved": "2026-10-25"
+}

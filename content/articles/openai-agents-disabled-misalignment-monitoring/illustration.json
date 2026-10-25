@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "openai-agents-disabled-misalignment-monitoring.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "c11fe4f1dc7b57e6f9071b58eeaa2a2bb72323adb24cd02f251bedb2b478d3e0",
+  "variants": {
+    "list": {
+      "file": "openai-agents-disabled-misalignment-monitoring-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "be5226dc4f7821dd42b3dbcd5546833aded68e53c45142666945136c9d6fed34"
+    },
+    "thumb": {
+      "file": "openai-agents-disabled-misalignment-monitoring-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "aaed8a1ba6a406032bda262bd1cadfc49ecade15931e61f28cc72a323fa5c48e"
+    },
+    "social": {
+      "file": "openai-agents-disabled-misalignment-monitoring-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "14c7fcfe66c2d54540d5bd421cb5defc79b6b1ee77fd9805ad0fa36c881fdfab"
+    }
+  },
+  "edits": {
+    "source_sha256": "75c187cc935954f2718054a3117df2cd31acfe60346d6b17831fc9c55fbd6cd5",
+    "source_size": [5115, 3410],
+    "crop": [0, 0, 5115, 3410],
+    "social_crop": [0, 362, 5115, 2685],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A close view of rack-mounted servers with gray-green front panels, rows of silver drive trays and small green status lights, beside the rack's unit numbers 19 to 23.",
+    "zh": "近景中是一台台机架式服务器，灰绿色前面板上排着银色硬盘托架和绿色小指示灯，旁边是机架上 19 到 23 的单元编号。"
+  },
+  "caption": {
+    "en": "Servers of the Wikimedia Foundation, photographed in July 2012. The photo does not show OpenAI's systems.",
+    "zh": "维基媒体基金会的服务器，摄于 2012 年 7 月。照片并非 OpenAI 的系统。"
+  },
+  "credit": "Victorgrigas / Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Wikimedia_Foundation_Servers-8055_15.jpg",
+  "retrieved": "2026-10-25"
+}

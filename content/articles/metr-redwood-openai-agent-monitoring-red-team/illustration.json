@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "metr-redwood-openai-agent-monitoring-red-team.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "99b9b9ed3cfa2097364def32fabe979c79866d029c17bb00dc7cbc8c2b526cba",
+  "variants": {
+    "list": {
+      "file": "metr-redwood-openai-agent-monitoring-red-team-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "7e4b8f9c75aa03cd6ce2f54eb7b2c52001e8248ec40ecb9b606d0ab566fee2c6"
+    },
+    "thumb": {
+      "file": "metr-redwood-openai-agent-monitoring-red-team-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "c536c100d9dc0fbca65d46dd1ab50f8225481a5f22483821e877a88aff7b8883"
+    },
+    "social": {
+      "file": "metr-redwood-openai-agent-monitoring-red-team-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "fcf952de0706c52fc12157e6f8e7aadff31ce88293e6f757c68fe0323c01c1ef"
+    }
+  },
+  "edits": {
+    "source_sha256": "2bbb65c12241a7acef51503b5a98a172090686caff440638d3f2af660433f6b0",
+    "source_size": [5472, 2377],
+    "crop": [954, 0, 3564, 2377],
+    "social_crop": [954, 134, 3564, 1871],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A bank of computer monitors in two rows on a wooden desk shows software control panels, graphs and text logs, with a keyboard and a mouse in front of them.",
+    "zh": "木桌上两排电脑显示器显示着软件控制面板、曲线图和文字日志，显示器前放着键盘和鼠标。"
+  },
+  "caption": {
+    "en": "The control system for the Gemini North telescope at its base facility in Hilo. The photo does not show OpenAI's monitoring system.",
+    "zh": "Gemini North 望远镜设在希洛基地的控制系统。照片中并非 OpenAI 的监控系统。"
+  },
+  "credit": "International Gemini Observatory/NOIRLab/NSF/AURA/T. Slovinský / Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Control_System_Gemini_North_Hilo_Base_Facility_(6V7A0366-CC).jpg",
+  "retrieved": "2026-10-25"
+}

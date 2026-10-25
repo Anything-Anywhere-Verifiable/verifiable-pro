@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "aisi-mythos-incident-alignment-investigation.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "83e7d8436d57f34dd629d9ce044d872ee4b916a569b4c94701a3c5e29230b078",
+  "variants": {
+    "list": {
+      "file": "aisi-mythos-incident-alignment-investigation-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "d385bcbb4121262f533889a865061684cf62b11447ad49db27f247ac603083de"
+    },
+    "thumb": {
+      "file": "aisi-mythos-incident-alignment-investigation-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "9a13ec0857e13e6a090e9c37473092e69bc7f9aa10195c19599dc8ebe2ac9a8f"
+    },
+    "social": {
+      "file": "aisi-mythos-incident-alignment-investigation-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "66423f777f3278d86d436dabf711c2705d625ec07d6c128fdeddf2d1a130944d"
+    }
+  },
+  "edits": {
+    "source_sha256": "1120015812dfabd6e76deb47151aa5449e5fe278773919cb9c8cfd2321b33dfb",
+    "source_size": [6016, 4016],
+    "crop": [0, 0, 6016, 4012],
+    "social_crop": [0, 228, 6016, 3158],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A black-and-white close-up of the back of a computer server: two rows of fans behind hexagonal metal grilles, with black cables looping across them and a row of power sockets along the bottom.",
+    "zh": "一台电脑服务器背面的黑白特写：两排风扇装在六边形网孔的金属罩后面，几根黑色线缆在风扇前绕过，底部是一排电源插口。"
+  },
+  "caption": {
+    "en": "Fans and cables on the back of a computer server in Copenhagen, photographed in January 2017. The photo does not show the systems in AISI's investigation.",
+    "zh": "哥本哈根一台电脑服务器背面的风扇和线缆，摄于 2017 年 1 月。照片并非 AISI 调查所涉的系统。"
+  },
+  "credit": "Thomas Kvistholt / Wikimedia Commons",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Beautiful_technology_(Unsplash).jpg",
+  "retrieved": "2026-10-25"
+}

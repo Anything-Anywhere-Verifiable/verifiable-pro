@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "summary-watermark-model-substitution-audit.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "df78da742946fd401fa632b247c9cf77865e7003da676dc95d9e8ccb476e9e8c",
+  "variants": {
+    "list": {
+      "file": "summary-watermark-model-substitution-audit-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "4e9b10ad4e386a6c5938a2841e5dc24c3daaccdde67dd3034850a12c1c2807b6"
+    },
+    "thumb": {
+      "file": "summary-watermark-model-substitution-audit-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "b509adffbbf9441b9e3d90b52f5624288f1fbb700221409b834f11d5c5bbf55c"
+    },
+    "social": {
+      "file": "summary-watermark-model-substitution-audit-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "91698d3bbd77f41137ff02b6dc05dcb7c93c90edd2220cc6c79aa9558c7145f7"
+    }
+  },
+  "edits": {
+    "source_sha256": "6a39fc03f1bc3fdd41cf9995ffd87fed3acb4ba77fcb16d0384b77753cd38389",
+    "source_size": [3000, 1858],
+    "crop": [47, 0, 2786, 1858],
+    "social_crop": [47, 142, 2786, 1463],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A tall glass building with copper-colored bands along each floor and closely spaced vertical fins on its end wall rises behind leafy trees and a low brick wall lettered University of Maryland, beside a curving road with a bus and a car, under a clear deep-blue sky.",
+    "zh": "一栋高大的玻璃建筑，每层楼边缘都有一道铜色横带，端墙上排列着密集的竖向格栅。楼前是枝叶繁茂的树木和一道写有 UNIVERSITY OF MARYLAND 字样的矮砖墙，旁边的弯道上有一辆巴士和一辆汽车，头顶是万里无云的深蓝色天空。"
+  },
+  "caption": {
+    "en": "The Iribe Center for Computer Science and Engineering at the University of Maryland, College Park, in October 2023. Three of the paper's five authors are affiliated with the university. The photo does not show the researchers or their experiments.",
+    "zh": "马里兰大学帕克分校的 Iribe 计算机科学与工程中心，摄于 2023 年 10 月。论文的五位作者中有三位来自该校。照片中没有研究人员，也没有他们的实验。"
+  },
+  "credit": "Blacktupelo / Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Iribe_Center_UMD_College_Park_MD.jpg",
+  "retrieved": "2026-10-25"
+}
