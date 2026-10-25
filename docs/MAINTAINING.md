@@ -201,6 +201,19 @@ The tokens were checked against these pages on 23 October 2026; check them again
 
 **Social cards and icons.** `tools/og_images.py` draws the social cards (`static/og/`) and the icons (`static/icons/`) with headless Google Chrome and the Google Fonts the site uses, so it needs Chrome and the network. It writes nothing when a font does not load, when Chinese text is not set in a Chinese font, when a title does not fit, or when a file is not the stated size or exceeds 120 KB. Commit the PNG files and `static/og/cards.json` together. The build only links them, warns when a card's words no longer match the content and stops when one is missing. Redraw the cards after renaming a topic or changing the tagline, the home page kicker, the colours, the fonts or the mark, and check the result by opening the files.
 
+**Incremental search notifications.** `indexnow.json` holds this host's public [IndexNow](https://www.indexnow.org/documentation) key; every build serves it at `/<key>.txt`. After the live check confirms the deployed commit, `deploy.yml` verifies that public key URL and submits added, meaningfully changed or removed canonical URLs to `api.indexnow.org`. Participating search engines share received notifications. Google is not an IndexNow participant; keep its Search Console sitemap submission and inspections separate. This is a crawl hint, with no guarantee of crawling, indexing, ranking or a citation in an AI answer.
+
+`tools/indexnow.py` reads only same-host HTTPS HTML entries from the built sitemap, checks canonical links, robots rules and `noindex`, and fingerprints search metadata and the visible main content. It ignores site navigation, footers, sidebars and scripts, including the assistant's global build digest, so an unchanged rebuild sends nothing. Deleted or newly excluded URLs come from the previously received state, whose host and URL format are validated too. HTTP 200 means received; 202 means received with key validation pending. Errors, including 429, remain visible in the deploy job and its summary without blocking the deployed site. State advances only for received batches, allowing failed URLs to retry on the next deployment or workflow rerun.
+
+Actions caches `.indexnow-state.json` separately from public files and secrets. The first run bootstraps the current canonical sitemap; a cache eviction or key change also resets that baseline, which can cause one full notification. The cache is an optimization, not a record of indexing. To inspect the exact plan locally without network calls or writes:
+
+```bash
+python3 build.py --out /tmp/vp-indexnow
+python3 tools/indexnow.py --site-dir /tmp/vp-indexnow --dry-run
+```
+
+To retry manually after verifying that this source is deployed, omit `--dry-run`; retain the same `--state PATH` between runs. Do not run the submitting command against an unpublished preview. The root key is intentionally public and must match the host in `indexnow.json` and `content/site.json`.
+
 **After the first deploy**, the owner:
 
 1. verifies the domain in [Google Search Console](https://search.google.com/search-console) as a Domain property, with the DNS TXT record it shows, and submits `https://verifiable.pro/sitemap.xml`;

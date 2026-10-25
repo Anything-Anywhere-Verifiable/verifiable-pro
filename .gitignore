@@ -58,3 +58,7 @@ Thumbs.db
 *.tgz
 *.zip
 *.log
+
+# Incremental IndexNow receipt state (Actions cache; never published)
+/.indexnow-state.json
+/.indexnow-state.json.tmp
