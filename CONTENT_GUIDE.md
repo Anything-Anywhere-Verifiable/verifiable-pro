@@ -477,7 +477,7 @@ The file holds the interface text as `{"en": {...}, "zh": {...}}`, keyed by stri
 | Key | Use |
 | --- | --- |
 | `domain` | The site name recorded in the manifest, the `CNAME` file and the feed entry ids, and the name of the site and its publisher in the structured data, `llms.txt` and the feeds |
-| `base_url` | Canonical URLs, language alternates, the feeds, the sitemap, `robots.txt`, `llms.txt`, the structured data, the social cards' addresses and the page address in correction issues |
+| `base_url` | Canonical URLs, language alternates, the feeds, the sitemap, `robots.txt`, `llms.txt`, the structured data, the social cards' addresses and the page address in correction issues. `indexnow.json` must name the same host, or the build stops |
 | `alternate_name` | Another name for the site, given as `alternateName` of the `WebSite` and the `Organization` in the structured data. "Verifiable AI Systems" is the line under the wordmark in the logo lockup. |
 | `description` | A plain description of the site in both languages, `{"en": "...", "zh": "..."}`: what it covers and what it publishes, in the words people search for. `llms.txt`, the `llms-full.txt` files and the web app manifests use it, and the abstract in `CITATION.cff` opens with the English text, so update that file with it. Pages keep `site_description` from `strings.json` as their meta description. |
 | `contact_email` | The editorial address in the footer and in the structured data (`Organization`), and in the correction boxes when `repo_url` is empty |

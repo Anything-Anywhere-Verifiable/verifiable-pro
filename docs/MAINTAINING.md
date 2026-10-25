@@ -13,7 +13,7 @@ verifiable-pro/
 │   ├── ISSUE_TEMPLATE/             config.yml story.yml resource.yml correction.yml bug.yml
 │   └── workflows/
 │       ├── ci.yml                  pull requests and main: tests, builds, links, manifest, content lint
-│       ├── deploy.yml              main: build, attest, publish to GitHub Pages, check the live site
+│       ├── deploy.yml              main: build, attest, publish to GitHub Pages, check the live site, notify IndexNow
 │       └── links.yml               weekly external-link check, reported in a link-rot issue
 ├── api/                            Ask assistant API contract, version 1
 │   ├── chat-v1.md                  human-readable contract (phase 0 subset marked)
@@ -33,15 +33,17 @@ verifiable-pro/
 ├── static/                         copied to /assets/: site.css site.js hero.js chat.css chat.js, the logo files,
 │                                   og/ (social cards and cards.json) and icons/, both drawn by tools/og_images.py,
 │                                   and media/ (the lead photos and their copies, made by tools/photos.py, or illustrations, drawn by tools/illustrate.py)
-├── tests/                          unit tests for the generator, content, the Ask widget build, the machine-readable files, the lead photos and the illustration generator
+├── tests/                          unit tests for the generator, content, the Ask widget build, the machine-readable files, the lead photos, the illustration generator and the IndexNow notifier
 ├── tools/                          check_links.py check_a11y.py lint_content.py verify_manifest.py shoot.py cdp.mjs og_images.py, hero/ (draws the hero's person and their data's path),
-│                                   photos.py (crops and grades the lead photos), illustrate.py and scene/ (draw the lead illustrations from each illustration.json)
+│                                   photos.py (crops and grades the lead photos), illustrate.py and scene/ (draw the lead illustrations from each illustration.json),
+│                                   indexnow.py (tells IndexNow which pages a deploy changed)
 ├── build.py                        build entry point
+├── indexnow.json                   the IndexNow key and host; every build publishes the key as /<key>.txt
 ├── README.md AGENTS.md CONTRIBUTING.md CONTENT_GUIDE.md DESIGN.md CITATION.cff THIRD_PARTY_NOTICES.md
 └── .gitignore .gitattributes
 ```
 
-Ignored by `.gitignore` and never committed: build output (`public/`, `dist/`, `dist-*/`, `_site*/`), agent and tool scratch space (`.build/`, `.claude/`, `.codex/`, `tmp/`, `shots/`), design explorations (`design/`), raw research (`research/`), the ChatGPT Sites hosting file (`.openai/`), Python caches, local secrets (`.env`, `*.pem`, `*.key`, `*.local.*`) and model weights.
+Ignored by `.gitignore` and never committed: build output (`public/`, `dist/`, `dist-*/`, `_site*/`), agent and tool scratch space (`.build/`, `.claude/`, `.codex/`, `tmp/`, `shots/`), design explorations (`design/`), raw research (`research/`), the ChatGPT Sites hosting file (`.openai/`), the IndexNow notification state (`.indexnow-state.json`, which the deploy keeps in the Actions cache), Python caches, local secrets (`.env`, `*.pem`, `*.key`, `*.local.*`) and model weights.
 
 The repository has no LICENSE file. Licenses for the code and for the content are to be chosen by the maintainer; until then CONTRIBUTING.md says so.
 
@@ -164,9 +166,9 @@ gh label create link-rot    --color B60205 --description "External links that no
 
 **If the domain is not ready at the first deploy**, the site is served at `https://anything-anywhere-verifiable.github.io/verifiable-pro/`, where the production build's root-absolute links break. Either attach the domain before the first deploy, or change the Build step in `deploy.yml` to `--mode preview` (relative links) through a pull request until the domain works, then change it back.
 
-**After each deploy**, the `Check the live site` job waits until `/build.json` on the live site names the deployed commit, then runs `tools/verify_manifest.py` against the live site. A failure there means the CDN is still serving an older build or a published source does not match the manifest.
+**After each deploy**, the `Check the live site` job waits until `/build.json` on the live site names the deployed commit, then runs `tools/verify_manifest.py` against the live site. A failure there means the CDN is still serving an older build or a published source does not match the manifest. Then the `Notify search engines of content changes` job tells IndexNow which pages the deploy changed (see [Discoverability](#discoverability)); its failure shows as a warning and does not fail the run.
 
-**Rolling back.** Revert the faulty pull request with a new pull request (the GitHub "Revert" button creates one). Its merge deploys the earlier content. Re-running an old deploy run does not work after a day, because the Pages artifact is kept for one day.
+**Rolling back.** Revert the faulty pull request with a new pull request (the GitHub "Revert" button creates one). Its merge deploys the earlier content. Re-running only the deploy job of an old run fails after a day, because the Pages artifact is kept for one day, while re-running all of its jobs builds and deploys that old commit again.
 
 **Ask assistant mode.** `chat.mode` in `content/site.json` (`demo`, `live` or `off`) and `chat.api_base` are publishing decisions and go through a pull request like any content change. Pull request previews built by CI always use `--chat demo`, so they never call a backend. Before switching to `live`, the backend must implement `api/chat-v1.md`, serve HTTPS and allow the origin `https://verifiable.pro`; see `backend/README.md` and `docs/assistant-architecture.md`.
 
@@ -184,7 +186,7 @@ In the GA4 web stream, keep **all Enhanced measurement off**, including page cha
 
 Google selects [sitelinks automatically](https://developers.google.com/search/docs/appearance/sitelinks), using the site's structure and link text. Keep category links descriptive and the hierarchy useful to readers. The breadcrumb data describes that hierarchy; it does not request or guarantee sitelinks. Source citations retain their complete labels in the page and Markdown. Their structured data gives the work's title, URL and date, and omits a publisher entity when the source label combines authors and venues, because [Schema.org requires a Person or Organization](https://schema.org/publisher).
 
-Every build writes what search engines, AI answer engines and agents read: `robots.txt`, `llms.txt` and the two `llms-full.txt` files, the Atom and JSON Feeds, the sitemap, the web app manifests, and in each page's head the language alternates, the Markdown alternate, the structured data and the social tags. The README's [Machine-readable files](../README.md#machine-readable-files) section lists them; `sitegen/discover.py` generates them and `tests/test_discoverability.py` checks a production build of them. The site's description in these files is `description` in `content/site.json`, and the alternate name in the structured data is `alternate_name`.
+Every build writes what search engines, AI answer engines and agents read: `robots.txt`, `llms.txt` and the two `llms-full.txt` files, the Atom and JSON Feeds, the sitemap, the web app manifests, and in each page's head the language alternates, the Markdown alternate, the structured data and the social tags. The README's [Machine-readable files](../README.md#machine-readable-files) section lists them; `sitegen/discover.py` generates them and `tests/test_discoverability.py` checks a production build of them. `build.py` also publishes the IndexNow key named in `indexnow.json`, which `tests/test_indexnow.py` checks (see Incremental search notifications below). The site's description in these files is `description` in `content/site.json`, and the alternate name in the structured data is `alternate_name`.
 
 **robots.txt.** Every crawler may fetch every page. The file also names crawlers in four groups (`ROBOTS_GROUPS` in `sitegen/discover.py`), each with the token its operator documents:
 
@@ -201,18 +203,27 @@ The tokens were checked against these pages on 23 October 2026; check them again
 
 **Social cards and icons.** `tools/og_images.py` draws the social cards (`static/og/`) and the icons (`static/icons/`) with headless Google Chrome and the Google Fonts the site uses, so it needs Chrome and the network. It writes nothing when a font does not load, when Chinese text is not set in a Chinese font, when a title does not fit, or when a file is not the stated size or exceeds 120 KB. Commit the PNG files and `static/og/cards.json` together. The build only links them, warns when a card's words no longer match the content and stops when one is missing. Redraw the cards after renaming a topic or changing the tagline, the home page kicker, the colours, the fonts or the mark, and check the result by opening the files.
 
-**Incremental search notifications.** `indexnow.json` holds this host's public [IndexNow](https://www.indexnow.org/documentation) key; every build serves it at `/<key>.txt`. After the live check confirms the deployed commit, `deploy.yml` verifies that public key URL and submits added, meaningfully changed or removed canonical URLs to `api.indexnow.org`. Participating search engines share received notifications. Google is not an IndexNow participant; keep its Search Console sitemap submission and inspections separate. This is a crawl hint, with no guarantee of crawling, indexing, ranking or a citation in an AI answer.
+**Incremental search notifications.** `indexnow.json` holds this host's [IndexNow](https://www.indexnow.org/documentation) key, and every build serves the key at `/<key>.txt`. After the live check confirms the deployed commit, the `Notify search engines of content changes` job in `deploy.yml` checks that key URL and sends `api.indexnow.org` the canonical URLs that the deploy added, changed or removed. IndexNow shares them with the search engines that take part, such as Bing. Google does not take part, so keep its Search Console sitemap submission. A notification asks for a crawl; it does not guarantee crawling, indexing, ranking or a citation in an AI answer.
 
-`tools/indexnow.py` reads only same-host HTTPS HTML entries from the built sitemap, checks canonical links, robots rules and `noindex`, and fingerprints search metadata and the visible main content. It ignores site navigation, footers, sidebars and scripts, including the assistant's global build digest, so an unchanged rebuild sends nothing. Deleted or newly excluded URLs come from the previously received state, whose host and URL format are validated too. HTTP 200 means received; 202 means received with key validation pending. Errors, including 429, remain visible in the deploy job and its summary without blocking the deployed site. State advances only for received batches, allowing failed URLs to retry on the next deployment or workflow rerun.
+`tools/indexnow.py` takes the pages from the built sitemap and stops when the sitemap lists anything other than this host's HTTPS HTML pages. It leaves out a page whose canonical link names another address, a page marked `noindex` and a page that `robots.txt` closes to `*` or to `bingbot`. It reads `robots.txt` as RFC 9309 does, so the result does not depend on the Python version. It fingerprints each page's title, search metadata, canonical and alternate links (the other edition, the feeds and the Markdown source), structured data, and the elements, text, links and images in `<main>`. Navigation, footers, scripts, elements hidden from readers, tooltips, the filing-details and Ask asides, the related-stories cards and the correction links are left out, because they repeat other pages or the site's settings. A new brief therefore notifies itself and the home, Latest and topic pages that list it, not the older articles that show it among their related stories, and an unchanged rebuild notifies nothing. A change to the elements in `<main>`, such as a template change that adds a wrapper or changes a tag, notifies every page it touches; a change of class, id or style does not.
 
-Actions caches `.indexnow-state.json` separately from public files and secrets. The first run bootstraps the current canonical sitemap; a cache eviction or key change also resets that baseline, which can cause one full notification. The cache is an optimization, not a record of indexing. To inspect the exact plan locally without network calls or writes:
+The job keeps the fingerprints that IndexNow received (HTTP 200, or 202 while IndexNow validates the key) in `.indexnow-state.json`, which the Actions cache carries from one deploy to the next. A refused request, such as a 429, leaves its URLs at their earlier fingerprints, so a deploy within 7 days that finds that state in the cache sends them again. The failure shows in the job and in the run's summary without failing the deploy. A deploy that changes the cache key, by editing `indexnow.json` or changing `VERSION`, does not find that state and does not resend the refused pages. To retry sooner, after a longer pause or before such a deploy, re-run only the failed job, while its commit is still the live one. The job sends and records nothing once `/build.json` names another commit, or when the run deployed to an address other than `https://<host>/`, as a fork's Pages site does. Re-running all jobs of an older run redeploys that older commit.
+
+GitHub evicts a cache entry that no run has used for 7 days, and an edit of `indexnow.json` changes the cache key. Without a state, the job builds the commit that `/build.json` named before the deploy and compares with that build, so the deploy still notifies only its own changes. The build job records that commit only if it belongs to `main`'s history, because the notify job runs its `build.py`. When there is no such commit, as at a first deploy, or the build job cannot confirm it, the tool records the current pages as the baseline and notifies nothing, and the job warns about it. `--bootstrap` notifies every page instead, which IndexNow's FAQ accepts only when the whole site has changed, as after a move or a redesign. A change to what a fingerprint covers can change many pages' fingerprints, so it goes with a new `VERSION` in `tools/indexnow.py` and the same number in the cache key in `deploy.yml`, which a unit test checks. The next deploy then compares with the previous build.
+
+A local run cannot see the state, which cannot be downloaded from the cache. To preview what a deploy would send, build the commit that the live site serves and the new one in a fresh folder, and compare the builds without network requests or writes. Each command runs only if the one before it succeeded, so a live commit missing from your clone stops the preview:
 
 ```bash
-python3 build.py --out /tmp/vp-indexnow
-python3 tools/indexnow.py --site-dir /tmp/vp-indexnow --dry-run
+git fetch -q origin \
+  && commit=$(curl -fsS https://verifiable.pro/build.json | python3 -c 'import json, sys; print(json.load(sys.stdin)["commit"])') \
+  && work=$(mktemp -d) && mkdir "$work/live" \
+  && git archive -o "$work/live.tar" "$commit" && tar -x -f "$work/live.tar" -C "$work/live" \
+  && python3 "$work/live/build.py" --out "$work/live-site" \
+  && python3 build.py --out "$work/new-site" \
+  && python3 tools/indexnow.py --site-dir "$work/new-site" --baseline-site-dir "$work/live-site" --dry-run
 ```
 
-To retry manually after verifying that this source is deployed, omit `--dry-run`; retain the same `--state PATH` between runs. Do not run the submitting command against an unpublished preview. The root key is intentionally public and must match the host in `indexnow.json` and `content/site.json`.
+Leave sending to the deploy job, so that its cached state matches what IndexNow received. The key cannot be secret, because `SHA256SUMS` lists every published file. Anyone can therefore send this host's URLs with it, and such submissions count toward the per-site limits behind a 429. To replace the key, change `key` in `indexnow.json` and deploy; the host there must stay equal to `base_url` in `content/site.json`, or the build stops. That deploy publishes the new key file, and its notify job compares with the previous build because the cache key changed.
 
 **After the first deploy**, the owner:
 
@@ -237,7 +248,7 @@ DNS records keep verification tags out of the pages; a verification tag in `rend
 
 6. **Review.** An editor checks every claim against its source and the checklist against CONTENT_GUIDE.md; a Chinese-language editor reviews `zh.md`; the code owner approves.
 7. **Merge.** Squash merge with a title that starts with the area (`content:`, `correction(<slug>):` and so on). The issue closes through "Closes #N".
-8. **Publish.** `deploy.yml` runs the tests, builds, attests, deploys and checks the live site. The new article's source digest appears on its page and in `/manifest.json`; `/build.json` names the merge commit.
+8. **Publish.** `deploy.yml` runs the tests, builds, attests, deploys, checks the live site and tells IndexNow which pages changed. The new article's source digest appears on its page and in `/manifest.json`; `/build.json` names the merge commit.
 
 ## How a correction flows
 

@@ -47,7 +47,6 @@ from xml.sax.saxutils import escape as xml_escape
 from sitegen import art, content, discover, md
 from sitegen import render
 from sitegen.render import Site
-from tools.indexnow import load_config as indexnow_config
 
 ROOT = Path(__file__).resolve().parent
 
@@ -571,7 +570,7 @@ def build(mode, out, css=None, mark=None, drafts=False, chat=None, chat_api=None
     manifest_doc, digest = manifest(model)
     base = model["site"]["base_url"].rstrip("/")
     try:
-        indexnow = indexnow_config(ROOT / "indexnow.json")
+        indexnow = discover.indexnow_config(ROOT / "indexnow.json")
     except (ValueError, OSError) as exc:
         raise content.ContentError(f"indexnow.json: {exc}") from exc
     if base != f"https://{indexnow['host']}":

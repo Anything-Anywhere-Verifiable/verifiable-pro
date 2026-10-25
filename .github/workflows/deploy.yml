@@ -36,6 +36,8 @@ jobs:
       contents: read
       id-token: write          # short-lived Sigstore certificate for the attestation
       attestations: write      # store the attestation with the repository
+    outputs:
+      previous_commit: ${{ steps.previous.outputs.commit }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -43,6 +45,27 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ env.PYTHON_VERSION }}
+
+      # The notify job compares with this commit's build when it has no IndexNow state. Deploy
+      # runs share the "pages" concurrency group, so nothing else deploys in between.
+      - name: Record the commit that the live site serves before this deploy
+        id: previous
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          host=$(python -c 'import json; print(json.load(open("indexnow.json", encoding="utf-8"))["host"])')
+          commit=$(curl -fsS --retry 2 --retry-all-errors --max-time 20 \
+                     "https://$host/build.json?run=$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
+                   | python -c 'import json, sys; print(json.load(sys.stdin)["commit"])') || commit=""
+          # The notify job runs this commit's build.py, so keep only a full SHA from main's history
+          if [[ $commit =~ ^[0-9a-f]{40}$ ]] \
+              && status=$(timeout 60 gh api "repos/$GITHUB_REPOSITORY/compare/$commit...main" --jq .status) \
+              && [[ $status == ahead || $status == identical ]]; then
+            echo "commit=$commit" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::No commit of main confirmed from https://$host/build.json (no reply, no commit, or the GitHub API did not confirm it); if the IndexNow cache misses, the notify job has no earlier build to compare with"
+            echo "commit=" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Run tests
         run: python -m unittest discover -s tests -t .
@@ -164,11 +187,12 @@ jobs:
 
   notify-indexnow:
     name: Notify search engines of content changes
-    needs: live-check
+    needs: [build, deploy, live-check]
     runs-on: ubuntu-latest
-    timeout-minutes: 6
-    # A notification service outage must not undo or block an already verified deploy.
-    # Its failed step and summary remain visible, and unreceived URLs retry next deploy.
+    timeout-minutes: 8
+    # A notification service outage must not undo or block an already verified deploy. Its
+    # failed step and summary remain visible, and a deploy within 7 days that finds this run's
+    # state in the cache (indexnow.json unchanged) retries the unreceived URLs.
     continue-on-error: true
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -179,16 +203,48 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
       - name: Build the deployed source for content fingerprints
         run: python build.py --out public
+      # The number after "indexnow-v" is VERSION in tools/indexnow.py; a unit test checks it.
       - name: Restore received notification state
+        id: restore
         uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
         with:
           path: .indexnow-state.json
-          key: indexnow-v1-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: indexnow-v2-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            indexnow-v1-${{ hashFiles('indexnow.json') }}-
+            indexnow-v2-${{ hashFiles('indexnow.json') }}-
+      # Without a state (GitHub evicts an entry unused for 7 days, and editing indexnow.json
+      # changes the key), compare with the build this deploy replaced instead of notifying
+      # every page. If either step fails, the notifier records a baseline and sends nothing.
+      - name: Check out the previously deployed source
+        id: previous_source
+        if: steps.restore.outputs.cache-matched-key == '' && needs.build.outputs.previous_commit != ''
+        continue-on-error: true
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.build.outputs.previous_commit }}
+          path: previous-source
+          persist-credentials: false
+      - name: Build the previously deployed source
+        id: previous_build
+        if: steps.restore.outputs.cache-matched-key == '' && needs.build.outputs.previous_commit != ''
+        continue-on-error: true
+        run: |
+          python previous-source/build.py --out "$RUNNER_TEMP/previous-build"
+          mv "$RUNNER_TEMP/previous-build" "$RUNNER_TEMP/previous-public"
       - name: Verify the published key, then notify changed URLs
         id: notify
-        run: python tools/indexnow.py --site-dir public --key-attempts 6 --key-delay 10 2>&1 | tee "$RUNNER_TEMP/indexnow.txt"
+        env:
+          PAGE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          baseline=()
+          if [ -d "$RUNNER_TEMP/previous-public" ]; then
+            baseline=(--baseline-site-dir "$RUNNER_TEMP/previous-public")
+          fi
+          # Nothing is sent for another address (a fork's Pages) or once a newer deploy is live
+          # (a late re-run). timeout stops Python itself, and -u keeps the plan in the log.
+          timeout --kill-after=15 270 python -u tools/indexnow.py --site-dir public "${baseline[@]}" \
+            --deployed-url "$PAGE_URL" --expect-commit "$GITHUB_SHA" --key-attempts 6 --key-delay 10 \
+            2>&1 | tee "$RUNNER_TEMP/indexnow.txt"
       # Also retain successful batches if a later batch failed. Failed URLs are
       # never recorded as received. No key, token or account secret is needed.
       - name: Retain received notification state
@@ -196,11 +252,14 @@ jobs:
         uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
         with:
           path: .indexnow-state.json
-          key: indexnow-v1-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: indexnow-v2-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Report notification result
         if: always()
         env:
           NOTIFY_OUTCOME: ${{ steps.notify.outcome }}
+          PREVIOUS_OUTCOMES: ${{ steps.previous_source.outcome }} ${{ steps.previous_build.outcome }}
+          RESTORED_KEY: ${{ steps.restore.outputs.cache-matched-key }}
+          PREVIOUS_COMMIT: ${{ needs.build.outputs.previous_commit }}
         run: |
           {
             echo "### IndexNow"
@@ -214,5 +273,12 @@ jobs:
             echo 'Receipt does not establish crawling, indexing or an AI citation. Google is not an IndexNow participant.'
           } >> "$GITHUB_STEP_SUMMARY"
           if [ "$NOTIFY_OUTCOME" != success ]; then
-            echo '::warning::IndexNow notification did not complete. The site is deployed; inspect this job and retry the workflow. Unreceived URLs retain their previous state.'
+            echo '::warning::IndexNow notification did not complete. The site is deployed. A deploy within 7 days that finds the state of this run in the cache (indexnow.json unchanged) sends the pages IndexNow did not receive; to be sure, re-run only this job while its commit is the live one. Re-running all jobs of an older run redeploys that commit.'
+          fi
+          case "$PREVIOUS_OUTCOMES" in
+            *failure*)
+              echo '::warning::The previously deployed commit could not be checked out or built, so this deploy recorded its pages as the IndexNow baseline without notifying its changes.' ;;
+          esac
+          if [ "$NOTIFY_OUTCOME" = success ] && [ -z "$RESTORED_KEY" ] && [ -z "$PREVIOUS_COMMIT" ]; then
+            echo '::warning::No IndexNow state was restored and the build job confirmed no previously deployed commit, so this deploy recorded its pages as the baseline without notifying its changes.'
           fi

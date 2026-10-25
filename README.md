@@ -77,7 +77,7 @@ A production build also prints a warning for each placeholder the site owner sti
 
 The build empties the output folder before writing. It therefore refuses the repository itself, any folder above it, your home folder, the source folders and anything inside them, and a non-empty folder that has neither an `index.html` nor a `manifest.json`.
 
-Each build writes the English site at `/` and the Chinese site at `/zh/`; a Chinese article page exists only for articles with a `zh.md`. The build also writes, for each language, an Atom feed and a JSON Feed of the 20 newest articles, a search index, the full text as Markdown (`llms-full.txt`), a web app manifest and a 404 page. For the whole site it writes `llms.txt`, a sitemap with language alternates and last-change dates, `robots.txt`, the published Markdown sources and data files, and `manifest.json`. [Machine-readable files](#machine-readable-files) describes them.
+Each build writes the English site at `/` and the Chinese site at `/zh/`; a Chinese article page exists only for articles with a `zh.md`. The build also writes, for each language, an Atom feed and a JSON Feed of the 20 newest articles, a search index, the full text as Markdown (`llms-full.txt`), a web app manifest and a 404 page. For the whole site it writes `llms.txt`, a sitemap with language alternates and last-change dates, `robots.txt`, the IndexNow key file, the published Markdown sources and data files, and `manifest.json`. [Machine-readable files](#machine-readable-files) describes them.
 
 ## The home page hero
 
@@ -94,11 +94,12 @@ Every news brief opens with a lead image, usually a real photograph, and other a
 | Path | Contents |
 | --- | --- |
 | `build.py` | Build entry point |
+| `indexnow.json` | The site's [IndexNow](https://www.indexnow.org/) key and host: every build publishes the key, and the deploy workflow uses it to tell search engines which pages changed |
 | `sitegen/` | The generator: Markdown renderer (`md.py`), content loader (`content.py`), page templates (`render.py`), the machine-readable files, structured data and social tags (`discover.py`), the hero scene and its leader anchors (`templates/hero-scene.svg`, `templates/hero-anchors.json`), the hero's layer and person icons and vendor marks (`logos.py`) and generated illustrations (`art.py`, which the pages keep off and the social cards use) |
 | `content/` | Articles (`articles/<slug>/en.md`, `zh.md`, and the lead image's `illustration.json`), pages (About and Vision), topics and the verification stack (`topics.json`), the trust tiers (`tiers.json`), the TEE hub (`tee.json`), resources, glossary, interface strings and site settings |
 | `static/` | Stylesheets and scripts (`site.css`, `site.js`, `hero.js`, and `chat.css`, `chat.js` for the site assistant), logo and favicon files, the social cards (`og/`), the icons (`icons/`) and the lead images (`media/`: photos made by `tools/photos.py` and drawings by `tools/illustrate.py`), copied to `/assets/` |
-| `tools/` | Link checker, accessibility checker, content linter, manifest verifier, screenshot tools, the generator of the social cards and icons (`og_images.py`), the generator of the hero's person (`tools/hero/`), the lead photos' crop, grade and checks (`photos.py`) and the generator of the lead illustrations (`illustrate.py` and `scene/`) |
-| `tests/` | Unit and regression tests for the generator, the page templates, the site assistant's markup and the machine-readable files (`test_discoverability.py`), the lead photos (`test_photos.py`, which also checks every committed photo) and the lead illustrations' generator (`test_illustrate.py`, which also redraws every committed picture) |
+| `tools/` | Link checker, accessibility checker, content linter, manifest verifier, screenshot tools, the generator of the social cards and icons (`og_images.py`), the generator of the hero's person (`tools/hero/`), the lead photos' crop, grade and checks (`photos.py`), the generator of the lead illustrations (`illustrate.py` and `scene/`) and the IndexNow notifier that the deploy workflow runs (`indexnow.py`) |
+| `tests/` | Unit and regression tests for the generator, the page templates, the site assistant's markup and the machine-readable files (`test_discoverability.py`), the lead photos (`test_photos.py`, which also checks every committed photo), the lead illustrations' generator (`test_illustrate.py`, which also redraws every committed picture) and the IndexNow notifier (`test_indexnow.py`) |
 | `api/` | The site assistant's API contract (`chat-v1.md`), its JSON Schema and example messages |
 | `backend/` | Backend plan by phase, and a standard-library mock server with its tests (`backend/mock/`) |
 | `docs/` | The maintainer handbook and the site assistant's architecture |
@@ -174,6 +175,7 @@ Each build also writes files that search engines, AI answer engines and agents c
 | `/search-index.json`, `/zh/search-index.json` | Titles, summaries and addresses of the articles, topics, pages, trust tiers, resources and glossary terms, which the site search and the assistant use |
 | `/sitemap.xml` | Every page except the 404 pages and the search pages, with its other edition and the English page as `x-default` where both exist, and the date it last changed where the content records one |
 | `/robots.txt` | Open to every crawler, with groups that name search engines, AI search and answer engines, assistants that fetch a page on request, and AI training crawlers; a comment points agents to `/llms.txt` |
+| `/<key>.txt` | The site's IndexNow key, which `build.py` writes from `indexnow.json`. Search engines that take part in IndexNow fetch it to check that the deploy workflow's notices of changed pages come from this site ([docs/MAINTAINING.md](docs/MAINTAINING.md#discoverability)) |
 | `/site.webmanifest`, `/zh/site.webmanifest` | Web app manifests with the site's name, description, colours and icons |
 
 Each page's head points to these files: an article or page links its Markdown source (`<link rel="alternate" type="text/markdown">`), every page links the feeds of its language and, as llmstxt.org suggests, `/llms.txt` (`rel="describedby"`), and the footer links `llms.txt` too. A page with an edition in the other language names both editions and the English one as `x-default`. Each page also describes itself in structured data (JSON-LD with schema.org types):
@@ -254,7 +256,7 @@ Further reading:
 
 ## Deploying
 
-`.github/workflows/deploy.yml` publishes every push to `main` to GitHub Pages. It runs the unit tests, builds with `python build.py --out public`, verifies the manifest, writes `build.json` (the manifest digest and the commit) and `SHA256SUMS` for every published file, attests them with a build provenance attestation, deploys, and then checks the live site against its manifest. The assistant's mode in that build is whatever `content/site.json` sets.
+`.github/workflows/deploy.yml` publishes every push to `main` to GitHub Pages. It runs the unit tests, builds with `python build.py --out public`, verifies the manifest, writes `build.json` (the manifest digest and the commit) and `SHA256SUMS` for every published file, attests them with a build provenance attestation, deploys and checks the live site against its manifest. Then it tells IndexNow which pages the deploy added, changed or removed ([docs/MAINTAINING.md](docs/MAINTAINING.md#discoverability)). The assistant's mode in that build is whatever `content/site.json` sets.
 
 The production build also writes a `CNAME` file containing `verifiable.pro`. GitHub Pages ignores it when a custom Actions workflow deploys; the custom domain is set in the repository's Pages settings instead. The Pages settings, DNS records, HTTPS and rollback steps are in [docs/MAINTAINING.md](docs/MAINTAINING.md#publishing-github-pages-custom-domain-and-dns), and the published build records and how to check them are in [its verifiable publishing section](docs/MAINTAINING.md#verifiable-publishing). `public/` is a complete static site, so another static host can serve it too, as long as the site sits at the root of its domain; for a subpath, build with `--mode preview`.
 

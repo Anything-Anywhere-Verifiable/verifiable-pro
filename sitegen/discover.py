@@ -464,6 +464,22 @@ def robots_txt(base):
     return "\n".join(lines) + "\n"
 
 
+# ----- IndexNow ------------------------------------------------------------------
+
+def indexnow_config(path):
+    """The host and key in indexnow.json. build.py publishes the key as /<key>.txt, and
+    tools/indexnow.py sends the pages a deploy changed with it (docs/MAINTAINING.md)."""
+    config = json.loads(Path(path).read_text(encoding="utf-8"))
+    if not isinstance(config, dict):
+        raise ValueError("IndexNow config must be a JSON object")
+    host, key = config.get("host", ""), config.get("key", "")
+    if not isinstance(host, str) or not re.fullmatch(r"[a-z0-9]+(?:[.-][a-z0-9]+)+", host):
+        raise ValueError("IndexNow host must be a lowercase DNS hostname without a scheme or path")
+    if not isinstance(key, str) or not re.fullmatch(r"[A-Za-z0-9-]{8,128}", key):
+        raise ValueError("IndexNow key must contain 8–128 ASCII letters, digits or dashes")
+    return {"host": host, "key": key}
+
+
 # ----- llms.txt ------------------------------------------------------------------
 
 def _entry(label, url, note=""):

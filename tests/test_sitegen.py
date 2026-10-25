@@ -1849,8 +1849,6 @@ class PersonBylineBuildTests(unittest.TestCase):
         root.mkdir()
         for name in ("build.py", "indexnow.json"):
             shutil.copy2(ROOT / name, root / name)
-        (root / "tools").mkdir()
-        shutil.copy2(ROOT / "tools" / "indexnow.py", root / "tools" / "indexnow.py")
         for name in ("sitegen", "static", "content"):
             shutil.copytree(ROOT / name, root / name, ignore=shutil.ignore_patterns("__pycache__"))
         newest = content.load(ROOT)["articles"]["en"][:discover.FEED_ITEMS]  # the feeds carry these
@@ -5584,7 +5582,7 @@ class AboutIllustrationsTests(unittest.TestCase):
 
 
 def illustrated_project(root):
-    """A copy of this project (build.py, sitegen/, static/ and content/) in which every news
+    """A copy of this project (build.py, indexnow.json, sitegen/, static/ and content/) in which every news
     brief has a placeholder illustration and one explainer, one analysis and one guide a
     placeholder photo, and content/site.json lists news under lead_image_kinds, as the site
     itself does. The explainer's photo is cropped under CC BY 4.0, the analysis's is in the
@@ -5594,8 +5592,6 @@ def illustrated_project(root):
     root.mkdir(parents=True)
     for name in ("build.py", "indexnow.json"):
         shutil.copy2(ROOT / name, root / name)
-    (root / "tools").mkdir()
-    shutil.copy2(ROOT / "tools" / "indexnow.py", root / "tools" / "indexnow.py")
     shutil.copytree(ROOT / "sitegen", root / "sitegen", ignore=shutil.ignore_patterns("__pycache__"))
     shutil.copytree(ROOT / "static", root / "static")
     shutil.copytree(ROOT / "content", root / "content")
