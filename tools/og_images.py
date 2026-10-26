@@ -71,8 +71,10 @@ SEEDS = {}
 # The title's largest and smallest size in pixels, and how many lines it may take
 TITLE = {"en": (64, 46, 3), "zh": (60, 46, 2)}
 SITE_TITLE_LINES = {"en": 4, "zh": 2}
+# Chrome may report a macOS font by its localized family name, such as 蘋方-簡 for PingFang SC on a Mac
+# whose languages include Traditional Chinese, so the Chinese names count too
 CJK_FONTS = ("PingFang", "Songti", "Hiragino", "Noto Sans CJK", "Noto Serif CJK", "Source Han", "STSong", "STHeiti",
-             "Heiti", "Microsoft YaHei", "SimSun", "WenQuanYi")
+             "Heiti", "Microsoft YaHei", "SimSun", "WenQuanYi", "苹方", "蘋方", "宋体", "宋體", "冬青黑", "黑体", "黑體")
 
 
 # ----- inputs -------------------------------------------------------------------

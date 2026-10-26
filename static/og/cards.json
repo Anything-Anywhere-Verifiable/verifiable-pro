@@ -109,21 +109,21 @@
    "topic": "governance-compute"
   },
   "site-en.png": {
-   "alt": "The verifiable.pro logo above the words “Verifiable AI, starting from trusted execution environments” and “Evidence you can check, from the chip up”, beside a drawing of memory pages around a sealed, measured region.",
-   "kicker": "Evidence you can check, from the chip up",
+   "alt": "The verifiable.pro logo above the words “Verifiable AI needs evidence at all seven layers” and “Where your data goes and what protects it”, beside a drawing of memory pages around a sealed, measured region.",
+   "kicker": "Where your data goes and what protects it",
    "lang": "en",
    "motif": "enclave",
    "seed": "verifiable.pro social card: site",
-   "title": "Verifiable AI, starting from trusted execution environments",
+   "title": "Verifiable AI needs evidence at all seven layers",
    "topic": null
   },
   "site-zh.png": {
-   "alt": "verifiable.pro 标志下方是“可验证 AI，从可信执行环境出发”和“从芯片往上，你能核查的证据”，旁边是一幅插图：内存页环绕着一块经过度量的封闭区域。",
-   "kicker": "从芯片往上，你能核查的证据",
+   "alt": "verifiable.pro 标志下方是“可验证 AI，七个层级都需要证据”和“你的数据流向哪里、受到什么保护”，旁边是一幅插图：内存页环绕着一块经过度量的封闭区域。",
+   "kicker": "你的数据流向哪里、受到什么保护",
    "lang": "zh",
    "motif": "enclave",
    "seed": "verifiable.pro social card: site",
-   "title": "可验证 AI，从可信执行环境出发",
+   "title": "可验证 AI，七个层级都需要证据",
    "topic": null
   },
   "supply-chain-en.png": {
