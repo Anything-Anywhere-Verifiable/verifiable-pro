@@ -645,7 +645,8 @@ def build(mode, out, css=None, mark=None, drafts=False, chat=None, chat_api=None
     (out / "llms.txt").write_text(discover.llms_txt(site, model), encoding="utf-8")
     (out / "sitemap.xml").write_text(sitemap(pages, base, last_revised(model)), encoding="utf-8")
     (out / "robots.txt").write_text(discover.robots_txt(base), encoding="utf-8")
-    (out / f"{indexnow['key']}.txt").write_text(indexnow["key"] + "\n", encoding="utf-8")
+    # Exactly the key, with no newline: search engines compare the file with the key they are sent
+    (out / f"{indexnow['key']}.txt").write_text(indexnow["key"], encoding="utf-8")
     if mode == "prod":
         (out / "CNAME").write_text(model["site"]["domain"] + "\n", encoding="utf-8")
     return len(pages), digest

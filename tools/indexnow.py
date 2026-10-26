@@ -219,8 +219,8 @@ def snapshot(site_dir, config, baseline=False):
     added or changed.
     """
     site_dir = Path(site_dir).resolve()
-    if not baseline and (site_dir / (config["key"] + ".txt")).read_text(encoding="utf-8").strip() != config["key"]:
-        raise ValueError("built IndexNow key file does not match indexnow.json")
+    if not baseline and (site_dir / (config["key"] + ".txt")).read_text(encoding="utf-8") != config["key"]:
+        raise ValueError("built IndexNow key file does not hold exactly the key in indexnow.json")
     tree = ET.parse(site_dir / "sitemap.xml")
     if tree.getroot().tag.rsplit("}", 1)[-1] != "urlset":
         raise ValueError("expected a sitemap urlset, not a sitemap index")
@@ -303,10 +303,10 @@ def fetch_live(url, attempts, delay, accept):
 
 
 def verify_live_key(config, attempts=6, delay=10):
-    """Check that the live site serves the key at its canonical URL, where IndexNow looks for it."""
+    """Check that the live site serves exactly the key at its canonical URL, where IndexNow looks for it."""
     def accept(text):
-        if text.strip() != config["key"]:
-            raise ValueError("the key URL does not return the key in indexnow.json")
+        if text != config["key"]:
+            raise ValueError("the key URL does not return exactly the key in indexnow.json")
     fetch_live(f"https://{config['host']}/{config['key']}.txt", attempts, delay, accept)
 
 
@@ -347,11 +347,15 @@ def submit(config, urls):
     except HTTPError as exc:
         headers = exc.headers or {}
         extra = f"; Retry-After: {headers.get('Retry-After')}" if headers.get("Retry-After") else ""
+        try:  # the engine's own explanation, such as which check refused the key
+            answer = " ".join(exc.read(600).decode("utf-8", "replace").split())[:300]
+        except (OSError, http.client.HTTPException, ValueError):
+            answer = ""
         reasons = {400: "invalid request format", 403: "key validation failed", 422: "host/key/URL mismatch",
                    429: "rate limited; retry later"}
         reason = reasons.get(exc.code, "redirect not followed" if 300 <= exc.code < 400 else "notification failed")
         exc.close()
-        raise ValueError(f"IndexNow HTTP {exc.code}: {reason}{extra}") from exc
+        raise ValueError(f"IndexNow HTTP {exc.code}: {reason}{extra}" + (f"; response: {answer}" if answer else "")) from exc
     if status not in (200, 202):
         raise ValueError(f"unexpected IndexNow HTTP {status}; state was not advanced")
     return status

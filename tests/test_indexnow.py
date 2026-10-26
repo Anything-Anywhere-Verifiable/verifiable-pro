@@ -67,7 +67,7 @@ class IndexNowTests(unittest.TestCase):
         self.settings = {"host": HOST, "key": KEY}
         self.config.write_text(json.dumps(self.settings))
         self.state = self.root / "state.json"
-        (self.site / (KEY + ".txt")).write_text(KEY + "\n")
+        (self.site / (KEY + ".txt")).write_text(KEY)
         (self.site / "robots.txt").write_text("User-agent: *\nAllow: /\n")
         self.pages({"/": html()})
         self.argv = ["--site-dir", str(self.site), "--config", str(self.config), "--state", str(self.state)]
@@ -372,11 +372,21 @@ class IndexNowTests(unittest.TestCase):
                 patch.object(indexnow, "submit") as send:
             self.assertEqual(self.run_cli("--bootstrap", "--key-attempts", "1")[0], 1)
             send.assert_not_called()
-        with patch.object(indexnow, "urlopen", return_value=Response(f"https://{HOST}/{KEY}.txt", b"another-key\n")):
-            with self.assertRaisesRegex(ValueError, "does not return the key"):
-                indexnow.verify_live_key(self.settings, attempts=1)
-        with patch.object(indexnow, "urlopen", return_value=Response(f"https://{HOST}/{KEY}.txt", KEY.encode() + b"\n")):
+        # Search engines compare the file with the key, so only exactly the key passes
+        for body in (b"another-key", KEY.encode() + b"\n", b" " + KEY.encode()):
+            with self.subTest(body=body), \
+                    patch.object(indexnow, "urlopen", return_value=Response(f"https://{HOST}/{KEY}.txt", body)):
+                with self.assertRaisesRegex(ValueError, "does not return exactly the key"):
+                    indexnow.verify_live_key(self.settings, attempts=1)
+        with patch.object(indexnow, "urlopen", return_value=Response(f"https://{HOST}/{KEY}.txt", KEY.encode())):
             indexnow.verify_live_key(self.settings, attempts=1)
+
+    def test_the_built_key_file_must_hold_exactly_the_key(self):
+        (self.site / (KEY + ".txt")).write_text(KEY + "\n")
+        with self.assertRaisesRegex(ValueError, "exactly the key"):
+            indexnow.snapshot(self.site, self.settings)
+        with patch.object(indexnow, "urlopen", side_effect=AssertionError("network")):
+            self.assertEqual(self.run_cli("--dry-run")[0], 1)
 
     def test_retry_live_key_then_proceed(self):
         key_url = f"https://{HOST}/{KEY}.txt"
@@ -415,6 +425,12 @@ class IndexNowTests(unittest.TestCase):
             with patch.object(indexnow, "urlopen", side_effect=error):
                 with self.assertRaisesRegex(ValueError, f"HTTP {status}: {reason}"):
                     indexnow.submit(self.settings, [BASE + "/"])
+        # The engine's explanation is kept, on one line, so the deploy log says which check refused the request
+        answer = b'{"code": "UserForbiddedToAccessSite",\n "message": "User is unauthorized to access the site."}'
+        with patch.object(indexnow, "urlopen", side_effect=HTTPError(indexnow.ENDPOINT, 403, "Forbidden", {}, io.BytesIO(answer))):
+            with self.assertRaisesRegex(ValueError, r'HTTP 403: key validation failed; response: \{"code": '
+                                                    r'"UserForbiddedToAccessSite", "message": "User is unauthorized'):
+                indexnow.submit(self.settings, [BASE + "/"])
 
     def test_redirects_are_reported_instead_of_followed(self):
         seen = []
