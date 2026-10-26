@@ -171,7 +171,7 @@ body {{ position: relative; font-family: "IBM Plex Sans", sans-serif; color: {t[
 .plate {{ flex: none; width: 512px; height: 288px; background: {t['art-bg']}; }}
 .plate svg {{ display: block; width: 512px; height: 288px; }}
 .rule {{ position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: {card['hue']}; }}
-:lang(zh-CN) .kicker {{ font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "IBM Plex Sans", sans-serif;
+:lang(zh-CN) .kicker {{ font-family: "IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
   letter-spacing: 0.08em; }}
 :lang(zh-CN) .title {{ font-family: "Newsreader", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
   font-weight: 600; letter-spacing: 0.01em; line-height: 1.24; word-break: keep-all; line-break: strict; }}

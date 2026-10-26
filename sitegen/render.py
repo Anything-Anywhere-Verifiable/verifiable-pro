@@ -346,6 +346,7 @@ class Site:
         self.lang = "en"
         self.current = "/"
         self.build_digest = ""
+        self.css_digest = ""
         self.year = dt.date.today().year
         self.chat = chat_settings(model["site"])
         self.analytics_id = content.analytics_id(model["site"]) if mode == "prod" else ""
@@ -804,6 +805,9 @@ class Site:
         og_url = f'\n<meta property="og:url" content="{esc(canonical)}">' if indexable else ""
         social = discover.social_meta(self, image_topic=image, alternate=alternate and indexable, article=article)
         viewer = f"\n{ARTIFACT_VIEWER_HINT}" if self.mode == "artifact" else ""
+        stylesheet = self.href('/assets/site.css')
+        if self.css_digest:
+            stylesheet += f"?v={self.css_digest[:16]}"
         head = f"""<title>{esc(full_title)}</title>{viewer}
 <meta name="description" content="{esc(search_description)}">
 {urls}
@@ -822,7 +826,7 @@ class Site:
 <link rel="preload" as="style" href="{FONTS}" data-font-css>
 <noscript><link rel="stylesheet" href="{FONTS}"></noscript>
 <script>try{{var t=localStorage.getItem("vp-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}}catch(e){{}}</script>
-<link rel="stylesheet" href="{esc(self.href('/assets/site.css'))}">
+<link rel="stylesheet" href="{esc(stylesheet)}">
 <script src="{esc(self.href('/assets/site.js'))}" defer></script>{head_extra}"""
         stack_data = f'\n<script type="application/json" id="stack-data">{self.stack_data()}</script>' if self.stack() else ""
         page = f"""<div class="site {esc(page_class)}" lang="{esc(lang_attr)}" data-root="{esc(self.root_rel())}" data-lang="{self.lang}">
@@ -1562,16 +1566,20 @@ class Site:
         on_path = self.path_slugs()
         guides = [a for a in articles if a.kind == "guide" and a.slug not in on_path][:3]
 
-        # The band: the intro (kicker and tagline, then the one-sentence positioning and
+        # The band: the intro (kicker and tagline, then the positioning and
         # two links, in two wrappers that wide layouts set apart), then the hero.
         hero = self.hero(articles)
-        links = (self.a(L("/vision/") + "#why-tees", esc(self.s("home_link_vision")) + ARROW)
-                 + self.a(L("/learn/") + "#tee-path", esc(self.s("home_link_path")) + ARROW))
+        links = (self.a(L("/vision/") + "#problem", esc(self.s("home_link_vision")) + ARROW)
+                 + self.a(L("/topics/"), esc(self.s("home_link_path")) + ARROW))
+        emphasis = esc(self.s("home_emphasis"))
+        emphasis_html = f'<strong class="home-emphasis">{emphasis}</strong>'
+        kicker = esc(self.s("home_kicker")).replace(emphasis, emphasis_html, 1)
+        lead = esc(self.s("home_lead")).replace(emphasis, emphasis_html, 1)
         band = f"""<section class="home-hero" aria-labelledby="home-title">
   <div class="home-intro">
-    <div class="home-head"><p class="home-kicker">{esc(self.s('home_kicker'))}</p><h1 class="home-tagline" id="home-title">{esc(self.s('tagline'))}</h1></div>
+    <div class="home-head"><p class="home-kicker">{kicker}</p><h1 class="home-tagline" id="home-title">{esc(self.s('tagline'))}</h1></div>
     <div class="home-lede">
-      <p class="home-positioning">{esc(self.s('home_lead'))}</p>
+      <p class="home-positioning">{lead}</p>
       <p class="home-links">{links}</p>
     </div>
   </div>

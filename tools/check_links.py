@@ -4,7 +4,7 @@ import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import unquote
+from urllib.parse import unquote, urlsplit
 
 
 class Collector(HTMLParser):
@@ -35,17 +35,17 @@ def main(root):
             if link.startswith("/"):
                 problems.append(f"{f.relative_to(root)}: absolute link {link}")
                 continue
-            path, _, frag = link.partition("#")
-            target = (f.parent / unquote(path)).resolve() if path else f
+            parts = urlsplit(link)
+            target = (f.parent / unquote(parts.path)).resolve() if parts.path else f
             if target.is_dir():
                 problems.append(f"{f.relative_to(root)}: directory link {link}")
                 continue
             if not target.exists():
                 problems.append(f"{f.relative_to(root)}: missing {link}")
                 continue
-            if frag and target.suffix == ".html":
+            if parts.fragment and target.suffix == ".html":
                 ids = pages[target].ids if target in pages else set()
-                if frag not in ids:
+                if unquote(parts.fragment) not in ids:
                     problems.append(f"{f.relative_to(root)}: missing anchor {link}")
     print(f"checked {len(pages)} pages; {len(problems)} problems")
     for p in problems[:200]:

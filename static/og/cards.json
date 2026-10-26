@@ -109,21 +109,21 @@
    "topic": "governance-compute"
   },
   "site-en.png": {
-   "alt": "The verifiable.pro logo above the words “Verifiable AI needs evidence at all seven layers” and “Where your data goes and what protects it”, beside a drawing of memory pages around a sealed, measured region.",
-   "kicker": "Where your data goes and what protects it",
+   "alt": "The verifiable.pro logo above the words “What really happens when you hand a task to AI?” and “News, analysis, and guides on verifiable AI”, beside a drawing of memory pages around a sealed, measured region.",
+   "kicker": "News, analysis, and guides on verifiable AI",
    "lang": "en",
    "motif": "enclave",
    "seed": "verifiable.pro social card: site",
-   "title": "Verifiable AI needs evidence at all seven layers",
+   "title": "What really happens when you hand a task to AI?",
    "topic": null
   },
   "site-zh.png": {
-   "alt": "verifiable.pro 标志下方是“可验证 AI，七个层级都需要证据”和“你的数据流向哪里、受到什么保护”，旁边是一幅插图：内存页环绕着一块经过度量的封闭区域。",
-   "kicker": "你的数据流向哪里、受到什么保护",
+   "alt": "verifiable.pro 标志下方是“当你把任务交给 AI，背后究竟发生了什么？”和“可验证 AI 的新闻、分析与指南”，旁边是一幅插图：内存页环绕着一块经过度量的封闭区域。",
+   "kicker": "可验证 AI 的新闻、分析与指南",
    "lang": "zh",
    "motif": "enclave",
    "seed": "verifiable.pro social card: site",
-   "title": "可验证 AI，七个层级都需要证据",
+   "title": "当你把任务交给 AI，背后究竟发生了什么？",
    "topic": null
   },
   "supply-chain-en.png": {

@@ -576,6 +576,8 @@ def build(mode, out, css=None, mark=None, drafts=False, chat=None, chat_api=None
     if base != f"https://{indexnow['host']}":
         raise content.ContentError("indexnow.json host must match the canonical HTTPS site base_url")
 
+    css_bytes = (Path(css) if css else ROOT / "static" / "site.css").read_bytes()
+
     check_out_dir(out)
     if out.exists():
         shutil.rmtree(out)
@@ -583,6 +585,7 @@ def build(mode, out, css=None, mark=None, drafts=False, chat=None, chat_api=None
 
     site = Site(model, mode)
     site.build_digest = digest
+    site.css_digest = hashlib.sha256(css_bytes).hexdigest()
     site.hero_svg = scene  # with {{SCENE_TITLE}}, {{SCENE_DESC}} and {{SCENE_DESC_LIVE}} still to fill
     site.hero_anchors = anchors
     site.cards = cards
@@ -622,8 +625,7 @@ def build(mode, out, css=None, mark=None, drafts=False, chat=None, chat_api=None
 
     # with the assistant off, its script and stylesheet are not published either
     shutil.copytree(ROOT / "static", out / "assets", ignore=static_ignore(chat_off=chat_mode == "off"))
-    if css:
-        shutil.copyfile(css, out / "assets" / "site.css")
+    (out / "assets" / "site.css").write_bytes(css_bytes)
     # each lead image's spec beside the article's sources, and the image as loaded and hashed,
     # so the manifest's digests match the published files even if a file changed during the build
     for image in lead_images(model):

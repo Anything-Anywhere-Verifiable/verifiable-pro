@@ -16,6 +16,7 @@ import types
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
@@ -247,6 +248,11 @@ def parse_html(text):
     builder.feed(text)
     builder.close()
     return builder.root
+
+
+def site_stylesheet_href(doc):
+    return next(link.attrs["href"] for link in doc.find_all("link", rel="stylesheet")
+                if urlsplit(link.attrs["href"]).path.endswith("assets/site.css"))
 
 
 def norm(text):
@@ -3901,6 +3907,18 @@ class BuildOutputTests(unittest.TestCase):
     def path_steps(self):
         return self.model["tee"]["path"]
 
+    def test_stylesheet_version_matches_the_published_bytes(self):
+        css_bytes = (self.out / "assets" / "site.css").read_bytes()
+        self.assertEqual(css_bytes, (self.root / "static" / "site.css").read_bytes())
+        digest = hashlib.sha256(css_bytes).hexdigest()
+        for lang in content.LANGS:
+            article = self.articles(lang)[0]
+            for rel in (LANG_DIR[lang] + "index.html", LANG_DIR[lang] + f"articles/{article.slug}/index.html"):
+                with self.subTest(page=rel):
+                    href = urlsplit(site_stylesheet_href(self.dom(rel)))
+                    self.assertEqual(href.path, posixpath.relpath("assets/site.css", posixpath.dirname(rel) or "."))
+                    self.assertEqual(parse_qs(href.query), {"v": [digest[:16]]})
+
     # ----- retired interface ------------------------------------------------------
     def test_denylisted_phrases_are_absent_in_both_languages(self):
         # .txt and .webmanifest: llms.txt, the llms-full.txt files, robots.txt and the web app manifests
@@ -3953,11 +3971,8 @@ class BuildOutputTests(unittest.TestCase):
             self.assertTrue(h1[0].within(intro), rel)
             self.assertEqual(intro.find("p", cls="home-kicker").text(), norm(s["home_kicker"]), rel)
             self.assertEqual(intro.find("p", cls="home-positioning").text(), norm(s["home_lead"]), rel)
-            # one sentence: Vision says the rest, and the first link leads there
-            self.assertEqual(s["home_lead"].count(". ") + s["home_lead"].count("。"), 0 if lang == "en" else 1, rel)
-            self.assertLessEqual(len(s["home_lead"]), 100 if lang == "en" else 40, rel)
             self.assertEqual(self.links(rel, intro.find("p", cls="home-links")),
-                             [loc("/vision/", lang) + "#why-tees", loc("/learn/", lang) + "#tee-path"], rel)
+                             [loc("/vision/", lang) + "#problem", loc("/topics/", lang)], rel)
             # The maintainer and contributors link are in the footer, leaving the intro concise.
             head, lede = intro.kids("div")
             self.assertEqual((head.classes, lede.classes), ({"home-head"}, {"home-lede"}), rel)
@@ -5126,10 +5141,36 @@ class ChatModeBuildTests(unittest.TestCase):
             cfg = json.loads(CHAT_CONFIG_RE.search(text).group(1))
             self.assertEqual((cfg["mode"], cfg["api"]), ("live", "http://127.0.0.1:8787"), rel)
 
+    def test_same_stylesheet_keeps_its_version_across_builds(self):
+        self.assertEqual((self.off / "assets" / "site.css").read_bytes(),
+                         (self.live / "assets" / "site.css").read_bytes())
+        for rel in ("index.html", "zh/index.html"):
+            before = parse_html((self.off / rel).read_text(encoding="utf-8"))
+            after = parse_html((self.live / rel).read_text(encoding="utf-8"))
+            self.assertEqual(site_stylesheet_href(before), site_stylesheet_href(after), rel)
+
     def test_live_without_an_api_base_stops_the_build(self):
         result = build_site(Path(self.tmp.name) / "bad", "--chat", "live", "--chat-api", "")
         self.assertEqual(result.returncode, 1)
         self.assertIn("content error: chat.mode \"live\" needs chat.api_base", result.stderr)
+
+
+class StylesheetOverrideBuildTests(unittest.TestCase):
+    def test_css_override_publishes_and_versions_the_override_bytes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            css = Path(tmp) / "alternate.css"
+            css_bytes = b"/* alternate stylesheet */\r\nbody { color: #234567; }\r\n"
+            css.write_bytes(css_bytes)
+            out = Path(tmp) / "site"
+            result = build_site(out, "--css", str(css))
+            self.assertEqual(result.returncode, 0, result.stderr)
+            published = (out / "assets" / "site.css").read_bytes()
+            self.assertEqual(published, css_bytes)
+            digest = hashlib.sha256(published).hexdigest()
+            self.assertNotEqual(digest, hashlib.sha256((ROOT / "static" / "site.css").read_bytes()).hexdigest())
+            for rel in ("index.html", "zh/index.html"):
+                doc = parse_html((out / rel).read_text(encoding="utf-8"))
+                self.assertEqual(parse_qs(urlsplit(site_stylesheet_href(doc)).query), {"v": [digest[:16]]}, rel)
 
 
 

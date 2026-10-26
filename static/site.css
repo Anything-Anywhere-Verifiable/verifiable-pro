@@ -4828,13 +4828,14 @@ a.hub-why:hover { color: var(--accent-strong); text-decoration: underline; text-
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   20.1 Home band: kicker, tagline, a one-sentence positioning and links,
+   20.1 Home band: kicker, tagline, positioning and links,
    then the hero. The band is a query container and measures its own width
    in rem, so larger default text falls back to a narrower layout; 21.1
    sets the layouts.
    -------------------------------------------------------------------------- */
 .home { container: home / inline-size; }
-.home-kicker { margin-bottom: 0.85rem; font: 600 var(--fs-3)/1.4 var(--sans); color: var(--accent); }
+.home-kicker { margin-bottom: 0.85rem; font: 600 var(--fs-3)/1.4 var(--sans); color: var(--ink-2); }
+.home-emphasis { color: var(--accent); font-weight: 700; }
 .home-hero .home-positioning { max-width: 33rem; }
 
 /* --------------------------------------------------------------------------
