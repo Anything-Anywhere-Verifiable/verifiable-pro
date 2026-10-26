@@ -35,13 +35,16 @@ from sitegen.discover import indexnow_config as load_config  # noqa: E402
 ENDPOINT = "https://api.indexnow.org/indexnow"
 # deploy.yml's cache key starts with indexnow-v<VERSION>-; change both together. A state of another
 # version counts as missing, so a change to what a fingerprint covers re-baselines once.
-VERSION = 2
+VERSION = 3
 BATCH = 10000  # IndexNow's limit of URLs per request
 USER_AGENT = "IndexNow-site-notifier/1.0"
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 # Attributes that carry a page's content; the pages use title only for tooltips
 SEMANTIC_ATTRS = {"alt", "datetime", "href", "lang", "src", "aria-label"}
 META_NAMES = {"description", "robots", "googlebot", "bingbot", "author"}
+# The social card's alt text: on pages that share the site's card it repeats the home kicker and
+# tagline, and a page's own picture is covered by its <img alt> in <main>
+UNFINGERPRINTED_META = {"og:image:alt", "twitter:image:alt"}
 # Parts of <main> that repeat other pages or the site's settings: the filing-details and Ask asides,
 # the related-stories cards and the correction links (the repository's issue form and editor)
 REPEATED_CLASSES = {"doc-aside", "sidebar", "chat-aside", "related", "check-correct"}
@@ -93,7 +96,7 @@ class Page(HTMLParser):
             value = attrs.get("content") or ""
             if name in {"robots", "googlebot", "bingbot"} and set(re.split(r"[,\s]+", value.lower())) & {"noindex", "none"}:
                 self.noindex = True
-            if name in META_NAMES or name.startswith(("og:", "twitter:")):
+            if (name in META_NAMES or name.startswith(("og:", "twitter:"))) and name not in UNFINGERPRINTED_META:
                 self.meta.append((name, value))
         if tag == "script" and attrs.get("type") == "application/ld+json":
             self._ld = []

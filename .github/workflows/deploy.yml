@@ -209,9 +209,9 @@ jobs:
         uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
         with:
           path: .indexnow-state.json
-          key: indexnow-v2-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: indexnow-v3-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            indexnow-v2-${{ hashFiles('indexnow.json') }}-
+            indexnow-v3-${{ hashFiles('indexnow.json') }}-
       # Without a state (GitHub evicts an entry unused for 7 days, and editing indexnow.json
       # changes the key), compare with the build this deploy replaced instead of notifying
       # every page. If either step fails, the notifier records a baseline and sends nothing.
@@ -252,7 +252,7 @@ jobs:
         uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
         with:
           path: .indexnow-state.json
-          key: indexnow-v2-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: indexnow-v3-${{ hashFiles('indexnow.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Report notification result
         if: always()
         env:

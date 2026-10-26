@@ -178,6 +178,16 @@ class IndexNowTests(unittest.TestCase):
             with self.subTest(after=after):
                 self.assertNotEqual(indexnow.Page(before).fingerprint(), indexnow.Page(after).fingerprint())
 
+    def test_fingerprint_leaves_out_the_social_cards_alt_text(self):
+        # On the pages that share the site's card, its alt text repeats the home page's kicker and tagline
+        card = ('<meta property="og:image" content="https://example.org/assets/og/site-en.png">'
+                '<meta property="og:image:alt" content="{0}"><meta name="twitter:image:alt" content="{0}">')
+        before = html(extra=card.format("The logo above an old kicker"))
+        after = html(extra=card.format("The logo above a new kicker"))
+        self.assertEqual(indexnow.Page(before).fingerprint(), indexnow.Page(after).fingerprint())
+        other_card = html(extra=card.format("The logo above an old kicker").replace("site-en.png", "topic-en.png"))
+        self.assertNotEqual(indexnow.Page(before).fingerprint(), indexnow.Page(other_card).fingerprint())
+
     def test_valueless_link_attributes_do_not_break_the_fingerprint(self):
         page = html(extra='<link rel="alternate" hreflang="zh" href><link rel="alternate" hreflang="en" href="/en/">')
         self.assertRegex(indexnow.Page(page).fingerprint(), "^[0-9a-f]{64}$")
