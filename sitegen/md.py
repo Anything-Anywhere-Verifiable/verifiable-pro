@@ -1,6 +1,6 @@
 """Minimal Markdown renderer for verifiable.pro content.
 
-Standard library only. Supported syntax is documented in README.md:
+Standard library only. Supported syntax is documented in CONTENT_GUIDE.md:
 ATX headings, paragraphs, emphasis, code, links, autolinks, lists (nested,
 ordered, task items), blockquotes, fenced code, pipe tables, horizontal
 rules, raw HTML blocks, source citations ``[^1]`` and callout containers

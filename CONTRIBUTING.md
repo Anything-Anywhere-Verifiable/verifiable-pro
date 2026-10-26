@@ -129,9 +129,12 @@ You may use AI tools to search, draft or translate. The site's own articles are 
 
 ## Licensing
 
-The repository has no LICENSE file yet, so no license to reuse its code, text, data or illustrations is granted at present. The maintainer will choose the licenses, add the LICENSE files and update this section.
+The repository carries two licenses, and a contribution is released under the one that covers the files it changes. You keep the copyright in your work.
 
-Until then, by opening a pull request you agree that your contribution may be published on verifiable.pro and released under the licenses the maintainer later chooses for the part of the repository it belongs to. If you cannot agree to that, say so in the pull request before it is merged. Quoted material and linked sources remain under their owners' terms, and each lead photo keeps the license that its spec and credit line name.
+- **Code** (`build.py`, `sitegen/`, `tools/`, `tests/`, `backend/`, `api/`, `.github/` and the stylesheets and scripts in `static/`) is under the [MIT License](LICENSE).
+- **Content** (everything in `content/`, the drawn illustrations, social cards, icons and logo files in `static/`, and the documentation, such as this file) is under [CC BY 4.0](LICENSE-CONTENT).
+
+Your [sign-off](#commits-and-sign-off) certifies that you have the right to submit the work, and by opening a pull request you agree that it is published on verifiable.pro under these licenses. Material you did not create keeps its owners' terms: quote it, cite it and do not commit it under the repository's licenses. Each lead photo keeps the license that its spec and credit line name, and the vendor marks in the hero keep the terms in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Conduct
 

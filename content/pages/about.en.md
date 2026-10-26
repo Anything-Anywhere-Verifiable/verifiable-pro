@@ -2,7 +2,7 @@
 title: About verifiable.pro
 dek: What we cover, how we check it, and how you can check our work.
 published: 2026-10-20
-updated: 2026-10-23
+updated: 2026-10-26
 ---
 ## What verifiable.pro publishes {#overview}
 
@@ -108,4 +108,4 @@ Write to the editor: hello@verifiable.pro
 
 ## Reuse {#license}
 
-No reuse license has been chosen yet for the site's original text and illustrations. The maintainer will choose one and state it here. Until then, ask before republishing. Quoted material, other organizations' logos and linked sources stay under their owners' terms, and each photo stays under the license that its credit line names.
+The site's original text, data files and illustrations are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). You may copy, adapt and republish them, including commercially, if you credit verifiable.pro, link the page you used and say whether you changed it. The code that builds the site is under the [MIT License](https://github.com/Anything-Anywhere-Verifiable/verifiable-pro/blob/main/LICENSE). Quoted material, other organizations' logos and linked sources stay under their owners' terms, and each photo stays under the license that its credit line names.

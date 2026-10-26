@@ -24,6 +24,8 @@ authors:
     website: "https://verifiable.pro/"
 url: "https://verifiable.pro/"
 repository-code: "https://github.com/Anything-Anywhere-Verifiable/verifiable-pro"
+# The site's text and data; the code that builds it is under the MIT License (LICENSE).
+license: CC-BY-4.0
 keywords:
   - verifiable AI
   - remote attestation

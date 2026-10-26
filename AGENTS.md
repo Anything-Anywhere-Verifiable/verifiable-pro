@@ -1,6 +1,6 @@
 # Guide for coding agents
 
-verifiable.pro is a bilingual (English and Simplified Chinese) editorial site about verifiable AI systems. This repository holds its content, a static-site generator written in Python with no third-party dependencies, the styles and scripts, and the tests. [README.md](README.md) explains the project for people; this file says how to change it safely.
+verifiable.pro is a bilingual (English and Simplified Chinese) editorial site about verifiable AI systems. This repository holds its content, a static-site generator written in Python with no third-party dependencies, the styles and scripts, and the tests. [README.md](README.md) explains the project for people, [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) details the build and its tools, and this file says how to change it safely.
 
 ## Repository map
 
@@ -33,7 +33,7 @@ python3 tools/photos.py --check                         # every lead photo and i
 python3 tools/illustrate.py --check                     # every lead illustration matches a fresh draw from its spec
 ```
 
-Build outside the repository, or into its ignored `public/` or `dist-*/` folders; the build empties its output folder first and refuses the repository's own source folders. `tools/cdp.mjs` checks layouts and the hero in headless Chrome and needs Node.js 22 or later (see the README).
+Build outside the repository, or into its ignored `public/` or `dist-*/` folders; the build empties its output folder first and refuses the repository's own source folders. `tools/cdp.mjs` checks layouts and the hero in headless Chrome and needs Node.js 22 or later (see [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md#checks-before-publishing)).
 
 ## Where the rules live
 

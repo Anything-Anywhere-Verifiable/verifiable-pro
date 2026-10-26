@@ -2,7 +2,7 @@
 title: 关于 verifiable.pro
 dek: 我们报道什么、如何核实，以及你如何核验我们的工作。
 published: 2026-10-20
-updated: 2026-10-23
+updated: 2026-10-26
 ---
 ## verifiable.pro 发布什么 {#overview}
 
@@ -108,4 +108,4 @@ verifiable.pro 由 USC SEPT Lab 维护，编辑为 **Mengyuan Li**。本站不�
 
 ## 转载 {#license}
 
-本站尚未为原创文字与插图选定转载许可。维护者选定后会在此说明。在此之前，如需转载，请先联系我们。引用内容、其他机构的标志与链接来源仍遵循其所有者的条款，每张照片仍适用其署名行写明的许可。
+本站的原创文字、数据文件与插图采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh-hans) 许可。你可以复制、改编和转载，包括用于商业目的，但须注明出自 verifiable.pro、链接所用页面，并说明是否作了修改。构建本站的代码采用 [MIT 许可](https://github.com/Anything-Anywhere-Verifiable/verifiable-pro/blob/main/LICENSE)。引用内容、其他机构的标志与链接来源仍遵循其所有者的条款，每张照片仍适用其署名行写明的许可。

@@ -28,6 +28,7 @@ verifiable-pro/
 │   └── site.json strings.json topics.json resources.json glossary.json
 ├── docs/
 │   ├── MAINTAINING.md              this file
+│   ├── DEVELOPMENT.md              the development guide: build options, hero, lead images, checks, machine-readable files, assistant, deploy
 │   └── assistant-architecture.md   how the Ask assistant and its attestation fit together
 ├── sitegen/                        md.py content.py render.py discover.py logos.py art.py, templates/ (the hero scene and its anchors)
 ├── static/                         copied to /assets/: site.css site.js hero.js chat.css chat.js, the logo files,
@@ -40,12 +41,13 @@ verifiable-pro/
 ├── build.py                        build entry point
 ├── indexnow.json                   the IndexNow key and host; every build publishes the key as /<key>.txt
 ├── README.md AGENTS.md CONTRIBUTING.md CONTENT_GUIDE.md DESIGN.md CITATION.cff THIRD_PARTY_NOTICES.md
+├── LICENSE LICENSE-CONTENT         MIT for the code, CC BY 4.0 for the content
 └── .gitignore .gitattributes
 ```
 
 Ignored by `.gitignore` and never committed: build output (`public/`, `dist/`, `dist-*/`, `_site*/`), agent and tool scratch space (`.build/`, `.claude/`, `.codex/`, `tmp/`, `shots/`), design explorations (`design/`), raw research (`research/`), the ChatGPT Sites hosting file (`.openai/`), the IndexNow notification state (`.indexnow-state.json`, which the deploy keeps in the Actions cache), Python caches, local secrets (`.env`, `*.pem`, `*.key`, `*.local.*`) and model weights.
 
-The repository has no LICENSE file. Licenses for the code and for the content are to be chosen by the maintainer; until then CONTRIBUTING.md says so.
+The code is under the MIT License (`LICENSE`) and the content under CC BY 4.0 (`LICENSE-CONTENT`). [CONTRIBUTING.md](../CONTRIBUTING.md#licensing) says which files each covers; the About pages' Reuse section (`#license`) states the same terms to readers, so change them together.
 
 ## Roles
 
@@ -186,7 +188,7 @@ In the GA4 web stream, keep **all Enhanced measurement off**, including page cha
 
 Google selects [sitelinks automatically](https://developers.google.com/search/docs/appearance/sitelinks), using the site's structure and link text. Keep category links descriptive and the hierarchy useful to readers. The breadcrumb data describes that hierarchy; it does not request or guarantee sitelinks. Source citations retain their complete labels in the page and Markdown. Their structured data gives the work's title, URL and date, and omits a publisher entity when the source label combines authors and venues, because [Schema.org requires a Person or Organization](https://schema.org/publisher).
 
-Every build writes what search engines, AI answer engines and agents read: `robots.txt`, `llms.txt` and the two `llms-full.txt` files, the Atom and JSON Feeds, the sitemap, the web app manifests, and in each page's head the language alternates, the Markdown alternate, the structured data and the social tags. The README's [Machine-readable files](../README.md#machine-readable-files) section lists them; `sitegen/discover.py` generates them and `tests/test_discoverability.py` checks a production build of them. `build.py` also publishes the IndexNow key named in `indexnow.json`, which `tests/test_indexnow.py` checks (see Incremental search notifications below). The site's description in these files is `description` in `content/site.json`, and the alternate name in the structured data is `alternate_name`.
+Every build writes what search engines, AI answer engines and agents read: `robots.txt`, `llms.txt` and the two `llms-full.txt` files, the Atom and JSON Feeds, the sitemap, the web app manifests, and in each page's head the language alternates, the Markdown alternate, the structured data and the social tags. The development guide's [Machine-readable files](DEVELOPMENT.md#machine-readable-files) section lists them; `sitegen/discover.py` generates them and `tests/test_discoverability.py` checks a production build of them. `build.py` also publishes the IndexNow key named in `indexnow.json`, which `tests/test_indexnow.py` checks (see Incremental search notifications below). The site's description in these files is `description` in `content/site.json`, and the alternate name in the structured data is `alternate_name`.
 
 **robots.txt.** Every crawler may fetch every page. The file also names crawlers in four groups (`ROBOTS_GROUPS` in `sitegen/discover.py`), each with the token its operator documents:
 
