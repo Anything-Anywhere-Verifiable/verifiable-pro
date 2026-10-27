@@ -3143,6 +3143,23 @@
       },
       "featured": false,
       "verified_on": "2026-10-20"
+    },
+    {
+      "id": "release-confidential-containers-trustee-v0-22-0",
+      "title": "Trustee v0.22.0: release notes",
+      "url": "https://github.com/confidential-containers/trustee/releases/tag/v0.22.0",
+      "org": "Confidential Containers",
+      "year": 2026,
+      "type": "tool",
+      "topics": [
+        "confidential-computing"
+      ],
+      "note": {
+        "en": "Official release notes for Trustee v0.22.0, published on 17 September 2026.",
+        "zh": "Trustee v0.22.0 的官方发布说明，发布时间为 2026 年 9 月 17 日。"
+      },
+      "featured": false,
+      "tee_area": "services"
     }
   ]
 }
