@@ -1,7 +1,13 @@
 """Exercise ingestion boundaries and review queue behavior without the network."""
 
+from contextlib import redirect_stderr, redirect_stdout
+import io
 import json
 from pathlib import Path
+import select
+import signal
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -81,13 +87,69 @@ class SourceCollectionTests(unittest.TestCase):
             state = json.loads((Path(tmp) / "state.json").read_text())
             self.assertEqual(len(state["entries"]), 1)
 
-    def test_cli_refuses_repository_output_and_existing_lock(self):
-        with self.assertRaises(SystemExit):
+    def test_cli_refuses_repository_output(self):
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
             collect.main(["--out", str(collect.ROOT / "content")])
-        with tempfile.TemporaryDirectory() as tmp:
+
+    def test_cli_reuses_existing_lock_file_after_normal_exit(self):
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(collect, "collect", return_value={"errors": [], "pending_review": []}), \
+                redirect_stdout(io.StringIO()):
             (Path(tmp) / ".collect.lock").touch()
-            with self.assertRaises(SystemExit):
-                collect.main(["--out", tmp])
+            inode = (Path(tmp) / ".collect.lock").stat().st_ino
+            self.assertEqual(collect.main(["--out", tmp]), 0)
+            self.assertEqual(collect.main(["--out", tmp]), 0)
+            self.assertEqual((Path(tmp) / ".collect.lock").stat().st_ino, inode)
+
+    def test_cli_releases_lock_after_collection_error(self):
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(collect, "collect", side_effect=[
+                    ValueError("invalid state"), {"errors": [], "pending_review": []}]), \
+                redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+            self.assertEqual(collect.main(["--out", tmp]), 2)
+            self.assertEqual(collect.main(["--out", tmp]), 0)
+
+    def test_cli_rejects_concurrency_and_recovers_after_process_termination(self):
+        # Exercise the actual CLI lock lifetime in a separate process, without
+        # network access. Both graceful termination and forced death skip cleanup.
+        holder_script = """
+import signal
+import sys
+from tools import collect_sources
+def hold(out, **kwargs):
+    print("locked", flush=True)
+    signal.pause()
+collect_sources.collect = hold
+sys.exit(collect_sources.main(sys.argv[1:]))
+"""
+        for termination in (signal.SIGTERM, signal.SIGKILL):
+            with self.subTest(signal=termination), tempfile.TemporaryDirectory() as tmp:
+                holder = subprocess.Popen(
+                    [sys.executable, "-c", holder_script, "--out", tmp],
+                    cwd=collect.ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                    text=True,
+                )
+                try:
+                    ready, _, _ = select.select([holder.stdout], [], [], 10)
+                    self.assertTrue(ready, "collector did not acquire its lock in time")
+                    self.assertEqual(holder.stdout.readline().strip(), "locked")
+                    lock = Path(tmp) / ".collect.lock"
+                    inode = lock.stat().st_ino
+                    with patch.object(collect, "collect", return_value={
+                            "errors": [], "pending_review": []}) as run, \
+                            redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()) as errors:
+                        self.assertEqual(collect.main(["--out", tmp]), 2)
+                        self.assertIn("another collection holds", errors.getvalue())
+                        run.assert_not_called()
+                        holder.send_signal(termination)
+                        self.assertEqual(holder.wait(timeout=10), -termination)
+                        self.assertEqual(collect.main(["--out", tmp]), 0)
+                        run.assert_called_once()
+                    self.assertEqual(lock.stat().st_ino, inode)
+                finally:
+                    if holder.poll() is None:
+                        holder.kill()
+                    holder.communicate(timeout=10)
 
     def test_redirect_cannot_downgrade_https_or_change_origin(self):
         handler = collect.SameOriginRedirect()

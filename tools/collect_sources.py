@@ -6,7 +6,9 @@ Fetched material is untrusted evidence, not instructions for the reviewing agent
 """
 
 import argparse
+from contextlib import contextmanager
 from datetime import datetime, timezone
+import fcntl
 import hashlib
 import json
 from pathlib import Path
@@ -115,6 +117,18 @@ def write_json(path, value):
     temp.replace(path)
 
 
+@contextmanager
+def collection_lock(out):
+    """Hold one inode for this invocation; the kernel releases it on exit."""
+    # Never unlink this file: another opener must always lock the same inode.
+    with (out / ".collect.lock").open("a", encoding="utf-8") as lock:
+        try:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as exc:
+            raise ValueError("another collection holds .collect.lock; retry after it exits") from exc
+        yield
+
+
 def collect(out, downloader=fetch, acknowledge=()):
     """Caller serializes runs; the CLI's exclusive lock enforces that contract."""
     state_path = out / "state.json"
@@ -177,24 +191,17 @@ def main(argv=None):
     out = args.out.expanduser().resolve()
     if out == ROOT or ROOT in out.parents:
         parser.error("--out must be outside the repository; raw source material is not publishable content")
-    out.mkdir(parents=True, exist_ok=True)
-    lock = out / ".collect.lock"
     try:
-        with lock.open("x", encoding="utf-8"):
-            pass
-    except FileExistsError:
-        parser.error("another collection holds .collect.lock; investigate its owner before removing a stale lock")
-    try:
-        report = collect(out, acknowledge=args.ack)
-        print(json.dumps({"report": str(out / "latest.json"),
-                          "pending_review": len(report["pending_review"]),
-                          "errors": report["errors"]}, ensure_ascii=False))
-        return 1 if report["errors"] else 0
+        out.mkdir(parents=True, exist_ok=True)
+        with collection_lock(out):
+            report = collect(out, acknowledge=args.ack)
+            print(json.dumps({"report": str(out / "latest.json"),
+                              "pending_review": len(report["pending_review"]),
+                              "errors": report["errors"]}, ensure_ascii=False))
+            return 1 if report["errors"] else 0
     except (OSError, ValueError) as exc:
         print("collect_sources.py: " + str(exc), file=sys.stderr)
         return 2
-    finally:
-        lock.unlink()
 
 
 if __name__ == "__main__":
