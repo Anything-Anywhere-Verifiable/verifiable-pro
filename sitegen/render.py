@@ -813,6 +813,7 @@ class Site:
 {urls}
 <link rel="alternate" type="application/atom+xml" title="verifiable.pro" href="{esc(self.href(self.loc('/feed.xml')))}">
 {discover.head_links(self, source)}
+<link rel="icon" href="{esc(self.href('/assets/icons/icon-192.png'))}" type="image/png" sizes="192x192">
 <link rel="icon" href="{esc(self.href('/assets/favicon.svg'))}" type="image/svg+xml">
 <meta property="og:site_name" content="verifiable.pro">
 <meta property="og:title" content="{esc(search_title)}">
