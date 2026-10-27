@@ -341,6 +341,22 @@
       "verified_on": "2026-10-20"
     },
     {
+      "id": "nvidia-cvm-threat-model",
+      "title": "NVIDIA Confidential Virtual Machines: Trust and Threat Model",
+      "url": "https://docs.nvidia.com/confidential-computing/virtual-machines/threat-model",
+      "org": "NVIDIA",
+      "type": "report",
+      "topics": [
+        "confidential-computing"
+      ],
+      "tee_area": "gpu",
+      "note": {
+        "en": "NVIDIA’s Dev documentation describes the trust boundary and exclusions for confidential virtual machines with GPUs, including the separate checks on CPU evidence, each GPU, and the guest software that receives secrets.",
+        "zh": "NVIDIA 的 Dev 版文档说明配备 GPU 的机密虚拟机的信任边界与保护范围之外的威胁，包括分别检查 CPU 证明材料、每块 GPU 以及接收密钥等机密信息的客户机软件。"
+      },
+      "featured": false
+    },
+    {
       "id": "apple-private-cloud-compute",
       "title": "Private Cloud Compute: A new frontier for AI privacy in the cloud",
       "url": "https://security.apple.com/blog/private-cloud-compute/",
