@@ -3,7 +3,7 @@ title: "Cloudflare Says SGLang KV Cache Bug Exposed Other Users’ Data in GLM-5
 dek: "Cloudflare attributes 155 affected Workers AI responses to an undersized cache pool and faulty rejected-request handling, and recommends SGLang v0.5.22 or later."
 kind: news
 topics: [confidential-computing, verifiable-inference]
-layers: [runtime, models]
+layers: [models, runtime]
 event_date: 2026-10-26
 published: 2026-10-28
 agent: daily
