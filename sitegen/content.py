@@ -125,6 +125,7 @@ PHOTO_LICENSES = (
      True),
     (re.compile(r"^Unsplash License$"), "unsplash.com/license", False),
     (re.compile(r"^Pexels License$"), "pexels.com/license", False),
+    (re.compile(r"^Press reuse permission$"), None, False),
 )
 # Every illustration is drawn on one canvas, so lists can crop all of them alike
 ILLUSTRATION_SIZE = (1200, 800)
@@ -496,8 +497,8 @@ def photo_license(value, url, where):
                                    f"not {url!r}")
         return note_changes
     raise ContentError(f"{where}: a photo may carry a public domain, CC0, CC BY or CC BY-SA license (such as "
-                       f"\"CC BY-SA 4.0\"), the Unsplash License or the Pexels License, not {name!r} "
-                       "(CONTENT_GUIDE.md, \"Photos\")")
+                       f"\"CC BY-SA 4.0\"), the Unsplash License, the Pexels License, or a press reuse permission "
+                       f"with complete attribution, not {name!r} (CONTENT_GUIDE.md, \"Photos\")")
 
 
 def _keys(value, allowed, where):
