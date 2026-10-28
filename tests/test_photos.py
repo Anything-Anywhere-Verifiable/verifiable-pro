@@ -419,6 +419,7 @@ class SpecValidationTest(unittest.TestCase):
             ({"en": "Public domain", "zh": "公有领域"}, "https://www.usa.gov/government-copyright", False),
             ("Unsplash License", "https://unsplash.com/license", False),
             ("Pexels License", "https://www.pexels.com/license/", False),
+            ("Press reuse permission", "https://example.org/press", False),
         )
         for license_, url, notes in accepted:
             with self.subTest(license=license_):

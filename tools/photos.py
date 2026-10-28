@@ -393,7 +393,8 @@ def check_meta(meta, where="the photo's texts"):
 
 def source_allowed(url):
     """Whether URL is on a source CONTENT_GUIDE.md allows: Wikimedia Commons, a US government
-    site, Unsplash or Pexels."""
+    site, Unsplash or Pexels. Press-licensed photos are exempt at the call sites, since their
+    source is the official page itself."""
     host = (urllib.parse.urlsplit(url).hostname or "").lower()
     if host.startswith("www."):
         host = host[4:]
@@ -678,7 +679,7 @@ def write(root, slug, source, focus=None, meta=None, overrides=None, draft=None,
     target = Path(draft) / content.LEAD_IMAGE_FILE if draft else spec_path
     target.write_text(pretty_json(spec) + "\n", encoding="utf-8")
     print(f"wrote {target if draft else target.relative_to(root).as_posix()}")
-    if not source_allowed(texts["source_url"]):
+    if not source_allowed(texts["source_url"]) and texts.get("license") != "Press reuse permission":
         print(f"photos: warning: {texts['source_url']} is not on Wikimedia Commons, a US government site, Unsplash or "
               "Pexels, the sources CONTENT_GUIDE.md allows", file=sys.stderr)
     if draft:
@@ -721,7 +722,7 @@ def conventions(image, slug):
     grade = image.spec["edits"]["grade"]
     if grade != GRADE:
         warnings.append(f"{slug}: graded {grade}, not the current {GRADE}; make it again with tools/photos.py --write")
-    if not source_allowed(image.source_url):
+    if not source_allowed(image.source_url) and image.spec.get("license") != "Press reuse permission":
         warnings.append(f"{slug}: source_url {image.source_url} is not on Wikimedia Commons, a US government site, "
                         "Unsplash or Pexels")
     return problems, warnings
