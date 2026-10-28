@@ -1,0 +1,42 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass cube with a sphere inside stands at the front. A dashed orange line with packets runs from it through an indigo gateway standing on a gray processor chip to a gray server rack behind. A dotted indigo line leads from the chip to a short row of ledger blocks at the right.",
+    "zh": "前方是一个内含小球的青色玻璃方块，一条带数据包的橙色虚线从它穿过立在灰色处理器芯片上的靛蓝色门闸，连到后方的灰色服务器机柜；一条靛蓝色点线从芯片通向右侧的一排账本方块。"
+  },
+  "caption": {
+    "en": "Illustration: an AI agent's traffic passes through a policy gate enforced from a processor's own trust domain on its way to a server, and the chip feeds an activity record. It does not depict NVIDIA's Sentry, BlueField-4 or a tested deployment, and it does not show that the controls work as described.",
+    "zh": "示意图：AI 智能体的流量经由处理器自身信任域执行的策略门闸到达服务器，芯片同时写入活动记录。图中不是 NVIDIA 的 Sentry 或 BlueField-4，也不是经过测试的实际部署，不表明这些管控如描述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "check",
+    "items": [
+      {"prop": "agent", "id": "agent", "at": [2.6, -2.7], "tint": "agents", "core": "sphere", "size": 1.2},
+      {
+        "prop": "chip",
+        "id": "dpu",
+        "at": [0, -0.9],
+        "size": 3,
+        "lid": "metal",
+        "enclave": true,
+        "tint": "tee"
+      },
+      {"prop": "gate", "id": "check", "on": "dpu", "at": [0, -0.9], "w": 1.8, "h": 2.2, "tint": "tee"},
+      {"prop": "server_rack", "id": "rack", "at": [-1.6, 1.3], "tint": "neutral", "units": 5},
+      {"prop": "ledger", "id": "records", "at": [3.0, -0.3], "tint": "tee", "count": 3, "size": 0.6}
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "rack.lamp",
+        "route": "via",
+        "via": [[0, -0.9, 0.9]],
+        "style": "dashed",
+        "packets": [0.25, 0.75]
+      },
+      {"from": "dpu", "to": "records", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "9b21833346ac90a95fd5dfab228a4e87a1fcabbc39b5e5710182ecae697c3ec8"
+}
