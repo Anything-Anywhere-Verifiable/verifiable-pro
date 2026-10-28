@@ -1,0 +1,75 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "An orange request packet at front left, four gray memory modules in the center, and a gray server rack at back right on an isometric floor. Dashed orange lines link the packet to the modules and the modules to the rack, with one orange packet sitting midway along the second line.",
+    "zh": "等距地面上，左前方一个橙色请求数据包，中央四条灰色内存条，右后方一座灰色服务器机架。橙色虚线将数据包连到内存条，再从内存条连到机架，第二条线中途有一个橙色数据包。"
+  },
+  "caption": {
+    "en": "Illustration: an oversized request reaching a shared KV cache pool, from which a decode server reads a stale page; it does not depict Cloudflare servers or SGLang code, and it does not depict a tested deployment.",
+    "zh": "示意图：一条超长请求到达共享 KV 缓存池，解码服务器从中读取一页过期数据；图中不描绘 Cloudflare 服务器或 SGLang 代码，也不描绘经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "pool",
+    "items": [
+      {
+        "prop": "packet",
+        "id": "prompt",
+        "at": [
+          -0.5,
+          -3.5
+        ],
+        "size": 0.7,
+        "tint": "data"
+      },
+      {
+        "prop": "dimm",
+        "id": "pool",
+        "at": [
+          0,
+          0
+        ],
+        "count": 4,
+        "length": 2.6,
+        "spacing": 0.5,
+        "tint": "neutral"
+      },
+      {
+        "prop": "server_rack",
+        "id": "decode",
+        "at": [
+          0.5,
+          4.0
+        ],
+        "units": 6,
+        "tint": "neutral"
+      }
+    ],
+    "links": [
+      {
+        "from": "prompt",
+        "to": "pool",
+        "style": "dashed",
+        "color": "data"
+      },
+      {
+        "from": "pool",
+        "to": "decode",
+        "style": "dashed",
+        "color": "data",
+        "route": "via",
+        "via": [
+          [
+            1.6,
+            2.0,
+            0
+          ]
+        ],
+        "packets": [
+          0.5
+        ]
+      }
+    ]
+  },
+  "svg_sha256": "1ecd899dc868a0194469a73601cf06d3785b4cb6662c0c573788c99a1af364a2"
+}
