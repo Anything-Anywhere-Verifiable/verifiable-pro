@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass agent cube on a gray floor is joined by a dashed orange line to a gray key lying in front of it. A second dashed orange line with one packet runs from the key to a large gray shipping crate in the center, and a red wax seal lies on the floor beside the crate.",
+    "zh": "灰色地面上，一个青绿色玻璃代理立方体通过橙色虚线连到前方平放的一把灰色钥匙；另一条带数据包的橙色虚线从钥匙通向中央的大号灰色货箱，货箱旁的地面上放着一枚红色火漆印。"
+  },
+  "caption": {
+    "en": "Illustration: a key taken from an agent platform drives a release crate that still carries a seal, as LiteLLM describes the 1.107.0 incident. It does not depict LiteLLM's systems or a tested deployment, and it does not show how the attack was carried out.",
+    "zh": "示意图：按 LiteLLM 对 1.107.0 事件的描述，从代理平台取得的钥匙驱动了一个发布货箱，而这个货箱仍带有签名火漆印。图中并非 LiteLLM 的系统或经过测试的部署，也不展示攻击的具体实施过程。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "release",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "agent", "id": "platform", "at": [-2.5, -2.5], "tint": "agents", "size": 1.2, "core": "sphere"},
+      {"prop": "key", "id": "token", "at": [-1.0, -4.2], "tint": "neutral", "size": 1.6},
+      {"prop": "crate", "id": "release", "at": [0, 0], "tint": "neutral", "size": 2.4, "label": true},
+      {"prop": "seal", "id": "signature", "at": [2.8, -1.2], "tint": "seal", "r": 0.6, "pose": "lying"}
+    ],
+    "links": [
+      {"from": "platform", "to": "token", "route": "straight", "style": "dashed", "color": "data"},
+      {
+        "from": "token",
+        "to": "release",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      }
+    ]
+  },
+  "svg_sha256": "190302507d230f92bc9ceac166e582a1132f441906b7570e384717f836429e37"
+}
