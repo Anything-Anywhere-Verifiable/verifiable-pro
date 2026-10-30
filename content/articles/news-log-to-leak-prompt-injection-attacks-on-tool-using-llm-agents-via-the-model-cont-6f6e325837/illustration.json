@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-log-to-leak-prompt-injection-attacks-on-tool-using-llm-agents-via-the-model-cont-6f6e325837.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "fde4861c9bf1862d9411ac98faff774f5a9a03b21c439495ed0955a6c771242d",
+  "variants": {
+    "list": {
+      "file": "news-log-to-leak-prompt-injection-attacks-on-tool-using-llm-agents-via-the-model-cont-6f6e325837-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "62f032a1af46adce7c78eada9dbd18333f16dbdc6bcc42e50aaaa9fb7083362b"
+    },
+    "thumb": {
+      "file": "news-log-to-leak-prompt-injection-attacks-on-tool-using-llm-agents-via-the-model-cont-6f6e325837-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "d7016dc0bb625c9175236e867242b97702df59f031979568c560428d7a3c8b16"
+    },
+    "social": {
+      "file": "news-log-to-leak-prompt-injection-attacks-on-tool-using-llm-agents-via-the-model-cont-6f6e325837-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "ff2de2fbbc0b2fd6b579c0400fdbb8f7997f51fdaaed01c0cd311e5e2069c0df"
+    }
+  },
+  "edits": {
+    "source_sha256": "b4f09738bb53db8c163d2487912dc6762df7605231d467bc2dab462d444ab41e",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv preprint describes malicious MCP tool metadata that induces an extra logging call. Its reported results separate task completion from authorization of subsequent disclosures.",
+    "zh": "一篇 arXiv 预印本称，恶意 MCP 工具元数据可诱导智能体额外调用日志工具。作者报告的结果表明，任务完成情况与后续数据披露是否获得授权需要分别核查。"
+  },
+  "caption": {
+    "en": "An arXiv preprint describes malicious MCP tool metadata that induces an extra logging call. Its reported results separate task completion from authorization of subsequent disclosures.",
+    "zh": "一篇 arXiv 预印本称，恶意 MCP 工具元数据可诱导智能体额外调用日志工具。作者报告的结果表明，任务完成情况与后续数据披露是否获得授权需要分别核查。"
+  },
+  "credit": "Yuepeng Hu, Chongyu Fan, Sirat Samyoun, Jian Du",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2610.36108",
+  "retrieved": "2026-10-29"
+}
