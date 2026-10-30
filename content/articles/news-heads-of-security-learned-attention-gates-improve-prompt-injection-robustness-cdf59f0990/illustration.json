@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-heads-of-security-learned-attention-gates-improve-prompt-injection-robustness-cdf59f0990.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "006f07a405cd13fc08f508918007b1c303ebb8101e9ff6851a3df8bbb0dff9d4",
+  "variants": {
+    "list": {
+      "file": "news-heads-of-security-learned-attention-gates-improve-prompt-injection-robustness-cdf59f0990-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "bd7ded4786e958c8f52e92706d256165b8b8bafeb5184b7d831ca178ec3dde42"
+    },
+    "thumb": {
+      "file": "news-heads-of-security-learned-attention-gates-improve-prompt-injection-robustness-cdf59f0990-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "8b724ba2ef193bd4d1287daf0fbda3f0c6cf44d8fb2b6928b6999288997bfeb8"
+    },
+    "social": {
+      "file": "news-heads-of-security-learned-attention-gates-improve-prompt-injection-robustness-cdf59f0990-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "6e0bff9b864bb424d6ed50871d9938cab056635fd0180f8de0341885127e3d30"
+    }
+  },
+  "edits": {
+    "source_sha256": "712c15ab01e9f3a93d37fd609c56313dcc07a0ad84dba3cfc3b9bda9cb6c6f5e",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv preprint describes learned attention gates that separate instructions from untrusted data. Its abstract reports stronger resistance to adaptive attacks, but does not establish protection for a deployed service.",
+    "zh": "一篇 arXiv 预印本提出用学习得到的注意力门控区分指令与不可信数据。摘要报告了对自适应攻击更强的抵抗能力，但未确立任何已部署服务的防护效果。"
+  },
+  "caption": {
+    "en": "An arXiv preprint describes learned attention gates that separate instructions from untrusted data. Its abstract reports stronger resistance to adaptive attacks, but does not establish protection for a deployed service.",
+    "zh": "一篇 arXiv 预印本提出用学习得到的注意力门控区分指令与不可信数据。摘要报告了对自适应攻击更强的抵抗能力，但未确立任何已部署服务的防护效果。"
+  },
+  "credit": "Igor Shilov, Xiaoxue Yang, Alexander Panfilov, Evgenii Kortukov, Matthieu Meeus, Peter Romov, Wojciech Samek, Jonas Geiping, Yves-Alexandre de Montjoye",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2610.37657",
+  "retrieved": "2026-10-29"
+}
