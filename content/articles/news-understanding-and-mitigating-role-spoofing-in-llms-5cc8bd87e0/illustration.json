@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-understanding-and-mitigating-role-spoofing-in-llms-5cc8bd87e0.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "b14b891756d4beb2c0ae6afedbac94f977de5290c28a538de18f6c61ec9ecd5f",
+  "variants": {
+    "list": {
+      "file": "news-understanding-and-mitigating-role-spoofing-in-llms-5cc8bd87e0-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "05ed5349dd9bcb6485a4be06fde6cc3076218974ab235f50d65f52783a93ecd7"
+    },
+    "thumb": {
+      "file": "news-understanding-and-mitigating-role-spoofing-in-llms-5cc8bd87e0-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "018610dd5d9da92f1447c2aa470990187b151a4d77d5d58b7f474b6fc4ccb416"
+    },
+    "social": {
+      "file": "news-understanding-and-mitigating-role-spoofing-in-llms-5cc8bd87e0-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "e39455af9a1c0c83591760a50e2cea3044308ca704cd224d918d09fe9e4cf38f"
+    }
+  },
+  "edits": {
+    "source_sha256": "b0894c90b52f500108eba0286a058a312a92fe01b88c9a89ced182d19c78019a",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv paper describes how malicious tool outputs can impersonate users and proposes role detection with linear probes. The saved abstract provides no deployment fix or quantitative results.",
+    "zh": "一篇 arXiv 论文描述了恶意工具输出如何冒充用户，并提出用线性探针检测角色。保存的摘要未提供部署修复方案或量化结果。"
+  },
+  "caption": {
+    "en": "An arXiv paper describes how malicious tool outputs can impersonate users and proposes role detection with linear probes. The saved abstract provides no deployment fix or quantitative results.",
+    "zh": "一篇 arXiv 论文描述了恶意工具输出如何冒充用户，并提出用线性探针检测角色。保存的摘要未提供部署修复方案或量化结果。"
+  },
+  "credit": "Ezra Edelman, Benjamin Edelman, Surbhi Goel, Eran Malach",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2610.40396",
+  "retrieved": "2026-10-30"
+}
