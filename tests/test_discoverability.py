@@ -365,13 +365,14 @@ class DiscoverabilityTests(unittest.TestCase):
             self.assert_logo(about["Organization"]["logo"], f"{prefix}about")
 
     def check_learn_and_stack_lists(self, lang, prefix):
-        """Learn lists the TEE path first, in its order, then the worksheet guides and the other
-        explainers; the Stack page lists the topics of its index. Each item is a link on the page."""
+        """Learn lists the introductory routes, then the TEE path and remaining guides; the Stack page lists the topics of its index. Each item is a link on the page."""
         learn = {n["@type"]: n for n in self.head(f"{prefix}learn/index.html").nodes()}["CollectionPage"]
         items = learn["mainEntity"]["itemListElement"]
         urls = [i["url"] for i in items]
         mine, english = ({a.slug: a for a in self.articles(code)} for code in (lang, "en"))
-        steps = [step["article"] for step in self.model["tee"]["path"] if "article" in step]
+        starts = ["what-makes-an-ai-system-verifiable", "proofs-enclaves-and-re-execution-compared",
+                  "how-to-read-a-remote-attestation-report", "private-ai-compute-published-designs"]
+        steps = list(dict.fromkeys(starts + [step["article"] for step in self.model["tee"]["path"] if "article" in step]))
         # a step without an edition in the page language links the English article, as the page does
         path = [f"{self.base}/{prefix if slug in mine else ''}articles/{slug}/" for slug in steps
                 if slug in mine or slug in english]

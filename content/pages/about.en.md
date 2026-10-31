@@ -2,11 +2,13 @@
 title: About verifiable.pro
 dek: What we cover, how we check it, and how you can check our work.
 published: 2026-10-20
-updated: 2026-10-26
+updated: 2026-10-31
+changes:
+  - 2026-10-31 | Clarified the publication scope and added direct links to the lab, editor and learning guides.
 ---
 ## What verifiable.pro publishes {#overview}
 
-verifiable.pro publishes news briefs, analysis, explainers and guides on checkable claims about AI systems. Our coverage starts from trusted execution environments (TEEs), hardware-isolated environments for running code. This page explains how we work. [What verifiable.pro is for](/vision/) sets out the site's focus and goals.
+verifiable.pro is an English and Simplified Chinese publication on verifiable AI, maintained by [SEPT Lab at the University of Southern California](https://septlab.com/) and edited by [Mengyuan Li](https://mengyuanli.com/). We publish news, explainers, comparisons and practical guides to the evidence behind claims about model identity, data privacy and agent behavior. Our coverage starts from trusted execution environments (TEEs) and remote attestation, and compares them with proofs, re-execution, audits and provenance. [Start learning about verifiable AI](/learn/#start-here). This page explains how we work. [What verifiable.pro is for](/vision/) sets out the site's focus and goals.
 
 ## What we report, and how {#coverage}
 
@@ -88,7 +90,7 @@ The resource library lists papers, standards, specifications, tools, benchmarks 
 
 ## Who edits verifiable.pro {#editor}
 
-verifiable.pro is maintained by the USC SEPT Lab and edited by **Mengyuan Li**. The site takes no payment for coverage and certifies nothing. A story here is reporting, not an attestation about the systems it describes.
+verifiable.pro is maintained by [SEPT Lab at USC](https://septlab.com/) and edited by [**Mengyuan Li**](https://mengyuanli.com/). The site takes no payment for coverage and certifies nothing. A story here is reporting, not an attestation about the systems it describes.
 
 ## Corrections {#corrections}
 

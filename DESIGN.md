@@ -6,6 +6,10 @@ The stylesheets hold the values. This document names the tokens and components a
 
 ## Concept
 
+### Core reading routes (31 October 2026)
+
+Home and Learn introduce four existing guides before their other sections: the field overview, verification-method comparison, attestation-report guide and private-service comparison. The routes reuse the text-only worksheet cards and link to evaluation and audit evidence. The homepage hero and its owner-selected wording remain intact. Learn names verifiable AI in its visible heading, with the TEE path as the more specific learning sequence.
+
 ### The home intro asks what happens when AI takes on a task (26 October 2026)
 
 The owner asked that the intro explain what the site does, why verifiable AI matters, and the vision that all seven layers should be verifiable. The reason is concrete: as AI handles people's data and acts for them, they should be able to check who can access that data and whether AI stays within their permissions. The final headline opens with that everyday situation. This decision replaces the earlier 26 October wording, "Where your data goes and what protects it" and "Verifiable AI needs evidence at all seven layers", and the interim headline "AI should be verifiable at every layer." (AI 的每一层，都应可验证。). It also supersedes the earlier one-sentence positioning rule.

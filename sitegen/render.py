@@ -1553,6 +1553,29 @@ class Site:
         return self.s(key, n=discover.count_word(n, self.lang))
 
     # ----- pages --------------------------------------------------------------
+    def learning_starts(self):
+        """Published reading routes, shared by Home and Learn in each edition."""
+        return [self.find_article(slug) for slug in (
+            "what-makes-an-ai-system-verifiable",
+            "proofs-enclaves-and-re-execution-compared",
+            "how-to-read-a-remote-attestation-report",
+            "private-ai-compute-published-designs",
+        ) if self.find_article(slug) is not None]
+
+    def learning_start_block(self, marks=False):
+        cards = []
+        for a_obj in self.learning_starts():
+            mark = self.byline_mark(a_obj) if marks else ""
+            meta = f'<p class="ws-kind">{mark}</p>' if mark else ""
+            cards.append(f'<li class="worksheet-card">{meta}<h3>{self.a(self.article_url(a_obj), esc(a_obj.title))}</h3>'
+                         f'<p>{esc(a_obj.dek)}</p></li>')
+        return f'''<section class="start-block" id="start-here" aria-labelledby="start-here-title">
+  {self.block_head(self.s('start_here_title'), hid='start-here-title')}
+  <p class="block-dek">{esc(self.s('start_here_dek'))}</p>
+  <ul class="worksheet-cards">{''.join(cards)}</ul>
+  <p class="all-terms">{self.a(self.loc('/topics/evaluation-audits/'), esc(self.s('start_here_audits')) + ARROW)}</p>
+</section>'''
+
     def home(self, articles):
         path = self.loc("/")
         self.current = path
@@ -1641,6 +1664,7 @@ class Site:
 
         body = f"""<div class="wrap home">
 {band}
+{self.learning_start_block()}
 {news}
 {tee_block}
 {checks}
@@ -2253,13 +2277,14 @@ class Site:
 </section>""")
         body = f"""<div class="wrap">
 {self.page_head(None, self.s('learn_title'), self.s('learn_dek'), [(L('/'), self.s('home'))])}
+{self.learning_start_block(marks=True)}
 {chr(10).join(sections)}
 </div>"""
         path = L("/learn/")
         # the articles the page lists, each where it first appears: the TEE path in its order, the
         # worksheet guides, then the other explainers of the list of every explainer and guide
         listed = {}
-        for a_obj in ([self.find_article(step["article"]) for step in self.m["tee"]["path"] if "article" in step]
+        for a_obj in (self.learning_starts() + [self.find_article(step["article"]) for step in self.m["tee"]["path"] if "article" in step]
                       + [a for a in articles if a.kind == "guide"] + [a for a in articles if a.kind in ("explainer", "guide")]):
             if a_obj is not None:
                 listed.setdefault(a_obj.slug, a_obj)
