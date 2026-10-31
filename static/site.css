@@ -3850,7 +3850,7 @@ table.tier-summary tbody th:first-child { font-weight: 600; color: var(--ink-str
    can run"
    -------------------------------------------------------------------------- */
 .tee-block,
-.checks-block { margin-top: 3.5rem; }
+.checks-block, .start-block { margin-top: 3.5rem; }
 .tee-block > * { min-width: 0; }
 /* Below 960px the two columns stack, and the gap keeps the path's heading
    off the last brief's rule */

@@ -114,7 +114,7 @@ NAV = (("vision", "nav_vision", "/vision/"), ("tee", "nav_tee", HUB), ("latest",
        ("topics", "nav_stack", "/topics/"), ("learn", "nav_learn", "/learn/"), ("resources", "nav_resources", "/resources/"))
 # The home page's sections in order. The stack table is on the Stack page only: the hero's
 # layer cards show each layer and link there.
-HOME_BLOCKS = ("home-hero", "home-news", "tee-block", "checks-block")
+HOME_BLOCKS = ("home-hero", "start-block", "home-news", "tee-block", "checks-block")
 HUB_SECTIONS = ("establishes", "path", "platforms", "services", "limits", "coverage", "reading")
 # The hub's #coverage lists this many of the newest TEE stories that its path does not
 # list; Latest#tee keeps every TEE story
@@ -4093,7 +4093,7 @@ class BuildOutputTests(unittest.TestCase):
             rel, s = LANG_DIR[lang] + "index.html", self.s(lang)
             doc = self.dom(rel)
             home = doc.find("div", cls="home")
-            # the band and Latest news, then TEEs and checks; the stack table is on the Stack page only
+            # The hero, core reading routes, news, TEEs and practical checks.
             self.assertEqual([kind_of(sec, HOME_BLOCKS) for sec in home.kids("section")], list(HOME_BLOCKS), rel)
 
             # Trusted execution environments: the newest TEE briefs not in the rail, and the five steps
@@ -4867,7 +4867,7 @@ class BuildOutputTests(unittest.TestCase):
             rel, s = LANG_DIR[lang] + "learn/index.html", self.s(lang)
             doc = self.dom(rel)
             sections = doc.find("main").find("div", cls="wrap").kids("section")
-            self.assertEqual([sec.attrs.get("id") for sec in sections], ["tee-path", "checks", "terms", "all"], rel)
+            self.assertEqual([sec.attrs.get("id") for sec in sections], ["start-here", "tee-path", "checks", "terms", "all"], rel)
             by_id = {sec.attrs["id"]: sec for sec in sections}
             steps = by_id["tee-path"].find("ol", cls="path").kids("li")
             published = [li for li in steps if "is-planned" not in li.classes]

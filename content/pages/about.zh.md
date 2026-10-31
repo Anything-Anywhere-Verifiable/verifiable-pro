@@ -2,11 +2,13 @@
 title: 关于 verifiable.pro
 dek: 我们报道什么、如何核实，以及你如何核验我们的工作。
 published: 2026-10-20
-updated: 2026-10-26
+updated: 2026-10-31
+changes:
+  - 2026-10-31 | 明确本站定位，并补充实验室、编辑和入门指南的链接。
 ---
 ## verifiable.pro 发布什么 {#overview}
 
-verifiable.pro 围绕 AI 系统的可核验声明，发布新闻简报、分析、解读与指南。我们的报道从可信执行环境（TEE）出发。TEE 是一种由硬件隔离、用于运行代码的环境。本页说明我们的工作方式。本站的重点与目标见 [verifiable.pro 的定位与目标](/vision/)。
+verifiable.pro 是由[南加州大学 SEPT Lab](https://septlab.com/) 维护、[Mengyuan Li](https://mengyuanli.com/) 担任编辑的中英文可验证 AI 知识网站。我们发布新闻、解读、方法比较和实操指南，介绍核查模型身份、数据隐私与智能体行为声明所需的证据。报道从可信执行环境（TEE）与远程证明出发，并与数学证明、重新执行、审计和溯源相比较。[从这里开始学习可验证 AI](/learn/#start-here)。本页说明我们的工作方式。本站的重点与目标见 [verifiable.pro 的定位与目标](/vision/)。
 
 ## 报道什么，怎样报道 {#coverage}
 
@@ -88,7 +90,7 @@ verifiable.pro 的页面顶部有一个“提问”按钮。它会打开一个�
 
 ## 本站由谁编辑 {#editor}
 
-verifiable.pro 由 USC SEPT Lab 维护，编辑为 **Mengyuan Li**。本站不接受付费报道，也不为任何事物提供认证。这里的文章是报道，不是对所述系统的担保。
+verifiable.pro 由[南加州大学 SEPT Lab](https://septlab.com/) 维护，编辑为 [**Mengyuan Li**](https://mengyuanli.com/)。本站不接受付费报道，也不为任何事物提供认证。这里的文章是报道，不是对所述系统的担保。
 
 ## 更正 {#corrections}
 
