@@ -64,15 +64,17 @@ class Metadata(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.canonical, self.alternates, self.robots = [], {}, []
         self.title, self.description, self.has_main = "", "", False
-        self.in_title = False
+        self.in_title = self.in_head = False
         self.feed(text)
         self.close()
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "head":
+            self.in_head = True
         if tag == "main":
             self.has_main = True
-        if tag == "title":
+        if tag == "title" and self.in_head:
             self.in_title = True
         if tag == "meta":
             name = (attrs.get("name") or "").lower()
@@ -89,6 +91,8 @@ class Metadata(HTMLParser):
                 self.alternates.setdefault(attrs["hreflang"].lower(), []).append(attrs.get("href"))
 
     def handle_endtag(self, tag):
+        if tag == "head":
+            self.in_head = False
         if tag == "title":
             self.in_title = False
 
