@@ -621,14 +621,15 @@ class DiscoverabilityTests(unittest.TestCase):
 
     def test_section_search_metadata_names_the_subject_without_replacing_visible_headings(self):
         sections = (("latest", "latest_title"), ("learn", "learn_title"),
-                    ("resources", "resources_page_title"), ("glossary", "glossary_title"))
+                    ("resources", "resources_page_title"), ("glossary", "glossary_title"),
+                    ("topics/confidential-computing", "hub_title"))
         for lang in content.LANGS:
             prefix = "zh/" if lang == "zh" else ""
             strings = self.model["strings"][lang]
             for path, visible_key in sections:
                 rel = f"{prefix}{path}/index.html"
                 head = self.head(rel)
-                self.assertIn("AI", head.title, rel)
+                self.assertIn("TEE" if visible_key == "hub_title" else "AI", head.title, rel)
                 self.assertLessEqual(len(head.title), 70 if lang == "en" else 45, rel)
                 # Short navigation/heading labels stay as the visible page labels.
                 headings = re.findall(r'<h1\b[^>]*>(.*?)</h1>', self.read(rel), re.S)
