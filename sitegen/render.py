@@ -2185,7 +2185,8 @@ class Site:
         ld = discover.collection(self, path, title, self.s("hub_dek"), discover.article_items(self, listed))
         return path, self.layout(path=path, title=title, description=self.s("hub_dek"), section="tee", body=body,
                                  alt_path=self.loc(HUB_PATH, self.other()), page_class="page-topic page-tee",
-                                 jsonld=ld, image=TEE_TOPIC, meta_description=self.s("hub_meta_description"))
+                                 jsonld=ld, image=TEE_TOPIC, meta_title=self.s("hub_meta_title"),
+                                 meta_description=self.s("hub_meta_description"))
 
     def platform_card(self, p):
         """A CPU or GPU platform: what it isolates stays open; signing, reference values,

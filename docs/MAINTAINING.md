@@ -184,6 +184,8 @@ In the GA4 web stream, keep **all Enhanced measurement off**, including page cha
 
 ## Discoverability
 
+For the search baseline, owner-side index checks and a repeatable weekly review, see [Search visibility](SEARCH_VISIBILITY.md). Run `python3 tools/check_live_discovery.py --out /tmp/verifiable-discovery.json` for a read-only HTTP audit of the published robots rules, sitemap and key bilingual pages. A successful HTTP check shows accessibility from the machine running it, not indexing, ranking or access from a crawler's real IP range.
+
 **Search titles and navigation.** Latest, Learn, Resources and Glossary have concise titles that name their subject in both languages. The `*_meta_title` and `*_meta_description` strings describe these sections in search results and link previews; their short visible headings and full introductions stay in the page body. The Stack and TEE hub also have shorter search summaries. Article and other page metadata come from their own titles and introductions. Tests check unique titles and descriptions, and that ordinary HTML links from each edition's home page reach every indexable page.
 
 Google selects [sitelinks automatically](https://developers.google.com/search/docs/appearance/sitelinks), using the site's structure and link text. Keep category links descriptive and the hierarchy useful to readers. The breadcrumb data describes that hierarchy; it does not request or guarantee sitelinks. Source citations retain their complete labels in the page and Markdown. Their structured data gives the work's title, URL and date, and omits a publisher entity when the source label combines authors and venues, because [Schema.org requires a Person or Organization](https://schema.org/publisher).

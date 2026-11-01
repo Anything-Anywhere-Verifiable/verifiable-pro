@@ -6,6 +6,10 @@ The stylesheets hold the values. This document names the tokens and components a
 
 ## Concept
 
+### Publication subject in search and the home lead (1 November 2026)
+
+The home search title and summary name TEE coverage and news, analysis and guides. The lead's second sentence names trusted execution environments, confidential computing and verifiable AI, retaining the first sentence about data access and permissions and the scope from hardware to governance. This updates the lead wording recorded below; the kicker, question, emphasis, links and hero keep their existing design. The TEE hub has its own search title naming news and analysis, while its visible heading remains "Trusted execution environments for AI" (面向 AI 的可信执行环境). Both editions use the same distinction.
+
 ### Core reading routes (31 October 2026)
 
 Home and Learn introduce four existing guides before their other sections: the field overview, verification-method comparison, attestation-report guide and private-service comparison. The routes reuse the text-only worksheet cards and link to evaluation and audit evidence. The homepage hero and its owner-selected wording remain intact. Learn names verifiable AI in its visible heading, with the TEE path as the more specific learning sequence.
