@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-when-skills-tell-agents-not-to-ask-a-large-scale-study-of-oversight-directives-i-6522c8eab2.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "2f7c6012a3ec1ad357b55518ab0fdb7a9588aea320a1ecf5de674772fd45a111",
+  "variants": {
+    "list": {
+      "file": "news-when-skills-tell-agents-not-to-ask-a-large-scale-study-of-oversight-directives-i-6522c8eab2-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "11fb4ba63f990e455eb957c471e098aaef17004c538fc22937a1f082f96c35b4"
+    },
+    "thumb": {
+      "file": "news-when-skills-tell-agents-not-to-ask-a-large-scale-study-of-oversight-directives-i-6522c8eab2-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "f570619ee351d9d2e2c87ff09481dd4defd9a4648401ddf0291a6aabe97f4884"
+    },
+    "social": {
+      "file": "news-when-skills-tell-agents-not-to-ask-a-large-scale-study-of-oversight-directives-i-6522c8eab2-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "bd989548451b288aa58b9e80365bd49799a32a9467407ea5b3fd923926a00f09"
+    }
+  },
+  "edits": {
+    "source_sha256": "87988e3521e5db0bf8b7fec43599d028bf6172013af74578727ebb423a4e5e66",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A preprint analyzes 1.53 million English skills and reports concentrated copying of instructions that bypass checkpoints. Its abstract reports limited scanner detection, without establishing deployed agent behavior.",
+    "zh": "一篇预印本分析了 153 万个英文技能包，称绕过监督检查点的指令通过少数上游技能集中传播。摘要报告了扫描工具的检测局限，但未确立实际部署中的智能体行为。"
+  },
+  "caption": {
+    "en": "A preprint analyzes 1.53 million English skills and reports concentrated copying of instructions that bypass checkpoints. Its abstract reports limited scanner detection, without establishing deployed agent behavior.",
+    "zh": "一篇预印本分析了 153 万个英文技能包，称绕过监督检查点的指令通过少数上游技能集中传播。摘要报告了扫描工具的检测局限，但未确立实际部署中的智能体行为。"
+  },
+  "credit": "Timofey Sanko, Yuan Tian",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2610.37734",
+  "retrieved": "2026-11-01"
+}
