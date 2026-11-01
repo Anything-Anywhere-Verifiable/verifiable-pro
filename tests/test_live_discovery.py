@@ -43,6 +43,10 @@ def fixture(url, agent, timeout):
 
 
 class LiveDiscoveryTests(unittest.TestCase):
+    def test_svg_title_is_not_the_document_title(self):
+        text = page("/").replace("</main>", '<svg><title>Illustration description</title></svg></main>')
+        self.assertEqual(live.Metadata(text).title, "News & analysis")
+
     def test_fetch_keeps_http_error_headers_and_transport_error(self):
         headers = Message()
         headers.add_header("Content-Type", "text/html")
