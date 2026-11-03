@@ -1,0 +1,46 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass agent cube at the front, beside a signed mandate page with a brown header and a cinnabar seal, sends a dashed orange line with packets through the opening of an indigo gateway to a gray database behind it. A dotted indigo line runs from the gateway to a row of ledger blocks at the right.",
+    "zh": "前方一个青色玻璃智能体方块，旁边立着一页带朱砂印章的签名任务授权声明；一条带数据包的橙色虚线从智能体穿过靛蓝色门框的开口，到达后方的灰色数据库；一条靛蓝色点线从门框连到右侧的一排账本方块。"
+  },
+  "caption": {
+    "en": "Illustration: an agent carrying a signed mandate passes a policy gate before it reaches data, and the gate's decisions are written to an append-only log, as in the design direction NIST proposes. It does not depict a tested deployment, NIST's demonstrations or any real agent system, and it does not show that the tenets work as described.",
+    "zh": "示意图：智能体持签名任务授权声明，先经过策略执行关口再访问数据，关口的决定记入仅可追加的日志，对应 NIST 提出的设计方向。图中不描绘经过测试的部署、NIST 的演示或任何真实智能体系统，也不表明这些原则按所述方式有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "check",
+    "items": [
+      {"prop": "agent", "id": "agent", "at": [2.4, -2.6], "tint": "agents", "core": "sphere"},
+      {
+        "prop": "document",
+        "id": "mandate",
+        "at": [0.7, -3.4],
+        "tint": "institutions",
+        "seal": "seal",
+        "signature": true,
+        "lines": 5
+      },
+      {"prop": "gate", "id": "check", "at": [0, -0.9], "w": 1.8, "h": 2.0, "tint": "tee"},
+      {"prop": "database", "id": "store", "at": [-1.5, 0.7], "tint": "neutral", "tiers": 3},
+      {"prop": "ledger", "id": "log", "at": [2.4, 0.2], "tint": "tee", "count": 3, "size": 0.75}
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "store",
+        "route": "via",
+        "via": [[0, -0.9, 0.6]],
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.25, 0.75],
+        "glow": true,
+        "arrow": true
+      },
+      {"from": "mandate", "to": "agent", "style": "dotted", "color": "mute"},
+      {"from": "check", "to": "log.new", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "2f9cfdff6f42ac3a6e1cab6375897bf940068e0ad09f88efe24b5d1c06048f6f"
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass agent cube at the front left sends a dashed orange line with packets through the opening of an indigo gate and on to a teal tool tile standing behind the gate on the right. An indigo key lies on the floor beside the gate's right pillar, and a dashed outline of a packet sits in front of the gate, off the path.",
+    "zh": "前景左侧一个青色玻璃智能体方块，沿橙色虚线把数据包送过一道靛蓝色闸门的开口，抵达闸门右后方的青色工具卡片。闸门右柱旁的地面放着一把靛蓝色钥匙，闸门前另有一个只剩虚线轮廓的数据包，位于路径之外。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's tool request passes through an authorization gate before reaching a tool, with a key for the capability token the design AgentCap describes and a ghost packet for a request the gate does not let through. It does not depict AgentCap's implementation or a tested deployment, and it does not show that the checks block attacks as reported.",
+    "zh": "示意图：智能体的工具调用请求先经过授权闸门再抵达工具，钥匙代表 AgentCap 所描述设计中的能力令牌，虚线数据包代表未获放行的请求。本图不描绘 AgentCap 的实现或任何经过测试的部署，也不表明这些检查能如报告所述阻断攻击。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "check",
+    "backdrop": "white",
+    "items": [
+      {"prop": "agent", "id": "agent", "at": [2.2, -2.4], "tint": "agents", "core": "sphere", "size": 1.2},
+      {"prop": "gate", "id": "check", "at": [0, -0.9], "w": 1.8, "h": 2.0, "tint": "tee", "field": true},
+      {"prop": "tool", "id": "tool", "at": [0.7, 1.9], "tint": "agents", "icon": "terminal", "size": 1.3},
+      {"prop": "key", "id": "token", "at": [1.5, 0.1], "tint": "tee", "size": 1.4},
+      {"prop": "packet", "id": "blocked", "at": [2.0, -1.4], "tint": "data", "ghost": true, "size": 0.35}
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "tool",
+        "route": "via",
+        "via": [[0, -0.9, 0.5]],
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.3, 0.9],
+        "arrow": true,
+        "glow": true
+      },
+      {"from": "token", "to": "check", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "18c3bd59f6f544b14803bc9ce7e3e37464a1999c42f1773c12bb287c59ffd749"
+}
