@@ -1,0 +1,73 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass cube with a sphere inside sends a dashed orange line with packets through a violet gateway toward a standing screen showing a grid form. A dotted violet line runs from the gateway to a document with a violet header at the right.",
+    "zh": "一只内含球体的青色玻璃方块发出带数据包的橙色虚线，穿过紫色门框，指向一块显示网格表单的屏幕；一条紫色点线从门框连到右侧带紫色页眉的文件。"
+  },
+  "caption": {
+    "en": "Illustration: a browser agent's path into a web page passes through a checkpoint standing for the dynamic forms the AgentShield authors describe, which produce a record of its behavior. It does not depict a tested deployment, the authors' software or any measured detection result.",
+    "zh": "示意图：浏览器代理进入网页的路径穿过一道关卡，代表 AgentShield 作者描述的动态表单，并生成一份行为记录。图中并不描绘经过测试的部署、作者的软件或任何实测检测结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "check",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "agent",
+        "id": "agent",
+        "at": [2.4, -2.6],
+        "tint": "agents",
+        "core": "sphere",
+        "size": 1.2,
+        "note": "the autonomous browser agent approaching the page"
+      },
+      {
+        "prop": "gate",
+        "id": "check",
+        "at": [0, -0.9],
+        "w": 2.2,
+        "h": 2.2,
+        "tint": "evaluations",
+        "field": true,
+        "note": "the dynamic form checkpoint the authors describe"
+      },
+      {
+        "prop": "screen",
+        "id": "form",
+        "at": [-1.6, 0.9],
+        "w": 2.2,
+        "h": 1.5,
+        "content": "grid",
+        "tint": "neutral",
+        "note": "the web page behind the checkpoint"
+      },
+      {
+        "prop": "document",
+        "id": "report",
+        "at": [2.2, 0.6],
+        "tint": "evaluations",
+        "pose": "standing",
+        "header": true,
+        "seal": "none",
+        "lines": 6,
+        "note": "the behavioral record collected by the forms"
+      }
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "form",
+        "route": "via",
+        "via": ["check.through"],
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.25, 0.75],
+        "arrow": true
+      },
+      {"from": "check", "to": "report", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "54b00eec0886863d0ba7d03b87257e7b6d8fb7acff9dea6b6c83ed9dccee6f96"
+}
