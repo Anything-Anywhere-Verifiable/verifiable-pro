@@ -1,0 +1,71 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A dashed orange line with small packets runs from a gray server rack, with a stack of pages beside it, through a gray gateway that has no scanning field, to a teal glass cube at the front. A yellow warning sign stands at the front right.",
+    "zh": "一条带数据包的橙色虚线从灰色服务器机柜出发，机柜旁放着一叠纸页，虚线穿过一道没有扫描场的灰色门框，到达前方的青色玻璃立方体；右前方立着一块黄色警示牌。"
+  },
+  "caption": {
+    "en": "Illustration: file contents read from the n8n server passing through an approval prompt that does not gate the path, to the Browser Use assistant, with a warning sign for the flaw. It does not depict n8n's server, files, prompt or assistant, and it does not show a tested deployment or an actual exploit.",
+    "zh": "示意图：n8n 服务器上的文件内容穿过一道不核查路径的批准关卡，流向 Browser Use 助手，旁边的警示牌代表该漏洞。图中并非 n8n 的真实服务器、文件、提示或助手，也不代表经过测试的部署或实际发生的攻击。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "prompt",
+    "items": [
+      {
+        "prop": "agent",
+        "id": "assistant",
+        "at": [2.7, -2.8],
+        "note": "the Browser Use assistant, at the front"
+      },
+      {
+        "prop": "gate",
+        "id": "prompt",
+        "at": [0, -0.9],
+        "w": 2.2,
+        "h": 2.4,
+        "tint": "neutral",
+        "field": false,
+        "note": "the approval prompt: an open gate with no scanning field"
+      },
+      {
+        "prop": "server_rack",
+        "id": "server",
+        "at": [-1.4, 0.7],
+        "units": 6,
+        "tint": "neutral",
+        "note": "the n8n server, framed by the gate's opening"
+      },
+      {
+        "prop": "papers",
+        "id": "files",
+        "at": [-3.4, -0.6],
+        "tint": "neutral",
+        "note": "files readable by the server process"
+      },
+      {"prop": "sign", "id": "flaw", "at": [3.0, -0.6], "size": 0.9, "note": "the flaw"}
+    ],
+    "links": [
+      {
+        "from": "server",
+        "to": "assistant",
+        "route": "via",
+        "via": ["prompt.through"],
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.15, 0.7],
+        "arrow": true,
+        "glow": true,
+        "note": "file contents sent from the server through the ungated prompt to the assistant's page"
+      },
+      {
+        "from": "files",
+        "to": "server",
+        "style": "dotted",
+        "color": "mute",
+        "note": "the files belong to the server"
+      }
+    ]
+  },
+  "svg_sha256": "98b28aa30d4da34d42bb0e6b21d36939372a9c638001da9b480c634699dc2f70"
+}
