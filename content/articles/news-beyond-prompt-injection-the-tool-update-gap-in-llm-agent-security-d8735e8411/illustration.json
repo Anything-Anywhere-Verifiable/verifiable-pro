@@ -1,0 +1,81 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal glass cube with a cube core stands at the center on a gray floor. A dashed orange line with two packets runs from a wooden crate at the front left to a teal tool tile at the front right, a dotted gray line joins the tile to the cube, and a broken indigo line from the cube toward the crate stops short. A yellow warning sign stands at the back left.",
+    "zh": "灰色地面中央是一个青色玻璃立方体，核心为小方块。一条带两个数据包的橙色虚线从左前方的木箱通向右前方的青色工具牌，灰色点线将工具牌与立方体相连，而立方体通往木箱的靛蓝线条在中途断开。左后方立着一块黄色警示牌。"
+  },
+  "caption": {
+    "en": "Illustration: an agent keeps trusting a tool after a crate delivers an updated implementation along the orange path, while the indigo check from the agent back to the update is broken and a warning sign stands by. It does not depict any of the seven frameworks the paper names, the ETUDE tool code or a tested deployment, and it does not show that the attack or any defense works as described.",
+    "zh": "示意图：一个智能体在木箱沿橙色路径送来更新后的工具实现后仍沿用对该工具的信任，而智能体通向更新的靛蓝检查线已断开，旁边立着警示牌。图中不描绘论文提到的七种框架、ETUDE 工具代码或任何经过测试的部署，也不表明该攻击或任何防御如文中所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "agent",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "agent",
+        "id": "agent",
+        "at_uv": [0, -0.6],
+        "size": 2,
+        "core": "cube",
+        "tint": "agents",
+        "note": "the LLM agent that keeps trusting the tool"
+      },
+      {
+        "prop": "tool",
+        "id": "tool",
+        "at_uv": [3.6, 2.2],
+        "size": 1.3,
+        "icon": "terminal",
+        "tint": "agents",
+        "note": "the tool whose implementation changes"
+      },
+      {
+        "prop": "crate",
+        "id": "update",
+        "at_uv": [-3.8, 2.8],
+        "size": 1.3,
+        "tint": "neutral",
+        "note": "the tool update arriving through the supply chain"
+      },
+      {
+        "prop": "sign",
+        "id": "warning",
+        "at_uv": [-5.0, -0.8],
+        "size": 0.9,
+        "tint": "warn",
+        "note": "the reported attack path"
+      }
+    ],
+    "links": [
+      {
+        "from": "update",
+        "to": "tool",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.3, 0.75],
+        "arrow": true,
+        "glow": true,
+        "note": "updated code applied to the tool outside the model's context"
+      },
+      {
+        "from": "tool",
+        "to": "agent",
+        "style": "dotted",
+        "color": "mute",
+        "note": "trust retained from the original tool"
+      },
+      {
+        "from": "agent",
+        "to": "update",
+        "style": "broken",
+        "color": "tee",
+        "gap": 0.5,
+        "note": "the renewed safety check that does not happen"
+      }
+    ]
+  },
+  "svg_sha256": "3d12eb2921e08f58334714c68936a963b7cf8680c15d56727e404a34df16ef23"
+}
