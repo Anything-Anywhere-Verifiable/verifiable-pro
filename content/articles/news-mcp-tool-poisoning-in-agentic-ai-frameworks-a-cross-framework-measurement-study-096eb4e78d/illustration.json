@@ -1,0 +1,45 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass cube holding a sphere, an AI agent, stands at the center. A dashed orange line runs into it from a gray tool tile beside a yellow warning sign, and a second orange line with packets arcs from the cube to a gray cloud. A violet bar chart with three falling bars stands at the front right.",
+    "zh": "画面中央是一个装有球体的青色玻璃立方体，代表 AI 智能体。一条橙色虚线从黄色警示牌旁的灰色工具卡片进入立方体，另一条带数据包的橙色弧线从立方体飞向灰色云朵。右前方是三根逐级下降的紫色柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: a poisoned tool description entering an agent, which sends a secret on toward an attacker's endpoint, with a bar chart for the falling rates of tool dispatch, endpoint contact and confirmed exfiltration the study reports. It does not depict any of the twelve frameworks, the mcpvenom tool or a tested deployment, and it does not show that the reported attacks succeed as described.",
+    "zh": "示意图：一条被投毒的工具描述进入智能体，智能体再把秘密送往攻击者端点；柱状图表示研究报告的工具调用、联系端点与确认外传三个逐级下降的比例。图中不描绘十二个框架中的任何一个、mcpvenom 工具或经过测试的部署，也不表明报告的攻击如所述那样成功。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "agent",
+    "backdrop": "white",
+    "items": [
+      {"prop": "sign", "id": "poison", "at_uv": [-4.4, -1.0], "size": 0.9},
+      {"prop": "tool", "id": "tool", "at_uv": [-3.4, 0.8], "icon": "doc", "tint": "neutral"},
+      {"prop": "agent", "id": "agent", "at_uv": [0, 0.2], "size": 2.0, "core": "sphere", "tint": "agents"},
+      {
+        "prop": "bars",
+        "id": "rates",
+        "at_uv": [3.5, 1.9],
+        "heights": [1.9, 0.68, 0.36],
+        "highlight": 2,
+        "tint": "evaluations"
+      },
+      {"prop": "cloud", "id": "endpoint", "at_uv": [4.0, -1.6, 0.6], "w": 2.4, "tint": "neutral"}
+    ],
+    "links": [
+      {"from": "tool", "to": "agent", "style": "dashed", "color": "data", "packets": [0.45]},
+      {
+        "from": "agent",
+        "to": "endpoint",
+        "route": "arc",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.4, 0.7],
+        "arrow": true,
+        "glow": true
+      },
+      {"from": "rates", "to": "agent", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "a886196b1fe5b90158c642c19fb1ec5ec8a73812248e0e36ab1cd515700caada"
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass cube with a sphere inside, the agent, stands at the front left. A dashed orange line with packets runs from it through a violet gateway to a violet certificate card behind. A yellow warning sign beside the gateway sends a dotted dark line back to the cube.",
+    "zh": "前左方是一个内含球体的青色玻璃立方体，代表智能体。一条带数据包的橙色虚线从它出发，穿过紫色门框，到达后方的紫色证书卡。门框旁的黄色警示牌有一条深灰点线指回立方体。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's action travels through a random audit gate toward a certificate while a warning sign beside the gate leaks the audit signal back to the agent before it commits. It does not depict the authors' monitor, agents or experiments, and it does not show that the described bias or its fix occurs as reported; it is not a tested deployment.",
+    "zh": "示意图：智能体的动作穿过随机审计门框流向认证证书，门框旁的警示牌则在提交前把审计信号泄露回智能体。图中不描绘作者的监控器、智能体或实验，也不表明所述偏差或其修复方法如报告所述成立；这不是经过测试的实际部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "agent",
+    "backdrop": "white",
+    "items": [
+      {"prop": "agent", "id": "agent", "at": [1.9, -2.3], "scale": 1.7, "core": "sphere", "tint": "agents"},
+      {
+        "prop": "gate",
+        "id": "audit",
+        "at": [-0.3, -0.6],
+        "w": 2.2,
+        "h": 2.6,
+        "tint": "evaluations",
+        "field": true
+      },
+      {
+        "prop": "certificate",
+        "id": "certificate",
+        "at": [-1.5, 0.8],
+        "w": 1.8,
+        "h": 1.3,
+        "tint": "evaluations"
+      },
+      {"prop": "sign", "id": "leak", "at": [1.8, 0.9], "tint": "warn", "size": 1.1}
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "certificate",
+        "route": "via",
+        "via": ["audit.through"],
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.25, 0.75],
+        "glow": true,
+        "arrow": true
+      },
+      {"from": "leak", "to": "agent", "route": "straight", "style": "dotted", "color": "ink", "arrow": true}
+    ]
+  },
+  "svg_sha256": "95eb51017df7463aefa0dc8bc5b88203bd4612d99eb168be898ba5cbbe5b8a1d"
+}
