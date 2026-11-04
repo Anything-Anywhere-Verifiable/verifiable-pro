@@ -4251,7 +4251,12 @@ class BuildOutputTests(unittest.TestCase):
                             self.assertTrue(ref.strip().startswith("#"), source)
                 self.assertEqual((picture.attrs.get("width"), picture.attrs.get("height")),
                                  (svg.attrib["width"], svg.attrib["height"]), rel)
-                figure = picture.parent
+                link = picture.parent
+                self.assertEqual(link.tag, "a", rel)
+                self.assertIn("article-diagram-link", link.classes, rel)
+                self.assertEqual(canonical(rel, link.attrs.get("href", "")), source, rel)
+                self.assertTrue(link.attrs.get("title", "").strip(), rel)
+                figure = link.parent
                 self.assertEqual(figure.tag, "figure", rel)
                 self.assertIn("article-diagram", figure.classes, rel)
                 prose = doc.find("div", cls="article-body")
@@ -4262,6 +4267,7 @@ class BuildOutputTests(unittest.TestCase):
                 self.assertEqual(figure.attrs.get("aria-labelledby"), caption.attrs.get("id"), rel)
                 self.assertTrue(caption.text().strip(), rel)
                 links = {a.attrs.get("href", "") for a in caption.find_all("a")}
+                self.assertTrue(any(canonical(rel, link) == source for link in links), rel)
                 self.assertTrue(any(link.startswith("https://") for link in links), rel)
                 if source.startswith("/assets/figures/flash-"):
                     name = Path(source).name[len("flash-"):]

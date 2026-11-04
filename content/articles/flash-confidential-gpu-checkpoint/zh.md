@@ -19,8 +19,10 @@ Jonghyun Lee 及其同事面向 ACM SIGOPS ATC 2026 的 [FLASH 最终论文](htt
 ## 保留 GPU 已经完成的加密
 
 <figure class="article-diagram" aria-labelledby="figure-hybrid-key-caption">
+<a class="article-diagram-link" href="../../../assets/figures/flash-hybrid-key.svg" title="打开完整尺寸机制图">
 <img class="article-diagram-img" src="../../../assets/figures/flash-hybrid-key.svg" width="1360" height="748" loading="lazy" alt="混合密钥检查点：FLASH 保留 GPU 密文，分别保护 CPU 状态和源 GPU 密钥。">
-<figcaption id="figure-hybrid-key-caption">混合密钥检查点保留 GPU 密文，分别保护 CPU 状态和源 GPU 密钥。改绘自 FLASH 论文图 4。 <a href="https://github.com/sept-usc/FLASH/blob/main/docs/figures/hybrid-key.svg">图源</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
+</a>
+<figcaption id="figure-hybrid-key-caption"><a href="../../../assets/figures/flash-hybrid-key.svg">查看大图</a> · 混合密钥检查点保留 GPU 密文，分别保护 CPU 状态和源 GPU 密钥。改绘自 FLASH 论文图 4。 <a href="https://github.com/sept-usc/FLASH/blob/main/docs/figures/hybrid-key.svg">图源</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
 </figure>
 
 FLASH 保留 GPU 复制引擎生成的设备到主机密文。自定义驱动接口同时提取加密页面、初始化向量（IV）和认证标签，从而在创建检查点时省去 CPU 上重复的解密和重新加密。[^1]
@@ -32,8 +34,10 @@ FLASH 保留 GPU 复制引擎生成的设备到主机密文。自定义驱动接
 ## 在推理继续时发现写入
 
 <figure class="article-diagram" aria-labelledby="figure-dirty-tracking-caption">
+<a class="article-diagram-link" href="../../../assets/figures/flash-dirty-tracking.svg" title="打开完整尺寸机制图">
 <img class="article-diagram-img" src="../../../assets/figures/flash-dirty-tracking.svg" width="1360" height="752" loading="lazy" alt="UVM 写故障在后台复制期间标记修改过的 2 MB 区域，最后暂停补拷脏页增量。">
-<figcaption id="figure-dirty-tracking-caption">UVM 脏页跟踪与并发复制：最后暂停时补拷修改过的 2 MB 区域。改绘自 FLASH 论文图 5。 <a href="https://github.com/sept-usc/FLASH/blob/main/docs/figures/dirty-tracking.svg">图源</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
+</a>
+<figcaption id="figure-dirty-tracking-caption"><a href="../../../assets/figures/flash-dirty-tracking.svg">查看大图</a> · UVM 脏页跟踪与并发复制：最后暂停时补拷修改过的 2 MB 区域。改绘自 FLASH 论文图 5。 <a href="https://github.com/sept-usc/FLASH/blob/main/docs/figures/dirty-tracking.svg">图源</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
 </figure>
 
 大部分复制与推理并行进行。由于推理可能修改已经复制过的页面，FLASH 必须找出哪些页面需要在最后暂停时再次复制。[^1]

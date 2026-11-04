@@ -31,8 +31,10 @@ A conventional secure checkpoint decrypts that arriving ciphertext inside the CP
 ## Keep the encryption already performed
 
 <figure class="article-diagram" aria-labelledby="figure-hybrid-key-caption">
+<a class="article-diagram-link" href="../../assets/figures/flash-hybrid-key.svg" title="Open full-size diagram">
 <img class="article-diagram-img" src="../../assets/figures/flash-hybrid-key.svg" width="1360" height="748" loading="lazy" alt="Hybrid-key checkpoint creation: FLASH retains GPU ciphertext and separately protects CPU state and the source GPU key.">
-<figcaption id="figure-hybrid-key-caption">Hybrid-key checkpoint creation. GPU ciphertext is retained; CPU state and the source GPU key are protected separately. Adapted from FLASH Figure 4. <a href="https://github.com/sept-usc/FLASH/blob/main/docs/figures/hybrid-key.svg">Diagram source</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
+</a>
+<figcaption id="figure-hybrid-key-caption"><a href="../../assets/figures/flash-hybrid-key.svg">View full size</a> · Hybrid-key checkpoint creation. GPU ciphertext is retained; CPU state and the source GPU key are protected separately. Adapted from FLASH Figure 4. <a href="https://github.com/sept-usc/FLASH/blob/main/docs/figures/hybrid-key.svg">Diagram source</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
 </figure>
 
 FLASH retains the device-to-host ciphertext produced by the GPU copy engine. A custom driver interface retrieves encrypted pages together with their initialization vectors (IVs) and authentication tags. This removes a redundant CPU decryption and re-encryption cycle from checkpoint creation.[^1]
@@ -44,8 +46,10 @@ Recovery still performs cryptographic work. The destination obtains the checkpoi
 ## Find writes while inference continues
 
 <figure class="article-diagram" aria-labelledby="figure-dirty-tracking-caption">
+<a class="article-diagram-link" href="../../assets/figures/flash-dirty-tracking.svg" title="Open full-size diagram">
 <img class="article-diagram-img" src="../../assets/figures/flash-dirty-tracking.svg" width="1360" height="752" loading="lazy" alt="UVM write faults mark modified 2 MB regions during background copying; the final pause copies the dirty delta.">
-<figcaption id="figure-dirty-tracking-caption">Concurrent copying with UVM dirty tracking. The final pause recopies modified 2 MB regions. Adapted from FLASH Figure 5. <a href="https://github.com/sept-usc/FLASH/blob/main/docs/figures/dirty-tracking.svg">Diagram source</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
+</a>
+<figcaption id="figure-dirty-tracking-caption"><a href="../../assets/figures/flash-dirty-tracking.svg">View full size</a> · Concurrent copying with UVM dirty tracking. The final pause recopies modified 2 MB regions. Adapted from FLASH Figure 5. <a href="https://github.com/sept-usc/FLASH/blob/main/docs/figures/dirty-tracking.svg">Diagram source</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
 </figure>
 
 Most copying overlaps with inference. Because inference can change a page after it has been copied, FLASH must identify which pages need another copy during the final pause.[^1]

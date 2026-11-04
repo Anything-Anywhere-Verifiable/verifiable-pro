@@ -172,7 +172,9 @@ A technical explanation may include a captioned `<figure class="article-diagram"
 block beside the mechanism it explains. Use a local SVG under `static/figures/`
 and an `<img class="article-diagram-img">` with descriptive alt text, its SVG's
 width and height, and `loading="lazy"`. A figure's `aria-labelledby` names its
-caption id. Credit the diagram's source and license in that caption. These are
+caption id. Wrap the image in an `<a class="article-diagram-link">` to the same
+local SVG, with a descriptive title, and include a visible full-size link in the
+caption. Credit the diagram's source and license in that caption. These are
 article figures, separate from the generated lead images in `static/media/`.
 The SVG must contain only the reviewed static diagram, with no scripts or
 external references. A relative image path must account for the English or
