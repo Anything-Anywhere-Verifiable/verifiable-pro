@@ -1,0 +1,83 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A blue cube patterned like a matrix of values, with a red wax seal on its top, stands at the back of a gray floor. A dashed orange line with a small cube runs from it to a pink-trimmed page at the front right; a dark arrow leads from the page to a gray turnstile block at the front left, and a dotted gray arc rises from the block to the seal.",
+    "zh": "后方一个蓝色矩阵纹样的立方体，顶上放着一枚红色封印；一条带小方块的橙色虚线从立方体引向右前方带粉色边框的文件页，一条深色箭头线从文件页指向左前方刻有推导符号的灰色方块，另有一条灰色点线弧从方块伸向封印。"
+  },
+  "caption": {
+    "en": "Illustration: a weights block carrying a seal stands for model weights under a published commitment, a dashed orange path carries a response with its proof to a page, and a turnstile block stands for a checker that reads the page against the seal. It does not depict Anthropic's FlashProve code or a tested deployment, and it does not show that the proofs hold as described.",
+    "zh": "示意图：带封印的权重立方体代表已公开承诺的模型权重，橙色虚线表示回复及其数学证明送达文件页，刻有推导符号的方块代表依据封印进行检查的验证器。图中并非 Anthropic 的 FlashProve 代码或任何经测试的部署，也不表明数学证明如所述成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "weights",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "weights",
+        "id": "weights",
+        "at": [0, 0],
+        "size": 2.2,
+        "tint": "models",
+        "note": "the committed model weights"
+      },
+      {
+        "prop": "seal",
+        "id": "commit",
+        "on": "weights",
+        "at": [0, 0],
+        "tint": "seal",
+        "r": 0.42,
+        "note": "the published commitment"
+      },
+      {
+        "prop": "document",
+        "id": "response",
+        "at": [2.7, -0.1],
+        "tint": "outputs",
+        "seal": "ring",
+        "lines": 6,
+        "note": "a response with its proof"
+      },
+      {
+        "prop": "math_block",
+        "id": "checker",
+        "at": [0.1, -2.7],
+        "size": 1.1,
+        "tint": "neutral",
+        "mark": "turnstile",
+        "note": "the verifier"
+      }
+    ],
+    "links": [
+      {
+        "from": "weights",
+        "to": "response",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.55],
+        "arrow": true,
+        "note": "response and proof leaving the model"
+      },
+      {
+        "from": "response",
+        "to": "checker",
+        "style": "solid",
+        "color": "ink",
+        "arrow": true,
+        "note": "the check"
+      },
+      {
+        "from": "checker",
+        "to": "commit",
+        "route": "arc",
+        "lift": 1.2,
+        "style": "dotted",
+        "color": "mute",
+        "note": "the check refers to the commitment"
+      }
+    ]
+  },
+  "svg_sha256": "362e9017a11405b7f35aa2b5458b545f8da40e9c6540fc0f6042fc69e6fddf84"
+}
