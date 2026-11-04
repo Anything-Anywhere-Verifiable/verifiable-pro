@@ -1581,10 +1581,11 @@ class Site:
         self.current = path
         L = self.loc
         news = [a for a in articles if a.kind == "news"]
-        lead = next((a for a in news if a.lead), news[0] if news else None)
-        # The lead brief, then five more: from 960px they stand beside it and end about level
+        lead = next((a for a in news if a.lead), articles[0] if articles else None)
+        # An editor-pinned news brief (or the newest article), then five more articles:
+        # from 960px they stand beside it and end about level
         # with it; below 960px, under it, site.css (22.3) shows only four
-        rail = ([lead] if lead else []) + [a for a in news if a is not lead][:5]
+        rail = ([lead] if lead else []) + [a for a in articles if a is not lead][:5]
         in_rail = {a.slug for a in rail}
         tee_news = [a for a in news if self.is_tee(a) and a.slug not in in_rail][:4]
         on_path = self.path_slugs()
@@ -1609,7 +1610,7 @@ class Site:
   </div>
   {hero}
 </section>"""
-        # the rail's rows and the lead brief show their lead images, as decorative links
+        # the rail's rows and the lead article show any lead images as decorative links
         # beside or above the title link (thumb())
         rows = []
         for a_obj in rail[1:]:
@@ -1628,7 +1629,7 @@ class Site:
                          f'<p class="ledger-dates">{self.brief_meta(first)}</p></article>')
         rail_list = f'<ol class="ledger">{rows}</ol>' if rows else ""
         news = f"""<section class="ledger-rail home-news" aria-labelledby="rail-title">
-  {self.block_head(self.s('on_record'), L('/latest/') + '#news', self.s('all_briefs'), 'rail-title')}
+  {self.block_head(self.s('on_record'), L('/latest/'), self.s('latest_title'), 'rail-title')}
   <div class="home-news-grid">{lead_html or f'<p class="empty">{esc(self.s("no_coverage"))}</p>'}{rail_list}</div>
 </section>"""
 
