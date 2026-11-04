@@ -2,8 +2,9 @@
 title: About verifiable.pro
 dek: What we cover, how we check it, and how you can check our work.
 published: 2026-10-20
-updated: 2026-10-31
+updated: 2026-11-04
 changes:
+  - 2026-11-04 | Added the Codex-based workflow used for editor-selected research explainers.
   - 2026-10-31 | Clarified the publication scope and added direct links to the lab, editor and learning guides.
 ---
 ## What verifiable.pro publishes {#overview}
@@ -44,9 +45,9 @@ A match shows that the text you received is the text the site recorded at build 
 
 ## How we use AI tools {#ai}
 
-Software built on Anthropic's Claude models drafts our articles. Every day it scans primary sources and drafts news briefs about the developments it finds; the briefs appear under the byline verifiable.pro Wire. Explainers, analysis and guides, which it drafts after studying the sources on a subject, appear under verifiable.pro Research. AI tools also translate between English and Chinese, and they help choose and caption the pictures that open our articles.
+Our established drafting software is built on Anthropic's Claude models. Every day it scans primary sources and drafts news briefs about the developments it finds; the briefs appear under the byline verifiable.pro Wire. Explainers, analysis and guides appear under verifiable.pro Research. Editor-selected research explainers can also be drafted with OpenAI Codex through the daily editorial pipeline. Each automated byline's description identifies its workflow. AI tools also translate between English and Chinese, and they help choose and caption the pictures that open our articles.
 
-Each article's byline says who drafted it. The software's two bylines carry an "Automated" tag, so readers can tell them from a person's byline, which reads "By" and the person's name. When someone submits a story and gives a name to credit, the byline also says "Submitted by" and that name.
+Each article's byline says who drafted it. The software's bylines carry an "Automated" tag, so readers can tell them from a person's byline, which reads "By" and the person's name. When someone submits a story and gives a name to credit, the byline also says "Submitted by" and that name.
 
 The editor decides which drafts are published and is responsible for every article. Before publication, the editor checks each factual claim against its cited source. An article about a company whose AI tools we use carries a disclosure.
 

@@ -14,6 +14,7 @@ import sys
 import tempfile
 import types
 import unittest
+import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
@@ -1671,15 +1672,22 @@ class BylineTests(unittest.TestCase):
     def test_the_automated_bylines_have_wire_names_and_one_plain_sentence_in_both_languages(self):
         self.assertEqual(self.agents["daily"]["name"], {"en": "verifiable.pro Wire", "zh": "verifiable.pro 快讯"})
         self.assertEqual(self.agents["research"]["name"], {"en": "verifiable.pro Research", "zh": "verifiable.pro 研究"})
+        self.assertEqual(self.agents["pipeline-research"]["name"], self.agents["research"]["name"])
         for agent_id, entry in self.agents.items():
             self.assertEqual(set(entry), set(content.AGENT_KEYS), agent_id)
             en, zh = entry["description"]["en"], entry["description"]["zh"]
             # one sentence: what is automated, on which models, and that the editor decides what is published
             self.assertRegex(en, r"^Automated [^.]+\.$", agent_id)
-            self.assertIn(": software built on Anthropic's Claude models ", en, agent_id)
+            if agent_id == "pipeline-research":
+                self.assertIn(": software using OpenAI Codex through the daily editorial pipeline ", en)
+            else:
+                self.assertIn(": software built on Anthropic's Claude models ", en, agent_id)
             self.assertTrue(en.endswith("; the editor decides what is published."), agent_id)
             self.assertTrue(zh.startswith("自动") and zh.count("。") == 1 and zh.endswith("，由编辑决定是否发布。"), agent_id)
-            self.assertIn("：基于 Anthropic Claude 模型的程序", zh, agent_id)
+            if agent_id == "pipeline-research":
+                self.assertIn("：通过每日编辑流水线使用 OpenAI Codex 的程序", zh)
+            else:
+                self.assertIn("：基于 Anthropic Claude 模型的程序", zh, agent_id)
 
     def test_no_byline_text_uses_the_word_agent(self):
         """The owner's rule for bylines: they never say "AI agent" or use the word "agent", in
@@ -4208,14 +4216,57 @@ class BuildOutputTests(unittest.TestCase):
 
     def test_pictures_are_the_hero_and_the_lead_images(self):
         """The pages show the home hero, each illustrated article's lead figure and, in lists,
-        decorative copies of the lead images; nothing else. An article's page shows its figure
-        exactly when the article has an illustration.json."""
+        decorative copies of the lead images, and captioned local technical diagrams in article
+        bodies. An article's lead figure appears exactly when it has an illustration.json."""
         problems = []
         for rel in self.rels():
             doc = self.dom(rel)
             pictures = images(doc)
             lead = [p for p in pictures if is_lead_picture(p)]
-            rest = [p for p in pictures if p not in lead]
+            diagrams = [p for p in pictures if p.tag == "img" and "article-diagram-img" in p.classes]
+            rest = [p for p in pictures if p not in lead and p not in diagrams]
+            for picture in diagrams:
+                self.assertRegex(canonical(rel, "index.html"), ARTICLE_PATH_RE, rel)
+                source = canonical(rel, picture.attrs.get("src", ""))
+                self.assertRegex(source, r"^/assets/figures/[a-z0-9-]+\.svg$", rel)
+                self.assertTrue(picture.attrs.get("alt", "").strip(), rel)
+                self.assertEqual(picture.attrs.get("loading"), "lazy", rel)
+                asset = self.out / source.lstrip("/")
+                self.assertTrue(asset.is_file(), (rel, source))
+                raw = asset.read_bytes()
+                self.assertNotIn(b"<!DOCTYPE", raw.upper(), source)
+                self.assertNotIn(b"<!ENTITY", raw.upper(), source)
+                svg = ET.fromstring(raw)
+                self.assertEqual(svg.tag, "{http://www.w3.org/2000/svg}svg", source)
+                forbidden = {"script", "foreignObject", "animate", "animateMotion", "animateTransform",
+                             "set", "style", "image", "iframe"}
+                for node in svg.iter():
+                    self.assertNotIn(node.tag.rsplit("}", 1)[-1], forbidden, source)
+                    for key, value in node.attrib.items():
+                        local = key.rsplit("}", 1)[-1]
+                        self.assertFalse(local.lower().startswith("on") or local == "style", source)
+                        if local == "href":
+                            self.assertTrue(value.startswith("#"), source)
+                        for ref in re.findall(r"url\(\s*[\"']?([^\)\"']+)", value, re.I):
+                            self.assertTrue(ref.strip().startswith("#"), source)
+                self.assertEqual((picture.attrs.get("width"), picture.attrs.get("height")),
+                                 (svg.attrib["width"], svg.attrib["height"]), rel)
+                figure = picture.parent
+                self.assertEqual(figure.tag, "figure", rel)
+                self.assertIn("article-diagram", figure.classes, rel)
+                prose = doc.find("div", cls="article-body")
+                self.assertIsNotNone(prose, rel)
+                self.assertTrue(figure.within(prose), rel)
+                caption = figure.find("figcaption")
+                self.assertIsNotNone(caption, rel)
+                self.assertEqual(figure.attrs.get("aria-labelledby"), caption.attrs.get("id"), rel)
+                self.assertTrue(caption.text().strip(), rel)
+                links = {a.attrs.get("href", "") for a in caption.find_all("a")}
+                self.assertTrue(any(link.startswith("https://") for link in links), rel)
+                if source.startswith("/assets/figures/flash-"):
+                    name = Path(source).name[len("flash-"):]
+                    self.assertIn("https://github.com/sept-usc/FLASH/blob/main/docs/figures/" + name, links)
+                    self.assertIn("https://creativecommons.org/licenses/by/4.0/", links)
             if rel in ("index.html", "zh/index.html"):
                 scene, marks = hero_parts(doc)
                 labels = doc.find("ol", cls="hero-layers")
