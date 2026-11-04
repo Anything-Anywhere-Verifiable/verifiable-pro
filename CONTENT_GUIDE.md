@@ -79,7 +79,7 @@ The build stops when `title`, `dek`, `kind` or `published` is missing, and when 
 | `lead` | Optional, on a news brief: `true` pins the brief as the first row of the home page's "Latest news" rail. If several briefs are marked, the newest wins; if none is, the newest brief comes first. On other kinds the flag has no effect. |
 | `needs` | Guides only: what a reader needs before starting, written to complete "You need:" (你需要：), for example `the report, the vendor's certificates and published reference values`. Learn shows it on the guide's worksheet card. |
 | `author` | The name of the person who wrote the article, such as `Ada Lovelace`: one person, never the site's name or an automated byline's. Set it or `agent`, not both (see [Bylines](#bylines)). |
-| `agent` | For an article that the site's drafting software wrote: the id of its automated byline, from `agents` in `content/site.json`: `daily` (verifiable.pro Wire, for news briefs) or `research` (verifiable.pro Research, for explainers, analysis and guides). Set it or `author`, not both. |
+| `agent` | For an article that the site's drafting software wrote: the id of its automated byline, from `agents` in `content/site.json`: `daily` (verifiable.pro Wire, for news briefs), `research` (verifiable.pro Research, for the established research workflow), or `pipeline-research` (the same Research desk, for editor-selected Codex pipeline explainers). Set it or `author`, not both. |
 | `submitted_by` | Optional: the name of the person who submitted the story, as they asked to be credited. The byline adds "Submitted by" (提交者) and the name. Leave it out when the author submitted the story. |
 | `draft` | Optional: `true` keeps the article, and its Chinese edition, out of builds unless `python3 build.py --drafts` is used. |
 
@@ -118,7 +118,7 @@ An article carries the TEE label in every list, and counts as TEE coverage on La
 
 ### Bylines
 
-Every article says who drafted it, so that readers can tell automated work from a person's. Bylines follow wire-service style. An article a person wrote names that person in `author`. An article that the site's drafting software wrote appears under an automated byline, which `agent` names by an id from `agents` in `content/site.json`; there each automated byline has a name and a one-sentence description in both languages. The site has two: `daily`, verifiable.pro Wire (verifiable.pro 快讯), for the news briefs that the software drafts after scanning primary sources every day, and `research`, verifiable.pro Research (verifiable.pro 研究), for the explainers, analysis and guides that it drafts after studying a subject. Name a new automated byline the same way, "verifiable.pro" and a desk name, and keep the word "agent" out of its name and description: the "Automated" (自动采编) tag beside it says what it is, and the description says plainly what the software does and that the editor decides what is published. The field and its ids keep their names (`agent: daily`, `agent: research`), which no page shows. When someone submits a story, `submitted_by` credits them under the name they gave; the Story tip form asks for one, and leaving it blank means no credit. The drafting software is built on Anthropic's Claude models, so an article about Anthropic also carries a disclosure, written in the same terms ([Editorial rules](#editorial-rules)).
+Every article says who drafted it, so that readers can tell automated work from a person's. Bylines follow wire-service style. An article a person wrote names that person in `author`. An article that the site's drafting software wrote appears under an automated byline, which `agent` names by an id from `agents` in `content/site.json`; there each automated byline has a name and a one-sentence description in both languages. The established entries are `daily`, verifiable.pro Wire (verifiable.pro 快讯), for the news briefs that the software drafts after scanning primary sources every day, and `research`, verifiable.pro Research (verifiable.pro 研究), for the explainers, analysis and guides that it drafts after studying a subject. The `pipeline-research` entry uses the same Research desk name and identifies the OpenAI Codex daily editorial workflow in its description. Name a new automated byline the same way, "verifiable.pro" and a desk name, and keep the word "agent" out of its name and description: the "Automated" (自动采编) tag beside it says what it is, and the description says plainly what the software does and that the editor decides what is published. The field and its ids keep their names (`agent: daily`, `agent: research`), which no page shows. When someone submits a story, `submitted_by` credits them under the name they gave; the Story tip form asks for one, and leaving it blank means no credit. The established drafting software is built on Anthropic's Claude models, while `pipeline-research` uses OpenAI Codex. An article about a company whose tools helped draft it also carries a disclosure, written in the same terms ([Editorial rules](#editorial-rules)).
 
 The byline appears in these places:
 
@@ -165,6 +165,20 @@ Adding a byline field to a published article is a metadata-only edit (see [Front
 | `note` | Note / 注 | Side information |
 
 Open the `checked` callout with a sentence that stands alone, such as "On 20 October 2026 we read ...", because the site assistant quotes a callout as a passage of its own. A callout of any other kind has no default label. The disclosure box comes from the `disclosure` field, so do not write it as a callout.
+
+### Technical diagrams in explainers
+
+A technical explanation may include a captioned `<figure class="article-diagram">`
+block beside the mechanism it explains. Use a local SVG under `static/figures/`
+and an `<img class="article-diagram-img">` with descriptive alt text, its SVG's
+width and height, and `loading="lazy"`. A figure's `aria-labelledby` names its
+caption id. Wrap the image in an `<a class="article-diagram-link">` to the same
+local SVG, with a descriptive title, and include a visible full-size link in the
+caption. Credit the diagram's source and license in that caption. These are
+article figures, separate from the generated lead images in `static/media/`.
+The SVG must contain only the reviewed static diagram, with no scripts or
+external references. A relative image path must account for the English or
+Chinese article's URL depth; preview link checks verify both editions.
 
 ## Article anatomy
 

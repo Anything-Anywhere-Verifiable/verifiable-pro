@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="752" viewBox="0 0 1360 752" role="img" aria-labelledby="title description">
+<title id="title">FLASH UVM dirty tracking: concurrent copy followed by a small dirty delta</title>
+<desc id="description">First, the driver marks GPU-resident UVM regions read-only and starts a background copy while inference runs. A write fault marks its 2 MB region dirty and restores write permission. At a quiesce point, FLASH pauses inference to recopy dirty regions, restores read-write permissions, and resumes serving. Three example regions and the dirty bitmap illustrate the process.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#000000"/></marker></defs>
+<rect width="1360" height="752" fill="#FFFFFF"/>
+<text x="40" y="49" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" fill="#14191E" text-anchor="start">Copy in the background. Pause only for the dirty delta.</text>
+<text x="40" y="82" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="400" fill="#46525D" text-anchor="start">UVM write faults identify which 2 MB regions changed during concurrent copying.</text>
+<rect x="40" y="112" width="840" height="44" rx="7" fill="#E9F6F2" stroke="#000000" stroke-width="1.8"/>
+<text x="460" y="141" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#08766C" text-anchor="middle">CONCURRENT COPY  ·  INFERENCE CONTINUES</text>
+<rect x="920" y="112" width="400" height="44" rx="7" fill="#FFF1D4" stroke="#000000" stroke-width="1.8"/>
+<text x="1120" y="141" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" fill="#14191E" text-anchor="middle">STOP-AND-COPY  ·  SHORT PAUSE</text>
+<rect x="40" y="178" width="400" height="477" rx="11" fill="#FFFFFF" stroke="#000000" stroke-width="1.8"/>
+<rect x="480" y="178" width="400" height="477" rx="11" fill="#FFFFFF" stroke="#000000" stroke-width="1.8"/>
+<rect x="920" y="178" width="400" height="477" rx="11" fill="#FFFFFF" stroke="#000000" stroke-width="1.8"/>
+<circle cx="78" cy="216" r="19" fill="#E9F6F2" stroke="#000000" stroke-width="1.8"/>
+<text x="78" y="223" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700" fill="#14191E" text-anchor="middle">1</text>
+<text x="110" y="224" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#14191E" text-anchor="start">Protect and copy</text>
+<text x="64" y="268" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="400" fill="#14191E" text-anchor="start">Set tracked regions read-only.</text>
+<text x="64" y="296" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="400" fill="#14191E" text-anchor="start">Begin the background copy.</text>
+<rect x="100" y="335" width="80" height="84" rx="5" fill="#EAF1FA" stroke="#000000" stroke-width="1.8"/>
+<text x="140" y="364" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#14191E" text-anchor="middle">P0</text>
+<text x="140" y="397" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#14191E" text-anchor="middle">RO</text>
+<rect x="200" y="335" width="80" height="84" rx="5" fill="#EAF1FA" stroke="#000000" stroke-width="1.8"/>
+<text x="240" y="364" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#14191E" text-anchor="middle">P1</text>
+<text x="240" y="397" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#14191E" text-anchor="middle">RO</text>
+<rect x="300" y="335" width="80" height="84" rx="5" fill="#EAF1FA" stroke="#000000" stroke-width="1.8"/>
+<text x="340" y="364" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#14191E" text-anchor="middle">P2</text>
+<text x="340" y="397" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#14191E" text-anchor="middle">RO</text>
+<text x="240" y="448" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="400" fill="#46525D" text-anchor="middle">Each box is a 2 MB region</text>
+<line x1="240" y1="463" x2="240" y2="509" stroke="#000000" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="112" y="521" width="256" height="70" rx="7" fill="#EAF1FA" stroke="#000000" stroke-width="1.8"/>
+<text x="240" y="550" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#14191E" text-anchor="middle">Background image</text>
+<text x="240" y="577" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="400" fill="#46525D" text-anchor="middle">inference keeps running</text>
+<circle cx="518" cy="216" r="19" fill="#E9F6F2" stroke="#000000" stroke-width="1.8"/>
+<text x="518" y="223" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700" fill="#14191E" text-anchor="middle">2</text>
+<text x="550" y="224" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#14191E" text-anchor="start">Record writes</text>
+<text x="504" y="268" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="400" fill="#14191E" text-anchor="start">First write raises a UVM fault.</text>
+<text x="504" y="296" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="400" fill="#14191E" text-anchor="start">Mark its region dirty; allow writes.</text>
+<rect x="540" y="335" width="80" height="84" rx="5" fill="#EAF1FA" stroke="#000000" stroke-width="1.8"/>
+<text x="580" y="364" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#14191E" text-anchor="middle">P0</text>
+<text x="580" y="397" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#14191E" text-anchor="middle">RO</text>
+<rect x="640" y="335" width="80" height="84" rx="5" fill="#FCE9E5" stroke="#000000" stroke-width="1.8"/>
+<text x="680" y="364" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#14191E" text-anchor="middle">P1</text>
+<text x="680" y="397" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#14191E" text-anchor="middle">RW</text>
+<rect x="740" y="335" width="80" height="84" rx="5" fill="#EAF1FA" stroke="#000000" stroke-width="1.8"/>
+<text x="780" y="364" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#14191E" text-anchor="middle">P2</text>
+<text x="780" y="397" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#14191E" text-anchor="middle">RO</text>
+<text x="680" y="449" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" fill="#A62E30" text-anchor="middle">P1 written → bitmap bit = 1</text>
+<line x1="680" y1="463" x2="680" y2="509" stroke="#000000" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="552" y="521" width="256" height="70" rx="7" fill="#F5F6F8" stroke="#000000" stroke-width="1.8"/>
+<text x="582" y="562" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#14191E" text-anchor="start">Dirty bitmap</text>
+<rect x="700" y="539" width="30" height="35" rx="0" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<text x="715" y="564" font-family="'SFMono-Regular',Consolas,monospace" font-size="21" font-weight="700" fill="#14191E" text-anchor="middle">0</text>
+<rect x="730" y="539" width="30" height="35" rx="0" fill="#FCE9E5" stroke="#000000" stroke-width="1.2"/>
+<text x="745" y="564" font-family="'SFMono-Regular',Consolas,monospace" font-size="21" font-weight="700" fill="#14191E" text-anchor="middle">1</text>
+<rect x="760" y="539" width="30" height="35" rx="0" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<text x="775" y="564" font-family="'SFMono-Regular',Consolas,monospace" font-size="21" font-weight="700" fill="#14191E" text-anchor="middle">0</text>
+<circle cx="958" cy="216" r="19" fill="#FFF1D4" stroke="#000000" stroke-width="1.8"/>
+<text x="958" y="223" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700" fill="#14191E" text-anchor="middle">3</text>
+<text x="990" y="224" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#14191E" text-anchor="start">Pause, copy, resume</text>
+<text x="944" y="268" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="400" fill="#14191E" text-anchor="start">Quiesce at a consistent point.</text>
+<text x="944" y="296" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="400" fill="#14191E" text-anchor="start">Recopy only marked regions.</text>
+<rect x="980" y="335" width="80" height="84" rx="5" fill="#EAF1FA" stroke="#000000" stroke-width="1.8"/>
+<text x="1020" y="364" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#14191E" text-anchor="middle">P0</text>
+<text x="1020" y="397" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#14191E" text-anchor="middle">RO</text>
+<rect x="1080" y="335" width="80" height="84" rx="5" fill="#FCE9E5" stroke="#000000" stroke-width="1.8"/>
+<text x="1120" y="364" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#14191E" text-anchor="middle">P1</text>
+<text x="1120" y="397" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#14191E" text-anchor="middle">RW</text>
+<rect x="1180" y="335" width="80" height="84" rx="5" fill="#EAF1FA" stroke="#000000" stroke-width="1.8"/>
+<text x="1220" y="364" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#14191E" text-anchor="middle">P2</text>
+<text x="1220" y="397" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#14191E" text-anchor="middle">RO</text>
+<line x1="1120" y1="419" x2="1120" y2="496" stroke="#000000" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1000" y="508" width="240" height="60" rx="7" fill="#FCE9E5" stroke="#000000" stroke-width="1.8"/>
+<text x="1120" y="546" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#14191E" text-anchor="middle">Dirty delta: P1 only</text>
+<text x="1120" y="605" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700" fill="#14191E" text-anchor="middle">Restore RW permissions</text>
+<text x="1120" y="633" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#08766C" text-anchor="middle">Resume inference</text>
+<line x1="440" y1="376" x2="474" y2="376" stroke="#000000" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="880" y1="376" x2="914" y2="376" stroke="#000000" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="685" width="21" height="21" rx="3" fill="#EAF1FA" stroke="#000000" stroke-width="1.5"/>
+<text x="73" y="703" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="400" fill="#14191E" text-anchor="start">RO = read-only</text>
+<rect x="265" y="685" width="21" height="21" rx="3" fill="#FCE9E5" stroke="#000000" stroke-width="1.5"/>
+<text x="298" y="703" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="400" fill="#14191E" text-anchor="start">RW = read-write; marked region is dirty</text>
+<text x="1320" y="703" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="400" fill="#46525D" text-anchor="end">Conceptual flow; not a timing scale</text>
+</svg>

@@ -14,17 +14,33 @@
   },
   "agents": {
     "daily": {
-      "name": {"en": "verifiable.pro Wire", "zh": "verifiable.pro 快讯"},
+      "name": {
+        "en": "verifiable.pro Wire",
+        "zh": "verifiable.pro 快讯"
+      },
       "description": {
         "en": "Automated news gathering: software built on Anthropic's Claude models scans primary sources every day and drafts news briefs; the editor decides what is published.",
         "zh": "自动采编：基于 Anthropic Claude 模型的程序每天检索一手来源并起草新闻简报，由编辑决定是否发布。"
       }
     },
     "research": {
-      "name": {"en": "verifiable.pro Research", "zh": "verifiable.pro 研究"},
+      "name": {
+        "en": "verifiable.pro Research",
+        "zh": "verifiable.pro 研究"
+      },
       "description": {
         "en": "Automated research: software built on Anthropic's Claude models studies the sources on a subject and drafts explainers, analysis and guides; the editor decides what is published.",
         "zh": "自动调研：基于 Anthropic Claude 模型的程序围绕选题查阅资料，起草解读、分析与指南，由编辑决定是否发布。"
+      }
+    },
+    "pipeline-research": {
+      "name": {
+        "en": "verifiable.pro Research",
+        "zh": "verifiable.pro 研究"
+      },
+      "description": {
+        "en": "Automated research: software using OpenAI Codex through the daily editorial pipeline drafts editor-selected explainers from primary sources; the editor decides what is published.",
+        "zh": "自动调研：通过每日编辑流水线使用 OpenAI Codex 的程序根据一手来源起草编辑选定的解读，由编辑决定是否发布。"
       }
     }
   },
