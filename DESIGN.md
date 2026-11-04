@@ -4,6 +4,12 @@ This document describes the stylesheets in `static/site.css` (the site) and `sta
 
 The stylesheets hold the values. This document names the tokens and components and explains what each is for, so it stays true while sizes and colours are tuned; check a value in the stylesheet before relying on it.
 
+## Homepage latest articles 4 November 2026
+
+The homepage rail is now **Latest articles** (最新内容). It includes published news, analysis, explainers and guides in filing-date order, so a newly published research explainer is visible on the homepage. An explicitly pinned news brief still leads; when no brief is pinned, the newest article leads. The remaining five rows keep their order across kinds, and the link opens unfiltered Latest. The TEE block still selects news briefs and excludes articles already in the rail.
+
+The existing grid, responsive row count and optional lead images are unchanged. This selection and wording supersede references to a news-only home rail in the historical design notes below.
+
 ## Concept
 
 ### Publication subject in search and the home lead (1 November 2026)

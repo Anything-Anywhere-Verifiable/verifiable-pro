@@ -1349,7 +1349,7 @@ class TemplateTests(unittest.TestCase):
         self.assertEqual(set(render.HERO_CHAIN_SAMPLES), set(content.BIND_STATUSES))
 
     def test_a_lead_brief_pins_the_first_rail_row(self):
-        """lead: true puts a news brief first in "Latest news"; on another kind it does nothing."""
+        """A news lead pins the rail; other rows retain newest-first order across kinds."""
         def rail(arts):
             s = self.site()
             s.hero_svg = build.hero_svg()
@@ -1363,12 +1363,42 @@ class TemplateTests(unittest.TestCase):
         for a in arts:
             a.lead = False
         news = [a for a in arts if a.kind == "news"]
-        self.assertEqual(rail(arts), [a.slug for a in news[:6]])
+        self.assertEqual(rail(arts), [a.slug for a in arts[:6]])
         news[7].lead = True
-        self.assertEqual(rail(arts), [news[7].slug] + [a.slug for a in news[:5]])
+        self.assertEqual(rail(arts), [news[7].slug] + [a.slug for a in arts if a is not news[7]][:5])
         news[7].lead = False
-        next(a for a in arts if a.kind != "news").lead = True
-        self.assertEqual(rail(arts), [a.slug for a in news[:6]])
+        next(a for a in reversed(arts) if a.kind != "news").lead = True
+        self.assertEqual(rail(arts), [a.slug for a in arts[:6]])
+
+    def test_home_latest_includes_explainers_in_each_language(self):
+        """A newly filed explainer is discoverable on home, including a news-free site."""
+        for lang in content.LANGS:
+            s = self.site(lang)
+            s.hero_svg = build.hero_svg()
+            s.hero_anchors = build.hero_anchors(s.hero_svg, len(self.model["topics"]["stack"]))
+            arts = [copy.copy(a) for a in self.model["articles"][lang]]
+            for a in arts:
+                a.lead = False
+            explainer = next(a for a in arts if a.kind == "explainer")
+            explainer.lead_image = None
+            news = [a for a in arts if a.kind == "news"]
+            newest = [explainer] + news[:7]
+            for stories in (newest, [explainer]):
+                with self.subTest(lang=lang, count=len(stories)):
+                    doc = parse_html(s.home(stories)[1])
+                    rail = doc.find("section", cls="home-news")
+                    lead = rail.find("article", cls="news-lead")
+                    self.assertNotIn("has-thumb", lead.classes)
+                    article_url = loc(f"/articles/{explainer.slug}/", lang)
+                    current = LANG_DIR[lang] + "index.html"
+                    self.assertEqual(canonical(current, lead.find("h3").find("a").attrs["href"]), article_url)
+                    self.assertIn(norm(self.model["strings"][lang]["kind_explainer"]), lead.text())
+                    self.assertEqual(explainer.kind, "explainer")
+                    more = rail.find("div", cls="block-head").find("a")
+                    self.assertEqual(canonical(current, more.attrs["href"]), loc("/latest/", lang))
+                    self.assertEqual(more.text(), norm(self.model["strings"][lang]["latest_title"] + " →"))
+            doc = parse_html(s.home([])[1])
+            self.assertIsNone(doc.find("section", cls="home-news").find("article", cls="news-lead"))
 
     def test_unknown_include_stops_the_build(self):
         page = types.SimpleNamespace(path="content/pages/x.en.md", html='<p>a</p>\n<div data-include="nope"></div>')
@@ -3907,10 +3937,11 @@ class BuildOutputTests(unittest.TestCase):
         return [a for a in self.articles(lang) if a.kind == "news"]
 
     def rail(self, lang):
-        """The home page's "Latest news": the lead brief (or the newest), then the five newest briefs."""
+        """The news lead (or newest article), then the five newest remaining articles."""
+        articles = self.articles(lang)
         news = self.news(lang)
-        lead = next((a for a in news if a.lead), news[0])
-        return [lead] + [a for a in news if a is not lead][:5]
+        lead = next((a for a in news if a.lead), articles[0])
+        return [lead] + [a for a in articles if a is not lead][:5]
 
     def path_steps(self):
         return self.model["tee"]["path"]
@@ -4014,12 +4045,12 @@ class BuildOutputTests(unittest.TestCase):
             self.assertEqual([a.text() for a in links.find_all("a")], [norm(s["stack_more"] + " →"), norm(s["stack_compare"] + " →")], rel)
             self.assertEqual(hero_parts(doc)[0], [svg], rel)
 
-            # "Latest news" follows the band: the lead brief (or the newest) with its dek, then the
-            # five newest briefs, all with tags (the stylesheet hides the fifth below 960px)
+            # Latest articles follows the band: the news lead (or newest article) with its dek,
+            # then five newest articles with tags (the stylesheet hides the fifth below 960px).
             rail = doc.find("section", cls="home-news")
             self.assertFalse(rail.within(doc.find("section", cls="home-hero")), rel)
             self.assertEqual(rail.find("h2").text(), norm(s["on_record"]), rel)
-            self.assertEqual(self.links(rel, rail.find("div", cls="block-head")), [loc("/latest/", lang) + "#news"], rel)
+            self.assertEqual(self.links(rel, rail.find("div", cls="block-head")), [loc("/latest/", lang)], rel)
             lead = rail.find("article", cls="news-lead")
             self.assertEqual(lead.find("p", cls="news-lead-dek").text(), norm(self.rail(lang)[0].dek), rel)
             rows = [lead] + rail.find_all("li", cls="ledger-row")
