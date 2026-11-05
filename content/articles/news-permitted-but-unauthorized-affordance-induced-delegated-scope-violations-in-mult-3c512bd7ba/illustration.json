@@ -1,0 +1,58 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass agent cube sits at the center. A dashed orange line with packets runs from it to a violet checker block; beyond it the line is broken before a gray database beside a small plain-glass agent. A solid orange line runs the other way to a gray document next to a yellow warning sign.",
+    "zh": "画面中央是一个青绿色玻璃智能体方块。一条带数据包的橙色虚线从它通向紫色检查器方块，其后的线路在灰色数据库和一个小型透明智能体前断开；另一条橙色实线通向灰色文档，文档旁立着黄色警示牌。"
+  },
+  "caption": {
+    "en": "Illustration: An agent's path toward a peer agent's resource is cut off after a checker, while its path to its own report passes no check and stands beside a warning sign. It does not depict a tested deployment, the paper's simulated environments or its reported results.",
+    "zh": "示意图：智能体通向同伴智能体资源的路径在检查器之后中断，而通向自身报告的路径不经过任何检查，旁边立着警示牌。图中并非经过测试的实际部署，也不代表论文的模拟环境或其报告的结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "actor",
+    "items": [
+      {
+        "prop": "agent",
+        "id": "actor",
+        "at": [0, 0],
+        "size": 1.8,
+        "tint": "agents",
+        "core": "sphere",
+        "glow": true
+      },
+      {
+        "prop": "math_block",
+        "id": "monitor",
+        "at": [0, 4.0],
+        "size": 1.1,
+        "mark": "turnstile",
+        "tint": "evaluations"
+      },
+      {"prop": "database", "id": "peer", "at": [0, 7.3], "r": 0.7, "tiers": 3, "tint": "neutral"},
+      {
+        "prop": "agent",
+        "id": "peer-agent",
+        "at": [-1.7, 7.3],
+        "size": 1.0,
+        "tint": "neutral",
+        "core": "sphere"
+      },
+      {"prop": "document", "id": "report", "at": [0, -3.4], "tint": "neutral", "lines": 5},
+      {"prop": "sign", "id": "risk", "at": [-1.9, -3.4], "tint": "warn"}
+    ],
+    "links": [
+      {
+        "from": "actor",
+        "to": "monitor",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.58, 0.8],
+        "arrow": true
+      },
+      {"from": "monitor", "to": "peer", "style": "broken", "gap": 0.55, "color": "data"},
+      {"from": "actor", "to": "report", "style": "solid", "color": "data", "packets": [0.5]}
+    ]
+  },
+  "svg_sha256": "a1b08721aa7228d87f1e468f13914f2d4bae7c703ab0c651e977ddc9b7783011"
+}
