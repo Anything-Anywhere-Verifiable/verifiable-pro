@@ -1,0 +1,72 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large standing ticket card with a teal seal sits on a gray floor. A rubber stamp and its red impression stand to its left. A dotted indigo arc runs to it from a block ledger on a desk at the back right, and a dashed orange line with one packet runs from it to a sealed envelope at the front.",
+    "zh": "灰色地面中央立着一张带青绿色封印的大票据，左侧是一枚印章及其红色印痕。右后方书桌上的区块账本以一条蓝紫色点线弧连向票据；票据前方有一条带数据包的橙色虚线，通往一个已封口的信封。"
+  },
+  "caption": {
+    "en": "Illustration: a sealed ticket stands for a Skill's approved security obligations, with a stamp for the host's approvals, desk-ledger records checked against the ticket, and a sealed envelope for an outbound send waiting on that check. It does not depict the RuntimeTickets system or a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：带封印的票据代表某个技能获批的安全约束，印章代表宿主的批准，书桌上账本中的记录与票据逐项核对，封好的信封则代表等待这项核对的对外发送。图中并非 RuntimeTickets 系统或任何经过测试的部署，也不表明这些检查确实如所述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "ticket",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "certificate",
+        "id": "ticket",
+        "at": [-0.2, -0.2],
+        "tint": "agents",
+        "w": 1.6,
+        "h": 1.4,
+        "scale": 2
+      },
+      {"prop": "stamp", "id": "stamp", "at": [-3.0, -1.2], "tint": "seal", "impression": true},
+      {"prop": "desk", "id": "desk", "at": [2.6, 1.8], "w": 3.0, "d": 1.6, "h": 1.0},
+      {
+        "prop": "ledger",
+        "id": "ledger",
+        "at": [2.6, 1.8],
+        "on": "desk",
+        "tint": "tee",
+        "count": 4,
+        "size": 0.55,
+        "pending": true
+      },
+      {
+        "prop": "document",
+        "id": "envelope",
+        "at": [1.6, -2.2],
+        "pose": "lying",
+        "tint": "neutral",
+        "w": 1.4,
+        "h": 1.0,
+        "header": false,
+        "lines": 0,
+        "seal": "tee"
+      }
+    ],
+    "links": [
+      {
+        "from": "ledger.new",
+        "to": "ticket.top",
+        "route": "arc",
+        "lift": 1.2,
+        "style": "dotted",
+        "color": "tee"
+      },
+      {"from": "stamp.base", "to": "ticket.base", "style": "dotted", "color": "mute"},
+      {
+        "from": "ticket.base",
+        "to": "envelope",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "95364166de72bb0e55832410e89e81cd325799bf2472a8072eff61636f24935e"
+}
