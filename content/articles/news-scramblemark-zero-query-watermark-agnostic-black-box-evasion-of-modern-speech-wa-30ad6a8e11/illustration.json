@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A dashed orange line with packets runs from a gray neural-network card to a pink sound-clip card carrying a faint wave pattern, then on through a violet gateway to a violet dial whose needle rests near zero.",
+    "zh": "一条带数据小方块的橙色虚线从灰色神经网络卡片连到一张带淡淡波纹图案的粉色音频卡片，再穿过一道紫色门框，通向一只指针接近零位的紫色仪表。"
+  },
+  "caption": {
+    "en": "Illustration: a speech clip reworked by a scrambling model still carries its watermark pattern yet passes a detector gate whose dial stays near zero, as the ScrambleMark authors report. It does not depict a tested deployment or any named platform's detector, and it does not show that the attack works as described.",
+    "zh": "示意图：按 ScrambleMark 作者的说法，经扰乱模型处理的语音片段仍带着水印图案，却通过了检测门，仪表读数接近零。图中并未描绘任何经过测试的实际部署或具名平台的检测器，也不表明该攻击如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "clip",
+    "items": [
+      {"prop": "neural_net", "id": "scrambler", "at": [-4.0, 0], "tint": "neutral", "w": 2.0, "h": 1.4},
+      {
+        "prop": "photo",
+        "id": "clip",
+        "at": [0, 0],
+        "tint": "outputs",
+        "content": "audio",
+        "mark": "wave",
+        "w": 2.6,
+        "h": 2.0
+      },
+      {
+        "prop": "gate",
+        "id": "detector",
+        "at": [3.9, 0],
+        "facing": "right",
+        "tint": "evaluations",
+        "w": 1.8,
+        "h": 2.0
+      },
+      {"prop": "gauge", "id": "reading", "at": [6.4, 0], "tint": "evaluations", "value": 0.08, "size": 1.5}
+    ],
+    "links": [
+      {"from": "scrambler", "to": "clip", "style": "dashed", "packets": [0.45]},
+      {"from": "clip", "to": "reading", "style": "dashed", "packets": [0.82]}
+    ]
+  },
+  "svg_sha256": "8e949a13f337de6934b36cc9fd27f975927b7b8a9ab389c0ad9e1a283dd10965"
+}
