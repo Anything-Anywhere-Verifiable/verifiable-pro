@@ -1,0 +1,64 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A gray server rack stands at the center. A blue line from a blue block of model weights on the left breaks before reaching it, a dotted dark line runs to it from a blue-headed page in front, and an orange line with a packet reaches it from a gray weights block inside a glass enclosure on the right.",
+    "zh": "画面中央是一台灰色服务器机柜。左侧蓝色模型权重方块引出的蓝线在到达机柜前断开；前方一页蓝色页眉的文档以深色点线指向机柜；右侧玻璃罩内的灰色权重方块以带数据包的橙色线接入机柜。"
+  },
+  "caption": {
+    "en": "Illustration: A configuration page directs a serving engine away from the advertised model, whose path breaks, to a checkpoint in another, walled-off directory, as the vLLM advisory describes. It does not depict vLLM's code, a real host or a tested deployment, and it does not show that the reported flaw or the fix behaves as described.",
+    "zh": "示意图：一页配置文档让推理服务引擎放弃对外标示的模型（其路径中断），转而加载另一个被隔开的目录中的检查点，对应 vLLM 公告描述的情形。图中并非 vLLM 的代码或真实主机，也不是经过测试的部署，不表示公告所述漏洞或修复确如其所述。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "engine",
+    "items": [
+      {
+        "prop": "weights",
+        "id": "advertised",
+        "at": [-2.8, -2.8],
+        "tint": "models",
+        "note": "the advertised model repository's checkpoint"
+      },
+      {
+        "prop": "server_rack",
+        "id": "engine",
+        "at": [0, 0],
+        "scale": 1.2,
+        "units": 6,
+        "note": "the serving engine"
+      },
+      {
+        "prop": "document",
+        "id": "config",
+        "at": [1.1, -3.9],
+        "tint": "models",
+        "note": "the crafted configuration page from the advertised repository"
+      },
+      {
+        "prop": "enclosure",
+        "id": "private",
+        "at": [3, 3],
+        "w": 2.3,
+        "d": 2.3,
+        "h": 2.2,
+        "tint": "neutral",
+        "note": "another directory on the same host",
+        "items": [{"prop": "weights", "id": "other", "at": [3, 3], "tint": "neutral"}]
+      }
+    ],
+    "links": [
+      {"from": "advertised", "to": "engine", "style": "broken", "color": "models"},
+      {"from": "config", "to": "engine", "style": "dotted", "color": "ink", "arrow": true},
+      {
+        "from": "other",
+        "to": "engine",
+        "style": "solid",
+        "color": "data",
+        "packets": [0.62],
+        "arrow": true,
+        "glow": true
+      }
+    ]
+  },
+  "svg_sha256": "c5ae6ede65b625d3ffc4ab5b0bcf5eeab346a5e0a09d914cfb0b9951fccfea80"
+}
