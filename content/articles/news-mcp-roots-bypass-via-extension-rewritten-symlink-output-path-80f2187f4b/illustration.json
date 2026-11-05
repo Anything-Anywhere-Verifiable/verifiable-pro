@@ -1,0 +1,85 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A yellow warning sign on a post stands at the center of a gray floor. A dotted orange line runs from a standing document at the front left to the sign, a dotted gray line continues from the sign into an indigo dashed area at the back right, and a curved orange arrow bends from the sign down onto a stack of pages lying outside that area.",
+    "zh": "一块黄色警示牌立在灰色地面中央。一条橙色点线从左前方的一份文件通向警示牌，一条灰色点线从牌子继续伸入右后方的靛蓝虚线区域，一条橙色弧形箭头则从牌子弯向该区域之外的一叠纸页。"
+  },
+  "caption": {
+    "en": "Illustration: a document's dotted route toward a dashed root boundary is bent at a warning sign by a curved arrow onto a file outside the boundary, as the advisory describes the symlink rewrite. It does not depict chrome-devtools-mcp, a tested deployment or an actual overwrite, and it does not show that the fix works.",
+    "zh": "示意图：文件的点线路径本应进入虚线标出的根目录区域，却在警示牌处被弧形箭头改道，落到区域之外的一叠纸页上，对应公告描述的符号链接改写。图中不是 chrome-devtools-mcp 的实际部署或测试结果，也不表示覆盖已经发生或修复有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "detour",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "document",
+        "id": "file",
+        "at": [0.4, -3.2],
+        "tint": "neutral",
+        "pose": "standing",
+        "lines": 5,
+        "note": "the output request's document, starting at the front left"
+      },
+      {
+        "prop": "sign",
+        "id": "detour",
+        "at": [0.0, 0.0],
+        "tint": "warn",
+        "scale": 1.8,
+        "note": "focal: the signpost at the fork where the path's extension is rewritten"
+      },
+      {
+        "prop": "zone",
+        "id": "roots",
+        "at": [0.8, 3.4],
+        "tint": "tee",
+        "w": 2.8,
+        "d": 2.4,
+        "dashed": true,
+        "fill": true,
+        "note": "the configured MCP roots boundary on the floor, at the back right"
+      },
+      {
+        "prop": "papers",
+        "id": "outside",
+        "at": [3.0, 0.2],
+        "tint": "neutral",
+        "count": 3,
+        "note": "the writable file outside the roots, reached through the symlink"
+      }
+    ],
+    "links": [
+      {
+        "from": "file",
+        "to": "detour",
+        "route": "straight",
+        "style": "dotted",
+        "color": "data",
+        "packets": [0.5],
+        "note": "the validated output path arriving at the fork"
+      },
+      {
+        "from": "detour",
+        "to": [0.8, 3.4, 0],
+        "route": "straight",
+        "style": "dotted",
+        "color": "mute",
+        "note": "the intended continuation into the root area, ending at a point inside the dashed zone (a flat zone has no outline for a link end to meet); never taken"
+      },
+      {
+        "from": "detour.front",
+        "to": "outside",
+        "route": "arc",
+        "lift": 1.2,
+        "style": "solid",
+        "color": "data",
+        "arrow": true,
+        "note": "the symlink bending the write to the file outside the boundary"
+      }
+    ]
+  },
+  "svg_sha256": "c708884b68b40dd57d3d52217455a515e7a62339fc736ba37631b3114d718c6c"
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A gray rule book at the front left connects by a dotted gray line to a gray block with a turnstile mark, which a dashed dark line joins to a tall page with a teal header at the center. A dashed orange line with two packets runs from the page to a teal glass agent cube on the right.",
+    "zh": "左前方的灰色规则手册经灰色点线连到带推导符号的灰色方块，方块再经深色虚线连到中央一页带青绿色页眉的高大文档；一条带两个数据包的橙色虚线从文档通向右侧的青绿色玻璃智能体方块。"
+  },
+  "caption": {
+    "en": "Illustration: A checker that draws on a rule catalog adds obligations to a requirements document before the document reaches a coding agent, as Kiro describes its specification hardening prototype. It does not depict Kiro's software or a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：检查器依据规则手册，在需求文档交给编程智能体之前为其补充安全义务，对应 Kiro 所描述的规范加固原型。图中并非 Kiro 的软件，也不代表任何经过测试的部署，更不表示这些检查如其所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "spec",
+    "items": [
+      {
+        "prop": "book",
+        "id": "catalog",
+        "at": [-0.6, -5.0],
+        "tint": "neutral",
+        "w": 1.3,
+        "d": 1.6,
+        "emblem": "lock"
+      },
+      {
+        "prop": "math_block",
+        "id": "checker",
+        "at": [-0.4, -2.2],
+        "tint": "neutral",
+        "size": 1.2,
+        "mark": "turnstile"
+      },
+      {"prop": "document", "id": "spec", "at": [0, 0], "tint": "agents", "w": 2.0, "h": 2.7, "lines": 8},
+      {"prop": "agent", "id": "agent", "at": [3.4, 0.8], "tint": "agents", "size": 1.2, "glow": true}
+    ],
+    "links": [
+      {"from": "catalog", "to": "checker", "style": "dotted", "color": "mute"},
+      {"from": "checker", "to": "spec", "style": "dashed", "color": "ink"},
+      {"from": "spec", "to": "agent", "style": "dashed", "color": "data", "packets": [0.42, 0.56]}
+    ]
+  },
+  "svg_sha256": "f861bdf0b0f814d0aa19edd76b54cb998c24841b6c1a013faad3d75baca73a45"
+}

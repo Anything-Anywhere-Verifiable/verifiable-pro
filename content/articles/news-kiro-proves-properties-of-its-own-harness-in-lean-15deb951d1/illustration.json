@@ -1,0 +1,27 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass cube with a sphere inside is joined by a teal line to an open gray laptop showing code. A dotted dark line runs from the laptop to a large gray stepped pyramid of blocks at the center, and a light gray line joins the pyramid to a gray block marked with a turnstile on the right.",
+    "zh": "青绿色玻璃立方体内有一个球体，一条青绿色线把它连到一台显示代码的灰色笔记本电脑。一条深色点线从笔记本电脑通向画面中央由方块堆成的灰色阶梯金字塔，右侧一个带推导符号的灰色方块以浅灰线与金字塔相连。"
+  },
+  "caption": {
+    "en": "Illustration: A dotted line stands for the sampled comparisons that connect an agent's harness code to a separate formal model, the stack of blocks that a checker examines. It does not depict Kiro's code, proofs or a tested deployment, and it does not show that the model matches the code.",
+    "zh": "示意图：点线代表抽样比对，它把智能体框架代码与另行编写的形式化模型联系起来；模型由方块堆成，一旁是检查它的检查器。图中没有描绘 Kiro 的代码、证明或任何经过测试的部署，也不表示模型与代码一致。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "model",
+    "items": [
+      {"prop": "agent", "id": "agent", "at": [-4.9, -1.9], "tint": "agents"},
+      {"prop": "laptop", "id": "code", "at": [-2.0, -2.9], "content": "code"},
+      {"prop": "proof_tree", "id": "model", "at": [0, 0], "tint": "neutral", "levels": 4},
+      {"prop": "math_block", "id": "checker", "at": [4.0, 0.6], "size": 1.2, "mark": "turnstile"}
+    ],
+    "links": [
+      {"from": "agent", "to": "code", "color": "agents", "style": "solid"},
+      {"from": "code", "to": "model", "color": "ink", "style": "dotted"},
+      {"from": "checker", "to": "model", "color": "mute", "style": "solid"}
+    ]
+  },
+  "svg_sha256": "3e6de5757a13059a4630b577949000d8fb52e6020746d40717f8d2001d0f1f55"
+}

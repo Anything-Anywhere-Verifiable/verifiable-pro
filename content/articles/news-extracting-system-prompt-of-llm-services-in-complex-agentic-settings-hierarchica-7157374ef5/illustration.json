@@ -1,0 +1,82 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass enclosure holds an AI agent cube and a standing page of writing. A dashed orange line runs from the agent out through the glass to a teal tool tile, then on with a packet to a second page standing in front, beside a violet gauge joined to it by a dotted gray line.",
+    "zh": "青色玻璃罩内有一个智能体立方体和一页竖立的文字稿。一条橙色虚线从智能体穿出玻璃，连到青色工具牌，再带着数据包延伸到前方另一页文字稿；旁边的紫色仪表盘以灰色点线与之相连。"
+  },
+  "caption": {
+    "en": "Illustration: an agent service with its system prompt behind glass, the actions an observer sees, a reconstructed prompt and a score for it, as the method the ExtraHerO preprint describes. It does not depict a tested deployment, and it does not show that the extraction or its metrics work as described.",
+    "zh": "示意图：玻璃罩内的智能体服务及其系统提示词、观察者可见的动作、重建出的提示词及其评分，对应 ExtraHerO 预印本描述的方法。图中不代表任何经过测试的部署，也不表明该提取方法或其指标如描述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "service",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "enclosure",
+        "id": "service",
+        "at": [-0.6, 0.6],
+        "w": 2.8,
+        "d": 2.2,
+        "h": 2.6,
+        "tint": "agents",
+        "items": [
+          {
+            "prop": "agent",
+            "id": "agent",
+            "at": [-1.1, 0.5],
+            "tint": "agents",
+            "core": "sphere",
+            "scale": 1.1
+          },
+          {
+            "prop": "document",
+            "id": "prompt",
+            "at": [-0.2, 1.3],
+            "tint": "neutral",
+            "pose": "standing",
+            "w": 1.0,
+            "h": 1.4,
+            "lines": 8
+          }
+        ]
+      },
+      {"prop": "tool", "id": "action", "at": [1.4, -0.9], "tint": "agents", "icon": "terminal"},
+      {
+        "prop": "document",
+        "id": "reconstruction",
+        "at": [2.3, 0.1],
+        "tint": "neutral",
+        "pose": "standing",
+        "w": 1.25,
+        "h": 1.65,
+        "lines": 8
+      },
+      {"prop": "gauge", "id": "score", "at": [2.8, 1.6], "tint": "evaluations", "value": 0.6, "size": 1.4}
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "action",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "arrow": true
+      },
+      {
+        "from": "action",
+        "to": "reconstruction",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true,
+        "glow": true
+      },
+      {"from": "reconstruction", "to": "score", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "278a5768467ed5c02ddba7d54c015845d986ad864b38d850bc3421898f14c3a0"
+}

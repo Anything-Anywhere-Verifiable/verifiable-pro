@@ -1,0 +1,91 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A violet balance scale stands at the center of a gray floor. A small indigo block sits to its left and a teal cloud to its right, with a gray book lying in front at the right. A dashed orange line with packets runs from a teal glass agent cube at the front left to the scale, and dotted gray lines join the block and the cloud to it.",
+    "zh": "灰色地面中央立着一架紫色天平，左侧是一个靛蓝色小方块，右侧是一朵青绿色的云，右前方平放着一本灰色的书。一条带数据包的橙色虚线从左前方的青绿色玻璃智能体方块通向天平，灰色点线把方块和云分别与天平相连。"
+  },
+  "caption": {
+    "en": "Illustration: a balance scale weighing a solid block of hard, executable rules against a cloud of learned judgment, with an agent's proposed actions arriving at the scale and a rule book beside it. It does not depict the preprint's guard, models or tests or any tested deployment, and it does not show that the approach works as reported.",
+    "zh": "示意图：一架天平权衡着代表硬性可执行规则的实心方块与代表学习所得判断的云，智能体提出的动作送达天平，旁边放着一本规则手册。图中并非预印本所述的关卡、模型或实验，也不代表任何经过测试的部署，更不表明该方法如报告所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "scale",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "scale",
+        "id": "scale",
+        "at": [0, 0],
+        "tint": "evaluations",
+        "size": 1.5,
+        "tilt": 0,
+        "note": "the weighing of hard rules against learned judgment"
+      },
+      {
+        "prop": "box",
+        "id": "hard_rules",
+        "at": [-2.0, -2.0],
+        "w": 0.9,
+        "d": 0.9,
+        "h": 0.9,
+        "tint": "tee",
+        "note": "solid block: hard, executable limits"
+      },
+      {
+        "prop": "cloud",
+        "id": "judgment",
+        "at": [2.4, 2.4],
+        "w": 2.3,
+        "tint": "agents",
+        "note": "soft cloud: learned judgment rules"
+      },
+      {
+        "prop": "book",
+        "id": "rule_book",
+        "at": [2.2, -2.2],
+        "tint": "neutral",
+        "emblem": "bars",
+        "ribbon": true,
+        "note": "the owner's rule book beside the scale"
+      },
+      {
+        "prop": "agent",
+        "id": "agent",
+        "at": [-2.2, -4.2],
+        "tint": "agents",
+        "core": "sphere",
+        "glow": false,
+        "note": "the agent proposing actions"
+      }
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "scale",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.3, 0.65],
+        "arrow": true,
+        "glow": true,
+        "note": "proposed actions arriving to be weighed"
+      },
+      {
+        "from": "hard_rules",
+        "to": "scale",
+        "style": "dotted",
+        "color": "mute",
+        "note": "the hard block is one side of the balance"
+      },
+      {
+        "from": "judgment",
+        "to": "scale",
+        "style": "dotted",
+        "color": "mute",
+        "note": "the judgment cloud is the other side"
+      }
+    ]
+  },
+  "svg_sha256": "8d7d8d74d8b50ef0cf914393c45d40b0459b14b26aec3fb21e7ecaf67c93a458"
+}
