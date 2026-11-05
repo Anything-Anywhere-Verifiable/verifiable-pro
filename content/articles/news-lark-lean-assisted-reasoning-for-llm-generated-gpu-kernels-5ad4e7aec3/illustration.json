@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-lark-lean-assisted-reasoning-for-llm-generated-gpu-kernels-5ad4e7aec3.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "38ccb222bb00c9b36412ce03ef6cc53251e1f16b78e9bdd15198141338201668",
+  "variants": {
+    "list": {
+      "file": "news-lark-lean-assisted-reasoning-for-llm-generated-gpu-kernels-5ad4e7aec3-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "aee903b8b61f8a5af3664ab544ef005175b1e8692bcd43ca03adef6c2835f131"
+    },
+    "thumb": {
+      "file": "news-lark-lean-assisted-reasoning-for-llm-generated-gpu-kernels-5ad4e7aec3-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "f63aa1e54f9639abc5cbb819c50211bff0cfe12bbd2561e08f370c0815662bc1"
+    },
+    "social": {
+      "file": "news-lark-lean-assisted-reasoning-for-llm-generated-gpu-kernels-5ad4e7aec3-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "22bbf50ac0017661bfc23bea6b6164e539e008c7bbf54d7bde6584cd9ab42b4d"
+    }
+  },
+  "edits": {
+    "source_sha256": "9f8d6a21324fd101e6f91e6f66845de9ac58bf6b42f5377a02835123fa2e0eb7",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The paper describes proofs of kernel equivalence under exact arithmetic, with reported benchmark results. Trust still rests on operator semantics and whether the checked kernel matches the deployed one.",
+    "zh": "论文介绍了在精确算术假设下核验内核等价性的方法，并报告了基准结果。可信范围仍取决于算子语义，以及接受核验的内核是否与实际部署一致。"
+  },
+  "caption": {
+    "en": "The paper describes proofs of kernel equivalence under exact arithmetic, with reported benchmark results. Trust still rests on operator semantics and whether the checked kernel matches the deployed one.",
+    "zh": "论文介绍了在精确算术假设下核验内核等价性的方法，并报告了基准结果。可信范围仍取决于算子语义，以及接受核验的内核是否与实际部署一致。"
+  },
+  "credit": "Zixi Zhang, Jiayi Nie, Haoran Wu, Yujie Yan, Yann Herklotz, Rika Antonova, Robert Mullins, Yiren Zhao, George A. Constantinides, Jianyi Cheng",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.02028",
+  "retrieved": "2026-11-05"
+}
