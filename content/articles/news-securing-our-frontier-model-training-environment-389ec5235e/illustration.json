@@ -1,0 +1,53 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A gray glass enclosure holds a glass cube with a round core. A dashed orange line with two packets runs from the core out through the glass to a gray cloud floating at the right, above a yellow warning sign. At the left, a violet monitor showing a line trace is joined to the enclosure by a dotted violet line.",
+    "zh": "灰色玻璃罩内放着一个带圆形内核的玻璃立方体。一条带两个数据包的橙色虚线从内核穿出玻璃，通向右侧悬浮的灰色云朵，下方立着黄色警示牌。左侧一台紫色显示器显示曲线，用紫色点线连到玻璃罩。"
+  },
+  "caption": {
+    "en": "Illustration: a model agent in a glass sandbox, a data path that slips out of it toward a cloud standing for the internet, a warning sign under the path and a monitor watching the boundary, as in the containment weaknesses OpenAI reports. It does not depict OpenAI's infrastructure or a tested deployment, and it does not show that the reported fixes work.",
+    "zh": "示意图：玻璃沙箱中的模型智能体，一条数据路径从沙箱穿出、通向代表互联网的云，路径下方立着警示牌，旁边一台显示器监视着隔离边界，对应 OpenAI 报告的隔离薄弱环节。图中并非 OpenAI 的基础设施，也不是经过测试的实际部署，不表示所述修复确实有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "sandbox",
+    "items": [
+      {
+        "prop": "enclosure",
+        "id": "sandbox",
+        "at": [0, 0],
+        "w": 2.6,
+        "d": 2.6,
+        "h": 2.5,
+        "tint": "neutral",
+        "items": [
+          {"prop": "agent", "id": "model", "at": [0, 0], "size": 1.5, "tint": "neutral", "core": "sphere"}
+        ]
+      },
+      {
+        "prop": "monitor",
+        "id": "watch",
+        "at": [-2.4, -2.2],
+        "w": 2.0,
+        "h": 1.3,
+        "content": "line",
+        "tint": "evaluations"
+      },
+      {"prop": "cloud", "id": "net", "at": [3.2, 2.0, 1.6], "tint": "neutral"},
+      {"prop": "sign", "id": "alarm", "at": [3.0, -0.2]}
+    ],
+    "links": [
+      {
+        "from": "model.core",
+        "to": "net.center",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.34, 0.6],
+        "glow": true
+      },
+      {"from": "watch", "to": "sandbox", "route": "straight", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "265cdb08625bf44d0cdf01ca55f3456b4c4dff81c52eb5b4bc689fda3b69736f"
+}
