@@ -1,0 +1,85 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A stack of four gray blocks, the top one violet, carries a round teal seal. A standing report page to its right receives a dashed orange line with a packet from a small screen behind it and a dotted gray line from a teal glass agent cube at the front left; a dark line leads from the page to the stack.",
+    "zh": "四个灰色方块叠成一摞，最上一块为紫色，顶端放着一枚青绿色圆形印记。右侧立着一页报告，后方的小屏幕以带数据包的橙色虚线连向它，左前方的青绿色玻璃智能体方块以灰色点线连向它，报告再以深色实线指向方块堆。"
+  },
+  "caption": {
+    "en": "Illustration: a stack of merged changes topped with a readiness seal, a review record page fed by a test screen and a reviewer agent, as in the process Kiro describes. It does not depict Kiro's repository, checks or agents, it does not show a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：一摞已合并的改动顶端放着就绪印记，测试屏幕和审查智能体把证据汇入审查记录页，对应 Kiro 描述的流程。图中不是 Kiro 的代码仓库、检查或智能体，不代表经过测试的部署，也不表明这些检查如描述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "stack",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "ledger",
+        "id": "stack",
+        "at": [0, 0],
+        "layout": "stack",
+        "count": 4,
+        "size": 0.9,
+        "pending": false,
+        "tint": "evaluations",
+        "note": "merged change blocks, newest on top"
+      },
+      {
+        "prop": "seal",
+        "id": "verdict",
+        "at": [0, 0],
+        "on": "stack",
+        "tint": "agents",
+        "r": 0.4,
+        "note": "round readiness seal on top of the stack"
+      },
+      {
+        "prop": "document",
+        "id": "record",
+        "at": [2.4, -0.4],
+        "tint": "neutral",
+        "pose": "standing",
+        "w": 1.25,
+        "h": 1.65,
+        "header": true,
+        "signature": true,
+        "seal": "none",
+        "lines": 7,
+        "note": "the review record page"
+      },
+      {
+        "prop": "screen",
+        "id": "testscreen",
+        "at": [1.8, 2.4],
+        "tint": "neutral",
+        "w": 1.6,
+        "h": 1.0,
+        "content": "image",
+        "note": "the test pod's screenshots"
+      },
+      {
+        "prop": "agent",
+        "id": "reviewer",
+        "at": [-0.4, -2.2],
+        "tint": "agents",
+        "size": 1.2,
+        "core": "sphere",
+        "note": "a reviewer agent"
+      }
+    ],
+    "links": [
+      {
+        "from": "testscreen",
+        "to": "record",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true
+      },
+      {"from": "reviewer", "to": "record", "style": "dotted", "color": "mute"},
+      {"from": "record", "to": "stack", "style": "solid", "color": "ink", "arrow": true}
+    ]
+  },
+  "svg_sha256": "e260260c6e0ba2548386ae261c023bec9a0582d8a5b556c2aa996bab05680a57"
+}
