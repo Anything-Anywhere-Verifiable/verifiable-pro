@@ -1,0 +1,73 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray GPU chip package lies at the center of a gray floor, carrying two identical teal-gridded rows of kernel tiles. Two dotted violet lines run from the rows to a round violet seal standing at the front right. A small violet bar chart stands at the left.",
+    "zh": "灰色地面中央是一块大的灰色 GPU 芯片封装，上面放着两排完全相同的青色网格内核方块。两条紫色点线从这两排方块引向右前方一枚竖立的紫色圆形印章，左侧立着一个小的紫色柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: a GPU package carrying two identical rows of kernel tiles, a round seal standing for the batch-invariance check the authors describe, and a bar chart for the reported pass rate. It does not depict the authors' tool, any real GPU or a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：一块承载两排相同内核方块的 GPU 封装，一枚代表作者所述批次不变性检查的圆形印章，以及一个代表所报告通过率的柱状图。它不描绘作者的工具、任何真实 GPU 或经过测试的部署，也不表明这些检查如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "gpu",
+    "backdrop": "white",
+    "items": [
+      {
+        "prop": "chip",
+        "id": "gpu",
+        "at": [0, 0],
+        "size": 3.4,
+        "lid": "metal",
+        "tint": "neutral",
+        "note": "the GPU package the generated kernels run on"
+      },
+      {
+        "prop": "sheet",
+        "id": "row_a",
+        "at": [0, -0.65],
+        "on": "gpu",
+        "w": 2.2,
+        "d": 0.8,
+        "content": "grid",
+        "tint": "agents",
+        "note": "first row of kernel tiles, one batch context"
+      },
+      {
+        "prop": "sheet",
+        "id": "row_b",
+        "at": [0, 0.65],
+        "on": "gpu",
+        "w": 2.2,
+        "d": 0.8,
+        "content": "grid",
+        "tint": "agents",
+        "note": "identical second row, another batch context"
+      },
+      {
+        "prop": "seal",
+        "id": "seal",
+        "at": [3.0, -0.7],
+        "pose": "standing",
+        "r": 0.55,
+        "tint": "evaluations",
+        "note": "the batch-invariance acceptance check: both rows give the same result"
+      },
+      {
+        "prop": "bars",
+        "id": "bars",
+        "at": [-2.5, -2.5],
+        "heights": [0.7, 1.0, 0.8, 1.3],
+        "highlight": 3,
+        "bar": 0.36,
+        "tint": "evaluations",
+        "note": "the reported pass rate"
+      }
+    ],
+    "links": [
+      {"from": "row_a", "to": "seal", "style": "dotted", "color": "evaluations"},
+      {"from": "row_b", "to": "seal", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "fbee079a8032a1141beb9b51bdba62806a9ee02b1a08af45bb03f8385aede27d"
+}
