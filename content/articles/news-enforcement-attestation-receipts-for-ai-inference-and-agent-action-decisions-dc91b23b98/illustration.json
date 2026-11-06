@@ -1,0 +1,58 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A tall record page with a pink header, lines of writing, a signature stroke and a red wax seal stands at the center. A smaller red wax seal and a gray key lie on the floor to its right, joined to it by dotted gray lines. A small teal agent cube at the front left sends a dashed orange line with one packet and an arrow to the page.",
+    "zh": "画面中央立着一页高大的记录文件，带粉色页眉、多行字迹、签名笔画和红色火漆印。右侧地面放着一枚较小的红色火漆印和一把灰色钥匙，以灰色点线与文件相连。左前方一个青色小方块智能体向文件发出一条带一个数据包和箭头的橙色虚线。"
+  },
+  "caption": {
+    "en": "Illustration: a signed action record as the draft describes it, with the seal and key that sign it and an agent's proposed action arriving as a packet. It does not depict a tested deployment, and it does not show that the action was executed or that the signature check works as described.",
+    "zh": "示意图：草案所描述的签名行动记录，旁边是签署它的印章与密钥，智能体拟执行的操作以数据包形式送达。本图不描绘任何经过测试的部署，也不表明操作已执行或签名核验如草案所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "record",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "document",
+        "id": "record",
+        "at": [0, 0],
+        "tint": "outputs",
+        "pose": "standing",
+        "w": 2.6,
+        "h": 3.4,
+        "header": true,
+        "seal": "seal",
+        "signature": true,
+        "lines": 7
+      },
+      {"prop": "seal", "id": "wax", "at": [1.9, 0.7], "tint": "seal", "r": 0.5, "pose": "lying"},
+      {"prop": "key", "id": "signing_key", "at": [1.5, 2.5], "tint": "neutral", "size": 1.6},
+      {
+        "prop": "agent",
+        "id": "agent",
+        "at": [-0.8, -2.4],
+        "tint": "agents",
+        "size": 1.0,
+        "core": "cube",
+        "glow": false
+      }
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "record",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true,
+        "glow": true
+      },
+      {"from": "signing_key", "to": "record", "route": "straight", "style": "dotted", "color": "mute"},
+      {"from": "wax.rim", "to": "record", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "e890e7691359136f54921d1d7878b0012458b5808154bd1edcaee54f9d4cfe55"
+}

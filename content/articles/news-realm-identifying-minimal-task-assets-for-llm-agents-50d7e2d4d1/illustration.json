@@ -1,0 +1,54 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass enclosure holds a glowing teal agent cube and a teal tool tile with a database icon. A solid orange line with one packet runs from a gray database outside the glass, under the tile, to the agent. A dark line from the agent toward a gray server in front is broken at the glass wall.",
+    "zh": "青绿色玻璃罩内有一个发光的青绿色智能体方块和一块带数据库图标的工具牌。一条带数据包的橙色实线从罩外的灰色数据库经工具牌下方连到智能体；另一条从智能体通向前方灰色服务器的深色线在玻璃壁处断开。"
+  },
+  "caption": {
+    "en": "Illustration: In the design the REALM authors describe, an agent in a task container reaches a granted resource through an interface bound to that resource, while its path to an unrelated server is cut. It does not depict a tested deployment, the authors' code or their benchmark, and it does not show that the approach works as reported.",
+    "zh": "示意图：按 REALM 作者描述的设计，任务容器中的智能体通过绑定具体资源的接口访问已授权的资源，通向无关服务器的路径则被切断。本图并未描绘经过测试的部署，也不代表作者的代码或基准测试，更不说明该方案确如报告所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "container",
+    "items": [
+      {
+        "prop": "enclosure",
+        "id": "container",
+        "at": [0, 0],
+        "w": 3.6,
+        "d": 2.8,
+        "h": 2.4,
+        "tint": "agents",
+        "wash": false,
+        "note": "Task Container",
+        "items": [
+          {"prop": "agent", "id": "agent", "at": [-0.5, 0.4], "tint": "agents", "glow": true},
+          {
+            "prop": "tool",
+            "id": "api",
+            "at": [1.1, 0.4],
+            "facing": "right",
+            "icon": "database",
+            "tint": "agents",
+            "note": "resource-bound Partial API, standing on the granted path"
+          }
+        ]
+      },
+      {"prop": "database", "id": "asset", "at": [4.3, 0.4], "note": "the granted task asset"},
+      {
+        "prop": "server",
+        "id": "other",
+        "at": [-0.5, -3.9],
+        "w": 2.2,
+        "d": 1.2,
+        "note": "an unrelated resource outside the task's assets"
+      }
+    ],
+    "links": [
+      {"from": "asset", "to": "agent", "style": "solid", "color": "data", "packets": [0.33]},
+      {"from": "agent", "to": "other", "style": "broken", "gap": 0.45, "color": "ink"}
+    ]
+  },
+  "svg_sha256": "9e8cb85b0827624d404d4e4dc34098ad72f45ed09bb229488bdab02de9b48a39"
+}
