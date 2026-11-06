@@ -180,6 +180,16 @@ The SVG must contain only the reviewed static diagram, with no scripts or
 external references. A relative image path must account for the English or
 Chinese article's URL depth; preview link checks verify both editions.
 
+For an animated technical explanation, a figure may instead contain a local
+`<video controls loop muted playsinline preload="metadata">` with explicit width,
+height, a static PNG `poster`, and an accessible name. Do not autoplay: readers
+choose when motion starts and can pause it with the native controls. Supply a
+local MP4 source, a descriptive caption that also explains the sequence in
+words, and visible links to the still image, downloadable GIF and editable
+source. The still and text must communicate the mechanism without playback.
+Keep these assets under `static/figures/`, record their provenance, and check
+playback and responsive layout in both language editions.
+
 ## Article anatomy
 
 **News brief (`news`, 250–450 words).** The headline uses Title Case and attributes the claim to its source when the claim is the source's own ("Apple Says ...", "NIST Publishes ..."). The opening paragraph states who did what and when, from the primary source. One to three short paragraphs add the facts a reader needs, each with citations. Then a `:::analysis` callout gives our reading in two to four sentences, and a `:::checked` callout lists the primary sources we opened, the date we checked them (2026-10-20 for launch content) and anything we could not confirm. Report vendor security claims as claims ("the company says the service ..."), not as established facts. Give every brief its `layers`. Give it a lead image too: an `illustration.json` beside its editions (see [Lead images](#lead-images)).
