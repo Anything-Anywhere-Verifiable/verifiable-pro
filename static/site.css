@@ -1570,6 +1570,7 @@ figcaption code {
 .prose figure > a.article-diagram-link { display: block; }
 .prose figure > img,
 .prose figure > a.article-diagram-link > img,
+.prose figure > video,
 .prose figure > svg { display: block; width: 100%; height: auto; }
 .prose dl > div,
 .prose dt { margin-top: 0.6em; }

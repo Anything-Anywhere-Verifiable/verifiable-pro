@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray magnifying glass with dots in its lens stands behind and above two teal skill tiles, one with a document icon and one with a terminal icon, joined by a dashed teal line carrying a packet. A dotted gray line runs from the handle's tip to a small yellow warning sign.",
+    "zh": "一个大号灰色放大镜立在两块青色技能图块后方，镜片高过图块，镜中显出圆点；两块图块分别带文档和终端图标，由一条带数据块的青色虚线相连。一条灰色点线从镜柄末端连到一块黄色小警示牌。"
+  },
+  "caption": {
+    "en": "Illustration: a scanner examines two linked agent skills, a document skill and a code skill, and flags a weakness that comes from how they interact. It does not depict the authors' scanner, any real skill or a tested deployment, and it does not show that the scan works as described.",
+    "zh": "示意图：扫描工具检查两个相互关联的智能体技能（一个文档技能、一个代码技能），并标出两者交互产生的缺陷。图中并非作者的扫描工具、任何真实技能或经过测试的部署，也不表明扫描效果如作者所述。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "lens",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "magnifier", "id": "lens", "at": [-0.8, 0.8], "tint": "neutral", "r": 1.2, "reveal": "dots"},
+      {"prop": "tool", "id": "skill-doc", "at": [0.25, -2.15], "tint": "agents", "icon": "doc", "size": 1.2},
+      {
+        "prop": "tool",
+        "id": "skill-code",
+        "at": [2.15, -0.25],
+        "tint": "agents",
+        "icon": "terminal",
+        "size": 1.2
+      },
+      {"prop": "sign", "id": "finding", "at": [1.0, 2.6], "tint": "warn", "size": 0.8}
+    ],
+    "links": [
+      {
+        "from": "skill-doc",
+        "to": "skill-code",
+        "route": "straight",
+        "style": "dashed",
+        "color": "agents",
+        "packets": [0.5]
+      },
+      {"from": "lens", "to": "finding", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "312f4cf47827801e2cf1d5817e1c21acfc5d8af1c34d4830466b6ed02056ff49"
+}

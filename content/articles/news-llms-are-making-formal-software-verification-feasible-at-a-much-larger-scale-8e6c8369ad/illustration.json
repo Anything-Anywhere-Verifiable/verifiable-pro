@@ -1,0 +1,56 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A stepped pyramid of blocks with a violet top block stands at the center. A gray dotted line joins it to a page of writing on the left, a dark gray line to a block marked with a turnstile on the right, and a violet dashed line to a processor chip inside a violet dashed zone in front.",
+    "zh": "画面中央是一座阶梯状的积木金字塔，顶块为紫色。一条灰色点线把它与左侧一页写满横线的文件相连，一条深灰色实线通向右侧带推导符号的方块，一条紫色虚线通向前方紫色虚线区域内的处理器芯片。"
+  },
+  "caption": {
+    "en": "Illustration: A proof pyramid stands between a specification page and a checker block, and a dashed zone around a processor chip marks the modeled binary and execution conditions the proof is scoped to. It does not depict Anthropic's proofs, binaries or checker, and it does not depict a tested deployment.",
+    "zh": "示意图：阶梯状的数学证明金字塔一侧连着规格文件，另一侧连着检查器方块，前方虚线区域内的处理器芯片代表数学证明所限定的二进制文件和执行环境模型。图中并非 Anthropic 的数学证明、二进制文件或检查器，也不代表任何经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "proof",
+    "items": [
+      {
+        "prop": "zone",
+        "id": "model",
+        "at": [1.9, -2.4],
+        "w": 2.8,
+        "d": 2.8,
+        "tint": "evaluations",
+        "allow_overlap": true,
+        "note": "the modeled binary and execution conditions the proof is scoped to"
+      },
+      {
+        "prop": "document",
+        "id": "spec",
+        "at": [-2.4, -2.0],
+        "tint": "neutral",
+        "note": "the specification derived from a fuzz test"
+      },
+      {"prop": "proof_tree", "id": "proof", "at": [0, 0], "levels": 4, "note": "the formal proof"},
+      {
+        "prop": "math_block",
+        "id": "checker",
+        "at": [3.0, 1.0],
+        "size": 1.2,
+        "mark": "turnstile",
+        "note": "the proof checker"
+      },
+      {
+        "prop": "chip",
+        "id": "binary",
+        "at": [1.9, -2.4],
+        "size": 1.6,
+        "note": "the compiled binary in the modeled setting"
+      }
+    ],
+    "links": [
+      {"from": "spec", "to": "proof", "style": "dotted", "color": "mute"},
+      {"from": "proof", "to": "checker", "style": "solid", "color": "ink"},
+      {"from": "proof", "to": "binary", "style": "dashed", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "977e9778bfbe66784cf97c949a7b8c71ecacce3da7b6c8e0da8c578b726c91b8"
+}

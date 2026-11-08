@@ -1,0 +1,36 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal database stands at the center. A solid orange line with a packet runs into it from a page lying at the front left; a broken orange line from a yellow warning sign stops short of it. Dotted lines lead from the database to a stack of pages and on to a violet block marked with a turnstile.",
+    "zh": "画面中央是一座青绿色数据库。一条带数据包的橙色实线从左前方平放的一页纸通向它，另一条来自黄色警示牌的橙色线中途断开。点线从数据库连到一叠纸，再连到正面带推导符号的紫色方块。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's memory store takes in an updated record and turns away a flagged input, while a checker examines the records selected as evidence. It does not depict a tested deployment, the authors' system or their reported results.",
+    "zh": "示意图：智能体的记忆库接收一条更新的记录，挡下一条带警示的输入，检查器则检查被选作证据的记录。图中并非经过测试的部署，也不呈现作者的系统或其报告的结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "memory",
+    "items": [
+      {"prop": "database", "id": "memory", "at": [0, 0], "tint": "agents", "scale": 1.5},
+      {"prop": "document", "id": "update", "at": [0, -3.6], "pose": "lying", "tint": "data"},
+      {"prop": "sign", "id": "attack", "at": [-2.3, -1.7]},
+      {"prop": "papers", "id": "records", "at": [2.6, 1.3]},
+      {
+        "prop": "math_block",
+        "id": "checker",
+        "at": [0.4, 3.2],
+        "size": 1.2,
+        "mark": "turnstile",
+        "tint": "evaluations"
+      }
+    ],
+    "links": [
+      {"from": "update", "to": "memory", "style": "solid", "color": "data", "packets": [0.5], "arrow": true},
+      {"from": "attack", "to": "memory", "style": "broken", "color": "data"},
+      {"from": "memory", "to": "records", "style": "dotted", "color": "agents"},
+      {"from": "records", "to": "checker", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "0c5f7b2ea5b650fe609efe53df21028b6236db3d41395df485a7eb9c16c256d3"
+}
