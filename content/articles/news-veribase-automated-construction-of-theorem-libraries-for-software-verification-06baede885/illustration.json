@@ -1,0 +1,34 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A stepped pyramid of gray blocks with a violet top block stands at the center. A pink line carrying two small packets runs to it from a page with a pink header on the left; a dark line joins it to a gray block marked with a turnstile, and a dotted gray line joins it to a gray bar chart at the back right.",
+    "zh": "画面中央是一座灰色积木堆成的阶梯金字塔，顶块为紫色。左侧一页带粉色页眉的文档经一条带两个小方块的粉色线连到它；一条深色线把它连到带逻辑推导符号的灰色方块，一条灰色点线把它连到右后方的灰色柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: a page of generated code and proofs feeds a stack of proof blocks standing for a theorem library, which is linked to a checker block and to a bar chart standing for the benchmark results the authors report. It does not depict a tested deployment, VeriBase's actual libraries or Lean, and it does not show that the reported gains hold.",
+    "zh": "示意图：一页生成的代码和数学证明汇入代表定理库的积木堆，积木堆与一个检查器方块相连，并连到代表作者所报告基准结果的柱状图。本图不描绘经过测试的部署，也不描绘 VeriBase 的实际验证库或 Lean，不表示所报告的收益成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "library",
+    "items": [
+      {"prop": "document", "id": "code", "at": [-1.9, -2.9], "tint": "outputs", "lines": 6},
+      {"prop": "proof_tree", "id": "library", "at": [0, 0], "tint": "evaluations", "levels": 4},
+      {
+        "prop": "math_block",
+        "id": "checker",
+        "at": [3.1, 1.1],
+        "tint": "neutral",
+        "mark": "turnstile",
+        "size": 1
+      },
+      {"prop": "bars", "id": "results", "at": [1.3, 3.7], "tint": "neutral", "heights": [0.8, 1.3, 1, 1.9]}
+    ],
+    "links": [
+      {"from": "code", "to": "library", "style": "solid", "color": "outputs", "packets": [0.3, 0.55]},
+      {"from": "library", "to": "checker", "style": "solid", "color": "ink"},
+      {"from": "library", "to": "results", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "40b760daef018b5b5a829a74f86c98fbf180df769619406b17c7f21db75c97a9"
+}
