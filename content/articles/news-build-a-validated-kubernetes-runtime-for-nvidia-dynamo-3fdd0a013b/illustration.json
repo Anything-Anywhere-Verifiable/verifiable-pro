@@ -1,0 +1,61 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A standing gray page sends a dashed orange line with a packet to a shipping crate, which sends another into a large gray server rack at the center. A solid dark gray line joins the rack to a block marked with a turnstile, and a dotted light gray line joins the page to the same block.",
+    "zh": "一张直立的灰色文页以带数据包的橙色虚线连向一只货箱，货箱再以橙色虚线连入中央的大型灰色服务器机柜。一条深灰实线把机柜连到刻有推导符号的方块，一条浅灰点线把文页也连到这个方块。"
+  },
+  "caption": {
+    "en": "Illustration: a recipe page is packaged into a bundle and installed on a server rack, and a checker compares the running rack with the recipe. It does not depict NVIDIA's AICR, Dynamo or any real cluster, it does not depict a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：一份配方被打包成部署包、安装到服务器机柜上，再由检查器将运行中的机柜与配方相互比对。图中并非 NVIDIA 的 AICR、Dynamo 或任何真实集群，也不代表经过测试的部署，不能说明这些检查按所述方式起作用。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "cluster",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "server_rack",
+        "id": "cluster",
+        "at": [-0.5, 1.5],
+        "tint": "neutral",
+        "units": 6,
+        "scale": 1.3,
+        "note": "the deployed cluster, back center"
+      },
+      {
+        "prop": "crate",
+        "id": "bundle",
+        "at": [-1.8, -1.0],
+        "tint": "neutral",
+        "size": 1.1,
+        "note": "the rendered deployment bundle, left"
+      },
+      {
+        "prop": "document",
+        "id": "recipe",
+        "at": [-1.0, -3.2],
+        "tint": "neutral",
+        "header": true,
+        "lines": 6,
+        "note": "the versioned recipe, front left"
+      },
+      {
+        "prop": "math_block",
+        "id": "checker",
+        "at": [2.4, 1.0],
+        "tint": "neutral",
+        "size": 1.2,
+        "mark": "turnstile",
+        "note": "the conformance checker, right"
+      }
+    ],
+    "links": [
+      {"from": "recipe", "to": "bundle", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "bundle", "to": "cluster", "style": "dashed", "color": "data", "packets": [0.6], "arrow": true},
+      {"from": "cluster", "to": "checker", "style": "solid", "color": "ink"},
+      {"from": "recipe", "to": "checker", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "03cd5046b1f18cb618617bf78d011b0c0a86d46836ed17721cd680bf79264d5e"
+}
