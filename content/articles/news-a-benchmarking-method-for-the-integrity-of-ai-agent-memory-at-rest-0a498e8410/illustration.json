@@ -1,0 +1,46 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal database of agent memory stands at the center. A dashed orange line with a packet runs into it from a small gray backup database on the left. A second dashed orange line leaves it through a violet gate to a teal agent cube. A dotted violet line leads to a standing report at the back.",
+    "zh": "画面中央是一个较大的青色数据库，代表智能体记忆。左侧较小的灰色备份库通过带数据包的橙色虚线连入该库；另一条橙色虚线从库中引出，穿过紫色闸门通往青色智能体立方体。另有一条紫色点线连到后方立着的一份报告。"
+  },
+  "caption": {
+    "en": "Illustration: an old backup is restored into an agent's memory store, a check on the read path stands between that memory and the agent, and a separate audit report sits apart, as in the test setup the draft describes. It does not depict a tested deployment, the draft's reference implementation or any measured result.",
+    "zh": "示意图：旧备份被恢复进智能体的记忆存储，读取路径上的检查位于记忆与智能体之间，单独的审计报告则另放一旁，对应草案描述的测试设置。图中并非经过测试的部署，也不代表草案的参考实现或任何测量结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "memory",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "database", "id": "memory", "at": [0, 0], "tint": "agents", "tiers": 4, "r": 1.0, "scale": 1.5},
+      {"prop": "database", "id": "backup", "at": [-3.4, 0], "tint": "neutral", "tiers": 2, "r": 0.7},
+      {
+        "prop": "gate",
+        "id": "readcheck",
+        "at": [3.2, 0],
+        "facing": "right",
+        "tint": "evaluations",
+        "w": 2.0,
+        "h": 2.0
+      },
+      {"prop": "agent", "id": "agent", "at": [5.2, 0], "tint": "agents", "core": "sphere"},
+      {"prop": "document", "id": "audit", "at": [-0.4, 3.0], "tint": "evaluations", "lines": 5}
+    ],
+    "links": [
+      {"from": "backup", "to": "memory", "style": "dashed", "color": "data", "packets": [0.5]},
+      {
+        "from": "memory",
+        "to": "agent",
+        "route": "via",
+        "via": ["readcheck.through"],
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.75]
+      },
+      {"from": "memory", "to": "audit", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "638e84f6c479b7f660755438aa47656e7c16d2d2998124625177f0b9efda2631"
+}

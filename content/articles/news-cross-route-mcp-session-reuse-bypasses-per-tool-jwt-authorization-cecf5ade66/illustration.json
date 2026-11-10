@@ -1,0 +1,46 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large orange key lies flat at the center of a gray floor. On the left stands a tall page with a teal header; on the right, a shorter plain page with a dashed orange line and a packet running to the key. A dotted gray line joins the tall page to the key, and a dashed orange arrow runs from the key back to a teal gear tile.",
+    "zh": "灰色地面中央平放着一把橙色大钥匙。左侧立着一张带青绿色页眉的高页面，右侧是一张较矮的素白页面，一条带数据包的橙色虚线从它连到钥匙。灰色点线连接高页面与钥匙，橙色虚线箭头从钥匙指向后方的青绿色齿轮图块。"
+  },
+  "caption": {
+    "en": "Illustration: a session reused through route B (right page) carries a token, the key, whose unchecked scope claims satisfy route A's per-tool policy (left page) and reach a protected tool (gear). It does not depict Agent Router's gateway or a tested deployment, and it does not show that version 1.2.1 fixes the issue.",
+    "zh": "示意图：经路由 B（右侧页面）复用的会话携带令牌（钥匙），其未经验证的权限范围声明通过了路由 A 的逐工具策略（左侧页面），进而触达受保护的工具（齿轮）。图中并非 Agent Router 的网关，也不代表任何经过测试的部署，更不表明 1.2.1 版本已修复该问题。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "token",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "key", "id": "token", "at": [0, 0], "tint": "data", "size": 4, "scale": 1.6},
+      {
+        "prop": "document",
+        "id": "route-a",
+        "at": [-4.2, -4.2],
+        "tint": "agents",
+        "w": 1.6,
+        "h": 2.6,
+        "lines": 7
+      },
+      {
+        "prop": "document",
+        "id": "route-b",
+        "at": [4.2, 4.2],
+        "tint": "neutral",
+        "w": 1.4,
+        "h": 2.0,
+        "header": false,
+        "lines": 3
+      },
+      {"prop": "tool", "id": "tool", "at": [-3, 3], "tint": "agents", "icon": "gear", "scale": 1.5}
+    ],
+    "links": [
+      {"from": "route-b", "to": "token", "style": "dashed", "color": "data", "packets": [0.45]},
+      {"from": "token", "to": "tool", "style": "dashed", "color": "data", "arrow": true},
+      {"from": "route-a", "to": "token", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "e3055f0616cd58bd15d9e888aabc16c3be4e1c9bfd5f36d5d93aa2c6b7cc48d0"
+}

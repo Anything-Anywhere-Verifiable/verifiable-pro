@@ -1,0 +1,54 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "An open gray padlock stands at the front left of a gray glass sandbox holding a screen. A dashed orange line leaves the screen through the glass to a small floating card outside, then runs on with an orange packet to a gray server rack at the right.",
+    "zh": "左前方立着一把打开的灰色挂锁，旁边是装着屏幕的灰色玻璃沙箱。一条橙色虚线从屏幕穿出玻璃，连到外面悬浮的小卡片，再带着橙色数据包延伸到右侧的灰色服务器机柜。"
+  },
+  "caption": {
+    "en": "Illustration: a page preview inside an application sandbox opens a popup outside the glass that carries chat data to a server, past an open lock standing for the lockdown setting. It does not depict ChatGPT, OpenAI's or Check Point's systems or any tested deployment, and it does not show that the reported fix works.",
+    "zh": "示意图：应用沙箱内的页面预览在玻璃外打开弹窗，绕过象征锁定设置的打开挂锁，把聊天数据送往服务器。图中并非 ChatGPT、OpenAI 或 Check Point 的系统，也不代表任何经过测试的部署，不表明报告所述修复有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "sandbox",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "enclosure",
+        "id": "sandbox",
+        "at": [-1.2, 0.4],
+        "w": 3.0,
+        "d": 2.4,
+        "h": 2.6,
+        "tint": "neutral",
+        "items": [
+          {
+            "prop": "screen",
+            "id": "preview",
+            "at": [-1.2, 0.4],
+            "w": 2.0,
+            "h": 1.4,
+            "lift": 0.2,
+            "content": "text"
+          }
+        ]
+      },
+      {"prop": "padlock", "id": "lock", "at": [-1.1, -2.3], "tint": "neutral", "open": true, "size": 0.9},
+      {"prop": "panel", "id": "popup", "at": [1.2, 0.5], "w": 1.0, "h": 0.8, "lift": 1.3, "content": "chat"},
+      {"prop": "server_rack", "id": "server", "at": [1.4, 2.4], "tint": "neutral", "units": 5}
+    ],
+    "links": [
+      {"from": "preview", "to": "popup", "style": "dashed", "color": "data"},
+      {
+        "from": "popup",
+        "to": "server.lamp",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "glow": true
+      }
+    ]
+  },
+  "svg_sha256": "5c37d8f0c4c1ad04220221ae360282466d381d6e0136dc264cec82d8646ba7d2"
+}
