@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-towards-portable-specification-of-the-agent-harness-f0aca4394c.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "35ea0a3b66b15717f6e1c1da17e3048b7ea722858d3d7902b334797ee0a68631",
+  "variants": {
+    "list": {
+      "file": "news-towards-portable-specification-of-the-agent-harness-f0aca4394c-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "ef0e9d067b8b429d64d10aff4ef280eb7a6967abc74279ac58ceb63306e86c6d"
+    },
+    "thumb": {
+      "file": "news-towards-portable-specification-of-the-agent-harness-f0aca4394c-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "b7581d29730b01d4b85cbcf668292ae01d095f0928f68cf31fa947d556937993"
+    },
+    "social": {
+      "file": "news-towards-portable-specification-of-the-agent-harness-f0aca4394c-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "0119ac1c195cf364b5d2710b29f11acdc3f9e05054b38b19fc505735ecfb70aa"
+    }
+  },
+  "edits": {
+    "source_sha256": "b6084f02880bd8f5ab8f2ad2962adb696258f026483b1175d24899f97c95c579",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv preprint proposes recording which model ran in which harness, including configuration changes within a run. The saved abstract describes a framework, without establishing deployment or effectiveness.",
+    "zh": "一篇 arXiv 预印本提议记录模型及其所用 harness，包括单次运行中的配置变化。保存的摘要介绍了这一框架，但未确立其部署情况或实际效果。"
+  },
+  "caption": {
+    "en": "An arXiv preprint proposes recording which model ran in which harness, including configuration changes within a run. The saved abstract describes a framework, without establishing deployment or effectiveness.",
+    "zh": "一篇 arXiv 预印本提议记录模型及其所用 harness，包括单次运行中的配置变化。保存的摘要介绍了这一框架，但未确立其部署情况或实际效果。"
+  },
+  "credit": "Nicolas Gertler, Claudio Novelli, Luciano Floridi",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2610.40917",
+  "retrieved": "2026-11-10"
+}
