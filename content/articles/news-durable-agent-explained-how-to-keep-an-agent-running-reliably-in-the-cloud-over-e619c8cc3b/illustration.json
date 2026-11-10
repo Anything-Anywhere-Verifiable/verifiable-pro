@@ -1,0 +1,50 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass agent cube at the front left sends a dashed orange line with packets to a teal mail tool tile at the right. A broken teal line runs from the tile back to a row of five log blocks, whose newest teal block floats just above its place.",
+    "zh": "左前方的青绿色玻璃智能体方块沿一条带数据包的橙色虚线连到右侧的青绿色邮件工具图块；一条断开的青绿色线从图块连回由五个方块组成的日志，最新的青绿色方块悬在原位上方。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's call to a mail tool and a task log whose newest entry is still unsaved stand for the gap the article describes between recorded progress and confirmed external actions. It does not depict AgentScope, Alibaba Cloud's systems or a tested deployment, and it does not show that the recovery works as described.",
+    "zh": "示意图：智能体调用邮件工具，而任务日志中最新一条记录尚未保存，代表文章所述已记录进度与已确认外部操作之间的缺口。图中并非 AgentScope、Alibaba Cloud 的系统或任何经过测试的部署，也不表明该恢复机制如文中所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "tasklog",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "ledger",
+        "id": "tasklog",
+        "at": [0, 0],
+        "tint": "agents",
+        "count": 5,
+        "size": 0.8,
+        "layout": "row",
+        "pending": true
+      },
+      {"prop": "agent", "id": "agent", "at_uv": [-3.5, 4], "tint": "agents", "core": "sphere"},
+      {"prop": "tool", "id": "mail", "at_uv": [3.5, 4], "tint": "agents", "icon": "mail", "size": 1.0}
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "mail",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.65]
+      },
+      {
+        "from": "mail",
+        "to": "tasklog.new",
+        "route": "straight",
+        "style": "broken",
+        "gap": 0.5,
+        "color": "agents"
+      }
+    ]
+  },
+  "svg_sha256": "11b80fa2f26565d8a91735ca201e2e1f5828c5c394d2dc610da273dec2ed75a6"
+}

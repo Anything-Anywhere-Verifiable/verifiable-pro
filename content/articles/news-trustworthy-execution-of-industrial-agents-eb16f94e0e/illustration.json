@@ -1,0 +1,44 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet block with a turnstile mark stands at the center of a gray floor. A dashed orange line with one packet runs to it from a teal gear tile on the left, a dashed violet line runs from it to a plain gray box on the right, and a dotted gray line joins it to a standing document behind it.",
+    "zh": "灰色地面中央立着一块带十字转门符号的大型紫色方块。左侧青绿色齿轮图块引出一条带数据包的橙色虚线连到方块，方块再以紫色虚线连到右侧的灰色方盒，后方一份竖立的文件以灰色点线与方块相连。"
+  },
+  "caption": {
+    "en": "Illustration: a conformance checker, drawn as a violet block, stands between an industrial agent's tool call (the gear tile) and the engineering object it modified (the gray box), with a document of evidence behind it, as the framework in the preprint describes. It does not depict the authors' prototype or any tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：按照预印本描述的框架，紫色方块代表规范符合性检查器，位于工业智能体的工具调用（齿轮图块）和被修改的工程对象（灰色方盒）之间，后方的文件代表证据记录。图中并非作者的原型或任何经过测试的部署，也不表示这些检查能如描述般起效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "checker",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "math_block",
+        "id": "checker",
+        "at": [0, 0],
+        "size": 2.2,
+        "mark": "turnstile",
+        "tint": "evaluations"
+      },
+      {"prop": "tool", "id": "toolcall", "at": [-2.6, -2.6], "icon": "gear", "size": 1.2, "tint": "agents"},
+      {"prop": "box", "id": "workpiece", "at": [2.6, 2.6], "w": 1.2, "d": 1.2, "h": 0.9, "tint": "neutral"},
+      {
+        "prop": "document",
+        "id": "evidence",
+        "at": [-3.6, 3.6],
+        "pose": "standing",
+        "tint": "neutral",
+        "lines": 6
+      }
+    ],
+    "links": [
+      {"from": "toolcall", "to": "checker", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "checker", "to": "workpiece", "style": "dashed", "color": "evaluations"},
+      {"from": "evidence", "to": "checker", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "ae86b6c3bb69fb1610df6f5ba3c2ab20f6e3cf7bd9b8dbc8bbfeaedc8d471771"
+}

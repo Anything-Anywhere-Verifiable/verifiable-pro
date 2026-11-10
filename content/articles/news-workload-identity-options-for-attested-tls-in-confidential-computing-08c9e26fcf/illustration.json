@@ -1,0 +1,38 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A server rack with indigo lamps stands inside an indigo glass enclosure. A gray key lies in front of it, joined to the rack by a solid indigo line, and by dotted indigo lines to a page with an indigo seal on the left and an indigo-sealed certificate on the right.",
+    "zh": "一台带靛蓝指示灯的服务器机柜立在靛蓝玻璃罩内。罩前放着一把灰色钥匙，以靛蓝实线连向机柜，并以靛蓝点线分别连向左侧带靛蓝印章的文件和右侧带靛蓝印章的证书。"
+  },
+  "caption": {
+    "en": "Illustration: a workload in a confidential VM holds a TLS key whose public key is bound either to signed attestation evidence or to a workload identity certificate, the two options the draft describes. It does not depict a tested deployment, and it does not show that either binding establishes the key's provenance or the workload's authorization.",
+    "zh": "示意图：机密虚拟机中的工作负载持有一把 TLS 密钥，其公钥既可写入已签名的远程证明证据，也可绑定到工作负载身份证书，对应草案介绍的两种方案。图中所示并非经过测试的部署，也不表示任何一种绑定能确立私钥来源或工作负载的授权。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "cvm",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "enclosure",
+        "id": "cvm",
+        "at_uv": [0, -1],
+        "w": 2.6,
+        "d": 2.1,
+        "h": 3.1,
+        "tint": "tee",
+        "items": [{"prop": "server_rack", "id": "workload", "at_uv": [0, -1], "tint": "tee", "units": 6}]
+      },
+      {"prop": "key", "id": "tlskey", "at_uv": [0, 3.0], "tint": "neutral", "size": 1.6},
+      {"prop": "document", "id": "evidence", "at_uv": [-3.6, 2.0], "seal": "tee", "tint": "neutral"},
+      {"prop": "certificate", "id": "identity", "at_uv": [3.6, 2.0], "tint": "tee", "w": 2.0, "h": 1.4}
+    ],
+    "links": [
+      {"from": "workload", "to": "tlskey", "style": "solid", "color": "tee"},
+      {"from": "tlskey", "to": "evidence", "style": "dotted", "color": "tee"},
+      {"from": "tlskey", "to": "identity", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "d3f32a383470c9eede1f6419b7d4c103fc34149b30dcfc9de03a72914be571f0"
+}
