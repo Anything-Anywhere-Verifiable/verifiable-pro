@@ -1,0 +1,59 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal glass cube with a glowing core stands on a gray floor. A dashed orange line with one packet runs from a screen of log lines into it, a teal arrow leads to a stack of notes, and a dotted gray line joins the notes to a violet bar chart.",
+    "zh": "灰色地面中央是一个大型青绿色玻璃立方体，内核发光。一条带数据包的橙色虚线从显示日志的屏幕通向它，一支青绿色箭头指向一叠笔记，一条灰色点线把笔记与紫色柱状图相连。"
+  },
+  "caption": {
+    "en": "Illustration: an agent reviews a log of earlier sessions and revises a stack of persistent notes, which a bar chart of evaluation scores is measured against. It does not depict a tested deployment, Anthropic's agents, memory system or evaluations, and it does not show that consolidation improves results.",
+    "zh": "示意图：智能体复查先前会话的日志，修订一叠持久化笔记，旁边的柱状图代表针对这些笔记的评估得分。图中并非经过测试的实际部署，也不代表 Anthropic 的智能体、记忆系统或评估，不表示记忆整理能提升效果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "agent",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "screen",
+        "id": "log",
+        "at": [-2.6, -2.0],
+        "content": "log",
+        "note": "earlier session transcripts"
+      },
+      {
+        "prop": "agent",
+        "id": "agent",
+        "at": [0, 0],
+        "size": 1.6,
+        "tint": "agents",
+        "core": "sphere",
+        "glow": true,
+        "note": "background consolidation"
+      },
+      {
+        "prop": "papers",
+        "id": "notes",
+        "at": [2.6, 0.6],
+        "tint": "neutral",
+        "count": 4,
+        "note": "persistent notes and wiki"
+      },
+      {
+        "prop": "bars",
+        "id": "scores",
+        "at": [0.8, 2.8],
+        "tint": "evaluations",
+        "heights": [0.8, 1.2, 1.0, 1.6],
+        "highlight": -1,
+        "note": "task-dependent evaluation scores"
+      }
+    ],
+    "links": [
+      {"from": "log", "to": "agent", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "agent", "to": "notes", "style": "solid", "color": "agents", "arrow": true},
+      {"from": "scores", "to": "notes", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "c8fb01475f4fef346060f87432155de766f2d8b73b96ef115a1449cf8812b1cb"
+}

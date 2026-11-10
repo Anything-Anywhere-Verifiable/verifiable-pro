@@ -1,0 +1,65 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal-labeled shipping crate stands at the center of a gray floor. A solid dark line joins it to a signed page on the left, and a dashed orange arc with two packets runs from that page to the newest indigo block of a short log at the back right. A dotted indigo line leads from the log to an indigo-sealed card in front.",
+    "zh": "灰色地面中央是一只带青色标签的大货箱，一条深色实线将其与左侧一页已签名的文件相连；一条带两个数据包的橙色虚线弧从文件延伸到右后方一排靛蓝区块中最新的一块，再由靛蓝点线连到前方一张带靛蓝印章的卡片。"
+  },
+  "caption": {
+    "en": "Illustration: a signed statement is tied to one agent package and registered in a transparency log that returns a receipt, standing for the design the draft describes for binding claims to a package digest. It does not depict a tested deployment, and it does not show that the statement is true or that the package is allowed to run.",
+    "zh": "示意图：一份已签名的声明对应到某个智能体软件包，并登记到透明度日志中，日志随后返回一张回执，代表草案所描述的将声明绑定到软件包摘要的设计。图中并非经过测试的部署，也不表示该声明属实或该软件包获准运行。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "package",
+    "items": [
+      {
+        "prop": "crate",
+        "id": "package",
+        "at": [0, 0],
+        "size": 2.0,
+        "tint": "agents",
+        "note": "the agent package, identified by its digest"
+      },
+      {
+        "prop": "document",
+        "id": "statement",
+        "at_uv": [-3.6, 0.6],
+        "signature": true,
+        "note": "a signed supply-chain statement"
+      },
+      {
+        "prop": "ledger",
+        "id": "log",
+        "at_uv": [3.8, -1.6],
+        "tint": "tee",
+        "count": 4,
+        "size": 0.75,
+        "pending": true,
+        "note": "the transparency service's log"
+      },
+      {
+        "prop": "certificate",
+        "id": "receipt",
+        "at_uv": [4.6, 2.2],
+        "tint": "tee",
+        "w": 1.4,
+        "h": 1.0,
+        "note": "the receipt of registration"
+      }
+    ],
+    "links": [
+      {"from": "statement", "to": "package", "style": "solid", "color": "ink"},
+      {
+        "from": "statement",
+        "to": "log.new",
+        "route": "arc",
+        "lift": 1.8,
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.3, 0.7]
+      },
+      {"from": "log.new", "to": "receipt", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "be83e908105e537ab60d257b34b96e67a23b1ebfb7812bf746a1618786f1e2c8"
+}
