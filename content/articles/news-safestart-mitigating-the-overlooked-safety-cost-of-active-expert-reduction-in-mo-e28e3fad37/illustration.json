@@ -1,0 +1,36 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A standing page with lines of writing at the front left sends a dashed orange line with one packet into a large blue neural network card in the center. A second orange line runs from the card to a violet dial on the right, and a dotted gray line leads to an indigo row of log blocks at the back.",
+    "zh": "左前方一页写有横线的文件，经一条带数据块的橙色虚线连到中央的大幅蓝色神经网络卡片；卡片再以橙色线连到右侧紫色表盘，并以灰色点线连到后方一排靛蓝日志方块。"
+  },
+  "caption": {
+    "en": "Illustration: a prompt passes through a mixture-of-experts model, a dial stands for evaluating refusal behavior, and a log stands for a checkable record of the serving configuration. It does not depict the authors' models, vLLM setup or measurements, and it does not depict a tested deployment.",
+    "zh": "示意图：提示词经过混合专家模型处理，表盘代表拒答表现评估，日志代表可核查的服务配置记录。图中并非作者的模型、vLLM 配置或测量结果，也不代表任何经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "moe",
+    "backdrop": "white",
+    "ground": {"kind": "plate"},
+    "items": [
+      {"prop": "document", "id": "prompt", "at": [-1.25, -3.25], "pose": "standing", "lines": 6},
+      {
+        "prop": "neural_net",
+        "id": "moe",
+        "at": [0, 0],
+        "tint": "models",
+        "columns": [3, 5, 5, 2],
+        "scale": 1.6
+      },
+      {"prop": "gauge", "id": "refusal", "at": [3, 1.5], "tint": "evaluations", "value": 0.35, "size": 1.5},
+      {"prop": "ledger", "id": "log", "at": [-0.25, 2.75], "tint": "tee", "count": 4, "size": 0.6}
+    ],
+    "links": [
+      {"from": "prompt", "to": "moe", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "moe", "to": "refusal", "style": "dashed", "color": "data", "arrow": true},
+      {"from": "moe", "to": "log.new", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "6c7370c87fda5e7f4ac50e94408006daa41f4b1cd572553a88270a37d2b3c915"
+}

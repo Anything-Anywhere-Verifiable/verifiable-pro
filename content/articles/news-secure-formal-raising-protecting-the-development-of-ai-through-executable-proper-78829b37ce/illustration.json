@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large indigo block with a turnstile mark stands at the center of a gray floor. A dotted indigo line runs to it from a standing gray document on the left, and a dashed orange line with one packet runs to it from a small teal tool tile with a terminal icon on the right.",
+    "zh": "灰色地面中央立着一个印有十字转门符号的大型靛蓝方块。左侧一张灰色文件以靛蓝点线与它相连，右侧一块带终端图标的青色小工具牌以橙色虚线相连，线上有一个数据包。"
+  },
+  "caption": {
+    "en": "Illustration: a checker standing for the security invariants the authors report, which admission applies to a policy document and to tool calls; it does not depict a tested deployment or the authors' implementation, and it does not show that the invariants hold.",
+    "zh": "示意图：中央的检查方块代表作者报告的安全不变量，准入机制据此检查左侧的策略文件和右侧的工具调用。图中所示并非经过测试的部署，也不是作者的实现，更不表示这些不变量确实成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "check",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "math_block", "id": "check", "at": [0, 0], "size": 2.5, "mark": "turnstile", "tint": "tee"},
+      {
+        "prop": "document",
+        "id": "policy",
+        "at": [-2.6, -2.6],
+        "tint": "neutral",
+        "w": 1.25,
+        "h": 1.65,
+        "header": true,
+        "lines": 6
+      },
+      {"prop": "tool", "id": "toolcall", "at": [2.6, 2.6], "tint": "agents", "icon": "terminal", "size": 1.2}
+    ],
+    "links": [
+      {"from": "policy", "to": "check", "route": "straight", "style": "dotted", "color": "tee"},
+      {
+        "from": "toolcall",
+        "to": "check",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      }
+    ]
+  },
+  "svg_sha256": "b35a7849b04fb893e73d84465a2392582cf1e4fe19c26e8030d44c3ee25313b0"
+}

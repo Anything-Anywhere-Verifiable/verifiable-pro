@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray shipping crate stands at the center of a gray floor beside a small yellow warning sign. A dashed orange line runs to the crate from a small teal agent cube at the front left, and another dashed orange line with one packet runs from the crate to an open laptop on the right.",
+    "zh": "灰色地面中央放着一只大号灰色货箱，旁边立着一块黄色小警示牌。左前方的青色智能体小方块用橙色虚线连到货箱，另一条带数据包的橙色虚线从货箱连到右侧打开的笔记本电脑。"
+  },
+  "caption": {
+    "en": "Illustration: a coding agent pulls a retired server package, marked by a warning sign, onto a developer's laptop. It does not depict Glow's research, Anthropic's servers or a tested deployment, and it does not show that the reported flaws were exploited.",
+    "zh": "示意图：编程智能体把一个已停止维护、带警示标记的服务器软件包装到开发者的笔记本电脑上。图中并非 Glow 的研究、Anthropic 的服务器或经过测试的部署，也不表示所报告的漏洞曾被利用。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "package",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "crate", "id": "package", "at": [0, 0], "size": 2.0, "tint": "neutral", "label": true},
+      {"prop": "sign", "id": "retired", "at": [-1.9, -0.5], "tint": "warn", "size": 0.9},
+      {"prop": "laptop", "id": "devbox", "at": [2.7, 1.3], "tint": "neutral", "content": "code"},
+      {"prop": "agent", "id": "coder", "at": [-1.7, -2.7], "tint": "agents", "size": 0.8, "core": "sphere"}
+    ],
+    "links": [
+      {"from": "coder", "to": "package", "route": "straight", "style": "dashed", "color": "data"},
+      {
+        "from": "package",
+        "to": "devbox",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      }
+    ]
+  },
+  "svg_sha256": "0be834d25978af2797f2ae532d41ad55157cdd9d80b1c5cd9d92d381db70d00c"
+}
