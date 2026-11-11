@@ -1,0 +1,54 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large orange key lies flat across the center of a gray floor. On the left, a gray standing document with lines of writing stands beside a yellow warning sign. A dashed orange line with a packet runs from the document to a small teal agent cube at the back left, then on to the key. A dashed orange arc rises from the key to a floating gray cloud on the right.",
+    "zh": "灰色地面中央斜放着一把大号橙色钥匙。左侧立着一份带文字线条的灰色文档，旁边是一块黄色警示牌。一条带数据包的橙色虚线从文档通向左后方的小型青色智能体方块，再连到钥匙；钥匙上方升起一道橙色虚线弧，指向右侧悬浮的灰色云朵。"
+  },
+  "caption": {
+    "en": "Illustration: a poisoned document, flagged by a warning sign, steers an agent toward a cloud credential that opens a cloud environment, as in the attack chains Cymulate describes. It does not depict Cymulate's demonstrations, Kiro, Codex CLI, Cursor CLI, Gemini CLI or real Azure or GCP accounts, and it does not depict a tested deployment.",
+    "zh": "示意图：一份遭投毒、旁有警示牌的文档引导智能体，攻击链最终落到一把可打开云环境的云凭据钥匙上，对应 Cymulate 描述的攻击链。图中并非 Cymulate 的演示，也不是 Kiro、Codex CLI、Cursor CLI、Gemini CLI 或真实的 Azure、GCP 账号，更不代表任何经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "credential",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "key", "id": "credential", "at": [0, 0], "tint": "data", "size": 4, "scale": 1.5},
+      {
+        "prop": "document",
+        "id": "poisoned",
+        "at": [-3.5, -2.5],
+        "tint": "neutral",
+        "pose": "standing",
+        "lines": 6
+      },
+      {"prop": "sign", "id": "warning", "at": [-1.5, -3], "tint": "warn", "size": 1},
+      {"prop": "agent", "id": "helper", "at": [-4.75, 0.75], "tint": "agents", "size": 0.8, "core": "sphere"},
+      {"prop": "cloud", "id": "cloudenv", "at": [3, 3, 1.2], "tint": "neutral", "w": 2.6}
+    ],
+    "links": [
+      {
+        "from": "poisoned",
+        "to": "helper",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.3]
+      },
+      {"from": "helper", "to": "credential", "route": "straight", "style": "dashed", "color": "data"},
+      {
+        "from": "credential",
+        "to": "cloudenv",
+        "route": "arc",
+        "lift": 1.5,
+        "style": "dashed",
+        "color": "data",
+        "arrow": true,
+        "packets": [0.5]
+      }
+    ]
+  },
+  "svg_sha256": "6bbef5defa739e9237349dda9ebceb62e5f701bdc166eac24bb87983e5a2c44f"
+}
