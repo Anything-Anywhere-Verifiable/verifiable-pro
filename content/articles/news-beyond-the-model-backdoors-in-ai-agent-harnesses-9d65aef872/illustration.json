@@ -1,0 +1,67 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray cloud stands at the center of a gray floor. On the left, an open laptop with a small stack of papers in front of it sends a glowing dashed orange line carrying two packets up into the cloud. A small teal agent cube sits apart on the right, with no line to it.",
+    "zh": "灰色地面中央立着一朵大型灰色云朵。左侧一台打开的笔记本电脑前放着一小叠文件，一条发光的橙色虚线带着两个数据包从电脑升入云中。右侧远处有一个小小的青绿色智能体方块，没有连线。"
+  },
+  "caption": {
+    "en": "Illustration: host information and credential-related files leave a computer for a collection endpoint along a path that runs apart from the agent, as in the backdoored-extension experiment CERT-EU describes. It does not depict CERT-EU's lab, the tested Pi or Claude Code harnesses, or a tested deployment.",
+    "zh": "示意图：主机信息和与凭据有关的文件沿一条不经过智能体的路径，从电脑传往接收端，对应 CERT-EU 所述的扩展后门实验。图中并非 CERT-EU 的实验室、受测的 Pi 或 Claude Code 框架，也不代表任何经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "endpoint",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "cloud",
+        "id": "endpoint",
+        "at": [0, 0],
+        "tint": "neutral",
+        "scale": 2.0,
+        "note": "the collection endpoint, focal, at the center"
+      },
+      {
+        "prop": "laptop",
+        "id": "host",
+        "at": [-2.6, -2.6],
+        "tint": "neutral",
+        "content": "code",
+        "note": "the host whose environment and credential files were sent"
+      },
+      {
+        "prop": "papers",
+        "id": "files",
+        "at": [-0.8, -4.4],
+        "tint": "neutral",
+        "count": 3,
+        "note": "credential-related files beside the host"
+      },
+      {
+        "prop": "agent",
+        "id": "agent",
+        "at": [4.2, 1.4],
+        "tint": "agents",
+        "size": 0.8,
+        "core": "face",
+        "note": "the agent, small and secondary, off to the right, still chatting"
+      }
+    ],
+    "links": [
+      {
+        "from": "host.top",
+        "to": "endpoint",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5, 0.78],
+        "glow": true,
+        "arrow": true,
+        "note": "starts at the top of the laptop's screen so the packets ride in open space, not behind the screen"
+      },
+      {"from": "files", "to": "host", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "929a31fb711974ee7591b4d57636d7e63a3b148a7bf1a6ce4519fc5f834f2ef6"
+}
