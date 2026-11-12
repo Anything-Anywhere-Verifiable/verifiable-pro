@@ -1,0 +1,36 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass agent cube at left sends a dashed orange line with one packet to a large gray block marked with an indigo turnstile. From the block, a solid orange arrow reaches a teal gear tile, and a broken orange line stops short of a gray terminal tile.",
+    "zh": "左侧的青色玻璃智能体方块，用带一个数据包的橙色虚线连向一块印有靛蓝色十字转门符号的灰色大方块。方块引出一条橙色实线箭头，连到青色齿轮图块；另一条橙色线在中途断开，没有到达灰色终端图块。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's proposed tool call passes through a policy checker before reaching one tool, while a second call is cut off before its tool, as the design the LeanGuard authors describe. It does not depict LeanGuard's software, its Lean policies or a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：按照 LeanGuard 作者描述的设计，智能体提出的工具调用先经过策略检查器，其中一次调用被放行至工具，另一次在到达工具前被截断。图中并非 LeanGuard 的软件、其 Lean 策略或任何经过测试的部署，也不表明这些检查确实如所述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "checker",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "agent", "id": "agent", "at_uv": [-4.2, 0.6], "tint": "agents", "size": 1.4, "core": "sphere"},
+      {"prop": "math_block", "id": "checker", "at": [0, 0], "size": 2.2, "mark": "turnstile", "tint": "tee"},
+      {"prop": "tool", "id": "allowed", "at_uv": [4.2, -0.6], "icon": "gear", "tint": "agents", "size": 1.1},
+      {
+        "prop": "tool",
+        "id": "denied",
+        "at_uv": [4.2, 1.8],
+        "icon": "terminal",
+        "tint": "neutral",
+        "size": 1.1
+      }
+    ],
+    "links": [
+      {"from": "agent", "to": "checker", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "checker", "to": "allowed", "style": "solid", "color": "data", "arrow": true},
+      {"from": "checker", "to": "denied", "style": "broken", "color": "data", "gap": 0.5}
+    ]
+  },
+  "svg_sha256": "e2bd8f42fad585e82309304d996257aa348f652b3641e1de65e9b47375538ede"
+}
