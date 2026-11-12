@@ -1,0 +1,29 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large blue weights cube stands at the center of a gray floor. A dotted dark gray line links it to a smaller gray weights cube on the left. A solid blue line runs to a teal glass agent cube, and a dashed orange line with one packet runs from the agent to a teal terminal tool tile.",
+    "zh": "灰色地台中央是一个大型蓝色权重立方体，一条深灰色点线将它与左侧较小的灰色权重立方体相连。一条蓝色实线通向青绿色玻璃智能体立方体，智能体再沿带一个数据包的橙色虚线连到青绿色终端工具牌。"
+  },
+  "caption": {
+    "en": "Illustration: deployed model weights are compared with the original weights, and the model drives an agent that sends a command to a terminal tool. This is a diagram, not a tested deployment: it does not depict Microsoft's models, Foundry or the Lazarus technique, and it does not show that any check works as described.",
+    "zh": "示意图：将部署的模型权重与原始权重进行比较，模型再驱动智能体向终端工具发出命令。图中并非经过测试的部署，没有描绘微软的模型、Foundry 或 Lazarus 技术，也不表明任何检查能按所述方式生效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "deployed",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "weights", "id": "original", "at": [-3.25, -2.25], "tint": "neutral", "size": 1.4},
+      {"prop": "weights", "id": "deployed", "at": [0, 0], "tint": "models", "size": 2.5},
+      {"prop": "agent", "id": "agent", "at": [2.25, 2.25], "tint": "agents", "size": 1.2, "core": "sphere"},
+      {"prop": "tool", "id": "terminal", "at": [4.5, 2], "tint": "agents", "icon": "terminal", "size": 0.9}
+    ],
+    "links": [
+      {"from": "original", "to": "deployed", "style": "dotted", "color": "ink"},
+      {"from": "deployed", "to": "agent", "style": "solid", "color": "models"},
+      {"from": "agent", "to": "terminal", "style": "dashed", "color": "data", "packets": [0.5], "arrow": true}
+    ]
+  },
+  "svg_sha256": "c24544f96d39ed1b9c608417b94d1a5bd41a5eb5014a65a3af2e47c1dee95475"
+}
