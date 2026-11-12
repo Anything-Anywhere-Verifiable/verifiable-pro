@@ -1,0 +1,36 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A gray GPU package with four memory stacks sits at the center of a gray floor. A glowing dashed orange line with two packets runs from a gray storage stack at the left to the GPU's die. A violet dial at the right is joined to the GPU by a dotted violet line.",
+    "zh": "灰色地面中央是一块带四个显存堆叠的灰色 GPU 封装。左侧灰色存储堆叠引出一条发光的橙色虚线，载着两个数据包通向 GPU 芯片核心；右侧一个紫色表盘以紫色点线与 GPU 相连。"
+  },
+  "caption": {
+    "en": "Illustration: saved memory state flows from storage back onto a GPU while a dial times the restore. It does not depict NVIDIA's Snapshot, its GPUs or storage, or a tested deployment, and it does not show that restores are as fast as NVIDIA reports.",
+    "zh": "示意图：保存的内存状态从存储写回 GPU，表盘为恢复过程计时。图中并非 NVIDIA 的 Snapshot、GPU 或存储，也不代表任何经过测试的部署，更不表明恢复速度如 NVIDIA 所报告。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "gpu",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "gpu", "id": "gpu", "at": [0, 0], "size": 3.4, "hbm": "4", "tint": "neutral"},
+      {"prop": "database", "id": "storage", "at": [-3.6, -1.4], "tiers": 3, "r": 0.8, "tint": "neutral"},
+      {"prop": "gauge", "id": "timer", "at": [1.4, 3.6], "value": 0.8, "size": 1.6, "tint": "evaluations"}
+    ],
+    "links": [
+      {
+        "from": "storage",
+        "to": "gpu.die",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.15, 0.35],
+        "arrow": true,
+        "glow": true
+      },
+      {"from": "timer", "to": "gpu", "route": "straight", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "ce4fd4f31e70ca8c0e9776506db08c4bac15894cdeb3669958978a04aa47cd42"
+}
