@@ -1,0 +1,64 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal database of stacked discs sits at the center. A dashed orange line with a packet runs into it from a standing page beside a yellow warning sign, and a second runs out to a teal agent cube. A dotted violet line joins the agent to a violet bar chart.",
+    "zh": "画面中央是一座由圆盘堆叠而成的大型青绿色数据库。一条带数据包的橙色虚线从黄色警示牌旁的一页文件通向数据库，另一条从数据库通向青绿色智能体立方体；智能体再以紫色点线连接一组紫色柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: an instruction marked as a risk is written into an agent's memory store, later retrieved by the agent, and the outcome is scored by a benchmark. It does not depict MemoryDojo, any of the memory systems the authors evaluated, or a tested deployment, and it does not show the reported findings.",
+    "zh": "示意图：被标记为风险的指令写入智能体的记忆库，之后被智能体检索调用，基准再对结果进行评分。图中并非 MemoryDojo、作者评估的任何记忆系统或经过测试的部署，也不代表作者报告的结论。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "memory",
+    "ground": {"kind": "plate"},
+    "items": [
+      {
+        "prop": "sign",
+        "id": "warning",
+        "at_uv": [-6.6, -2.2],
+        "scale": 0.8,
+        "note": "marks the poisoned input"
+      },
+      {
+        "prop": "document",
+        "id": "input",
+        "at_uv": [-5, 0.6],
+        "pose": "standing",
+        "lines": 5,
+        "note": "an instruction met in an earlier session"
+      },
+      {
+        "prop": "database",
+        "id": "memory",
+        "at_uv": [0, 0],
+        "tint": "agents",
+        "tiers": 4,
+        "scale": 1.8,
+        "note": "the agent's memory store, focal"
+      },
+      {
+        "prop": "agent",
+        "id": "agent",
+        "at_uv": [5, 0.6],
+        "tint": "agents",
+        "core": "sphere",
+        "note": "the agent in a later session"
+      },
+      {
+        "prop": "bars",
+        "id": "score",
+        "at_uv": [4.4, -4.6],
+        "tint": "evaluations",
+        "heights": [0.8, 1.4, 1.0, 1.8],
+        "note": "a benchmark measuring downstream effects"
+      }
+    ],
+    "links": [
+      {"from": "input", "to": "memory", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "memory", "to": "agent", "style": "dashed", "color": "data", "packets": [0.5], "arrow": true},
+      {"from": "agent", "to": "score", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "e3c77d7f91856ff80f87f854a14fb16ffcbe28e9a5f3b6e641f30d75ce0bcb8e"
+}
