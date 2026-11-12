@@ -1,0 +1,37 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet database stands in the center of a gray floor. A dashed dark-gray arrow runs into it from a stack of pages at the front. A dotted gray line links it to a violet bar chart whose tallest bar is on the left. Behind, a teal glass agent cube is joined by a teal line to a teal tool tile.",
+    "zh": "灰色地台中央是一座较大的紫色数据库。前方一叠纸张引出深灰色虚线箭头，指向数据库；数据库再以灰色点线连到右侧的紫色柱状图，最高的柱子在左边。后方的青绿色玻璃智能体方块以青绿色实线连接一块工具图块。"
+  },
+  "caption": {
+    "en": "Illustration: a stack of vulnerability records feeds a dataset whose cases are charted by severity, beside an AI agent linked to a tool, standing for the curated MCP vulnerability snapshot the authors describe. It does not depict a tested deployment, the authors' dataset or any real MCP system, and it does not show how many deployments are vulnerable.",
+    "zh": "示意图：一叠漏洞记录汇入数据集，数据集中的案例按严重程度绘成柱状图，旁边是与工具相连的 AI 智能体，代表作者所述经整理的 MCP 漏洞快照。图中并非经过测试的部署，也不是作者的数据集或任何真实的 MCP 系统，更不表示有多少部署存在漏洞。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "dataset",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "database", "id": "dataset", "at": [0, 0], "tint": "evaluations", "tiers": 4, "scale": 1.6},
+      {"prop": "papers", "id": "records", "at": [0.6, -2.8], "tint": "neutral", "count": 5},
+      {
+        "prop": "bars",
+        "id": "severity",
+        "at": [2.9, 0.6],
+        "tint": "evaluations",
+        "heights": [2.1, 1.4, 0.5, 0.3],
+        "highlight": 0
+      },
+      {"prop": "agent", "id": "agent", "at": [-2.6, 0.2], "tint": "agents", "core": "sphere"},
+      {"prop": "tool", "id": "tool", "at": [-3.4, -1.2], "tint": "agents", "icon": "database"}
+    ],
+    "links": [
+      {"from": "records", "to": "dataset", "style": "dashed", "color": "ink", "arrow": true},
+      {"from": "dataset", "to": "severity", "style": "dotted", "color": "mute"},
+      {"from": "agent", "to": "tool", "style": "solid", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "81f32fcb321ab2d360887234a99df48537fd88a74f9e14439eb0f9ab3cc10512"
+}
