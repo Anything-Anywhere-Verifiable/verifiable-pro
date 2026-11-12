@@ -1,0 +1,44 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray GPU package, a die ringed by four memory stacks, sits at the center of a gray floor. A dashed orange line carrying one packet runs to it from a crate with a teal label on the left, and a dotted light-gray line runs from it to a standing page of writing on the right.",
+    "zh": "灰色地面中央是一块大型灰色 GPU 封装，核心芯片四周环绕四个内存堆栈。左侧带青色标签的货箱经一条载有数据包的橙色虚线连到 GPU，GPU 再以浅灰色点线连到右侧一页竖立的文件。"
+  },
+  "caption": {
+    "en": "Illustration: A GPU package stands for the experimental GPU integration NVIDIA describes for Agent Substrate, with a crate for a saved session snapshot on one side and a document for the runtime description on the other. It does not depict a tested deployment or NVIDIA's hardware, and it does not show that snapshots restore onto GPUs as described.",
+    "zh": "示意图：GPU 封装代表 NVIDIA 为 Agent Substrate 描述的实验性 GPU 集成，一侧的货箱代表保存的会话快照，另一侧的文件代表运行时说明。图中并非经过测试的部署，也不是 NVIDIA 的硬件，不能说明快照能如其所述恢复到 GPU 上。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "gpu",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "gpu", "id": "gpu", "at": [0, 0], "tint": "neutral", "size": 3.4, "hbm": "4"},
+      {"prop": "crate", "id": "snapshot", "at": [-3.2, -3.2], "tint": "agents", "size": 1.3, "label": true},
+      {
+        "prop": "document",
+        "id": "runtime-doc",
+        "at": [3.2, 3.2],
+        "tint": "neutral",
+        "pose": "standing",
+        "w": 1.25,
+        "h": 1.65,
+        "header": true,
+        "lines": 6
+      }
+    ],
+    "links": [
+      {
+        "from": "snapshot",
+        "to": "gpu",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "gpu", "to": "runtime-doc", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "519bc0cbc9dede4c018b0ac4f0aeba27b2128137b83db85bcd816f12d2e4ef16"
+}

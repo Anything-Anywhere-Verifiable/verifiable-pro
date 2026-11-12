@@ -1,0 +1,36 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "On a gray floor, dashed orange lines carrying packets run from a gray processor chip and from a flat gray server into a large violet block marked with an equals sign; a dark gray arrow leads from the block to a yellow warning sign.",
+    "zh": "灰色地面上，两条带数据包的橙色虚线分别从灰色处理器芯片和扁平灰色服务器通向一个标有等号的紫色大方块；一条深灰色箭头从方块指向黄色警示牌。"
+  },
+  "caption": {
+    "en": "Illustration: A processor chip and a reference server feed results to a comparison block that flags a mismatch with a warning sign, standing for the differential testing the authors describe for compiler correctness. It does not depict Google's XLA compiler, TPUs or test pipeline, or a tested deployment, and it does not show that the method finds or fixes defects as reported.",
+    "zh": "示意图：处理器芯片和参考服务器把结果送入比较方块，方块以警示牌标出不一致，代表作者所描述的编译器正确性差分测试。图中并非 Google 的 XLA 编译器、TPU 或测试流水线，也不代表经过测试的部署，更不表明该方法能如作者所述发现或修复缺陷。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "cmp",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "math_block",
+        "id": "cmp",
+        "at_uv": [0, 0],
+        "size": 2.2,
+        "tint": "evaluations",
+        "mark": "equals"
+      },
+      {"prop": "chip", "id": "tpu", "at_uv": [-5, 1], "size": 2, "lid": "metal", "tint": "neutral"},
+      {"prop": "server", "id": "ref", "at_uv": [-4.4, -3.4], "w": 2.6, "d": 1.4, "tint": "neutral"},
+      {"prop": "sign", "id": "flag", "at_uv": [4.6, 0.6], "tint": "warn"}
+    ],
+    "links": [
+      {"from": "tpu", "to": "cmp", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "ref", "to": "cmp", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "cmp", "to": "flag", "style": "solid", "color": "ink", "arrow": true}
+    ]
+  },
+  "svg_sha256": "580837de21a28d8afe4c7e198ad311295ac04906b2c47bda46f45a52ce92f636"
+}
