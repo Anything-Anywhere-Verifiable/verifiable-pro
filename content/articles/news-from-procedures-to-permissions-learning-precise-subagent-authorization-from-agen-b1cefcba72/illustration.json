@@ -1,0 +1,27 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal key lies at the center of a gray floor. On the left, a standing page with a teal header sends a dashed orange line with one packet to the key. A dark gray arrow runs from the key to a teal tool tile with a terminal icon on the right.",
+    "zh": "灰色地面中央平放着一把大号青绿色钥匙。左侧一页带青绿色页眉的文件立着，一条带数据包的橙色虚线从它连到钥匙；一支深灰色箭头从钥匙指向右侧带终端图标的青绿色工具牌。"
+  },
+  "caption": {
+    "en": "Illustration: a procedure page feeds a single key that opens one tool, standing for the precise permissions the preprint describes learning from Agent Skills. It does not depict the authors' model, benchmarks or a tested deployment, and it does not show that the permissions work as described.",
+    "zh": "示意图：一页操作流程传向一把钥匙，钥匙只开启一件工具，代表预印本所述从 Agent Skills 中学到的精确权限。图中并非作者的模型、基准测试或经过测试的部署，也不表明这些权限如所述那样生效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "key",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "key", "id": "key", "at": [0, 0], "tint": "agents", "size": 4, "scale": 1.8},
+      {"prop": "document", "id": "skill", "at": [-3, -4], "tint": "agents", "header": true, "lines": 6},
+      {"prop": "tool", "id": "tool", "at": [4, 3], "tint": "agents", "icon": "terminal", "size": 1.4}
+    ],
+    "links": [
+      {"from": "skill", "to": "key", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "key", "to": "tool", "style": "solid", "color": "ink", "arrow": true}
+    ]
+  },
+  "svg_sha256": "0bbef505c7001021d868d76bb725b8bf1a2ff8d4715162b158acdf3a4aec144e"
+}

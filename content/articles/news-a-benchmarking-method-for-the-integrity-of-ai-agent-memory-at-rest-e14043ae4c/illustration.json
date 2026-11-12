@@ -1,0 +1,38 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal-gridded weights cube stands at the center of a gray floor. To its left a page with a violet header is joined to it by a dotted gray line; in front, a dashed orange line runs from a dashed-outline packet to the cube; to its right a violet line with an arrow leads to a half-filled dial.",
+    "zh": "灰色地面中央立着一个带青绿色网格的大型权重方块。左侧一页带紫色页眉的文件以灰色点线与它相连；前方一个虚线轮廓的数据包以橙色虚线连到方块；右侧一条带箭头的紫色线通向指针居中的仪表盘。"
+  },
+  "caption": {
+    "en": "Illustration: A draft benchmark method (the page) applies a storage edit (the outlined packet) to an AI agent's stored memory (the cube) and turns what the memory subsystem notices into a score (the dial). It does not depict a tested deployment or any real memory subsystem, and it does not show that any system detects tampering.",
+    "zh": "示意图：一份草案中的基准方法（文件）对 AI 智能体的存储记忆（方块）实施一项存储修改（虚线数据包），再根据记忆子系统能否察觉给出分数（仪表盘）。图中并非经过测试的实际部署，也不代表任何真实的记忆子系统，不表明任何系统能够检测到篡改。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "memory",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "weights", "id": "memory", "at": [0, 0], "tint": "agents", "size": 2.2},
+      {
+        "prop": "document",
+        "id": "draft",
+        "at": [-3.4, -3.4],
+        "tint": "evaluations",
+        "scale": 1.4,
+        "lines": 6,
+        "header": true
+      },
+      {"prop": "gauge", "id": "score", "at": [3.4, 3.4], "tint": "evaluations", "size": 2, "value": 0.5},
+      {"prop": "packet", "id": "edit", "at": [2.0, -2.0], "tint": "data", "size": 0.45, "ghost": true}
+    ],
+    "links": [
+      {"from": "draft", "to": "memory", "style": "dotted", "color": "mute"},
+      {"from": "edit", "to": "memory", "style": "dashed", "color": "data"},
+      {"from": "memory", "to": "score", "style": "solid", "color": "evaluations", "arrow": true}
+    ]
+  },
+  "svg_sha256": "b61b5ce15e09d4ab2b8b5dea53f5cb94dc77311e3798e04a1187457d11bfd579"
+}

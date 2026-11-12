@@ -1,0 +1,54 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A long row of gray blocks with an indigo newest block floats at the center. A dashed orange line with packets runs to it from a teal database on the left, and a dotted violet line runs to it from a standing page with a violet ring on the right.",
+    "zh": "画面中央是一排灰色方块，最新一块为靛蓝色，悬在末端。左侧青绿色数据库以带数据包的橙色虚线连向它，右侧带紫色圆环的直立文档以紫色点线连向它。"
+  },
+  "caption": {
+    "en": "Illustration: an agent-synthesized database component and a correctness specification both feed a record of which component was deployed, as in the design the authors describe. It does not depict a tested deployment, and it does not show that the firewalls preserve results as described.",
+    "zh": "示意图：按作者描述的设计，智能体生成的数据库组件与正确性规范共同汇入一份记录，标明部署的是哪个组件。图中并非经过测试的实际部署，也不表明这些防火墙能如所述保持结果正确。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "record",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "size": "auto", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "ledger",
+        "id": "record",
+        "at": [0, 0],
+        "tint": "tee",
+        "count": 5,
+        "size": 1.1,
+        "layout": "row",
+        "pending": true
+      },
+      {"prop": "database", "id": "component", "at": [-4.2, -4.2], "tint": "agents", "tiers": 3, "r": 0.8},
+      {
+        "prop": "document",
+        "id": "spec",
+        "at": [4.2, 4.2],
+        "facing": "left",
+        "tint": "evaluations",
+        "seal": "ring",
+        "lines": 6,
+        "w": 1.3,
+        "h": 1.7
+      }
+    ],
+    "links": [
+      {
+        "from": "component",
+        "to": "record.first",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7]
+      },
+      {"from": "spec", "to": "record.new", "route": "straight", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "4e48badd0586725b7f176508bc6e852fd21d6cc65c273ade940ddd73142622d1"
+}
