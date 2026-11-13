@@ -1,0 +1,44 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "An isometric diagram on a gray floor: a teal glass cube at the front left sends a dashed orange arc with a packet onto the top block of a stepped violet pyramid of proof blocks in the center. A gray block with a turnstile mark stands to the right, joined to the pyramid by a dotted violet line and to a small violet bar chart behind it by a dotted gray line.",
+    "zh": "灰色地面上的等轴示意图：左前方的青色玻璃立方体沿橙色虚线弧线向中央的紫色阶梯状证明块金字塔顶部发送一个数据包。右侧带推导符标记的灰色方块以紫色点线连接金字塔，并以灰色点线连接后方的紫色柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: A coding agent sends a repair onto a stepped pyramid of proof blocks, a turnstile checker block takes the result, and a bar chart stands for the reported scores. It does not depict VerusWeave's tasks, harnesses or scores, it does not depict a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：一个编程智能体向阶梯状的证明块金字塔发送修复，带推导符的检查方块接收结果，柱状图代表作者报告的分数。图中不描绘 VerusWeave 的任务、框架或分数，不代表经过测试的部署，也不表明检查按所述方式有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "proof",
+    "items": [
+      {"prop": "proof_tree", "id": "proof", "at": [0, 0], "levels": 4, "block": 0.7, "tint": "evaluations"},
+      {"prop": "agent", "id": "agent", "at": [0.2, -2.8], "tint": "agents", "core": "cube"},
+      {"prop": "math_block", "id": "checker", "at": [1.8, 1.8], "mark": "turnstile", "tint": "neutral"},
+      {
+        "prop": "bars",
+        "id": "scores",
+        "at": [0.2, 3.4],
+        "tint": "evaluations",
+        "heights": [1.6, 1.7, 0.6, 0.9],
+        "highlight": 1,
+        "bar": 0.4
+      }
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "proof.top",
+        "route": "arc",
+        "lift": 1.4,
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.45],
+        "arrow": true
+      },
+      {"from": "proof", "to": "checker", "style": "dotted", "color": "evaluations", "arrow": true},
+      {"from": "checker", "to": "scores", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "3c761803fb822592040eecf4ab4de6e1a881754599ed0281163b8f0d6a78163c"
+}
