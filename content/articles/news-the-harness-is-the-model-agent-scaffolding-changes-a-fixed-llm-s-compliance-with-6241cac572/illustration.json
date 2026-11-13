@@ -1,0 +1,52 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large row of gray log blocks sits at the center of a gray floor, its newest block in teal floating just above its place. A dotted light-gray line joins a standing page of rules on the left to the first block, and a dark-gray arrow runs from the newest block to a violet-accented bar chart on the right.",
+    "zh": "灰色地面中央是一排很大的日志块，最新一块为青绿色，悬在它的位置上方。左侧一页直立的规则文件以浅灰色点线连到第一块，最新一块则以深灰色箭头指向右侧带紫色高亮的柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: conduct rules on a page are checked against a log of executed actions, and that log is scored into violation rates on a bar chart. It does not depict the study's models, harnesses or simulated bank, and it does not depict a tested deployment.",
+    "zh": "示意图：页面上的行为规则与已执行操作的日志相对照，日志再被计分为柱状图上的违规率。图中并非研究所用的模型、框架或模拟银行，也不代表任何经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "log",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "ledger",
+        "id": "log",
+        "at": [0, 0],
+        "tint": "agents",
+        "count": 5,
+        "size": 1.1,
+        "layout": "row",
+        "pending": true
+      },
+      {
+        "prop": "document",
+        "id": "rules",
+        "at": [-3.2, -3.2],
+        "tint": "neutral",
+        "pose": "standing",
+        "header": true,
+        "seal": "none",
+        "lines": 6
+      },
+      {
+        "prop": "bars",
+        "id": "rates",
+        "at": [3.4, 3.4],
+        "tint": "evaluations",
+        "heights": [1.2, 0.9, 1.6, 1.0, 0.7],
+        "highlight": 2
+      }
+    ],
+    "links": [
+      {"from": "rules", "to": "log.first", "route": "straight", "style": "dotted", "color": "mute"},
+      {"from": "log.new", "to": "rates", "route": "straight", "style": "solid", "color": "ink", "arrow": true}
+    ]
+  },
+  "svg_sha256": "e9234f113086009a515388ca908e22964217fd237b313ce57c22425b1aee9925"
+}

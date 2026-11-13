@@ -1,0 +1,50 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet block marked with an equals sign stands in the center of a gray floor. On the left, a blue cube of model weights sends a dashed orange line with one packet to it. On the right, a standing gray page joins it with a dotted gray line.",
+    "zh": "灰色地面中央立着一块标有等号的紫色大方块。左侧是蓝色的模型权重立方体，一条带数据包的橙色虚线连到方块；右侧是一张竖立的灰色文件，以灰色点线与方块相连。"
+  },
+  "caption": {
+    "en": "Illustration: a model's weights and a posted training blueprint both feed a comparison of gradient statistics, as the SciCheck authors propose. It does not depict a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：按照 SciCheck 作者提出的设计，模型权重与已发布的训练蓝图一起接受梯度统计比较。图中并非经过测试的实际部署，也不表明这些检查能如所述般起效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "stats",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "math_block",
+        "id": "stats",
+        "at": [0, 0],
+        "size": 2.2,
+        "mark": "equals",
+        "tint": "evaluations"
+      },
+      {"prop": "weights", "id": "model", "at": [-3.2, -3.2], "size": 1.6, "tint": "models"},
+      {
+        "prop": "document",
+        "id": "blueprint",
+        "at": [3.2, 3.2],
+        "w": 1.4,
+        "h": 1.9,
+        "tint": "neutral",
+        "header": true,
+        "lines": 6
+      }
+    ],
+    "links": [
+      {
+        "from": "model",
+        "to": "stats",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "blueprint", "to": "stats", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "7452f66cea43fd9db1909e8871e87d657f17a59aef85d1b2d4204087802a6564"
+}

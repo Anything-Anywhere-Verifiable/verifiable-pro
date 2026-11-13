@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-reins-a-self-evolving-agent-harness-for-real-time-trajectory-planning-faddf39932.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "49ceaee2be218f2b6657ff404cf41a4177bf053dc3fee541d856e06a1e6bf0b0",
+  "variants": {
+    "list": {
+      "file": "news-reins-a-self-evolving-agent-harness-for-real-time-trajectory-planning-faddf39932-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "de8b4360df5b891e999187d1c58d3c05841c9fdebef732167b35039f2b32da91"
+    },
+    "thumb": {
+      "file": "news-reins-a-self-evolving-agent-harness-for-real-time-trajectory-planning-faddf39932-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "2bf7bbabd8eb464bd40b4b7bb14e03fbda791f05921592dc0290ba4f75f09ee3"
+    },
+    "social": {
+      "file": "news-reins-a-self-evolving-agent-harness-for-real-time-trajectory-planning-faddf39932-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "b8ea70284059d2242e338ac33c7a80da33480e3ab81e657cdbb102e86f4ed381"
+    }
+  },
+  "edits": {
+    "source_sha256": "300dc4d82c900de27253a1dafd640e56814583d4aa14aa57bfb123137bf53348",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The paper describes checking language-model proposals and storing rules for reuse. Its arXiv abstract reports performance gains, but does not establish how a deployed system’s evolving configuration can be checked.",
+    "zh": "论文提出检查语言模型的规划建议，再将规则存入记忆以供复用。arXiv 摘要报告了性能提升，但未说明外部人员如何核查部署系统持续变化的配置。"
+  },
+  "caption": {
+    "en": "The paper describes checking language-model proposals and storing rules for reuse. Its arXiv abstract reports performance gains, but does not establish how a deployed system’s evolving configuration can be checked.",
+    "zh": "论文提出检查语言模型的规划建议，再将规则存入记忆以供复用。arXiv 摘要报告了性能提升，但未说明外部人员如何核查部署系统持续变化的配置。"
+  },
+  "credit": "Zhihong Cui, Hengyu Liu, Haoran Tang, Shijun Liu, Amir Taherkordi, Tor Skeie",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.10748",
+  "retrieved": "2026-11-13"
+}

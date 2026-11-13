@@ -1,0 +1,76 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A blue model weights cube stands at the center of a gray floor. A gray manifest page with lines of writing stands to its left, joined to it by a dotted dark line, and a gray dial stands to its right, joined by a dotted light line. A dashed orange line with packets arcs from the cube to an indigo row of ledger blocks behind it.",
+    "zh": "灰色地面中央立着一个蓝色模型权重方块。左侧是一页写有线条的灰色清单文件，用深色点线与方块相连；右侧是一只灰色仪表盘，用浅灰点线相连。一条带数据包的橙色虚线从方块弧形连到后方一排靛蓝色记录区块。"
+  },
+  "caption": {
+    "en": "Illustration: a manifest page, a model weights cube and a benchmark dial stand on a floor, with a dashed data path from the cube to an execution ledger behind them, standing for the artifact checks, benchmark report and execution records the Caleta paper describes. It does not depict a tested deployment, Caleta's software or model files, and it does not show that the checks work as described.",
+    "zh": "示意图：地面上立着清单文件、模型权重方块和基准仪表盘，一条数据虚线从方块通向后方的执行记录账本，代表 Caleta 论文描述的制品检查、基准报告和执行记录。图中并非经过测试的部署，也不描绘 Caleta 的软件或模型文件，更不表明这些检查如描述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "model",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "weights",
+        "id": "model",
+        "at": [0, 0],
+        "tint": "models",
+        "size": 1.5,
+        "note": "the local model file whose bytes are checked"
+      },
+      {
+        "prop": "document",
+        "id": "manifest",
+        "at": [-2.0, -2.0],
+        "tint": "neutral",
+        "pose": "standing",
+        "w": 1.25,
+        "h": 1.65,
+        "header": true,
+        "seal": "none",
+        "lines": 6,
+        "note": "the versioned manifest"
+      },
+      {
+        "prop": "gauge",
+        "id": "benchmark",
+        "at": [2.0, 2.0],
+        "tint": "neutral",
+        "value": 0.6,
+        "size": 1.4,
+        "note": "the benchmark report"
+      },
+      {
+        "prop": "ledger",
+        "id": "records",
+        "at": [-1.5, 4.0],
+        "tint": "tee",
+        "count": 4,
+        "layout": "row",
+        "size": 0.7,
+        "pending": true,
+        "note": "execution records"
+      }
+    ],
+    "links": [
+      {"from": "manifest", "to": "model", "route": "straight", "style": "dotted", "color": "ink"},
+      {"from": "model", "to": "benchmark", "route": "straight", "style": "dotted", "color": "mute"},
+      {
+        "from": "model",
+        "to": "records",
+        "route": "arc",
+        "lift": 1.5,
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7],
+        "glow": true,
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "3e0fde19d2e687ab92a28e2b0991bd50b7aeeec787439b3f03e41a67209082a5"
+}
