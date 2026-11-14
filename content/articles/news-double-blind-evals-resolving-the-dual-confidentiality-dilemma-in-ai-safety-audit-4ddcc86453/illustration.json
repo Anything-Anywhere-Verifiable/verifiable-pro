@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet balance scale with level pans stands at the center of a gray floor. At its left lies a stack of papers, at its right an indigo-gridded weights cube. A dashed orange line with packets runs from the papers and a dotted indigo line from the cube to an indigo-tinted accelerator chip at the back.",
+    "zh": "灰色地面中央立着一架紫色天平，两盘持平。左侧是一叠纸，右侧是带靛蓝网格的权重方块。一条带数据包的橙色虚线从纸堆、一条靛蓝点线从方块分别连向后方靛蓝色调的加速器芯片。"
+  },
+  "caption": {
+    "en": "Illustration: private evaluation prompts and proprietary model weights both pass into a confidential accelerator, with the balance standing for the double-blind audit the authors describe weighing each side's confidentiality. It does not depict a tested deployment, the H100 enclave, PySyft or Gemini, and it does not show that the confidentiality claims hold.",
+    "zh": "示意图：私有评估提示词和专有模型权重都送入一块机密计算加速器，天平代表作者所描述的双盲审计，在双方的保密需求之间取得平衡。图中并非经过测试的实际部署，没有描绘 H100 飞地、PySyft 或 Gemini，也不表明其保密主张成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "audit",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "scale", "id": "audit", "at": [0, 0], "tint": "evaluations", "size": 1.6, "tilt": 0},
+      {"prop": "papers", "id": "prompts", "at": [-2.6, -2.6], "count": 5},
+      {"prop": "weights", "id": "model", "at": [2.6, 2.6], "tint": "tee", "size": 1.2},
+      {"prop": "gpu", "id": "enclave", "at": [-4.2, 4.2], "tint": "tee", "size": 2.4, "hbm": "4"}
+    ],
+    "links": [
+      {
+        "from": "prompts",
+        "to": "enclave.die",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7]
+      },
+      {"from": "model", "to": "enclave.die", "route": "straight", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "56286c5e53e24767d5b5ec56e33802e56d587ec7a82b6c6705361da9d9a9e07c"
+}

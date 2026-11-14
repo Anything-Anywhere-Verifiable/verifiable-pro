@@ -1,0 +1,88 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal cloud stands at the center of a gray floor. To its left, a dashed orange line with small packets runs from the cloud to a teal tool tile with a wrench icon. To its right, a dotted dark gray line runs from the cloud to a standing gray document with a header bar. In front at the left, a dashed outline of a packet sits at the end of a broken orange line toward the cloud.",
+    "zh": "灰色地面中央立着一朵青色大云。云的左侧，一条带小数据包的橙色虚线连向一块带扳手图标的青色工具砖；右侧，一条深灰点线连向一份带页眉的灰色文件。左前方，一个虚线轮廓的数据包位于一条断开的橙色线末端，指向云。"
+  },
+  "caption": {
+    "en": "Illustration: a cloud platform runs an agent loop that calls tools and records completed results in a persisted journal, while an interrupted step is left dropped. It does not depict Cloudflare's Workers, Durable Objects or the Codex harness, and it does not show that recovery works as the design Cloudflare describes; it is not a tested deployment.",
+    "zh": "示意图：一个云平台运行智能体循环，调用工具并将已完成的结果记入持久化日志，而被中断的步骤则被丢弃。图中并非 Cloudflare 的 Workers、Durable Object 或 Codex harness，也不表明恢复能力如 Cloudflare 描述的设计那样生效；这不是经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "cloud",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "cloud",
+        "id": "cloud",
+        "at": [0, 0],
+        "w": 2.6,
+        "scale": 2.4,
+        "tint": "agents",
+        "note": "the cloud platform running the agent loop"
+      },
+      {
+        "prop": "tool",
+        "id": "tool",
+        "at": [-2.6, -2.6],
+        "size": 1.4,
+        "icon": "wrench",
+        "tint": "agents",
+        "note": "the tools the loop calls"
+      },
+      {
+        "prop": "document",
+        "id": "journal",
+        "at": [2.6, 2.6],
+        "scale": 1.4,
+        "tint": "neutral",
+        "header": true,
+        "seal": "none",
+        "lines": 7,
+        "note": "the persisted journal of completed steps"
+      },
+      {
+        "prop": "packet",
+        "id": "lost",
+        "at": [-1.2, -3.4],
+        "size": 0.45,
+        "tint": "neutral",
+        "ghost": true,
+        "note": "an interrupted step whose result was not recorded"
+      }
+    ],
+    "links": [
+      {
+        "from": "cloud",
+        "to": "tool",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7],
+        "arrow": true,
+        "note": "tool calls"
+      },
+      {
+        "from": "cloud",
+        "to": "journal",
+        "route": "straight",
+        "style": "dotted",
+        "color": "ink",
+        "arrow": true,
+        "note": "completed results recorded"
+      },
+      {
+        "from": "lost",
+        "to": "cloud",
+        "route": "straight",
+        "style": "broken",
+        "gap": 0.5,
+        "color": "data",
+        "note": "an interrupted step"
+      }
+    ]
+  },
+  "svg_sha256": "b6d3a216e6cf9e5f4e92334740e964c192c74dace56cca1e9cfc6e75baa9ea43"
+}

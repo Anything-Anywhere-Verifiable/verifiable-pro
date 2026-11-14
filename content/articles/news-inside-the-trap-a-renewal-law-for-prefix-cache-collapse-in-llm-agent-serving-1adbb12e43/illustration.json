@@ -1,0 +1,37 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass cube with a sphere core sends a dashed orange line carrying small packets through a gray gateway toward a gray server rack at the back. A dark broken line runs from the rack to a stack of gray discs behind it on the right, and a dashed outline of a packet sits in its gap.",
+    "zh": "一个青色玻璃立方体发出带数据包的橙色虚线，穿过灰色门框通向后方的灰色服务器机柜。机柜与其右后方一叠灰色圆盘之间的深色连线中断，断口处只有一个虚线勾勒的数据包。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's turns pass a session cap into a serving engine whose link to its key-value cache is broken, as the preprint describes. It does not depict the authors' engines, GPUs or models, and it does not show a tested deployment or that session caps recover cache reuse.",
+    "zh": "示意图：智能体的轮次经由会话数量上限进入服务引擎，而引擎与键值缓存之间的连线已中断，对应预印本描述的情形。图中不代表作者测试的引擎、GPU 或模型，也不表示任何经过测试的部署，更不表示会话数量上限能恢复缓存复用。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "engine",
+    "note": "Agents + runtime story. Agent turns (orange path) pass a neutral gate (session cap) into the serving engine (rack, focal); the engine's link to its KV cache (disc stack, back right) is broken, with a ghost packet in the gap, placed clear of the gate's pillars. No TEE in the story, so no indigo; the one glow is the data path.",
+    "items": [
+      {"prop": "agent", "id": "agent", "at": [2.2, -2.2], "tint": "agents", "size": 1.3, "core": "sphere"},
+      {"prop": "gate", "id": "cap", "at": [0, -0.9], "w": 1.8, "h": 2.0, "tint": "neutral", "field": true},
+      {"prop": "server_rack", "id": "engine", "at": [-1.4, 0.7], "tint": "neutral", "units": 6},
+      {"prop": "database", "id": "cache", "at": [1.0, 2.2], "tint": "neutral", "tiers": 3, "r": 0.7},
+      {"prop": "packet", "id": "miss", "at": [-0.2, 1.45], "ghost": true}
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "engine.lamp",
+        "route": "via",
+        "via": [[0.05, -0.9, 0.6]],
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.15, 0.3, 0.75],
+        "glow": true
+      },
+      {"from": "engine", "to": "cache", "style": "broken", "gap": 0.5, "color": "ink", "route": "straight"}
+    ]
+  },
+  "svg_sha256": "dddaa6c9e612ef8db2d75f6a6c86cfa8c18a5cac540e8187964e0c5ba448db14"
+}
