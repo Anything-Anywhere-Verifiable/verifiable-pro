@@ -1,0 +1,44 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large wooden crate stands in the center of a gray floor. A dashed teal line with a packet runs left to a standing page with a teal header, and a dashed pink line with a packet runs right to a screen showing a chat. A small cinnabar seal in front is tied to the crate by a dotted gray line.",
+    "zh": "灰色地面中央立着一个大木箱。一条带数据包的青色虚线向左通往一页顶部为青色的文件，一条粉色虚线向右通往显示对话的屏幕。木箱前方的朱红色小印章以灰色点线与木箱相连。"
+  },
+  "caption": {
+    "en": "Illustration: a signed package, its seal tied to the crate, still installs an instruction file and steers the replies on a chat screen. It does not depict Haiou, Codex or the gateway, nor a tested deployment, and it does not show that the package checks work as described.",
+    "zh": "示意图：带有签名印章的软件包，仍会安装指令文件，并引导对话屏幕上的回答。图中并非 Haiou、Codex 或网关本身，也不代表经过测试的实际部署，更不说明软件包校验如报告所述般运作。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "bundle",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "crate", "id": "bundle", "at": [0, 0], "size": 2.6, "tint": "neutral", "label": true},
+      {
+        "prop": "document",
+        "id": "instructions",
+        "at": [-2.8, -2.8],
+        "tint": "agents",
+        "scale": 1.3,
+        "lines": 6
+      },
+      {
+        "prop": "screen",
+        "id": "chat",
+        "at": [2.8, 2.8],
+        "tint": "outputs",
+        "content": "chat",
+        "w": 2.2,
+        "h": 1.4
+      },
+      {"prop": "seal", "id": "signature", "at": [2.0, -2.0], "tint": "seal", "r": 0.5}
+    ],
+    "links": [
+      {"from": "bundle", "to": "instructions", "style": "dashed", "color": "agents", "packets": [0.5]},
+      {"from": "bundle", "to": "chat", "style": "dashed", "color": "outputs", "packets": [0.5]},
+      {"from": "signature.rim", "to": "bundle", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "815331c5fcddbab15846a6cad34f829e2b06b157d2ed22fe47c143d341246188"
+}
