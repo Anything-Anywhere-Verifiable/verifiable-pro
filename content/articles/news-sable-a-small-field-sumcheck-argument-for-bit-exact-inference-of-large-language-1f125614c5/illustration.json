@@ -1,0 +1,68 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray accelerator package ringed by memory stacks lies at the center of a gray floor. A dashed orange line with two packets arcs from a flat server at the left onto its die, and a solid pink line with an arrowhead runs from the package to a certificate with a pink seal standing at the right.",
+    "zh": "灰色地台中央平放一块环绕着内存堆栈的大型灰色加速器封装。一条带两个数据包的橙色虚线从左侧的扁平服务器弧形连到其核心，一条带箭头的粉色实线从封装引向右侧立着的、带粉色印章的证书。"
+  },
+  "caption": {
+    "en": "Illustration: a single GPU, standing for the prover the Sable preprint describes, takes a committed integer model from a server and produces a proof, shown as a certificate. It does not depict a tested deployment, the author's hardware or code, and it does not show that the proofs hold as described.",
+    "zh": "示意图：一块 GPU 代表 Sable 预印本所描述的数学证明生成器，它从服务器接收已承诺的整数模型并产出一份数学证明，以证书表示。图中不代表经过测试的部署、作者的硬件或代码，也不表明该数学证明如论文所述成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "prover",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "server",
+        "id": "model",
+        "at": [-5.5, -2.5],
+        "w": 3,
+        "d": 1.6,
+        "tint": "neutral",
+        "lock": false,
+        "note": "the committed integer-quantized model"
+      },
+      {
+        "prop": "gpu",
+        "id": "prover",
+        "at": [0, 0],
+        "size": 5.5,
+        "tint": "neutral",
+        "note": "the single-GPU prover; the focal object"
+      },
+      {
+        "prop": "certificate",
+        "id": "proof",
+        "at": [5.0, 4.0],
+        "w": 2.1,
+        "h": 1.45,
+        "tint": "outputs",
+        "note": "the proof the prover produces"
+      }
+    ],
+    "links": [
+      {
+        "from": "model",
+        "to": "prover.die",
+        "route": "arc",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.3, 0.55],
+        "glow": true,
+        "note": "model layers streamed into the prover"
+      },
+      {
+        "from": "prover",
+        "to": "proof",
+        "route": "straight",
+        "style": "solid",
+        "color": "outputs",
+        "arrow": true,
+        "note": "the proof emitted"
+      }
+    ]
+  },
+  "svg_sha256": "881881810104644aac6e12958b1d888c7ae2adcf3e38d82227a9e64053964b24"
+}

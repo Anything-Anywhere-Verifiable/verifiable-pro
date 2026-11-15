@@ -1,0 +1,69 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large standing document with a violet header and a ring seal stands at the center of a gray floor. To its left lies a gray processor chip, joined to the document by a dotted blue line. To its right a violet gauge with a needle receives a dashed orange line from the document, and a yellow warning sign stands behind it.",
+    "zh": "灰色地面中央立着一份带紫色页眉和环形印记的大文件。左侧平放一枚灰色处理器芯片，以蓝色点线连到文件；右侧是一只带指针的紫色仪表，一条橙色虚线从文件指向它，仪表后方立着一块黄色警示牌。"
+  },
+  "caption": {
+    "en": "Illustration: a provenance audit record (center) that checks an adapter against its base model (the chip) and its update norm (the gauge) before merging, with a warning sign for adapters that fail. It does not depict a tested deployment, the authors' adapters or code, and it does not show that the checks work as described.",
+    "zh": "示意图：中央的来源审计记录在合并前核对适配器与基础模型（芯片）是否匹配、更新量范数（仪表）是否足够，警示牌代表未通过审计的适配器。图中并非经过测试的部署，也不描绘作者的适配器或代码，亦不表明这些检查按所述方式有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "audit",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "document",
+        "id": "audit",
+        "at": [0, 0],
+        "w": 2.0,
+        "h": 2.6,
+        "tint": "evaluations",
+        "seal": "ring",
+        "lines": 7,
+        "note": "the provenance audit record"
+      },
+      {
+        "prop": "chip",
+        "id": "base",
+        "at": [-2.4, -2.4],
+        "size": 2.0,
+        "tint": "neutral",
+        "lid": "metal",
+        "note": "the base model"
+      },
+      {
+        "prop": "gauge",
+        "id": "norm",
+        "at": [2.4, 2.4],
+        "size": 1.5,
+        "value": 0.7,
+        "tint": "evaluations",
+        "note": "the update-norm check"
+      },
+      {
+        "prop": "sign",
+        "id": "fail",
+        "at": [-0.4, 2.8],
+        "size": 0.9,
+        "tint": "warn",
+        "note": "adapters that fail the audit"
+      }
+    ],
+    "links": [
+      {"from": "base", "to": "audit", "route": "straight", "style": "dotted", "color": "models"},
+      {
+        "from": "audit",
+        "to": "norm",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "arrow": true,
+        "packets": [0.5]
+      }
+    ]
+  },
+  "svg_sha256": "fce2ee19cfbaa15bcdba69e73ae2fa3276d45c79680728acc8089d3be2903635"
+}

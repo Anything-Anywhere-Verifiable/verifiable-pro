@@ -1,0 +1,83 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large indigo key lies flat at the center of a gray floor. A dashed orange line with two packets runs from a flat gray server at the front left to the key, a thin orange line runs from the server to a gray cloud at the right, and a dotted gray line joins the key to a small indigo padlock behind it.",
+    "zh": "灰色地面中央平放一把大号靛蓝色钥匙。左前方的灰色服务器有一条带两个数据包的橙色虚线连向钥匙，另一条细橙线连向右侧的灰色云朵；钥匙后方以灰色点线连着一把小的靛蓝色挂锁。"
+  },
+  "caption": {
+    "en": "Illustration: a key for the credential that stays with the provider in the design Edera describes, a server for the consuming workload that calls it over a socket, a padlock for the operation it unlocks and a cloud for the network access the workload keeps. It does not depict Edera's software or a tested deployment, and it does not show that the brokered checks work as described.",
+    "zh": "示意图：钥匙代表 Edera 所描述设计中留在提供方的凭据，服务器代表通过套接字调用它的使用方工作负载，挂锁代表凭据所解锁的操作，云朵代表工作负载仍保留的网络访问。图中并非 Edera 的软件或经过测试的部署，也不表明代理检查如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "credential",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "key",
+        "id": "credential",
+        "at": [0, 0],
+        "size": 4,
+        "scale": 2.2,
+        "tint": "tee",
+        "note": "the credential that stays with the provider"
+      },
+      {
+        "prop": "server",
+        "id": "workload",
+        "at": [-0.5, -9],
+        "w": 3,
+        "d": 1.6,
+        "lock": false,
+        "tint": "neutral",
+        "note": "the consuming workload"
+      },
+      {
+        "prop": "cloud",
+        "id": "network",
+        "at": [8.5, 0, 0.5],
+        "w": 2.6,
+        "tint": "neutral",
+        "note": "network access the workload retains"
+      },
+      {
+        "prop": "padlock",
+        "id": "lock",
+        "at": [-3, 3],
+        "size": 1,
+        "tint": "tee",
+        "note": "the privileged operation the credential unlocks"
+      }
+    ],
+    "links": [
+      {
+        "from": "workload",
+        "to": "credential",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.12, 0.28],
+        "glow": true,
+        "arrow": true,
+        "note": "the brokered call over the socket"
+      },
+      {
+        "from": "workload",
+        "to": "network",
+        "style": "solid",
+        "color": "data",
+        "arrow": true,
+        "width": 0.8,
+        "note": "the network path the workload keeps"
+      },
+      {
+        "from": "credential",
+        "to": "lock",
+        "style": "dotted",
+        "color": "mute",
+        "note": "the credential belongs to the provider's operation"
+      }
+    ]
+  },
+  "svg_sha256": "2cb0bd52d35fd5a06dbaa95ba922b5bccb672c58b39ff4628f2bde23ad29192b"
+}

@@ -1,0 +1,71 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A smartphone at the front left sends a dashed orange line carrying two small packets to the indigo die of a large accelerator package ringed by memory stacks at the center of a gray floor. A thin gray line from the accelerator toward a blank standing document at the front right breaks off midway.",
+    "zh": "左前方的手机沿一条带两个小数据包的橙色虚线，把数据送到画面中央大型加速器封装的靛蓝芯片核心，加速器四周环绕存储器堆叠。从加速器伸向右前方一张空白文档的灰色细线在中途断开。"
+  },
+  "caption": {
+    "en": "Illustration: a user's data flowing into an accelerator with a confidential-computing boundary, as in the design Google describes for TPU 8tx, while the gray line to a configuration record breaks off, standing for the attestation procedure the announcement does not provide. It does not depict Google's chips, hosts or software, and it does not show a tested deployment or that the protection works as described.",
+    "zh": "示意图：用户数据流入一颗带机密计算边界的加速器，对应 Google 对 TPU 8tx 的设计描述；通向配置记录的灰线中途断开，代表公告未提供的远程证明流程。图中并非 Google 的芯片、主机或软件，也不表示经过测试的部署或保护机制按所述方式生效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "tpu",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "gpu",
+        "id": "tpu",
+        "at": [0, 0],
+        "size": 3.2,
+        "hbm": "6",
+        "tint": "tee",
+        "note": "the focal accelerator; the tee die is the picture's one glow"
+      },
+      {
+        "prop": "phone",
+        "id": "user",
+        "at": [-0.7, -3.7],
+        "content": "chat",
+        "tint": "neutral",
+        "note": "the user's device, front left"
+      },
+      {
+        "prop": "document",
+        "id": "record",
+        "at": [3.7, 0.7],
+        "pose": "standing",
+        "w": 1.25,
+        "h": 1.65,
+        "header": true,
+        "seal": "none",
+        "lines": 5,
+        "tint": "neutral",
+        "note": "a configuration record with no seal, front right"
+      }
+    ],
+    "links": [
+      {
+        "from": "user",
+        "to": "tpu.die",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.65],
+        "arrow": true,
+        "note": "the user's data entering the accelerator"
+      },
+      {
+        "from": "tpu.die",
+        "to": "record",
+        "route": "straight",
+        "style": "broken",
+        "gap": 0.5,
+        "color": "mute",
+        "note": "the attestation path the announcement does not provide"
+      }
+    ]
+  },
+  "svg_sha256": "3921bd063f4fa5fe4b26a65ffb2032dba263c805a59340a3ca62308d63ccccd4"
+}
