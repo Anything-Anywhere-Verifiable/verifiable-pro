@@ -1,0 +1,36 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet dial with its needle low stands at the center of a gray floor. On the left, a display shows an image; a dashed orange line with one packet runs from it to a teal terminal tile in front, and a dotted violet arrow runs from the tile to a page of lines on the right.",
+    "zh": "灰色地台中央立着一个大型紫色仪表，指针偏低。左侧显示屏显示一幅图像，一条带数据包的橙色虚线从它连到前方的青色终端图块，再由一条紫色点线箭头指向右侧写有横线的文件。"
+  },
+  "caption": {
+    "en": "Illustration: a scan on a screen feeds an agent's tool action, which is checked against a rules document before it runs, while a dial stands for the measured rate of high-severity violations. It does not depict the study's agents, rules or checker or a tested deployment, and it does not show that the safeguards work as described.",
+    "zh": "示意图：屏幕上的影像进入智能体的工具操作，操作执行前须对照规则文件接受检查，中央仪表代表测得的高严重性违规比例。图中并非研究所用的智能体、规则或检查器，也不代表任何经过测试的部署，不表明这些防护措施的实际效果与描述一致。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "rate",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "gauge", "id": "rate", "at": [0, 0], "size": 3, "value": 0.3, "tint": "evaluations"},
+      {
+        "prop": "screen",
+        "id": "scan",
+        "at": [-3, -3],
+        "w": 2.2,
+        "h": 1.4,
+        "content": "image",
+        "tint": "neutral"
+      },
+      {"prop": "document", "id": "rules", "at": [2.8, 2.8], "tint": "neutral", "lines": 6, "header": true},
+      {"prop": "tool", "id": "action", "at": [1.2, -1.2], "icon": "terminal", "tint": "agents"}
+    ],
+    "links": [
+      {"from": "scan", "to": "action", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "action", "to": "rules", "style": "dotted", "color": "evaluations", "arrow": true}
+    ]
+  },
+  "svg_sha256": "d46178e48432cb5e3bb2fbf07e6fb047001fc5648683e03e874929c54a66a0f1"
+}
