@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray screen showing chat bubbles stands at the center. A dashed orange line carrying two packets runs from a phone at the front left to the screen, a dotted teal line joins a teal terminal tile at the right to it, and a yellow warning sign stands behind on the right.",
+    "zh": "画面中央立着一块显示对话气泡的灰色大屏幕。左前方的手机引出一条带两个数据包的橙色虚线通向屏幕，右侧青色终端图块以青色点线与屏幕相连，右后方立着一块黄色警示牌。"
+  },
+  "caption": {
+    "en": "Illustration: A phone standing for an attacking agent swarm sends instructions to a central chat screen that also takes in tool output from a teal tile, beside a warning sign that tool output carries less authority than the user. It does not depict the authors' attacker, the evaluated models or a tested deployment, and it does not show attack success rates.",
+    "zh": "示意图：代表攻击智能体群的手机向中央对话屏幕发送指令，屏幕同时接收青色图块传来的工具输出，旁边的警示牌提醒工具输出的权威级别低于用户。本图并非作者的攻击系统、受测模型或经过测试的部署，也不代表任何攻击成功率。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "chat",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "screen", "id": "chat", "at": [0, 0], "w": 3.4, "h": 2.3, "content": "chat"},
+      {"prop": "phone", "id": "attacker", "at": [-1.4, -2.8], "content": "chat", "scale": 1.1},
+      {"prop": "tool", "id": "toolout", "at": [2.8, 0.2], "tint": "agents", "icon": "terminal", "size": 1.0},
+      {"prop": "sign", "id": "warning", "at": [2.2, 2.6], "tint": "warn"}
+    ],
+    "links": [
+      {
+        "from": "attacker",
+        "to": "chat",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7],
+        "arrow": true
+      },
+      {"from": "toolout", "to": "chat", "style": "dotted", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "4a59548bd65288d406f34d9452e0e08b0a1c3d2aad4d8b7b6c628b8aea8af4c8"
+}
