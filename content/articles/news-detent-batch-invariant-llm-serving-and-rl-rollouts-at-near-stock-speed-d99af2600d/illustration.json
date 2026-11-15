@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray processor chip with a small padlock mark on its metal lid sits at the center of a gray floor. A dashed orange line carrying one packet runs to it from a flat server on the left, and a dotted violet line runs from the chip to a violet dial gauge on the right.",
+    "zh": "灰色地面中央是一枚大型处理器芯片，金属顶盖上有小挂锁标记。左侧扁平服务器引出一条带数据包的橙色虚线连向芯片，芯片再以紫色点线连到右侧的紫色仪表盘。"
+  },
+  "caption": {
+    "en": "Illustration: a serving engine sends requests to a chip whose kernel selection is held fixed, and a gauge stands for latency per output token. It does not depict Detent, vLLM, SGLang or any tested deployment, and it does not show that outputs are reproducible as the authors report.",
+    "zh": "示意图：服务引擎把请求送往一枚内核选择被固定的芯片，仪表盘代表每个输出 token 的延迟。图中并非 Detent、vLLM、SGLang 或任何经过测试的部署，也不表明输出能如作者所述那样复现。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "kernel",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "chip",
+        "id": "kernel",
+        "at": [0, 0],
+        "size": 4.5,
+        "lid": "metal",
+        "lock": true,
+        "pins": true,
+        "tint": "neutral"
+      },
+      {"prop": "server", "id": "engine", "at": [-3.6, -3.6], "w": 3, "d": 1.6, "tint": "neutral"},
+      {"prop": "gauge", "id": "latency", "at": [3.4, 3.4], "size": 2, "value": 0.35, "tint": "evaluations"}
+    ],
+    "links": [
+      {
+        "from": "engine",
+        "to": "kernel",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "kernel", "to": "latency", "route": "straight", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "27220d057c50ed6ee13fa9be794f6bd8b244891b58c8ee7dae1171bfef4b7cfb"
+}
