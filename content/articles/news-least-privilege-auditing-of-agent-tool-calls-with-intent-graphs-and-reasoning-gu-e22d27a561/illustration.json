@@ -1,0 +1,78 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A cluster of gray nodes joined by lines, one of them teal, fills the center of a gray floor. A dashed orange arrow reaches its center node from a sign board on the left, and a dark line reaches the same node from a gray processor chip on the right. A dotted gray line runs from the chip to an indigo shield behind it.",
+    "zh": "灰色地面中央是一簇由线条相连的灰色节点，其中一个为青色。左侧告示牌以橙色虚线箭头连向中心节点，右侧灰色处理器芯片以深色实线连向同一节点；芯片后方一条灰色点线通向靛蓝色盾牌。"
+  },
+  "caption": {
+    "en": "Illustration: a sign board stands for the user's objective, the cluster of nodes for the intent graph derived from it, the chip for a tool call checked against the graph, and the shield for the reasoning guardian that receives flagged calls, as the paper describes. It does not depict a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：告示牌代表用户目标，节点簇代表由此生成的意图图，芯片代表依据意图图检查的工具调用，盾牌代表接收被标记调用的推理守卫，均按论文所述设计绘制。图中不代表经过测试的部署，也不表明这些检查如论文所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "graph",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "nodes",
+        "id": "graph",
+        "at": [0, 0],
+        "layout": "mesh",
+        "count": 7,
+        "w": 7.0,
+        "d": 5.2,
+        "post": 0.1,
+        "highlight": 0,
+        "tint": "agents"
+      },
+      {
+        "prop": "panel",
+        "id": "objective",
+        "at": [-5.1, -3.8],
+        "w": 1.8,
+        "h": 1.4,
+        "content": "text",
+        "tint": "neutral"
+      },
+      {
+        "prop": "chip",
+        "id": "call",
+        "at": [5.1, 3.8],
+        "size": 2,
+        "lid": "metal",
+        "pins": true,
+        "tint": "neutral"
+      },
+      {"prop": "shield", "id": "guardian", "at": [2.0, 6.0], "size": 1.4, "emblem": "lock", "tint": "tee"}
+    ],
+    "links": [
+      {
+        "from": "objective",
+        "to": "graph.hub",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "arrow": true
+      },
+      {
+        "from": "call",
+        "to": "graph.hub",
+        "route": "straight",
+        "style": "solid",
+        "color": "ink",
+        "arrow": true
+      },
+      {
+        "from": "call",
+        "to": "guardian",
+        "route": "straight",
+        "style": "dotted",
+        "color": "mute",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "882d8c3b0cc07dc776186b387e4891f6d44378f6e7496370b8054063d117aeae"
+}

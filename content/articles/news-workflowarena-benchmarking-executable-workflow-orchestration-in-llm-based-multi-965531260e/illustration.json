@@ -1,0 +1,80 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal star of small spheres, a central hub joined to its workers, stands large on a gray plate. A dashed orange line with packets arcs from the hub to a standing gray document at the right, a violet block with a turnstile mark in front of the document sends a dotted violet line to it, and a gray dotted line arcs from the hub to a row of ledger blocks behind the star at the left.",
+    "zh": "灰色底板上，一组青色小球以星形相连，中央的枢纽连接各个工作节点。带数据包的橙色虚线从枢纽弧形延伸到右侧的灰色文件，文件前方带有推演符号的紫色方块向文件发出紫色点线；左后方一排账本方块与枢纽之间以灰色点线相连。"
+  },
+  "caption": {
+    "en": "Illustration: an orchestrating agent delegating to a group of workers, with the delegation recorded in a log and the integrated deliverable assessed by a checker, as the WorkflowArena authors describe the design. It does not depict a tested deployment, the benchmark's verifier or any model's actual workflow.",
+    "zh": "示意图：一个编排智能体向一组工作智能体委派任务，委派过程记录在日志中，整合后的成果由检查器评估，对应 WorkflowArena 作者描述的设计。图中不表示任何经过测试的部署、该基准的验证器或各模型的实际工作流。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "orchestration",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "nodes",
+        "id": "orchestration",
+        "at": [0, 0],
+        "layout": "star",
+        "count": 6,
+        "w": 5.5,
+        "d": 3.6,
+        "post": 0.1,
+        "highlight": 0,
+        "tint": "agents"
+      },
+      {
+        "prop": "ledger",
+        "id": "log",
+        "at_uv": [-3.9, -5.9],
+        "count": 4,
+        "size": 0.6,
+        "layout": "row",
+        "pending": true,
+        "tint": "neutral"
+      },
+      {
+        "prop": "document",
+        "id": "deliverable",
+        "at_uv": [4.4, 3.4],
+        "pose": "standing",
+        "tint": "neutral",
+        "lines": 6
+      },
+      {
+        "prop": "math_block",
+        "id": "checker",
+        "at_uv": [2.6, 5.2],
+        "size": 1.2,
+        "mark": "turnstile",
+        "tint": "evaluations"
+      }
+    ],
+    "links": [
+      {
+        "from": "orchestration.hub",
+        "to": "deliverable",
+        "route": "arc",
+        "lift": 1.2,
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.4, 0.75],
+        "arrow": true,
+        "glow": true
+      },
+      {
+        "from": "orchestration.hub",
+        "to": "log.new",
+        "route": "arc",
+        "lift": 1.0,
+        "style": "dotted",
+        "color": "mute"
+      },
+      {"from": "checker", "to": "deliverable", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "e70a06a7a8160f85024c4a95872d35122ed3ac5adfab78d49003b61ae5c1f8bd"
+}

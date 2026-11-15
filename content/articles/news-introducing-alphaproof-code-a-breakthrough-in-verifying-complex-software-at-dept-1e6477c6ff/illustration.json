@@ -1,0 +1,49 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass agent cube at the front left sends a dashed orange line with small packets to a large gray stepped pyramid of proof blocks in the center. A dashed orange arrow leads from the pyramid to a gray block marked with a turnstile. A broken light gray line leaves that block and stops short of a phone showing a lock at the right.",
+    "zh": "左前方的青色玻璃智能体方块，经一条带小数据包的橙色虚线连向中央的灰色阶梯式证明金字塔。另一条橙色虚线箭头从金字塔指向一个带推导符号的灰色方块。一条断开的浅灰线从该方块出发，未能抵达右侧显示锁形图案的手机。"
+  },
+  "caption": {
+    "en": "Illustration: an agent builds a pyramid of proof blocks that a turnstile checker examines, while the line from the checker to the phone breaks before it arrives, standing for the deployed version the announcement does not identify. It does not depict DeepMind's agents, Lean or Signal's code, and it does not show a tested deployment or that the proofs hold as described.",
+    "zh": "示意图：智能体堆起证明金字塔，由推导符号方块代表的检查器加以检查；从检查器通向手机的连线中途断开，代表公告未指明的已部署版本。图中不是 DeepMind 的智能体、Lean 或 Signal 的代码，也不表示经过测试的部署或数学证明如所述成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "proof",
+    "items": [
+      {"prop": "agent", "id": "agent", "at": [-1.0, -2.2], "tint": "agents", "core": "sphere", "size": 1.2},
+      {"prop": "proof_tree", "id": "proof", "at": [0, 0], "tint": "neutral", "levels": 4, "block": 0.62},
+      {
+        "prop": "math_block",
+        "id": "checker",
+        "at": [2.4, 1.2],
+        "tint": "neutral",
+        "mark": "turnstile",
+        "size": 1.0
+      },
+      {
+        "prop": "phone",
+        "id": "deployed",
+        "at": [3.4, 2.6],
+        "tint": "neutral",
+        "content": "lock",
+        "scale": 1.3
+      }
+    ],
+    "links": [
+      {
+        "from": "agent",
+        "to": "proof",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7],
+        "glow": true,
+        "arrow": true
+      },
+      {"from": "proof", "to": "checker", "style": "dashed", "color": "data", "arrow": true},
+      {"from": "checker", "to": "deployed", "style": "broken", "gap": 0.6, "color": "mute"}
+    ]
+  },
+  "svg_sha256": "f73cc00a6bca891cfe56ef740abf9e9b1cc6e59a2fc7a57242fbcfb765264f04"
+}

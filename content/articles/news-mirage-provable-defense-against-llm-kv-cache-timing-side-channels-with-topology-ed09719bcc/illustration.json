@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A gray phone at the left sends a dashed orange line carrying two packets to a large row of three gray memory modules in their slots at the center; a dotted light gray line joins the modules to a gray processor chip with a metal lid at the right.",
+    "zh": "左侧的灰色手机发出一条带两个数据包的橙色虚线，连到中央插槽中三根并排的大型灰色内存条；一条浅灰色点线把内存条与右侧带金属盖的灰色芯片连在一起。"
+  },
+  "caption": {
+    "en": "Illustration: a phone's requests travel to memory modules standing for a shared KV cache, which is linked to a chip standing for the GPU that keeps serving other requests. It does not depict a tested deployment of Mirage, and it does not show that the defense works as the authors describe.",
+    "zh": "示意图：手机发出的请求流向代表共享 KV 缓存的内存条，内存条又与代表 GPU 的芯片相连，GPU 继续处理其他请求。图中并非经过测试的 Mirage 部署，也不表明该防御如作者所述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "cache",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "phone", "id": "user", "at": [-3.4, -3.4], "content": "chat"},
+      {"prop": "dimm", "id": "cache", "at": [0, 0], "count": 3, "scale": 1.6, "tint": "neutral"},
+      {"prop": "chip", "id": "gpu", "at": [3.6, 3.6], "size": 2, "lid": "metal", "tint": "neutral"}
+    ],
+    "links": [
+      {
+        "from": "user",
+        "to": "cache",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7],
+        "arrow": true
+      },
+      {"from": "cache", "to": "gpu", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "bb59fe40cc2abb5a8c4ee9b6b2ab5af149937cbbd56c6d4ffdcf6331ff582f67"
+}

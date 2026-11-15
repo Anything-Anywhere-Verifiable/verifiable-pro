@@ -1,0 +1,37 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "An indigo balance scale stands at the center of a gray floor. Dashed indigo lines with arrowheads run to it from an indigo-sealed certificate on the left and from a gray chip on the right, and a dotted gray line joins it to a small stack of papers in front.",
+    "zh": "灰色地面中央立着一架靛蓝色天平。左侧带靛蓝印章的证书和右侧的灰色芯片各有一条带箭头的靛蓝虚线连向天平，前方一小叠文件以灰色点线与天平相连。"
+  },
+  "caption": {
+    "en": "Illustration: a balance scale stands for the comparator that checks theorem statements against an approved, held-out specification (the papers), between a certificate for the Lean proofs and a chip for the compiled machine code. It does not depict a tested deployment, AlphaProof Code or libsignal, and it does not show that the proofs hold as described.",
+    "zh": "示意图：天平代表比较工具，用来核对定理陈述是否与获批、隔离保存的规范（前方文件）一致；左侧证书代表 Lean 数学证明，右侧芯片代表编译后的机器码。图中并非经过测试的实际部署，也不是 AlphaProof Code 或 libsignal 本身，不表明这些证明如文中所述成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "comparator",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "scale", "id": "comparator", "at": [0, 0], "tint": "tee", "size": 2.0, "tilt": 0},
+      {"prop": "certificate", "id": "proof", "at": [-3.2, -3.2], "tint": "tee", "w": 2.1, "h": 1.45},
+      {
+        "prop": "chip",
+        "id": "binary",
+        "at": [3.2, 3.2],
+        "tint": "neutral",
+        "size": 2,
+        "lid": "metal",
+        "pins": true
+      },
+      {"prop": "papers", "id": "spec", "at": [2.6, -2.6], "tint": "neutral", "count": 4}
+    ],
+    "links": [
+      {"from": "proof", "to": "comparator", "style": "dashed", "color": "tee", "arrow": true},
+      {"from": "binary", "to": "comparator", "style": "dashed", "color": "tee", "arrow": true},
+      {"from": "spec", "to": "comparator", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "6425444d13f4b9a06c47d13aca3c7fa6722469af6c05cf8362209b5c36c0bbff"
+}
