@@ -1,0 +1,53 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet gauge, its needle near the top of its arc, stands at the center of a gray floor. A dashed orange line with two packets runs into it from a screen of text on the left, and a solid orange arrow leads from it to a phone on the right. A sheet of code lies in front, joined to the gauge by a dotted indigo line.",
+    "zh": "画面中央是一只大号紫色仪表盘，指针接近刻度顶端。左侧屏幕上的文字沿一条带两个数据包的橙色虚线进入仪表盘，一条橙色实线箭头从仪表盘指向右侧的手机；前方平放一张代码纸，以靛蓝点线连到仪表盘。"
+  },
+  "caption": {
+    "en": "Illustration: a runtime check, drawn as a gauge, measures a natural-language intent from a screen against a specification sheet before an action reaches a device. It does not depict SafeOrchestrate's architecture or any tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：仪表盘代表运行时检查，对照规约纸张衡量屏幕上的自然语言意图，再将动作发往设备。图中并非 SafeOrchestrate 的架构或任何经过测试的部署，也不表明这些检查如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "check",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "gauge",
+        "id": "check",
+        "at": [0, 0],
+        "size": 3,
+        "scale": 1.4,
+        "value": 0.85,
+        "tint": "evaluations"
+      },
+      {
+        "prop": "screen",
+        "id": "intent",
+        "at": [-2.6, -2.6],
+        "w": 2.2,
+        "h": 1.4,
+        "content": "text",
+        "tint": "neutral"
+      },
+      {"prop": "phone", "id": "device", "at": [2.6, 2.6], "content": "grid", "tint": "neutral"},
+      {"prop": "sheet", "id": "spec", "at": [0.5, -2.5], "w": 1.4, "d": 1.8, "content": "code", "tint": "tee"}
+    ],
+    "links": [
+      {
+        "from": "intent",
+        "to": "check",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.65],
+        "glow": true
+      },
+      {"from": "check", "to": "device", "route": "straight", "style": "solid", "color": "data", "arrow": true},
+      {"from": "spec", "to": "check", "route": "straight", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "1a5263e5132d448c2529df25944b2dd1b164c7a2aa420ce2db56034fe8f0c273"
+}
