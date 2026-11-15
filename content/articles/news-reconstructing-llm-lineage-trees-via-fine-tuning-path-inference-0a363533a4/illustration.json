@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-reconstructing-llm-lineage-trees-via-fine-tuning-path-inference-0a363533a4.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "464745c127593958be52149f4bb05b33908c5d8afb6303bf383ea49d54d1bd5a",
+  "variants": {
+    "list": {
+      "file": "news-reconstructing-llm-lineage-trees-via-fine-tuning-path-inference-0a363533a4-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "4c19c9845271d7e2f3437d5b98a2dc8ff2e649b84272767aff4868701d36c92d"
+    },
+    "thumb": {
+      "file": "news-reconstructing-llm-lineage-trees-via-fine-tuning-path-inference-0a363533a4-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "aed4e0365defee6e2fca58a7abcea37938ff179c6f5589f476a6be7c9abd5e65"
+    },
+    "social": {
+      "file": "news-reconstructing-llm-lineage-trees-via-fine-tuning-path-inference-0a363533a4-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "44cc9589e5014aa7b469fa42f518bdee8bdde39a1e88c11e7ed0f74583f671f1"
+    }
+  },
+  "edits": {
+    "source_sha256": "5c53345a968490875df733bd973c9cdfbef6ea379f9397a7d55b4c4bb4e72672",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv preprint reports reconstruction of fine-tuning trees without inspecting model weights, with limits on what the reported accuracy establishes.",
+    "zh": "一篇 arXiv 预印本报告称，可在不查看模型权重的情况下重建微调谱系树，但其准确率结果仍有明确边界。"
+  },
+  "caption": {
+    "en": "An arXiv preprint reports reconstruction of fine-tuning trees without inspecting model weights, with limits on what the reported accuracy establishes.",
+    "zh": "一篇 arXiv 预印本报告称，可在不查看模型权重的情况下重建微调谱系树，但其准确率结果仍有明确边界。"
+  },
+  "credit": "Sota Ogawa, Shojiro Yamabe, Daiki Nishiyama, Jun Sakuma",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.08866",
+  "retrieved": "2026-11-14"
+}
