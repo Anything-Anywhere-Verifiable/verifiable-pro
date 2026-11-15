@@ -1,0 +1,34 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray balance scale with a slightly tilted beam stands at the center of a gray floor. A dashed orange line carrying one packet runs to it from a standing screen showing code on the left, and a dotted teal line runs to it from a page with a teal header on the right.",
+    "zh": "灰色地面中央立着一架大型灰色天平，横梁略微倾斜。左侧一块显示代码的屏幕引出一条带数据包的橙色虚线连向天平，右侧一页带青色页眉的文件以青色点线与天平相连。"
+  },
+  "caption": {
+    "en": "Illustration: a tool action from an IDE screen goes to a balance standing for the model review Kiro describes, beside a page of explicit permission rules that take precedence. It does not depict Kiro's software or a tested deployment, and it does not show that the review works as described.",
+    "zh": "示意图：IDE 屏幕上的工具操作被送往天平，天平代表 Kiro 所描述的模型审核；旁边那页文件代表优先执行的明确权限规则。图中并非 Kiro 的软件，也不是经过测试的实际部署，不表明审核如其所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "review",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "screen", "id": "ide", "at": [-2.0, -2.0], "content": "code", "tint": "neutral"},
+      {"prop": "scale", "id": "review", "at": [0, 0], "tint": "neutral", "size": 1.5, "tilt": 0.3},
+      {"prop": "document", "id": "rules", "at": [2.0, 2.0], "tint": "agents", "header": true, "lines": 6}
+    ],
+    "links": [
+      {
+        "from": "ide.base",
+        "to": "review.base",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "rules.base", "to": "review.base", "route": "straight", "style": "dotted", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "61956092ab1b92d6b884b9ebd0dd5b96b8c924183f3ff90f5cfa2fde306b58c1"
+}
