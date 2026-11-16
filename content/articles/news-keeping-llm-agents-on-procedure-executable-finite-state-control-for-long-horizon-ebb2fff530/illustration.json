@@ -1,0 +1,70 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A row of six linked teal nodes, one highlighted, stands at the center of a gray floor. A dotted dark gray line runs to it from a sign board with lines of text at the front left, and a dashed orange line carrying two packets reaches it from a screen showing a log at the back right.",
+    "zh": "灰色地面中央是一排六个相连的青色节点，其中一个高亮。前左方一块写有文字行的告示板以深灰点线连向节点链，后右方一块显示日志的屏幕以带两个数据包的橙色虚线连向节点链。"
+  },
+  "caption": {
+    "en": "Illustration: a chain of linked nodes stands for the finite-state controller the authors describe, which holds workflow state outside the model; the sign board stands for the written procedure it encodes, and the screen for tool calls checked against it. It does not depict the authors' software, the benchmark or any tested deployment, and it does not show that the control works as described.",
+    "zh": "示意图：相连的节点链代表作者描述的有限状态控制器，它将工作流状态保存在模型之外；告示板代表其编码的书面流程，屏幕代表据此核对的工具调用。图中不描绘作者的软件、基准测试或任何经过测试的部署，也不表明该控制机制按所述方式有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "fsm",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "nodes",
+        "id": "fsm",
+        "at": [0, 0],
+        "layout": "chain",
+        "count": 6,
+        "w": 5,
+        "d": 1.6,
+        "highlight": 2,
+        "tint": "agents"
+      },
+      {
+        "prop": "panel",
+        "id": "procedure",
+        "at": [-1.5, -3.5],
+        "w": 1.4,
+        "h": 1.4,
+        "content": "text",
+        "tint": "neutral"
+      },
+      {
+        "prop": "screen",
+        "id": "toolcalls",
+        "at": [1.5, 3.5],
+        "w": 2.0,
+        "h": 1.4,
+        "content": "log",
+        "tint": "evaluations"
+      }
+    ],
+    "links": [
+      {
+        "from": "procedure",
+        "to": "fsm.hub",
+        "route": "straight",
+        "style": "dotted",
+        "color": "ink",
+        "arrow": true
+      },
+      {
+        "from": "toolcalls",
+        "to": "fsm.hub",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.3, 0.6],
+        "glow": true,
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "5f304c6c4905bf1c4204b9d7ef7ebf23d271f1af12ec0ea73d615547db63466d"
+}
