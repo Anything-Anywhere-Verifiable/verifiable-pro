@@ -1,0 +1,44 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large crate with a teal label stands in the center of a gray floor. A yellow warning sign stands to its left, joined to the crate by a dotted gray line. A dashed orange line with packets runs from the crate to a teal padlock and on to a flat gray server at the right.",
+    "zh": "灰色地面中央是一只带青色标签的大木箱，左侧立着黄色警示牌，以灰色点线与木箱相连；一条带数据包的橙色虚线从木箱经青色挂锁通向右侧的灰色服务器。"
+  },
+  "caption": {
+    "en": "Illustration: the crate stands for a sandboxed agent Pod, the sign for the Kubernetes admission policy the platform team owns, the padlock for the supervisor that checks outbound requests, and the server for a provider endpoint. It does not depict a tested OpenShell or Kyverno deployment, and it does not show that the checks work as the post describes.",
+    "zh": "示意图：木箱代表沙箱中的智能体 Pod，警示牌代表平台团队负责的 Kubernetes 准入策略，挂锁代表检查出站请求的监督进程，服务器代表提供方端点。图中并非经过测试的 OpenShell 或 Kyverno 部署，也不表示这些检查按文章所述生效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "pod",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "crate", "id": "pod", "at": [0, 0], "size": 2.2, "tint": "agents", "label": true},
+      {"prop": "sign", "id": "policy", "at": [-2.6, -2.6], "size": 1.1},
+      {"prop": "padlock", "id": "supervisor", "at": [2.8, 0.7], "size": 1, "tint": "agents"},
+      {"prop": "server", "id": "endpoint", "at": [3.2, 3.2], "w": 2.4, "d": 1.4, "tint": "neutral"}
+    ],
+    "links": [
+      {"from": "policy", "to": "pod", "route": "straight", "style": "dotted", "color": "mute"},
+      {
+        "from": "pod",
+        "to": "supervisor",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {
+        "from": "supervisor",
+        "to": "endpoint",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "5839cda3c1b2b7b45ed3bdc13b8aac9e88247fe2f0ea285a02f0ae7ff11d9361"
+}
