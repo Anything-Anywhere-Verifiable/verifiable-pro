@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large indigo cloud floats above a gray floor at the center. On the left, a dashed orange line carrying two packets runs from an upright phone up into the cloud. On the right, a dotted indigo arrow runs from the cloud to a standing certificate with an indigo seal.",
+    "zh": "灰色地面中央上方悬浮着一朵大型靛蓝色云。左侧，一条带两个数据包的橙色虚线从直立的手机向上延伸到云中；右侧，一条靛蓝色点线箭头从云指向一张带靛蓝色印章的立式证书。"
+  },
+  "caption": {
+    "en": "Illustration: a durable-execution runtime, shown as a cloud, receives an outside reply from a phone and writes completed steps to a record that replay can reuse after a crash. It does not depict a tested deployment, Temporal or Cloudflare Workflows, and it does not show that recovery works as described.",
+    "zh": "示意图：以云代表的持久执行运行时接收来自手机的外部回复，并把已完成的步骤写入记录，供崩溃后重放时复用。图中并非经过测试的实际部署，也不代表 Temporal 或 Cloudflare Workflows，更不表明恢复机制如文中所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "runtime",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "phone", "id": "reply", "at": [-2.6, -2.6], "content": "chat"},
+      {"prop": "cloud", "id": "runtime", "at": [0, 0, 1.2], "tint": "tee", "w": 2.6, "scale": 1.9},
+      {"prop": "certificate", "id": "record", "at": [2.6, 2.6], "tint": "tee", "w": 2.1, "h": 1.45}
+    ],
+    "links": [
+      {
+        "from": "reply",
+        "to": "runtime",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7],
+        "glow": true
+      },
+      {
+        "from": "runtime",
+        "to": "record",
+        "route": "straight",
+        "style": "dotted",
+        "color": "tee",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "c0c780881e8ab3d9c5962629075f0a162c336da9814d00f22caf5e8952f97b13"
+}
