@@ -1,0 +1,63 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass cube with a sphere inside stands behind an indigo gateway, with a yellow warning sign on a post beside it at the left. A dashed orange line carrying two small cubes runs from the teal cube through the gateway's opening to a gray desktop monitor at the front right, whose screen shows a column of message bubbles.",
+    "zh": "一只内含球体的青色玻璃立方体立在靛蓝色门框之后，左侧竖着一块黄色警示牌。一条带两个小方块的橙色虚线从立方体穿过门框开口，连到前方右侧一台灰色显示器，屏幕上显示一列对话气泡。"
+  },
+  "caption": {
+    "en": "Illustration: a connected MCP server sends notification text through a validation check into an editor display, with a warning sign marking the untrusted server. It does not depict VS Code, any MCP server or the patch, it does not depict a tested deployment, and it does not show that the fix works as described.",
+    "zh": "示意图：已连接的 MCP 服务器把通知文本经过一道验证关卡送入编辑器显示屏，警示牌标出不可信的服务器。图中并非 VS Code、任何 MCP 服务器或补丁本身，不代表经过测试的部署，也不表明修复如描述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "editor",
+    "backdrop": "white",
+    "items": [
+      {
+        "prop": "sign",
+        "id": "warning",
+        "at": [-3.25, -0.45],
+        "size": 0.8,
+        "note": "the untrusted MCP server is marked as a risk"
+      },
+      {
+        "prop": "agent",
+        "id": "server",
+        "at": [-1.65, 0.55],
+        "size": 0.9,
+        "tint": "agents",
+        "note": "the connected MCP server, seen through the gate's opening"
+      },
+      {
+        "prop": "gate",
+        "id": "check",
+        "at": [-0.45, -0.75],
+        "w": 2.2,
+        "h": 2.4,
+        "tint": "tee",
+        "note": "the runtime check: payload validation and literal rendering"
+      },
+      {
+        "prop": "monitor",
+        "id": "editor",
+        "at": [3.15, -1.45],
+        "scale": 1.15,
+        "content": "chat",
+        "note": "the editor display showing notifications; focal"
+      }
+    ],
+    "links": [
+      {
+        "from": "server",
+        "to": "editor",
+        "route": "via",
+        "via": ["check.through"],
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.2, 0.45],
+        "note": "server-controlled notification text crossing into the editor"
+      }
+    ]
+  },
+  "svg_sha256": "f4045ab9fd79924929ecd0c3264d329710abac9425276b314cf59b0ceb3b07b2"
+}

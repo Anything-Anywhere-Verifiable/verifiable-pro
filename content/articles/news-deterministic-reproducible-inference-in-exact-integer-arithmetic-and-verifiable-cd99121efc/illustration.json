@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A gray server at left sends a dashed orange line carrying one packet to a large gray processor chip with gold pins at the center; a dashed dark gray line runs from the chip to a standing certificate with a blue seal at right.",
+    "zh": "左侧一台灰色服务器经一条带数据包的橙色虚线连到中央带金色引脚的大型灰色处理器芯片；芯片再以一条深灰色虚线连到右侧立着的、带蓝色印章的证书。"
+  },
+  "caption": {
+    "en": "Illustration: a server computing one share of a model passes data to a chip standing for exact integer arithmetic, and a certificate standing for an open scalar oracle re-derives the output bytes. It does not depict tritify, the GLM-4.5-Air run or any tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：一台计算模型部分分片的服务器把数据传给代表精确整数运算的芯片，代表开放标量参考实现的证书则重新计算出输出字节。图中并非 tritify、GLM-4.5-Air 的运行或任何经过测试的部署，也不表示这些核验如文中所述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "chip",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "chip",
+        "id": "chip",
+        "at": [0, 0],
+        "size": 5.5,
+        "lid": "metal",
+        "pins": true,
+        "tint": "neutral"
+      },
+      {"prop": "server", "id": "server", "at": [-4.3, -4.3], "tint": "neutral"},
+      {"prop": "certificate", "id": "oracle", "at": [4.2, 4.2], "tint": "models", "w": 2.1, "h": 1.45}
+    ],
+    "links": [
+      {
+        "from": "server",
+        "to": "chip",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "chip", "to": "oracle", "route": "straight", "style": "dashed", "color": "ink"}
+    ]
+  },
+  "svg_sha256": "81c763e3006b1da9167856bdf4a0adeb88eca706994b5c138fbf94f582ea5c66"
+}
