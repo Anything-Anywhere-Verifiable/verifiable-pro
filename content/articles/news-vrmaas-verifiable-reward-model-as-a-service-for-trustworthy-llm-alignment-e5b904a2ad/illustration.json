@@ -1,0 +1,38 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A blue neural-network card at the left sends an orange dashed line with a packet to a large standing page in the center with a pink header and an indigo ring seal. Dotted indigo lines tie the page to an orange request cube at the front left and to a blue weights cube at the right; a dark dotted line runs from a turnstile block at the front right to the page.",
+    "zh": "左侧的蓝色神经网络卡片沿橙色虚线向中央一张带粉色页眉和靛蓝圆环印记的大页面传送数据包。靛蓝点线将页面与左前方的橙色请求方块、右侧的蓝色权重方块相连，右前方的转门标记方块以深灰点线指向页面。"
+  },
+  "caption": {
+    "en": "Illustration: a reward model returns a score as a proof-carrying page bound to the request and to committed weights, with a checker that can test the binding. It does not depict the VRMaaS prototype, its models or its proofs, and it does not show that the checks work as described or that any deployment was tested.",
+    "zh": "示意图：奖励模型返回的分数以附带数学证明的页面形式与请求和已承诺的权重绑定，并由检查器核查这一绑定。图中不描绘 VRMaaS 原型、其模型或数学证明，也不表明这些检查按所述方式有效或任何部署经过测试。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "score",
+    "items": [
+      {"prop": "neural_net", "id": "model", "at_uv": [-4.0, -0.6], "tint": "models"},
+      {"prop": "document", "id": "score", "at": [0, 0], "tint": "outputs", "w": 2.0, "h": 2.6, "seal": "tee"},
+      {"prop": "weights", "id": "weights", "at": [1.5, 1.5], "tint": "models"},
+      {"prop": "math_block", "id": "checker", "at": [2.4, -1.0], "mark": "turnstile"},
+      {"prop": "packet", "id": "request", "at": [-0.9, -2.3], "size": 0.5, "tint": "data"}
+    ],
+    "links": [
+      {"from": "request", "to": "model", "style": "dashed", "color": "data", "arrow": true},
+      {
+        "from": "model",
+        "to": "score",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true,
+        "glow": true
+      },
+      {"from": "score", "to": "weights", "route": "arc", "lift": 0.6, "style": "dotted", "color": "tee"},
+      {"from": "score", "to": "request", "style": "dotted", "color": "tee"},
+      {"from": "checker", "to": "score", "style": "dotted", "color": "ink", "arrow": true}
+    ]
+  },
+  "svg_sha256": "e6000662215e899b166c7a2bb2e8e4f00e397b970183b260a0c5e2432795513f"
+}
