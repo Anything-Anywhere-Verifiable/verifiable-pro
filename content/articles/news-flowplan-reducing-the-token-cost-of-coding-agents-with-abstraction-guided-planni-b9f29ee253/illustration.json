@@ -1,0 +1,53 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large network of gray spheres joined by lines, one sphere in teal, sits at the center of a gray floor. A dashed orange line carrying one packet runs to it from a standing screen showing a graph on the left, and a dotted dark gray arrow runs from it to a violet balance scale on the right.",
+    "zh": "灰色地面中央是一大组由线条相连的灰色球体，其中一个为青绿色。左侧立着一块显示图形的屏幕，一条带数据包的橙色虚线从屏幕通向这组节点；节点右侧有一条深灰色点线箭头，指向一架紫色天平。"
+  },
+  "caption": {
+    "en": "Illustration: a planned change shown on a screen feeds a program graph, and a balance scale compares the graph's observed structural changes with the plan, as the FlowPlan authors describe. It does not depict a tested deployment, the authors' code or benchmarks, and it does not show that the checks work as described.",
+    "zh": "示意图：按 FlowPlan 作者的描述，屏幕上的计划改动输入程序图，天平再将图中实际发生的结构变化与计划对照。图中并非经过测试的部署，也不代表作者的代码或基准实验，更不能说明这些检查真如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "graph",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "nodes",
+        "id": "graph",
+        "at": [0, 0],
+        "tint": "agents",
+        "layout": "mesh",
+        "count": 7,
+        "w": 5.0,
+        "d": 3.6,
+        "post": 0.1,
+        "highlight": 2
+      },
+      {"prop": "screen", "id": "plan", "at": [-2.6, -2.6], "content": "graph", "w": 2.2, "h": 1.4},
+      {"prop": "scale", "id": "check", "at": [3.0, 3.0], "tint": "evaluations", "tilt": 0}
+    ],
+    "links": [
+      {
+        "from": "plan",
+        "to": "graph.hub",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.4]
+      },
+      {
+        "from": "graph.hub",
+        "to": "check",
+        "route": "straight",
+        "style": "dotted",
+        "color": "ink",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "c8cbd54ffc1c0b4c38f8128452d11fb5cf076bfdb2b2c6f0e95eb14269d8afc0"
+}

@@ -1,0 +1,49 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large blue dial with its needle near the top of its arc stands at the center of a gray floor. To its right, a screen tinted indigo shows a wavy trace, and a dashed orange line with two small packets runs from the screen to the dial. To its left, a yellow warning sign on a post is joined to the dial by a dotted gray line.",
+    "zh": "灰色地面中央立着一只蓝色大刻度盘，指针指向接近顶端的位置。右侧一块靛蓝色屏幕显示波形迹线，一条带两个小数据包的橙色虚线从屏幕连向刻度盘。左侧一块黄色警示牌立在立柱上，以灰色点线与刻度盘相连。"
+  },
+  "caption": {
+    "en": "Illustration: the dial stands for the unexpectedly large number of power traces the authors say recovering a complete network would require, the screen for the power trace an analyst observes, and the warning sign for the open question of partial extraction. It does not depict a tested deployment, any real model or measurement setup, and it does not show that extraction fails or succeeds on any system.",
+    "zh": "示意图：刻度盘代表作者所称恢复完整网络所需的出乎预期的大量功耗迹线，屏幕代表分析者观察到的功耗迹线，警示牌代表部分权重提取仍是未解问题。图中不描绘经过测试的部署、任何真实模型或测量装置，也不表明提取在任何系统上成功或失败。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "traces",
+    "backdrop": "white",
+    "items": [
+      {
+        "prop": "gauge",
+        "id": "traces",
+        "at": [0, 0],
+        "size": 3,
+        "scale": 1.4,
+        "value": 0.92,
+        "tint": "models"
+      },
+      {"prop": "sign", "id": "open", "at": [-2.2, -2.2], "size": 1.2, "tint": "warn"},
+      {
+        "prop": "screen",
+        "id": "trace",
+        "at": [2.3, 2.3],
+        "w": 2.6,
+        "h": 1.6,
+        "content": "wave",
+        "tint": "tee"
+      }
+    ],
+    "links": [
+      {
+        "from": "trace",
+        "to": "traces",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.65]
+      },
+      {"from": "open", "to": "traces", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "23427e41f251e09b4dd4f7769e723bf696431a014bf3b3b5da3b7325e09d2562"
+}

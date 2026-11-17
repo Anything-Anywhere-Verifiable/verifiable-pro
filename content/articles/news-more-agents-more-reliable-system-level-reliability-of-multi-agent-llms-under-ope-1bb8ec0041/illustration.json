@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-more-agents-more-reliable-system-level-reliability-of-multi-agent-llms-under-ope-1bb8ec0041.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "0519df7fc7e4ba6b466593a86af9cfbf75a75281d46289e8c10ff12f72096123",
+  "variants": {
+    "list": {
+      "file": "news-more-agents-more-reliable-system-level-reliability-of-multi-agent-llms-under-ope-1bb8ec0041-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "0214476abc869f58d01311474d7a75a575fdbd7589c771daebc6f910cec14bcc"
+    },
+    "thumb": {
+      "file": "news-more-agents-more-reliable-system-level-reliability-of-multi-agent-llms-under-ope-1bb8ec0041-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "93cb96b3bb40d027bf606542bc1eecf1d0103f379abe8be9cd9a4d86ee4bfdf5"
+    },
+    "social": {
+      "file": "news-more-agents-more-reliable-system-level-reliability-of-multi-agent-llms-under-ope-1bb8ec0041-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "cc1b1f9d545a1a15372cb4c7705edc443974fbeb4c79ae06aedc8a242ecaa6b7"
+    }
+  },
+  "edits": {
+    "source_sha256": "8b8e03fea8252d5e71fca443557301e47225b189b533497b0333068ed30194a7",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv preprint models uncertainty in deployed inputs and failures in answer aggregation. Its abstract reports that three-model voting did not clearly outperform the best model.",
+    "zh": "一篇 arXiv 预印本将部署时的输入分布不确定性和答案合并环节的故障纳入建模。摘要报告称，三个模型多数投票的表现并未明确超过最佳单模型。"
+  },
+  "caption": {
+    "en": "An arXiv preprint models uncertainty in deployed inputs and failures in answer aggregation. Its abstract reports that three-model voting did not clearly outperform the best model.",
+    "zh": "一篇 arXiv 预印本将部署时的输入分布不确定性和答案合并环节的故障纳入建模。摘要报告称，三个模型多数投票的表现并未明确超过最佳单模型。"
+  },
+  "credit": "Burkay Tunçtürk, Koorosh Aslansefat, Yiannis Papadopoulos, Bao Nguyen",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.07140",
+  "retrieved": "2026-11-15"
+}
