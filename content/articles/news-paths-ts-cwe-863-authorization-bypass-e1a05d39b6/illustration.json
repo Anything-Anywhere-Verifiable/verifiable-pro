@@ -1,0 +1,52 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A dashed orange line with two packets runs from an open laptop to a tall dark box with an orange key lying on top. Behind the box, a broken dark gray line leads toward a gray server rack, and a yellow warning sign stands beside the gap.",
+    "zh": "一条带两个数据包的橙色虚线从打开的笔记本电脑通向一个深色高方块，方块顶上平放着一把橙色钥匙。方块后方，一条断开的深灰色线指向灰色服务器机柜，断口旁立着黄色警示牌。"
+  },
+  "caption": {
+    "en": "Illustration: the attack the advisory describes, in which a client's token goes to an impostor endpoint that holds it, and the path to the real daemon is cut. It does not depict a tested deployment, MCP Inspector's actual software or a confirmed attack.",
+    "zh": "示意图：公告描述的攻击过程，客户端的令牌被送到冒充的端点并留在那里，通往真实守护进程的路径中断。图中没有描绘经过测试的部署，也没有描绘 MCP Inspector 的实际软件或已证实的攻击。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "impostor",
+    "items": [
+      {"prop": "laptop", "id": "client", "at": [-1.9, -2.5], "content": "code"},
+      {
+        "prop": "box",
+        "id": "impostor",
+        "at": [0.2, -0.2],
+        "w": 1.4,
+        "d": 1.4,
+        "h": 2.0,
+        "tint": "dark",
+        "note": "the endpoint a local attacker creates first under the predictable pipe name"
+      },
+      {
+        "prop": "key",
+        "id": "token",
+        "on": "impostor",
+        "at": [0.2, -0.2],
+        "size": 1.0,
+        "tint": "data",
+        "note": "the captured bearer token"
+      },
+      {"prop": "sign", "id": "warning", "at": [0, 2.0]},
+      {"prop": "server_rack", "id": "daemon", "at": [2.0, 2.4], "units": 6}
+    ],
+    "links": [
+      {
+        "from": "client",
+        "to": "impostor",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.3, 0.6],
+        "arrow": true,
+        "glow": true
+      },
+      {"from": "impostor", "to": "daemon", "style": "broken", "color": "ink"}
+    ]
+  },
+  "svg_sha256": "200da44261e67b23792bddf22c891dbe435a7435f38379abd3037a557ec571c8"
+}
