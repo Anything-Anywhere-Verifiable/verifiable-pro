@@ -1,0 +1,38 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray monitor showing a branching graph stands at the center of a gray floor. On the left, a dashed orange line carrying one packet runs to it from a flat server. A dotted dark-gray arrow runs from the monitor to a stack of papers on the right, and a dotted light-gray line joins a teal terminal tile in front to the monitor.",
+    "zh": "灰色地面中央立着一台大显示器，屏幕上是分支图。左侧一台扁平服务器经一条带数据包的橙色虚线连到显示器；一条深灰色点线箭头从显示器指向右侧的一叠纸；前方一块青色终端图块以浅灰色点线连到显示器。"
+  },
+  "caption": {
+    "en": "Illustration: an AI coding agent, shown as a terminal tile, prepares a symbolic execution run, shown on the monitor, over a Python application, shown as a server, and the run yields a concrete test, shown as papers. It does not depict the researchers' harness or a tested deployment, and it does not show that the reported results hold.",
+    "zh": "示意图：终端图块代表 AI 编程智能体，它为一个 Python 应用（服务器）准备符号执行运行（显示器），运行得出具体测试（纸张）。本图并不描绘研究人员的框架或经过测试的部署，也不表明报告中的结果成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "run",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "monitor",
+        "id": "run",
+        "at": [0, 0],
+        "w": 3.6,
+        "h": 2.3,
+        "scale": 1.4,
+        "content": "graph",
+        "tint": "neutral"
+      },
+      {"prop": "server", "id": "app", "at": [-3.4, -3.4], "tint": "neutral"},
+      {"prop": "papers", "id": "test", "at": [3.4, 3.4], "count": 4, "tint": "neutral"},
+      {"prop": "tool", "id": "coder", "at": [1.3, -2.3], "icon": "terminal", "tint": "agents"}
+    ],
+    "links": [
+      {"from": "app", "to": "run", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "run", "to": "test", "style": "dotted", "color": "ink", "arrow": true},
+      {"from": "coder", "to": "run", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "82cb491abcaf960d8bc11ead9703a08933b7e2aa70cdd0c25f84d7727966870d"
+}
