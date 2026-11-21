@@ -1,0 +1,50 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large blue neural network card stands at the center of a gray floor. To its left, a bar chart with one tall blue bar links to it by a dotted gray line. To its right, a gray search tool tile sends a dashed orange line with two packets into the card.",
+    "zh": "灰色地面中央立着一张大的蓝色神经网络卡片。左侧的柱状图中有一根突出的蓝色高柱，以灰色虚点线与卡片相连；右侧的灰色搜索工具图块发出带两个数据块的橙色虚线，指向卡片。"
+  },
+  "caption": {
+    "en": "Illustration: an open-weight model between a chart of its weight differences from the base model and a search tool probing it for trigger inputs, as in the two-stage method CrowdStrike describes. It does not depict CrowdStrike's scanner, the models it tested or a tested deployment, and it does not show that the method finds backdoors.",
+    "zh": "示意图：一个开放权重模型，左边是它与基础模型之间权重差异的图表，右边是搜索触发输入的探测工具，对应 CrowdStrike 介绍的两阶段方法。图中不是 CrowdStrike 的扫描器、其测试的模型或任何经过测试的部署，也不表明该方法能找出后门。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "model",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "neural_net",
+        "id": "model",
+        "at": [0, 0],
+        "tint": "models",
+        "w": 3.0,
+        "h": 2.4,
+        "columns": [3, 5, 5, 2]
+      },
+      {
+        "prop": "bars",
+        "id": "diff",
+        "at": [-2.4, -2.4],
+        "tint": "models",
+        "heights": [0.6, 0.7, 1.9, 0.65],
+        "highlight": 2
+      },
+      {"prop": "tool", "id": "probe", "at": [2.2, 2.2], "tint": "neutral", "icon": "search", "size": 1.3}
+    ],
+    "links": [
+      {"from": "diff", "to": "model", "route": "straight", "style": "dotted", "color": "mute"},
+      {
+        "from": "probe",
+        "to": "model",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.65],
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "a213e34180276ad109e147da5ae65cc8bd2a6a4219ebb4cb08818550a5cb3ff7"
+}
