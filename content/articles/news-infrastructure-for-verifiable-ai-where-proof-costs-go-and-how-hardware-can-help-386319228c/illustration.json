@@ -1,0 +1,36 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A gray accelerator package ringed by memory stacks sits at the center. A dashed orange line with packets runs into it from a gray block of model weights, and a solid orange arrow arcs on to the top of a stepped gray pyramid of proof blocks. A dotted gray line links it to two memory modules behind.",
+    "zh": "中央是一枚四周环绕显存堆栈的灰色加速器封装。一条带数据包的橙色虚线从灰色模型权重块通向它，一支橙色实线箭头再以弧线落到灰色阶梯状证明块堆的顶端；后方两条内存模组以灰色点线与它相连。"
+  },
+  "caption": {
+    "en": "Illustration: model weights flow into an accelerator that relies on its memory and outputs a stack of proof blocks, standing for the proving workload whose costs the preprint traces to hardware limits. It does not depict a tested deployment or the authors' hardware or measurements, and it does not show that any proof is correct.",
+    "zh": "示意图：模型权重流入依赖显存的加速器，再生成一堆证明块，代表预印本所分析、受硬件限制的数学证明生成任务。图中并非经过测试的实际部署，也不是作者的硬件或测量结果，更不表示任何数学证明正确无误。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "accel",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "dimm", "id": "memory", "at_uv": [0, -4.5], "count": 2},
+      {"prop": "gpu", "id": "accel", "at_uv": [0, 0], "size": 3, "hbm": "4", "tint": "neutral"},
+      {"prop": "weights", "id": "weights", "at_uv": [-3.6, 2.4], "tint": "neutral"},
+      {"prop": "proof_tree", "id": "proof", "at_uv": [3.6, 2.4], "tint": "neutral", "levels": 4}
+    ],
+    "links": [
+      {"from": "weights", "to": "accel.die", "style": "dashed", "color": "data", "packets": [0.35, 0.65]},
+      {
+        "from": "accel.die",
+        "to": "proof.top",
+        "route": "arc",
+        "style": "solid",
+        "color": "data",
+        "arrow": true
+      },
+      {"from": "memory", "to": "accel", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "bb2d1b4eeeadcda98f26f524a3a8d37748358ca21067d281c09b5876ecb6509f"
+}
