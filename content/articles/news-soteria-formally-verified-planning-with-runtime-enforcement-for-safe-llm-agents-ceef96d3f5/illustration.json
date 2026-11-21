@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-soteria-formally-verified-planning-with-runtime-enforcement-for-safe-llm-agents-ceef96d3f5.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "3aedec1c2f6ce64c90d541ddb32c056548f5caf2859fbbb3f3ce6228368258d2",
+  "variants": {
+    "list": {
+      "file": "news-soteria-formally-verified-planning-with-runtime-enforcement-for-safe-llm-agents-ceef96d3f5-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "f74f2765d8fb945e4bde84b1876fd8dc49bfa8143d5bfee5eaa38e5073dca86c"
+    },
+    "thumb": {
+      "file": "news-soteria-formally-verified-planning-with-runtime-enforcement-for-safe-llm-agents-ceef96d3f5-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "d3363f7f7f638d487ff4f2abdd815d4464fffb9a41124ffb8a2e3573104cb608"
+    },
+    "social": {
+      "file": "news-soteria-formally-verified-planning-with-runtime-enforcement-for-safe-llm-agents-ceef96d3f5-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "d212731e065144468c5664e251f3d286dcbfb3cafec84ffba8cf5c20496cbd72"
+    }
+  },
+  "edits": {
+    "source_sha256": "ae8aff2c1ce453821ffc6218bcb4dc5035dcfaa2868275aeeeb20911763ffd4f",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A research paper proposes checking agent plans against specifications before tool use and enforcing them during execution. Its benchmark results are author-reported.",
+    "zh": "一篇研究论文提出，在调用工具前依据规范检查智能体计划，并在执行期间实施约束。基准测试结果由作者报告。"
+  },
+  "caption": {
+    "en": "A research paper proposes checking agent plans against specifications before tool use and enforcing them during execution. Its benchmark results are author-reported.",
+    "zh": "一篇研究论文提出，在调用工具前依据规范检查智能体计划，并在执行期间实施约束。基准测试结果由作者报告。"
+  },
+  "credit": "Mike He, Ankush Desai, Sharad Malik, Aarti Gupta",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.17880",
+  "retrieved": "2026-11-19"
+}

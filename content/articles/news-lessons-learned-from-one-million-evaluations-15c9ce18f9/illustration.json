@@ -1,0 +1,33 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A violet bar chart with one tall bar stands at the center of a gray floor. In front of it, an orange line with one packet runs from a teal glass agent cube toward a teal tool tile and breaks before reaching it; a yellow warning sign stands beside the tile. A dotted violet line joins the agent to the chart.",
+    "zh": "灰色地面中央立着一组紫色柱状图，其中一根柱子最高。前方一条带数据包的橙色线从青色玻璃智能体方块伸向青色工具牌，中途断开；工具牌旁立着黄色警示牌。一条紫色虚线把智能体与柱状图相连。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's call to a tool breaks beside a warning sign while the bar chart scoring the agent still stands tall, the gap between pass rate and tool failures that Kiro describes; the diagram does not depict a tested deployment, Kiro's systems or its measurements.",
+    "zh": "示意图：智能体对工具的调用在警示牌旁中断，为它打分的柱状图却依然高耸，对应 Kiro 所说的通过率与工具调用失败之间的落差；此图并不描绘经过测试的部署，也不代表 Kiro 的系统或其测量结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "score",
+    "items": [
+      {
+        "prop": "bars",
+        "id": "score",
+        "at": [0, 0],
+        "heights": [1.0, 1.5, 1.3, 2.2],
+        "bar": 0.5,
+        "tint": "evaluations"
+      },
+      {"prop": "agent", "id": "agent", "at_uv": [-3.4, 2], "tint": "agents", "glow": true},
+      {"prop": "tool", "id": "tool", "at_uv": [3, 2], "icon": "terminal", "tint": "agents"},
+      {"prop": "sign", "id": "warning", "at_uv": [4.6, 0.6], "tint": "warn"}
+    ],
+    "links": [
+      {"from": "agent", "to": "tool", "style": "broken", "gap": 0.55, "color": "data", "packets": [0.2]},
+      {"from": "agent", "to": "score", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "9432cb389279adf135fb8facefe7bee54911bd913cecf7fe253f81b5ea8bd27c"
+}

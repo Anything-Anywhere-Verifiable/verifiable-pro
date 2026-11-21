@@ -1,0 +1,33 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray card showing a neural network of linked nodes stands at the center of a gray floor. A dashed orange line with one packet runs to it from a flat gray server on the left, and a dotted indigo line runs from it to an indigo padlock on the right.",
+    "zh": "灰色地面中央立着一张大幅灰色神经网络卡片。左侧一台平放的灰色服务器经一条带数据包的橙色虚线与它相连，一条靛蓝色点线从卡片通向右侧的靛蓝色挂锁。"
+  },
+  "caption": {
+    "en": "Illustration: an inference server passes requests to a model, and a padlock stands for the attestation evidence that is meant to identify what is running. It does not depict a tested deployment, NEAR AI's or AMD's systems, or the attacks the note describes.",
+    "zh": "示意图：推理服务器把请求交给模型，挂锁代表用来标识所运行软件的远程证明证据。图中不是经过测试的实际部署，也不是 NEAR AI 或 AMD 的系统，更没有呈现报告所述的攻击。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "model",
+    "items": [
+      {"prop": "server", "id": "server", "at": [-3, -3], "w": 2.4, "d": 1.6},
+      {
+        "prop": "neural_net",
+        "id": "model",
+        "at": [0, 0],
+        "tint": "neutral",
+        "w": 3.6,
+        "h": 2.6,
+        "columns": [3, 4, 2]
+      },
+      {"prop": "padlock", "id": "lock", "at": [3.2, 3.2], "tint": "tee", "size": 1.6}
+    ],
+    "links": [
+      {"from": "server", "to": "model", "style": "dashed", "color": "data", "packets": [0.5], "glow": true},
+      {"from": "model", "to": "lock", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "62b566a63ce4cee06aba61a42d4182a48bb7063a8ad1fa65bbb4fc24f52eae06"
+}

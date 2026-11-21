@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-a-code-level-audit-of-x-171b0dbe64.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "4eaa6c9743ff9bef6c546233d5bda0bf1d624cf480d993f3ad5d78a5ce2a0152",
+  "variants": {
+    "list": {
+      "file": "news-a-code-level-audit-of-x-171b0dbe64-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "2361024954be3dab8ef70b6eee8cf3f5dbb389656b1d10bc338fd3c947a25f95"
+    },
+    "thumb": {
+      "file": "news-a-code-level-audit-of-x-171b0dbe64-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "9b87d3b7337b85bb514ce0a214c855adf4fe8de14579638866fe751b12d168c3"
+    },
+    "social": {
+      "file": "news-a-code-level-audit-of-x-171b0dbe64-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "e279c32e27150930272db456a58584f547a0024267e82b9be060552809f1888e"
+    }
+  },
+  "edits": {
+    "source_sha256": "ada8ac3ae268f7decfd62f6d017359529c430677c00928954b898b91b6101010",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A submitted paper reports missing components on X’s recommender serving path and argues that public code alone leaves key decisions hard to inspect.",
+    "zh": "一篇已提交论文称，X 推荐系统的线上服务路径缺少部分公开组件，仅凭公开代码难以审查关键决策。"
+  },
+  "caption": {
+    "en": "A submitted paper reports missing components on X’s recommender serving path and argues that public code alone leaves key decisions hard to inspect.",
+    "zh": "一篇已提交论文称，X 推荐系统的线上服务路径缺少部分公开组件，仅凭公开代码难以审查关键决策。"
+  },
+  "credit": "Luka Bekavac, Simon Mayer",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.16800",
+  "retrieved": "2026-11-20"
+}

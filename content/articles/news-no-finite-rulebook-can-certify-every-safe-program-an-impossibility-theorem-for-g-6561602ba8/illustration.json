@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-no-finite-rulebook-can-certify-every-safe-program-an-impossibility-theorem-for-g-6561602ba8.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "7e534b06272599724495b60dc9e56bbf99fa30de68cd723c0f4e9e62335965f6",
+  "variants": {
+    "list": {
+      "file": "news-no-finite-rulebook-can-certify-every-safe-program-an-impossibility-theorem-for-g-6561602ba8-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "72d76d49dc2924d04022368efc9171b80b1a4de2a2f89ae221440a2fdf4fe1ec"
+    },
+    "thumb": {
+      "file": "news-no-finite-rulebook-can-certify-every-safe-program-an-impossibility-theorem-for-g-6561602ba8-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "d43883ddc1bb9c031c37646c6a9142c293283917435a1dda30ee24f061c847f7"
+    },
+    "social": {
+      "file": "news-no-finite-rulebook-can-certify-every-safe-program-an-impossibility-theorem-for-g-6561602ba8-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "f469c4a98434b5de91a8524296c9504f5a159ffc0afd64c26cc65ccb16d16445"
+    }
+  },
+  "edits": {
+    "source_sha256": "f8c9b4065cd96f2d84f60a54971e985775274c111f17be893991b43c20a468a1",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A preprint argues that a gatekeeper using finite, machine-checkable evidence cannot classify every program against certain safety rules. The result depends on the paper’s stated model.",
+    "zh": "一篇预印本指出，在论文设定的模型中，依靠有限且可由机器核验的证据，门控程序无法依据某些安全规则判定所有程序。"
+  },
+  "caption": {
+    "en": "A preprint argues that a gatekeeper using finite, machine-checkable evidence cannot classify every program against certain safety rules. The result depends on the paper’s stated model.",
+    "zh": "一篇预印本指出，在论文设定的模型中，依靠有限且可由机器核验的证据，门控程序无法依据某些安全规则判定所有程序。"
+  },
+  "credit": "Tomas Perez-Acle",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.13367",
+  "retrieved": "2026-11-20"
+}

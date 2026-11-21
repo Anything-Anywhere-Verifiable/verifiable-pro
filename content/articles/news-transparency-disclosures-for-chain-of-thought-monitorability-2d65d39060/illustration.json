@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-transparency-disclosures-for-chain-of-thought-monitorability-2d65d39060.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "8ad0bb2be06504c5fc56a4789b1acfbc197020b1b961bcf740a45d82dbe03d1a",
+  "variants": {
+    "list": {
+      "file": "news-transparency-disclosures-for-chain-of-thought-monitorability-2d65d39060-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "afd9d5fd126a068452cee6f49b975c472b1f956ec7e37fa8ce50c935ba3c5473"
+    },
+    "thumb": {
+      "file": "news-transparency-disclosures-for-chain-of-thought-monitorability-2d65d39060-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "476f199bdecff6b9ad4d8b7b778e85eb5c066c96d27893b40374ebc098b6c19e"
+    },
+    "social": {
+      "file": "news-transparency-disclosures-for-chain-of-thought-monitorability-2d65d39060-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "85d329b69734f186f225c0c539f008d7bfb28ef9402af549476e9024dcd9243c"
+    }
+  },
+  "edits": {
+    "source_sha256": "83f55fa6008f8d92fc4b0b80f39204e86deb15730b2840fde59d9ae7e010ac56",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A paper proposes five disclosure indicators for monitoring AI chain-of-thought reasoning. Its authors say an audit found gaps in current developer disclosures.",
+    "zh": "一篇论文提出五项披露指标，用于追踪 AI 思维链的可监测性。作者称，他们的审查发现当前开发者的披露仍有缺口。"
+  },
+  "caption": {
+    "en": "A paper proposes five disclosure indicators for monitoring AI chain-of-thought reasoning. Its authors say an audit found gaps in current developer disclosures.",
+    "zh": "一篇论文提出五项披露指标，用于追踪 AI 思维链的可监测性。作者称，他们的审查发现当前开发者的披露仍有缺口。"
+  },
+  "credit": "Jacob Davies, Theo Bearman",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.13873",
+  "retrieved": "2026-11-18"
+}
