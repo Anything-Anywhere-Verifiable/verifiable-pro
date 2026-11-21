@@ -1,0 +1,32 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray sign on a post stands at the center of a gray floor. A dashed teal line carrying one packet runs to its foot from a flat gray server on the left, and a dotted indigo line continues from the sign to an indigo padlock on the right.",
+    "zh": "灰色地面中央立着一块带立柱的大号灰色标牌。左侧一台平放的灰色服务器引出一条带数据包的青色虚线，通到标牌底部；一条靛蓝色点线再从标牌连到右侧的靛蓝色挂锁。"
+  },
+  "caption": {
+    "en": "Illustration: a server standing for the identity provider passes a token to a sign standing for the badge that names both the agent and the user, which leads to a padlock standing for the role session, as in the design AWS describes; it does not depict a tested deployment or AWS's actual systems, and it does not show that the identity checks work as described.",
+    "zh": "示意图：代表身份提供商的服务器把令牌送到代表身份标识的标牌，标牌同时指向代理和用户，再通向代表角色会话的挂锁，对应 AWS 描述的设计；图中并非经过测试的部署，也不是 AWS 的实际系统，不表示这些身份检查确如所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "badge",
+    "items": [
+      {"prop": "sign", "id": "badge", "at": [0, 0], "tint": "neutral", "scale": 2},
+      {"prop": "server", "id": "idp", "at": [-3, -3], "w": 2.4, "d": 1.4},
+      {"prop": "padlock", "id": "session", "at": [3, 3], "tint": "tee", "size": 1.5}
+    ],
+    "links": [
+      {
+        "from": "idp",
+        "to": "badge.base",
+        "style": "dashed",
+        "color": "agents",
+        "packets": [0.5],
+        "arrow": true
+      },
+      {"from": "badge.base", "to": "session", "style": "dotted", "color": "tee", "arrow": true}
+    ]
+  },
+  "svg_sha256": "ea902dfa4d99a7df934c0abf8f8df080ffd7c309307b573eba03eb7970bf94b7"
+}
