@@ -1,0 +1,47 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A gray plate holds a phone at the front left, a flat gray server, a tall light-indigo box in the center and an indigo padlock on the right. A dashed orange line with packets runs from the phone to the server and on into the box; a dotted indigo line runs from the padlock to the box.",
+    "zh": "灰色底板上，左前方立着一部手机，旁边是一台扁平的灰色服务器，中央是一个高大的浅靛蓝色方块，右侧是一把靛蓝色挂锁。带数据包的橙色虚线从手机经服务器通往方块，靛蓝色点线从挂锁连到方块。"
+  },
+  "caption": {
+    "en": "Illustration: a request travels from a user's app through an ingress server into a per-session microVM, which a token check also guards, as in the design AWS describes for AgentCore Runtime. It does not depict a tested deployment or AWS's systems, and it does not show that the controls work as described.",
+    "zh": "示意图：按照 AWS 为 AgentCore Runtime 描述的设计，请求从用户应用经接入服务器进入按会话启动的 microVM，令牌检查同样把守这一入口。图中并非经过测试的部署，也不代表 AWS 的系统，不表明这些控制措施如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "microvm",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "phone", "id": "app", "at": [-3.25, -5.25], "tint": "neutral", "content": "chat"},
+      {"prop": "server", "id": "ingress", "at": [-2.5, -2.5], "tint": "neutral", "w": 2.6, "d": 1.4},
+      {
+        "prop": "box",
+        "id": "microvm",
+        "at": [0, 0],
+        "tint": "tee",
+        "material": "teelight",
+        "w": 2.0,
+        "d": 2.0,
+        "h": 2.8
+      },
+      {"prop": "padlock", "id": "token", "at": [2.75, 2.25], "tint": "tee", "size": 1.3}
+    ],
+    "links": [
+      {"from": "app", "to": "ingress", "style": "dashed", "color": "data", "packets": [0.5]},
+      {
+        "from": "ingress",
+        "to": "microvm",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "glow": true,
+        "arrow": true
+      },
+      {"from": "token", "to": "microvm", "style": "dotted", "color": "tee", "arrow": true}
+    ]
+  },
+  "svg_sha256": "5b7932eca05d55c60815a478a8cbc2f6ed14f7bbbde224aabb1d57b948100a84"
+}

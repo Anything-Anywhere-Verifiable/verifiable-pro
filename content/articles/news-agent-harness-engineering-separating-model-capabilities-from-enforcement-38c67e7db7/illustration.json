@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray metal block stands at the center of a gray floor. A dashed orange line carrying one packet runs to it from a flat gray server on the left, and a dotted teal line runs from the block to a teal tool tile with a database icon on the right.",
+    "zh": "灰色地面中央立着一个大型灰色金属方块。左侧一台平放的灰色服务器经一条带数据包的橙色虚线与方块相连，方块另一侧以青色点线连到右边一块带数据库图标的青色工具牌。"
+  },
+  "caption": {
+    "en": "Illustration: a block standing for the harness sits between a server standing for the sandbox and a database tool, as in the separation of model and enforcement that Red Hat describes. It does not depict a tested deployment, Hugging Face's infrastructure or any real system, and it does not show that such controls work.",
+    "zh": "示意图：代表执行框架的方块位于代表沙箱的服务器与数据库工具之间，对应 Red Hat 所述的模型与约束相分离的思路。本图并未描绘任何经过测试的部署，也不代表 Hugging Face 的基础设施或任何真实系统，更不说明这类控制确实有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "harness",
+    "items": [
+      {"prop": "box", "id": "harness", "at": [0, 0], "w": 2.2, "d": 2.2, "h": 2.6, "material": "metal"},
+      {"prop": "server", "id": "sandbox", "at": [-3, -3], "w": 2.4, "d": 1.4},
+      {"prop": "tool", "id": "dbtool", "at": [3, 3], "icon": "database", "size": 1.4, "tint": "agents"}
+    ],
+    "links": [
+      {"from": "sandbox", "to": "harness", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "harness", "to": "dbtool", "style": "dotted", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "86b26dd9d99a3d9b41d27ce58eb79b60bd0be6e18557f9d162e5316f747d01c0"
+}

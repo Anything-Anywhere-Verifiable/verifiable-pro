@@ -1,0 +1,38 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large video frame with a small indigo seal on its corner stands at the center of a gray floor. A dashed orange line with one packet runs to it from a flat server with indigo trim and a padlock on the left, and a dotted indigo line joins it to a closed indigo padlock on the right.",
+    "zh": "灰色地面中央立着一大幅视频画面，角上挂着小小的靛蓝印章。左侧一台带靛蓝饰边和小锁的扁平服务器，用一条带数据包的橙色虚线连向它；右侧一把闭合的靛蓝挂锁，用靛蓝点线与它相连。"
+  },
+  "caption": {
+    "en": "Illustration: A video frame stands for the record of the confidential AI showcase Microsoft describes, fed by a server for its compute node and tied to a padlock for the attestation evidence. It does not depict a tested deployment or Microsoft's hardware, and it does not show that the checks work as described.",
+    "zh": "示意图：视频画面代表 Microsoft 所描述的机密 AI 演示记录，左侧服务器代表运行模型的计算节点，右侧挂锁代表证明证据。图中并非经过测试的部署，也不是 Microsoft 的硬件，不表明这些检查如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "record",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "photo",
+        "id": "record",
+        "at": [0, 0],
+        "tint": "tee",
+        "content": "video",
+        "tag": "seal",
+        "w": 2.4,
+        "h": 1.8,
+        "scale": 1.8
+      },
+      {"prop": "server", "id": "node", "at": [-3.4, -3.4], "tint": "tee", "lock": true},
+      {"prop": "padlock", "id": "evidence", "at": [3.4, 3.4], "tint": "tee", "scale": 1.5}
+    ],
+    "links": [
+      {"from": "node", "to": "record", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "evidence", "to": "record", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "60f37627e35e9bc95d8c75d07cc6d37cdc9333588abbf91c25bd0c7e83101948"
+}

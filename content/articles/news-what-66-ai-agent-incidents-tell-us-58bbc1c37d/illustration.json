@@ -1,0 +1,59 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large standing card with lines of writing and a violet tag stands at the center of a gray floor. A dashed orange line carrying one packet runs along the floor to it from a flat gray server on the right, and a dotted violet line joins it to a violet bar chart on the left.",
+    "zh": "灰色地面中央立着一张大卡片，上面有几行文字线条，挂着紫色标签。右侧一台平放的灰色服务器有一条带数据包的橙色虚线沿地面通向卡片，卡片又通过紫色点线连到左侧的紫色柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: a disclosed incident record at the center, with a server on the right that stores the records and bar counts across the disclosed incidents on the left. It does not depict Manifold's ledger or a tested deployment, and it does not show how often agent failures occur.",
+    "zh": "示意图：中央为一份已披露的事件记录，右侧是存放记录的服务器，左侧是各起已披露事件的统计柱状图。图中并非 Manifold 的事件库或任何经过测试的部署，也不代表智能体故障发生的频率。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "record",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "size": "auto"},
+    "items": [
+      {
+        "prop": "photo",
+        "id": "record",
+        "at": [0, 0],
+        "w": 3.6,
+        "h": 2.6,
+        "scale": 1.4,
+        "content": "text",
+        "tag": "tag",
+        "tint": "evaluations"
+      },
+      {
+        "prop": "bars",
+        "id": "counts",
+        "at": [-3.6, -3.6],
+        "heights": [0.8, 1.6, 1.1, 2.2],
+        "highlight": -1,
+        "tint": "evaluations",
+        "scale": 1.2
+      },
+      {"prop": "server", "id": "store", "at": [3.6, 3.6], "w": 3, "d": 1.6, "scale": 1.2, "tint": "neutral"}
+    ],
+    "links": [
+      {
+        "from": "store.base",
+        "to": "record.base",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {
+        "from": "record.base",
+        "to": "counts.base",
+        "route": "straight",
+        "style": "dotted",
+        "color": "evaluations"
+      }
+    ]
+  },
+  "svg_sha256": "dc6aa23adc2ed32851a628e8646e357b5314cfd4830a63b88abae389b7429338"
+}
