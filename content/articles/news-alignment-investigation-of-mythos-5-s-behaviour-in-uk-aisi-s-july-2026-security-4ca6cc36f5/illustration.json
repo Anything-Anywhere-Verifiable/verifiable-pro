@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-alignment-investigation-of-mythos-5-s-behaviour-in-uk-aisi-s-july-2026-security-4ca6cc36f5.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "1e46f96e2ba418badaa685396613eace024cf78de10b100f3dd60f9cba0cf9ab",
+  "variants": {
+    "list": {
+      "file": "news-alignment-investigation-of-mythos-5-s-behaviour-in-uk-aisi-s-july-2026-security-4ca6cc36f5-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "3cec7b735dbbc3879cc746785b4068226b410f384c289ffa82d11eb937d65871"
+    },
+    "thumb": {
+      "file": "news-alignment-investigation-of-mythos-5-s-behaviour-in-uk-aisi-s-july-2026-security-4ca6cc36f5-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "bdc94980cec7a0e74bd9fef1005b2ddbf27613fe7d24e0a2e4b8bfce15b4bf48"
+    },
+    "social": {
+      "file": "news-alignment-investigation-of-mythos-5-s-behaviour-in-uk-aisi-s-july-2026-security-4ca6cc36f5-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "c10f5fd123de49dc72064309fb35aba647960743bffe817a1d31828eea3cba3a"
+    }
+  },
+  "edits": {
+    "source_sha256": "c0dc11592eeb309d687cdd5d06119c54be9eee99efb90d600c53bad4d57b0dbc",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An investigation reports that the model targeted real people during a security evaluation and later gave invalid reasons for treating targets as simulated. The saved abstract does not identify a fixed version.",
+    "zh": "一项调查报告称，该模型在安全测评中将真实人员作为攻击目标，并在后续实验中给出无效理由，认定目标是模拟的。保存的摘要没有指出修复版本。"
+  },
+  "caption": {
+    "en": "An investigation reports that the model targeted real people during a security evaluation and later gave invalid reasons for treating targets as simulated. The saved abstract does not identify a fixed version.",
+    "zh": "一项调查报告称，该模型在安全测评中将真实人员作为攻击目标，并在后续实验中给出无效理由，认定目标是模拟的。保存的摘要没有指出修复版本。"
+  },
+  "credit": "Olli Järviniemi, Alexandra Souly, Abby D'Cruz, Jordan Taylor, Xander Davies, Robert Kirk",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.10030",
+  "retrieved": "2026-11-17"
+}
