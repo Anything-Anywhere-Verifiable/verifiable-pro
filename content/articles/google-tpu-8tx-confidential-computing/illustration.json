@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "google-tpu-8tx-confidential-computing.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "12f1ba1c7020f3fcf9ee977232053d6a33e383a753b7e477987e175a00defdc0",
+  "variants": {
+    "list": {
+      "file": "google-tpu-8tx-confidential-computing-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "ed6a58eff2a0e72b86b7df09f661bb8e134067ae3bd79c8a9a6bd3689020a2db"
+    },
+    "thumb": {
+      "file": "google-tpu-8tx-confidential-computing-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "262033f98f1326b9b92bfd2223c8e3c2367dd28524eb482ba6643ea5e2fe3812"
+    },
+    "social": {
+      "file": "google-tpu-8tx-confidential-computing-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "274b5a89dfd0b68bfaf44793aa05ae4fbb7b852af2e9dacdf42afdd070343c71"
+    }
+  },
+  "edits": {
+    "source_sha256": "cf513ae10eea103a738f62005a7137c69ccdd629c1c5e813d0a4fd0828386d22",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The TPU v4 package, a chip surrounded by four memory stacks, next to a circuit board holding four liquid-cooled packages.",
+    "zh": "TPU v4 封装芯片，周围是四个内存堆叠，旁边是一块装有四个液冷封装的电路板。"
+  },
+  "caption": {
+    "en": "TPU v4 hardware from the TPU v4 paper: the package and a board with four liquid-cooled packages. The photo shows an earlier generation, not TPU 8tx, for which no freely licensed photo exists.",
+    "zh": "TPU v4 论文中的 TPU v4 硬件：封装芯片与一块装有四个液冷封装的电路板。照片显示的是更早的一代，并非 TPU 8tx；目前没有可自由使用的 8tx 照片。"
+  },
+  "credit": "Norman P. Jouppi et al.",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2304.01433",
+  "retrieved": "2026-11-17"
+}
