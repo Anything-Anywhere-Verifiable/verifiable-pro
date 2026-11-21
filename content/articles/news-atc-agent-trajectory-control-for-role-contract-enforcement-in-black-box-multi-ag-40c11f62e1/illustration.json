@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-atc-agent-trajectory-control-for-role-contract-enforcement-in-black-box-multi-ag-40c11f62e1.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "77e9f8363c64b4bf4aa548731de2bda71b0e4ddf8c321539081a591ef19164cb",
+  "variants": {
+    "list": {
+      "file": "news-atc-agent-trajectory-control-for-role-contract-enforcement-in-black-box-multi-ag-40c11f62e1-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "e53c2743a7a54a522dd59bb4f7650f61522ca2e8130ad49e3acbe0557fce854e"
+    },
+    "thumb": {
+      "file": "news-atc-agent-trajectory-control-for-role-contract-enforcement-in-black-box-multi-ag-40c11f62e1-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "082bfcc21e110f1add908bd97e3e8e56d5747e5c09db871d5eb6bdc1b7f97be2"
+    },
+    "social": {
+      "file": "news-atc-agent-trajectory-control-for-role-contract-enforcement-in-black-box-multi-ag-40c11f62e1-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "22b9a5a7824ab161a79ccd28be874d1ad1b785a4d9e85d732ceb07a4c399f951"
+    }
+  },
+  "edits": {
+    "source_sha256": "6793a2cabd9ae7cbfcd01f0e9c71c11726900a66614cdfafc79e6da4724ea6d2",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "The research proposes checking and regenerating agent messages against explicit role contracts. Its arXiv abstract reports improvements, but the saved source does not establish deployment behavior or reproducible results.",
+    "zh": "这项研究提出依据明确的角色契约检查并重新生成智能体消息。arXiv 摘要报告了效果提升，但保存的来源不足以核实部署行为或复现实验结果。"
+  },
+  "caption": {
+    "en": "The research proposes checking and regenerating agent messages against explicit role contracts. Its arXiv abstract reports improvements, but the saved source does not establish deployment behavior or reproducible results.",
+    "zh": "这项研究提出依据明确的角色契约检查并重新生成智能体消息。arXiv 摘要报告了效果提升，但保存的来源不足以核实部署行为或复现实验结果。"
+  },
+  "credit": "Maisha Maliha, Vishal Pramanik, Sumit Kumar Jha",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.04321",
+  "retrieved": "2026-11-17"
+}
