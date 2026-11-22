@@ -1,0 +1,28 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large pair of dark smart glasses rests at the center of a gray floor. A dashed orange line with one packet runs to them from a closed teal book on the left, and a dotted violet arrow runs from the glasses to a violet tool tile with a gear on the right.",
+    "zh": "灰色地面中央放着一副大号深色眼镜。左侧一本合上的青绿色书本伸出一条带数据包的橙色虚线，连到眼镜；眼镜再以一条紫色点线箭头指向右侧带齿轮图标的紫色工具板。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's run log is read by a close inspection step whose findings go to a scoring tool, standing for the self-evaluation without external feedback that the paper describes. It is not a tested deployment: it does not depict the authors' Actor, Evaluator or benchmarks, and it does not show that the method works as reported.",
+    "zh": "示意图：智能体的运行记录经过一道细致的检查，检查结果再交给评分工具，代表论文所描述的无需外部反馈的自我评估。图中并非经过测试的实际部署，不代表作者的 Actor、Evaluator 或基准测试，也不表明该方法如报告所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "glasses",
+    "backdrop": "mist",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "glasses", "id": "glasses", "at": [0, 0], "w": 4, "scale": 1.5, "tint": "dark"},
+      {"prop": "book", "id": "log", "at": [-4.6, -1.2], "tint": "agents", "emblem": "bars", "scale": 1.3},
+      {"prop": "tool", "id": "harness", "at": [4.3, 1.0], "tint": "evaluations", "icon": "gear", "size": 1.4}
+    ],
+    "links": [
+      {"from": "log", "to": "glasses", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "glasses", "to": "harness", "style": "dotted", "color": "evaluations", "arrow": true}
+    ]
+  },
+  "svg_sha256": "9f2e31de8ccfd98e30d56f415a71a5e750e9b7900aee40334f817224a1b78586"
+}
