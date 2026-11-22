@@ -1,0 +1,27 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray certificate with an indigo seal stands in the center of a gray floor. On the left, a flat server with indigo lamps and a small padlock sends a dashed indigo line with a packet to the certificate; on the right, a stack of papers is joined to it by a dotted gray line.",
+    "zh": "灰色地面中央立着一张带靛蓝印章的大证书。左侧一台带靛蓝指示灯和小挂锁的扁平服务器，以一条带数据包的靛蓝虚线连向证书；右侧一叠文件通过灰色点线与证书相连。"
+  },
+  "caption": {
+    "en": "Illustration: a confidential server hands a hardware attestation report, drawn as an indigo certificate, which a stack of papers describes, as in the devnet beta Solana Compass reports. It does not depict a tested deployment or Solana's or Nito's systems, and it does not show that the checks work as described.",
+    "zh": "示意图：一台机密服务器交出以靛蓝证书表示的硬件远程证明报告，右侧一叠文件对其加以描述，对应 Solana Compass 报道的开发网测试版。图中并非经过测试的部署，也不是 Solana 或 Nito 的系统，不表明这些检查如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "report",
+    "backdrop": "white",
+    "ground": {"kind": "plate"},
+    "items": [
+      {"prop": "certificate", "id": "report", "at": [0, 0], "tint": "tee", "w": 3.6, "h": 2.4, "scale": 1.6},
+      {"prop": "server", "id": "node", "at": [-3.2, -3.0], "tint": "tee", "lock": true},
+      {"prop": "papers", "id": "news", "at": [2.8, 2.6], "count": 4}
+    ],
+    "links": [
+      {"from": "node", "to": "report", "style": "dashed", "color": "tee", "arrow": true, "packets": [0.5]},
+      {"from": "report", "to": "news", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "be8dd733dbf33a87149d7e7ac8fd50ab52a207776fc6e64ae9b54f0bc79b6f09"
+}

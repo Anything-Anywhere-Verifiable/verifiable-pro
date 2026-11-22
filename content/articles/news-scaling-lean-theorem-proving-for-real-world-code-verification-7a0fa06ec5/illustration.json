@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-scaling-lean-theorem-proving-for-real-world-code-verification-7a0fa06ec5.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "3768cdad20b286475bfc8b8f0e84424b56d67c64c3aa5f09d3c5640c4052547b",
+  "variants": {
+    "list": {
+      "file": "news-scaling-lean-theorem-proving-for-real-world-code-verification-7a0fa06ec5-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "b5878b532f00140dd95a3266fad6ebe96cc6371e4330f24feef05062e7b13ec9"
+    },
+    "thumb": {
+      "file": "news-scaling-lean-theorem-proving-for-real-world-code-verification-7a0fa06ec5-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "8f0033d34219d8cb04e75546a4fe7b0f772e6edab2ed88a5ff50d7b9c84bb2ff"
+    },
+    "social": {
+      "file": "news-scaling-lean-theorem-proving-for-real-world-code-verification-7a0fa06ec5-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "fa1d844aa0aca03fc02d824f9979e8ca099d3f9cdd71467321751f0eca994472"
+    }
+  },
+  "edits": {
+    "source_sha256": "6fbec900d30aef9d4505e1e447ffbdcb5fea9c4a8de266630501fb799fab676f",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv submission reports strong results on existing benchmarks and a 52.7% proof rate on a harder sample built from implementations. The saved abstract supports reporting those claims, but does not independently validate them.",
+    "zh": "一篇 arXiv 投稿报告了现有基准上的较高成绩，以及源自实际实现的更难任务样本上 52.7% 的数学证明成功率。保存的摘要记录了这些主张，但不足以独立验证结果。"
+  },
+  "caption": {
+    "en": "An arXiv submission reports strong results on existing benchmarks and a 52.7% proof rate on a harder sample built from implementations. The saved abstract supports reporting those claims, but does not independently validate them.",
+    "zh": "一篇 arXiv 投稿报告了现有基准上的较高成绩，以及源自实际实现的更难任务样本上 52.7% 的数学证明成功率。保存的摘要记录了这些主张，但不足以独立验证结果。"
+  },
+  "credit": "Debargha Ganguly, Divya Raghunathan, Dejan Jovanović, Vikash Singh, Soonho Kong, Aaron Tomb, Aman Goel, Ferhat Erata, Sam Bayless",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2610.38174",
+  "retrieved": "2026-11-06"
+}

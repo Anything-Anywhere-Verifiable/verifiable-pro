@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet magnifying glass stands at the center of a gray floor, a grid pattern showing in its lens. A yellow warning sign stands to its left, joined to the magnifier's handle by a dotted violet line; a teal-tinted display panel with lines of text stands to its right, joined by a dashed teal line.",
+    "zh": "灰色地面中央立着一把紫色放大镜，镜片里显出网格图案。左侧是一块黄色警示牌，以紫色点线连到放大镜手柄；右侧是一块显示成行文字的青绿色屏幕，以青绿色虚线相连。"
+  },
+  "caption": {
+    "en": "Illustration: a magnifier between a warning sign and a screen stands for an evaluation that inspects a web agent's browsing session against trap tasks, as the preprint's authors describe; it does not depict a tested deployment, WebTrap Farm itself or any real harness, and it does not show that the evaluation works as reported.",
+    "zh": "示意图：放大镜位于警示牌与屏幕之间，代表预印本作者所描述的评估——用陷阱任务检视网页智能体的浏览会话；图中并未描绘经过测试的部署、WebTrap Farm 本身或任何真实的执行框架，也不表示该评估如报告所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "inspect",
+    "items": [
+      {"prop": "sign", "id": "trap", "at": [-2.4, -2.4]},
+      {"prop": "magnifier", "id": "inspect", "at": [0, 0], "r": 1.2, "tint": "evaluations", "reveal": "grid"},
+      {"prop": "screen", "id": "session", "at": [2.5, 2.5], "tint": "agents", "content": "text"}
+    ],
+    "links": [
+      {"from": "trap", "to": "inspect", "style": "dotted", "color": "evaluations"},
+      {"from": "session", "to": "inspect", "style": "dashed", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "feed78b6d6f5869bcc8e60258f7452eeeabb01bdcc878a84934a3079baf0eb45"
+}

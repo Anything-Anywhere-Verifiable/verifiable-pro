@@ -1,0 +1,49 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large indigo cloud stands at the center of a gray floor. A dashed orange line carrying one packet runs up to it from a flat gray server on the left with a small indigo padlock, and a dotted indigo arrow runs from the cloud to a teal terminal tile on the right.",
+    "zh": "灰色地面中央立着一朵大的靛蓝色云。左侧一台带靛蓝色小锁的扁平灰色服务器引出一条载有数据包的橙色虚线连到云，云再以一条靛蓝色点线箭头指向右侧的青绿色终端图块。"
+  },
+  "caption": {
+    "en": "Illustration: a scheduling service, drawn as a cloud, takes work from a locked host and dispatches a command, standing for the restricted workspaces and command scheduling the Metal Sandbox paper describes. It does not depict a tested deployment, and it does not show that the isolation or throughput gains hold as reported.",
+    "zh": "示意图：以云表示的调度服务从加锁的主机接收任务并派发命令，代表 Metal Sandbox 论文所描述的受限工作区和命令调度。图中并非经过测试的实际部署，也不表明其隔离效果或吞吐量提升如论文所报告的那样成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "cloud",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "cloud", "id": "cloud", "at": [0, 0], "tint": "tee", "w": 2.6, "scale": 2.2},
+      {
+        "prop": "server",
+        "id": "host",
+        "at": [-3.1, -3.1],
+        "tint": "neutral",
+        "w": 2.2,
+        "d": 1.4,
+        "lock": true
+      },
+      {"prop": "tool", "id": "command", "at": [2.9, 2.9], "tint": "agents", "icon": "terminal", "size": 1.0}
+    ],
+    "links": [
+      {
+        "from": "host.top",
+        "to": "cloud.center",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {
+        "from": "cloud.center",
+        "to": "command.top",
+        "route": "straight",
+        "style": "dotted",
+        "color": "tee",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "7c122c6783c9331c850f5425381ab60e18965c976362bcb0a4b610fab8b5a312"
+}

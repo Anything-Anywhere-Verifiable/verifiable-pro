@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large standing card of layered teal nodes and connections sits at the center of a gray floor. A teal dotted arrow runs to it from a flat gray server on the left, and a dashed orange line with one packet runs from it to a small stack of pink-tinted pages on the right.",
+    "zh": "灰色地面中央立着一张大卡片，上面是分层排列的青绿色节点和连线。左侧一台扁平的灰色服务器引出一条青绿色虚点箭头指向卡片；卡片右侧伸出一条带数据包的橙色虚线，通向一小叠粉色调纸页。"
+  },
+  "caption": {
+    "en": "Illustration: a model card takes feedback from a checker server as it assembles a proof in a stack of pages, standing for the proof search loop the ProofCoder authors describe. It is not ProofCoder or the Rocq proof assistant, it does not depict a tested deployment, and it does not show that the reported results hold.",
+    "zh": "示意图：模型卡片一边接收检查服务器的反馈，一边把证明整理成一叠纸页，代表 ProofCoder 作者描述的证明搜索循环。图中并非 ProofCoder 或 Rocq 证明助手本身，也不代表任何经过测试的部署，更不表明论文报告的结果成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "nn",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "neural_net",
+        "id": "nn",
+        "at": [0, 0],
+        "tint": "agents",
+        "w": 3.2,
+        "h": 2.4,
+        "columns": [3, 5, 4, 2]
+      },
+      {"prop": "server", "id": "checker", "at": [-2.6, -2.6], "tint": "neutral", "w": 2.6, "d": 1.4},
+      {"prop": "papers", "id": "proof", "at": [2.5, 2.5], "tint": "outputs", "count": 5}
+    ],
+    "links": [
+      {"from": "checker", "to": "nn", "style": "dotted", "color": "agents", "arrow": true},
+      {"from": "nn", "to": "proof", "style": "dashed", "color": "data", "packets": [0.5]}
+    ]
+  },
+  "svg_sha256": "b86a7fa908a28c028fa5f74cdb7de9181a02f28d7fcf4d66c7b96e151d1bd6ee"
+}

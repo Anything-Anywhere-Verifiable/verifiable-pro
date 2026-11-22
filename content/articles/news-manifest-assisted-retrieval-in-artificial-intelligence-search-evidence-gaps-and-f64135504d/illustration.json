@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-manifest-assisted-retrieval-in-artificial-intelligence-search-evidence-gaps-and-f64135504d.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "dbd20f29fa9b0df633a7d2da44f802083266ea2aae206fb95d74f06b97f6b1de",
+  "variants": {
+    "list": {
+      "file": "news-manifest-assisted-retrieval-in-artificial-intelligence-search-evidence-gaps-and-f64135504d-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "368b2b359f6ec84f686466a0d18e3262d4f101d5f69e8506ba1d719a32efb8e1"
+    },
+    "thumb": {
+      "file": "news-manifest-assisted-retrieval-in-artificial-intelligence-search-evidence-gaps-and-f64135504d-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "40d2ff29354aea39bd1b02fdc59f293a548aef7d6c83cd4662e2a435de01daa9"
+    },
+    "social": {
+      "file": "news-manifest-assisted-retrieval-in-artificial-intelligence-search-evidence-gaps-and-f64135504d-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "e9ef1283f509c188359f2910492da1b1da35f511f8a8a629d458273669817126"
+    }
+  },
+  "edits": {
+    "source_sha256": "2f561e9c86bce014577f2005b047ba18fda55822648e17cd0b2781072711d106",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv manuscript reports attacker-target adoption in a controlled pilot involving supplied manifest content. Its abstract explicitly leaves live retrieval and downstream actions outside the experiment.",
+    "zh": "一篇 arXiv 稿件报告，在提供清单内容的受控试验中，模型输出出现了攻击者目标采纳。摘要明确指出，实验不涉及实时检索或下游行动。"
+  },
+  "caption": {
+    "en": "An arXiv manuscript reports attacker-target adoption in a controlled pilot involving supplied manifest content. Its abstract explicitly leaves live retrieval and downstream actions outside the experiment.",
+    "zh": "一篇 arXiv 稿件报告，在提供清单内容的受控试验中，模型输出出现了攻击者目标采纳。摘要明确指出，实验不涉及实时检索或下游行动。"
+  },
+  "credit": "Gangzhen Qian, Kainan Zhou, Chuhong Xu, Hang Xiao, Zhi Jing, Rong Bao, Lu Yi, Zhaoyi Li",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2610.38361",
+  "retrieved": "2026-10-30"
+}

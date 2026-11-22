@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large certificate with an indigo seal stands at the center of a gray floor. A dotted dark gray line joins it to a stack of gray papers on the right, and a dashed indigo line joins it to a closed indigo padlock on the left.",
+    "zh": "灰色地面中央立着一张带靛蓝色印章的大证书。一条深灰色点线把它与右侧的一叠灰色纸张相连，一条靛蓝色虚线把它与左侧一把锁着的靛蓝色挂锁相连。"
+  },
+  "caption": {
+    "en": "Illustration: attestation evidence, drawn as a certificate, is compared with reference values, drawn as papers, before a locked resource is released. It does not depict a tested deployment of Trustee, and it does not show that the checks work as described.",
+    "zh": "示意图：以证书表示的证明证据，先与以纸张表示的参考值比对，上锁的资源才会放行。图中并非经过测试的 Trustee 部署，也不表示这些检查确如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "evidence",
+    "items": [
+      {"prop": "certificate", "id": "evidence", "at": [0, 0], "tint": "tee", "w": 3.2, "h": 2.2},
+      {"prop": "padlock", "id": "resource", "at": [-2.6, -2.6], "tint": "tee", "size": 1.2},
+      {"prop": "papers", "id": "refs", "at": [2.6, 2.6], "tint": "neutral", "count": 5}
+    ],
+    "links": [
+      {"from": "refs", "to": "evidence", "style": "dotted", "color": "ink"},
+      {"from": "evidence", "to": "resource", "style": "dashed", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "ac5130472cfee4474933146e485c423f323371ff5558e3b7b01aa6bc4e744d47"
+}
