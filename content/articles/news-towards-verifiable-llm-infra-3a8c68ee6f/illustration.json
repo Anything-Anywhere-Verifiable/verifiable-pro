@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "Two large gray memory modules stand in their slots at the center of a gray floor. On the left, a flat gray server sends a dashed orange line with packets into the modules; on the right, a dotted light gray line runs from the modules to a standing tagged picture card.",
+    "zh": "灰色地面中央，两条大型灰色内存条立在插槽中。左侧一台扁平灰色服务器以带数据包的橙色虚线连向内存条；右侧，一条浅灰色点线从内存条连到一张挂有标签的立式卡片。"
+  },
+  "caption": {
+    "en": "Illustration: a serving server writes data into memory whose contents a verification workflow must account for, and a tagged card stands for a recorded snapshot of the served configuration. It is not a tested deployment: it does not depict vstack, veriserve, SGLang or vLLM, and it does not show that the reported proof or fixes work as described.",
+    "zh": "示意图：服务器把数据写入内存，验证流程须说明其中内容的去向；带标签的卡片代表所服务配置的记录快照。图中并非经过测试的部署，不代表 vstack、veriserve、SGLang 或 vLLM，也不表明作者报告的数学证明或修复如其所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "memory",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "dimm", "id": "memory", "at": [0, 0], "tint": "neutral", "count": 2, "length": 3, "scale": 2.5},
+      {"prop": "server", "id": "serving", "at": [-2.5, -4.6], "tint": "neutral"},
+      {
+        "prop": "photo",
+        "id": "snapshot",
+        "at": [4.6, 2.6],
+        "tint": "neutral",
+        "content": "text",
+        "tag": "tag",
+        "w": 2.2,
+        "h": 1.6
+      }
+    ],
+    "links": [
+      {
+        "from": "serving",
+        "to": "memory",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7],
+        "glow": true
+      },
+      {"from": "memory", "to": "snapshot", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "4026a3a1a419536589200ea5be9b36599267f129d8dff60c47e8f977fb8d9fda"
+}
