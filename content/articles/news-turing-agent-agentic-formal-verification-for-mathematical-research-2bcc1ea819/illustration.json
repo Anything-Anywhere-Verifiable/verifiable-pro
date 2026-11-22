@@ -1,0 +1,41 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large cinnabar rubber stamp with its fresh ring impression stands at the center of a gray floor. A dashed teal line reaches it from a closed violet book at the left, and a dark arrow runs on from the stamp to a standing pink-tinted card of written lines at the right.",
+    "zh": "灰色地面中央立着一枚朱红色大印章，旁边是刚盖下的圆形印迹。一条青色虚线从左侧合上的紫色书本通向印章，一条深色箭头再从印章指向右侧一张写有横线的粉色立卡。"
+  },
+  "caption": {
+    "en": "Illustration: a stamp between a book and a written card stands for the formal check that the paper's authors describe between a formalized theorem and its proof. It does not depict a tested deployment, Turing Agent's software or its reported results, and it does not show that any formalization is faithful.",
+    "zh": "示意图：书本与写有横线的立卡之间的印章，代表论文作者所描述的、介于形式化定理与其证明之间的形式化检查。图中并非经过测试的部署，也不代表 Turing Agent 的软件或其报告的结果，更不说明任何形式化内容忠实于原定理。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "stamp",
+    "items": [
+      {"prop": "stamp", "id": "stamp", "at": [0, 0], "size": 2.5, "tint": "seal"},
+      {
+        "prop": "book",
+        "id": "theorem",
+        "at": [-3.8, -3.8],
+        "w": 1.9,
+        "d": 2.4,
+        "tint": "evaluations",
+        "emblem": "ring"
+      },
+      {
+        "prop": "panel",
+        "id": "proof",
+        "at": [3.8, 3.8],
+        "w": 2.0,
+        "h": 1.6,
+        "content": "text",
+        "tint": "outputs"
+      }
+    ],
+    "links": [
+      {"from": "theorem", "to": "stamp", "style": "dashed", "color": "agents"},
+      {"from": "stamp", "to": "proof", "style": "solid", "color": "ink", "arrow": true}
+    ]
+  },
+  "svg_sha256": "af6ae82f86b2c72497f56d5f8320bf2374686e04589b5be2aee939676687b9f2"
+}

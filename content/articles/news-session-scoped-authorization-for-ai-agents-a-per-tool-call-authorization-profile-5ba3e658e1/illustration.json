@@ -1,0 +1,58 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray gavel rests on its sound block at the center of a gray floor. A dotted teal line joins it to a closed teal book on the left, and a dashed orange line with an arrowhead runs from the gavel to an indigo cylinder on the right.",
+    "zh": "灰色地板中央放着一把大号灰色法槌和槌垫。左侧一本合上的青绿色书通过青绿色点线与法槌相连，一条带箭头的橙色虚线从法槌通向右侧的靛蓝色圆柱。"
+  },
+  "caption": {
+    "en": "Illustration: a gavel stands for the authorization decision the draft proposes for each tool call, a book for the delegation chain that binds a session to its sponsor, and a cylinder for the receipt store kept outside the agent's write permissions; it does not depict a tested deployment or show that these controls work as described.",
+    "zh": "示意图：法槌代表草案为每次工具调用提出的授权决定，书代表将会话绑定至授权发起方的委托链，圆柱代表智能体无权写入的凭据存储；本图并未描绘任何经过测试的部署，也不表示这些控制措施如草案所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "verdict",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "gavel",
+        "id": "verdict",
+        "at": [0, 0],
+        "size": 3,
+        "tint": "neutral",
+        "note": "the authorization decision issued for every tool call"
+      },
+      {
+        "prop": "book",
+        "id": "delegation",
+        "at": [-3.4, -3.4],
+        "tint": "agents",
+        "emblem": "ring",
+        "ribbon": true,
+        "note": "the delegation chain binding the session to its sponsor"
+      },
+      {
+        "prop": "cylinder",
+        "id": "receipts",
+        "at": [3.4, 3.4],
+        "r": 0.7,
+        "h": 1.6,
+        "tint": "tee",
+        "rim": true,
+        "note": "the tamper-evident receipt store outside the agent's write permissions"
+      }
+    ],
+    "links": [
+      {"from": "delegation", "to": "verdict", "route": "straight", "style": "dotted", "color": "agents"},
+      {
+        "from": "verdict",
+        "to": "receipts",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "96c130b378a412f2ed3075c07f4c83b8bfa72ca05fb6fe016f80034ed3552396"
+}

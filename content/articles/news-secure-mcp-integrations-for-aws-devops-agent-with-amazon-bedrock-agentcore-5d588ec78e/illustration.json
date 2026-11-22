@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large orange cube stands at the center of a gray floor. On the left, an open laptop sends a dashed orange arrow to the cube; on the right, a standing teal-tinted card with a grid is joined to the cube by a dotted teal line.",
+    "zh": "灰色地面中央立着一个橙色大立方体。左侧一台打开的笔记本电脑以橙色虚线箭头指向它；右侧一块带网格的青色立牌以青色点线与它相连。"
+  },
+  "caption": {
+    "en": "Illustration: a tool-call request (the orange cube) goes from an agent's laptop and is checked against a policy card that classifies tools, as in the design AWS describes. It does not depict a tested deployment, and it does not show that the controls work as described.",
+    "zh": "示意图：工具调用请求（橙色立方体）从智能体所在的笔记本电脑发出，并依照对工具分类的策略卡接受检查，对应 AWS 所描述的设计。图中并非经过测试的实际部署，也不表明这些控制如文中所述那样生效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "request",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "packet", "id": "request", "at": [0, 0], "tint": "data", "size": 1, "scale": 3.2},
+      {"prop": "laptop", "id": "devops", "at": [-3.8, -3.8], "tint": "neutral", "content": "code"},
+      {
+        "prop": "panel",
+        "id": "policy",
+        "at": [3.8, 3.8],
+        "tint": "agents",
+        "w": 2,
+        "h": 1.8,
+        "content": "grid"
+      }
+    ],
+    "links": [
+      {
+        "from": "devops",
+        "to": "request",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "arrow": true
+      },
+      {"from": "policy", "to": "request", "route": "straight", "style": "dotted", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "22c773b71b38682263a3b961a7c89cff1a2f2c1a4a31c6825a0e9db70a102c89"
+}

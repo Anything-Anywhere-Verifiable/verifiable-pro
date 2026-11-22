@@ -1,0 +1,54 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "Two orange tokens stand on a small gray plate at left. A dashed orange line with packets runs from the plate to a large dark graphics card with two fans at the center, and a dashed indigo arrow runs from the card to a closed indigo book at right.",
+    "zh": "左侧灰色小平台上立着两枚橙色圆柱；一条带数据块的橙色虚线从平台通向中央一块装有两个风扇的深色大显卡，再由一条靛蓝色虚线箭头从显卡指向右侧一本合上的靛蓝色书。"
+  },
+  "caption": {
+    "en": "Illustration: a batch of requests on one shared plate runs on a GPU card, which sends its proof output to an indigo record book. It is an explanatory diagram, not a tested deployment: it does not depict Requant's hardware, software or measurements, and it does not show that the proofs work as described.",
+    "zh": "示意图：同一平台上的一批请求在一块 GPU 显卡上运行，显卡把证明输出送入一本靛蓝色记录簿。这是解释性示意图，并非经过测试的部署：图中不是 Requant 的硬件、软件或测量结果，也不表明这些证明如所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "card",
+    "backdrop": "white",
+    "ground": {"kind": "plate"},
+    "items": [
+      {"prop": "plate", "id": "batch", "at": [-3.6, -3.6], "w": 2.0, "d": 2.0, "h": 0.25, "tint": "neutral"},
+      {
+        "prop": "cylinder",
+        "id": "req-a",
+        "at": [-4.0, -3.2],
+        "on": "batch",
+        "r": 0.32,
+        "h": 0.5,
+        "tint": "data",
+        "rim": true
+      },
+      {
+        "prop": "cylinder",
+        "id": "req-b",
+        "at": [-3.2, -4.0],
+        "on": "batch",
+        "r": 0.32,
+        "h": 0.5,
+        "tint": "data",
+        "rim": true
+      },
+      {"prop": "gpu_card", "id": "card", "at": [0, 0], "length": 5, "scale": 1.3, "tint": "dark"},
+      {"prop": "book", "id": "record", "at": [3.6, 3.6], "tint": "tee", "emblem": "ring", "ribbon": true}
+    ],
+    "links": [
+      {
+        "from": "batch",
+        "to": "card",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.4, 0.7]
+      },
+      {"from": "card", "to": "record", "route": "straight", "style": "dashed", "color": "tee", "arrow": true}
+    ]
+  },
+  "svg_sha256": "d08416f7cffcbbd06fddd53539b2437fe12d53959344582d23090afb87d2f41b"
+}

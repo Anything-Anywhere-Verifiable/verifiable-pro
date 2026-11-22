@@ -1,0 +1,44 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large indigo sphere sits in the center of a gray floor. A dashed blue line with one packet runs into it from a small blue cylinder in front, a dotted indigo line links it to a gray camera on the right, and an orange arrow runs from it to a gray globe on the left.",
+    "zh": "灰色地面中央是一个大的靛蓝色球体。一条带数据块的蓝色虚线从前方的蓝色小圆柱通向球体，右侧灰色相机与球体以靛蓝色点线相连，一条橙色箭头从球体指向左侧的灰色地球仪。"
+  },
+  "caption": {
+    "en": "Illustration: a model (blue cylinder) is loaded into an attested execution environment (indigo sphere) while a measurement agent (camera) observes the loading, and the environment serves an inference service (globe), as the draft describes. It does not depict a tested deployment or any real system, and it does not show that the binding works as described.",
+    "zh": "示意图：按草案的描述，模型（蓝色圆柱）被加载到经远程证明的执行环境（靛蓝色球体）中，度量代理（相机）观察加载过程，该环境再为推理服务（地球仪）提供支持。图中并非经过测试的部署或任何真实系统，也不表明这种绑定能如所述那样起作用。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "env",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "sphere", "id": "env", "at": [0, 0], "r": 1.6, "tint": "tee", "material": "tee"},
+      {"prop": "globe", "id": "service", "at": [-2.9, -2.9], "r": 0.8, "tint": "neutral"},
+      {"prop": "camera", "id": "measure", "at": [2.9, 2.9], "size": 1.3, "tint": "neutral"},
+      {
+        "prop": "cylinder",
+        "id": "model",
+        "at": [2.6, -2.6],
+        "r": 0.5,
+        "h": 0.6,
+        "tint": "models",
+        "rim": true
+      }
+    ],
+    "links": [
+      {
+        "from": "model",
+        "to": "env",
+        "route": "straight",
+        "style": "dashed",
+        "color": "models",
+        "packets": [0.5]
+      },
+      {"from": "measure", "to": "env", "route": "straight", "style": "dotted", "color": "tee"},
+      {"from": "env", "to": "service", "route": "straight", "style": "solid", "color": "data", "arrow": true}
+    ]
+  },
+  "svg_sha256": "571bf4a6ae3de78e781b11a7bb982bdde3f9def75183a6f53d014a6afab0ee4e"
+}

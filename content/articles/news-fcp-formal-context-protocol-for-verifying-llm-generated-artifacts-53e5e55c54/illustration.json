@@ -1,0 +1,59 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large pink dashed zone fills the center of a gray floor, with an open laptop showing code inside it. A dotted dark gray line runs from a closed gray book on the left to the laptop's screen, and a dashed orange line with one packet runs from the laptop to a standing card with log lines on the right.",
+    "zh": "灰色地面中央是一片粉色虚线边框的大区域，里面放着一台显示代码的笔记本电脑。左侧一本合上的灰色书以深灰色点线连向电脑屏幕，电脑再以带一个数据块的橙色虚线连向右侧一张印有日志行的立牌。"
+  },
+  "caption": {
+    "en": "Illustration: a marked zone where an LLM-generated artifact, shown as a laptop, is checked between a book standing for the formal reading of a request and a card standing for the conformance check, as the FCP paper describes. It does not depict a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：按 FCP 论文的描述，大语言模型生成的产物（以笔记本电脑表示）放在一片标记区域内接受核查，左侧的书代表对需求的形式化解读，右侧的立牌代表符合性检查。图中并非经过测试的实际部署，也不表明这些检查确如所述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "zone",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "zone",
+        "id": "zone",
+        "at": [0, 0],
+        "w": 5.4,
+        "d": 4.4,
+        "tint": "outputs",
+        "dashed": true,
+        "fill": true
+      },
+      {"prop": "laptop", "id": "artifact", "at": [0, 0], "tint": "neutral", "content": "code"},
+      {
+        "prop": "book",
+        "id": "reading",
+        "at": [-3.8, -3.8],
+        "tint": "neutral",
+        "emblem": "bars",
+        "ribbon": true
+      },
+      {
+        "prop": "panel",
+        "id": "conformance",
+        "at": [3.6, 3.6],
+        "tint": "neutral",
+        "content": "log",
+        "w": 1.6,
+        "h": 1.4
+      }
+    ],
+    "links": [
+      {"from": "reading", "to": "artifact.screen", "route": "straight", "style": "dotted", "color": "ink"},
+      {
+        "from": "artifact",
+        "to": "conformance",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      }
+    ]
+  },
+  "svg_sha256": "97f785def96e063fc7d0dde03e9df4d6820ced78dd6f827ec5bc260a888a150b"
+}
