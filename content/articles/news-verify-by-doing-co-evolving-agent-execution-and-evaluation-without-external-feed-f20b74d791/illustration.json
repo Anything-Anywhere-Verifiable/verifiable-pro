@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet magnifier with dots in its lens stands at the center of a gray floor. A dashed teal line with one packet runs to it from a yellow warning sign on the left, and a dotted violet arrow runs from it to a violet bar chart on the right.",
+    "zh": "灰色地面中央立着一把紫色大放大镜，镜片中可见圆点。左侧黄色警示牌引出一条带数据块的青色虚线连到放大镜，放大镜再以紫色点线箭头指向右侧的紫色柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: An agent's task work, marked by a warning sign for possible flaws, is inspected closely under a magnifier, and the findings become evaluation scores in the bars. It does not depict the Verify by Doing system or a tested deployment, and it does not show that the method works as the authors report.",
+    "zh": "示意图：警示牌代表智能体任务产物中可能存在的问题，放大镜对其进行细致检查，检查结果再转化为柱状图中的评估分数。图中并非 Verify by Doing 系统或任何经过测试的部署，也不表明该方法如作者所报告的那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "inspect",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "sign", "id": "task", "at": [-2.6, -2.6], "scale": 1.3},
+      {
+        "prop": "magnifier",
+        "id": "inspect",
+        "at": [0, 0],
+        "tint": "evaluations",
+        "r": 0.95,
+        "scale": 1.6,
+        "reveal": "dots"
+      },
+      {
+        "prop": "bars",
+        "id": "scores",
+        "at": [2.6, 2.6],
+        "tint": "evaluations",
+        "scale": 1.3,
+        "heights": [0.8, 1.3, 1.0, 1.9],
+        "highlight": -1
+      }
+    ],
+    "links": [
+      {"from": "task", "to": "inspect", "style": "dashed", "color": "agents", "packets": [0.5]},
+      {"from": "inspect", "to": "scores", "style": "dotted", "color": "evaluations", "arrow": true}
+    ]
+  },
+  "svg_sha256": "b28bb9613323f1ddff58bbd97ef420aae6cb8a868844aba2475a4bdb8470cc99"
+}
