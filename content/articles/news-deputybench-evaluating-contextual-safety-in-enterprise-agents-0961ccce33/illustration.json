@@ -1,0 +1,36 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet balance scale, its right pan lower, stands at the center of a gray floor. Violet bars stand on its left and a yellow warning sign on its right, each joined to it by a dotted gray line. In front, a teal tool tile with a gear sends a dashed orange line with one packet to the scale.",
+    "zh": "灰色地面中央立着一架紫色大天平，右盘略低。左侧是紫色柱状图，右侧是黄色警示牌，两者各以灰色点线连到天平。前方一块带齿轮图标的青色工具卡片，用一条带数据块的橙色虚线连向天平。"
+  },
+  "caption": {
+    "en": "Illustration: A benchmark, drawn as a scale, weighs an agent's tool action against scores and a warning sign that stands for missing permission evidence. It does not depict DeputyBench, the evaluated models or a tested deployment, and it does not show that the agents stop as they should.",
+    "zh": "示意图：以天平代表基准测试，结合得分和象征授权证据缺失的警示牌，衡量智能体的工具操作。图中并非 DeputyBench、被评估的模型或经过测试的部署，也不表示这些智能体会按要求停止操作。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "bench",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "scale", "id": "bench", "at": [0, 0], "tint": "evaluations", "size": 1.8, "tilt": 0.4},
+      {
+        "prop": "bars",
+        "id": "scores",
+        "at": [-2.7, -2.7],
+        "tint": "evaluations",
+        "heights": [1.6, 1.3, 1.8, 0.9],
+        "highlight": 3
+      },
+      {"prop": "sign", "id": "evidence", "at": [2.7, 2.7], "tint": "warn", "size": 1.3},
+      {"prop": "tool", "id": "action", "at": [1.6, -2.6], "tint": "agents", "icon": "gear", "size": 0.9}
+    ],
+    "links": [
+      {"from": "scores", "to": "bench.base", "style": "dotted", "color": "mute"},
+      {"from": "evidence", "to": "bench.base", "style": "dotted", "color": "mute"},
+      {"from": "action", "to": "bench.base", "style": "dashed", "color": "data", "packets": [0.5]}
+    ]
+  },
+  "svg_sha256": "71a88d18da8cda81c263a81987a537142d2af8429e249905a4a5a1f57c66a381"
+}
