@@ -1,0 +1,39 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large yellow triangular sign with an exclamation mark stands at the center of a gray floor. On the left, a teal tool tile with a terminal icon sends a dashed orange line carrying one packet to the sign; a teal arrow runs from the sign to a gray server lying flat on the right.",
+    "zh": "灰色地面中央立着一块大型黄色三角标牌，上有感叹号。左侧一块带终端图标的青绿色工具牌，以一条带数据包的橙色虚线连向标牌；一支青绿色箭头从标牌指向右侧平放的灰色服务器。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's action, shown as a tool, is compared against a stated intent, shown as the central sign, before a server runtime enforces it. It does not depict the authors' framework, benchmark or a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：以工具代表智能体的一次行为，先与中央标牌所代表的既定意图比对，再由服务器运行环境执行。图中并非作者的框架、基准或任何经过测试的部署，也不表明这些检查能如描述那样生效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "intent",
+    "items": [
+      {"prop": "tool", "id": "action", "at": [-3.0, -3.0], "tint": "agents", "icon": "terminal", "size": 1.4},
+      {"prop": "sign", "id": "intent", "at": [0, 0], "tint": "warn", "size": 2.3},
+      {"prop": "server", "id": "runtime", "at": [3.2, 3.2], "tint": "neutral", "w": 3, "d": 1.6}
+    ],
+    "links": [
+      {
+        "from": "action",
+        "to": "intent",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {
+        "from": "intent",
+        "to": "runtime",
+        "route": "straight",
+        "style": "solid",
+        "color": "agents",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "4c0de6a69185920eaad8f924384825db26973762dd9b5e58f6a24860a6bb77b8"
+}
