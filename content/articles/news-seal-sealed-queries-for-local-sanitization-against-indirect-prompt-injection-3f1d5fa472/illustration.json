@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal seal stands upright at the center of a gray floor. A dashed orange line with two packets runs from an open laptop on the left to the seal, and a second dashed orange line with one packet runs from the seal to a page of text lying on the floor to the right.",
+    "zh": "灰色地面中央立着一枚大的青绿色印章。一条带两个数据包的橙色虚线从左侧打开的笔记本电脑连到印章，另一条带一个数据包的橙色虚线从印章通向右侧平放在地上的一页文字。"
+  },
+  "caption": {
+    "en": "Illustration: a laptop's request passes a large seal standing for the sealed scoring query, and a cleaned page comes back, as the SEAL authors describe local sanitization of tool outputs. It does not depict a tested deployment, and it does not show that the defense works as reported.",
+    "zh": "示意图：笔记本电脑发出的请求经过一枚代表“密封评分查询”的大印章，返回一页净化后的文本，对应 SEAL 作者描述的本地工具输出净化。图中并非经过测试的部署，也不表示该防御如作者报告的那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "seal",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "seal",
+        "id": "seal",
+        "at": [0, 0],
+        "pose": "standing",
+        "r": 1.5,
+        "scale": 1.6,
+        "tint": "agents"
+      },
+      {"prop": "laptop", "id": "laptop", "at": [-2.6, -2.6], "content": "chat"},
+      {"prop": "sheet", "id": "answer", "at": [2.6, 2.6], "content": "text", "w": 1.4, "d": 1.8}
+    ],
+    "links": [
+      {"from": "laptop", "to": "seal", "style": "dashed", "color": "data", "packets": [0.35, 0.7]},
+      {"from": "seal", "to": "answer", "style": "dashed", "color": "data", "arrow": true, "packets": [0.5]}
+    ]
+  },
+  "svg_sha256": "63bf57eeb6d4727fdfe7358faaa40e7b46304a602206bc147129d885897ee93f"
+}
