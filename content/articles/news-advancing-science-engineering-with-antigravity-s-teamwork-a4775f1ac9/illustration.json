@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large standing screen tinted violet shows lines of code at the center of a gray floor. On the left, a person in an orange coat holds a phone, and a dashed orange line with a packet runs to the screen. A dotted violet arrow leads to a pink stack of papers on the right.",
+    "zh": "灰色地面中央立着一块紫色边框的大屏幕，显示几行代码。左侧穿橙色外套的人手持手机，一条带数据包的橙色虚线连向屏幕；一支紫色点线箭头指向右侧一叠粉色纸张。"
+  },
+  "caption": {
+    "en": "Illustration: a researcher directs work on a shared workspace screen, and the results go to a stack of papers for checking, as in the verifier-guided workflow Google describes. It does not depict Antigravity, Google's agents or a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：研究者在共享工作区屏幕上指挥工作，产出的成果交由一叠纸张代表的结果接受检查，对应 Google 所描述的验证器引导工作流。图中并非 Antigravity、Google 的智能体或经过测试的实际部署，也不表示这些检查如 Google 所述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "workspace",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "screen",
+        "id": "workspace",
+        "at": [0, 0],
+        "w": 4.2,
+        "h": 2.7,
+        "content": "code",
+        "tint": "evaluations"
+      },
+      {"prop": "person", "id": "researcher", "at": [-2.2, -3.0], "tint": "data"},
+      {"prop": "papers", "id": "results", "at": [3.3, 1.3], "tint": "outputs", "count": 5, "w": 1.5, "d": 1.9}
+    ],
+    "links": [
+      {"from": "researcher", "to": "workspace", "style": "dashed", "color": "data", "packets": [0.45]},
+      {"from": "workspace.base", "to": "results", "style": "dotted", "color": "evaluations", "arrow": true}
+    ]
+  },
+  "svg_sha256": "f048f87b817513001ee333bc283fcec75fa4ac0490377bd833d93ddf7d232cdb"
+}
