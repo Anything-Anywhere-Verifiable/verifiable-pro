@@ -1,0 +1,69 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large pale teal box stands at the center of a gray floor with a teal terminal tile on its top. On its left, a gray robot arm sends a dashed orange line carrying one packet into the box. On its right, a standing violet-trimmed control card is joined to the box by a dotted violet line.",
+    "zh": "灰色地面中央立着一个淡青色大方块，顶部放着一块青色终端图块。左侧的灰色机械臂伸出一条带数据包的橙色虚线，指向方块；右侧立着一张紫色边饰的控制卡片，以紫色点线与方块相连。"
+  },
+  "caption": {
+    "en": "Illustration: a robot arm standing for a training agent sends commands into a box standing for a persistent sandbox, while a control card stands for the lifecycle and evaluation settings that bound it. It does not depict Sandman, Amazon's clusters or a tested deployment, and it does not show that the isolation works as described.",
+    "zh": "示意图：代表训练智能体的机械臂向代表持久沙箱的方块发送命令，旁边的控制卡片代表约束沙箱的生命周期与评估设置。图中并非 Sandman、Amazon 集群或任何经过测试的部署，也不表明其隔离效果与描述相符。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "sandbox",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "size": "auto"},
+    "items": [
+      {
+        "prop": "box",
+        "id": "sandbox",
+        "at": [0, 0],
+        "w": 3.2,
+        "d": 3.2,
+        "h": 2.8,
+        "tint": "agents",
+        "material": "agentslight"
+      },
+      {
+        "prop": "tool",
+        "id": "terminal",
+        "at": [0, 0],
+        "on": "sandbox",
+        "tint": "agents",
+        "icon": "terminal",
+        "size": 1.0
+      },
+      {
+        "prop": "robot_arm",
+        "id": "arm",
+        "at": [-3.0, -3.0],
+        "facing": "right",
+        "tint": "neutral",
+        "reach": 1.1
+      },
+      {
+        "prop": "panel",
+        "id": "controls",
+        "at": [3.0, 3.0],
+        "w": 1.8,
+        "h": 1.4,
+        "content": "log",
+        "tint": "evaluations"
+      }
+    ],
+    "links": [
+      {
+        "from": "arm.gripper",
+        "to": "sandbox",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true
+      },
+      {"from": "controls", "to": "sandbox", "route": "straight", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "b452965663c8740c068718c2877a9e18ba50369b109911cb11137aa6915b13a5"
+}
