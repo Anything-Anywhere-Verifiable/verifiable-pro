@@ -1,0 +1,60 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large figure in an orange coat stands in the center holding a phone. On the left, a teal laptop on a gray desk sends a dashed orange line with one packet to the phone. A dotted indigo arrow runs from the figure to a pale indigo panel marked with a lock on the right.",
+    "zh": "画面中央站着一位身穿橙色外套、手持手机的人。左侧灰色桌上的青色笔记本电脑向手机引出一条带数据包的橙色虚线；一条靠点线画成的靛蓝色箭头从人指向右侧带锁形标记的浅靛蓝色面板。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's workstation sends a request that must pass through the person in the loop, who holds the approval control, as the I-HITL authors propose. It does not depict a tested deployment, the wallet platform or Countersign, and it does not show that the protocols work as described.",
+    "zh": "示意图：按照 I-HITL 作者提出的思路，智能体所在工作站发出的请求必须经过掌握审批控制的人。图中并非经过测试的实际部署，也不是该钱包平台或 Countersign，不表明这些协议能如所述那样生效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "human",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "person", "id": "human", "at": [0, 0], "tint": "data", "height": 3.2},
+      {"prop": "desk", "id": "desk", "at": [-2.6, -2.6], "w": 2.6, "d": 1.5, "h": 1.0},
+      {
+        "prop": "laptop",
+        "id": "laptop",
+        "at": [-2.6, -2.6],
+        "on": "desk",
+        "tint": "agents",
+        "w": 1.8,
+        "content": "code"
+      },
+      {
+        "prop": "panel",
+        "id": "approval",
+        "at": [2.5, 2.5],
+        "tint": "tee",
+        "w": 1.6,
+        "h": 1.4,
+        "lift": 0.5,
+        "content": "lock",
+        "material": "teelight"
+      }
+    ],
+    "links": [
+      {
+        "from": "laptop",
+        "to": "human",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {
+        "from": "human",
+        "to": "approval",
+        "route": "straight",
+        "style": "dotted",
+        "color": "tee",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "e45113923baa85d8ecc0412dc9bd751d8bad366c4bc38aaf44d4605c8853ca91"
+}
