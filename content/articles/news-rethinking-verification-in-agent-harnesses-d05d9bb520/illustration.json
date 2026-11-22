@@ -1,0 +1,44 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large standing card with lines of writing and a violet pin badge sits at the center of a gray floor. A dashed orange line with one packet runs to it from a teal tool tile showing a terminal icon at the left, and a dotted gray line joins it to a columned building at the right.",
+    "zh": "灰色地面中央立着一张大卡片，上有几行文字和紫色圆形徽章。左侧印有终端图标的青绿色工具方块引出一条带数据块的橙色虚线连到卡片，卡片又以灰色点线连向右侧带立柱的建筑。"
+  },
+  "caption": {
+    "en": "Illustration: a harness tool feeds work into a review record linked to a lab's building, standing for the independent-review comparisons the preprint reports. It does not depict a tested deployment, the authors' code or lab, and it does not show that the reported gains hold in any service.",
+    "zh": "示意图：框架工具把任务结果送入一份复核记录，记录又与实验室建筑相连，代表预印本所报告的独立复核比较。图中并非经过测试的实际部署，也不代表作者的代码或实验室，更不表示所报告的提升在任何服务中成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "record",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "photo",
+        "id": "record",
+        "at": [0, 0],
+        "w": 3.2,
+        "h": 2.4,
+        "scale": 1.5,
+        "content": "text",
+        "tag": "pin",
+        "tint": "evaluations"
+      },
+      {
+        "prop": "tool",
+        "id": "harness",
+        "at": [-3.0, -3.0],
+        "icon": "terminal",
+        "tint": "agents",
+        "scale": 1.6
+      },
+      {"prop": "building", "id": "lab", "at": [2.6, 2.6], "w": 2.6, "d": 1.8, "columns": 4, "tint": "neutral"}
+    ],
+    "links": [
+      {"from": "harness", "to": "record", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "record", "to": "lab.door", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "84263b003ab7df444286e47f08692154ad13e12036cb0f9b8b89518c4cddac56"
+}
