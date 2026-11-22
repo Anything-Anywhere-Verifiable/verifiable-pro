@@ -1,0 +1,41 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large monitor with a violet timeline on its screen stands at the center. A dashed orange line with two packets runs to it from a gray camera on the left, and a dotted blue arrow runs from the monitor to a sheet of lines lying flat on the right.",
+    "zh": "画面中央立着一台大显示器，屏幕上是紫色时间线。左侧灰色相机经带两个数据包的橙色虚线连到显示器，显示器再由蓝色点线箭头指向右侧平放的一页记录。"
+  },
+  "caption": {
+    "en": "Illustration: a camera stands for observing an agent's tool calls, the monitor for the fingerprinting run the AgentTrace authors describe, and the sheet for the record used to attribute a model. It does not depict a tested deployment, and it does not show that the method works as reported.",
+    "zh": "示意图：相机代表对智能体工具调用的观察，显示器代表 AgentTrace 作者所描述的指纹识别过程，纸页代表用于推断模型归属的记录。本图并不描绘任何经过测试的部署，也不表示该方法确如作者所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "run",
+    "items": [
+      {
+        "prop": "monitor",
+        "id": "run",
+        "at": [0, 0],
+        "w": 4.2,
+        "h": 2.7,
+        "content": "timeline",
+        "tint": "evaluations"
+      },
+      {"prop": "camera", "id": "observer", "at": [-3.2, -3.2], "size": 1.5},
+      {
+        "prop": "sheet",
+        "id": "record",
+        "at": [3.2, 3.2],
+        "w": 1.6,
+        "d": 2.0,
+        "content": "log",
+        "tint": "models"
+      }
+    ],
+    "links": [
+      {"from": "observer", "to": "run", "style": "dashed", "color": "data", "packets": [0.35, 0.6]},
+      {"from": "run", "to": "record", "style": "dotted", "color": "models", "arrow": true}
+    ]
+  },
+  "svg_sha256": "21cb41b97ce2b9cc61ef47be8f609ab0e3681f7edb7ba06550204979bf7cb767"
+}
