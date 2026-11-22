@@ -1,0 +1,51 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal chain lies diagonally across the center of a gray floor. At its upper-left end, a teal tool tile with a mail icon sends a short dashed orange line carrying one packet toward the chain. From the chain's lower-right end, a dotted violet line runs to a violet standing panel with a shield mark.",
+    "zh": "灰色地面中央斜放着一条粗大的青绿色链条。链条左上端外侧立着一块带邮件图标的青绿色工具牌，一条带数据包的橙色虚线从它伸向链条；链条右下端外侧，一条紫色点线连到一块印有盾牌标记的紫色立板。"
+  },
+  "caption": {
+    "en": "Illustration: a tool call's arguments are traced along a chain of authority to a guard panel that checks which information may set each parameter, as the AuthorityFlow authors describe. It does not depict a tested deployment, and it does not show that the defense works as reported.",
+    "zh": "示意图：按 AuthorityFlow 作者的描述，工具调用的参数沿一条权限链被追溯到核查面板，由它判断哪些信息有权决定各项参数。图中并非经过测试的实际部署，也不表示该防御如报告所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "authority",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "chain",
+        "id": "authority",
+        "at": [0, 0],
+        "tint": "agents",
+        "links": 5,
+        "size": 2,
+        "broken": -1
+      },
+      {"prop": "tool", "id": "call", "at": [-6.4, 0], "tint": "agents", "icon": "mail", "scale": 1.4},
+      {
+        "prop": "panel",
+        "id": "guard",
+        "at": [6.4, 0],
+        "tint": "evaluations",
+        "content": "shield",
+        "material": "auto",
+        "scale": 1.3
+      }
+    ],
+    "links": [
+      {
+        "from": "call",
+        "to": [-4.1, 0, 0],
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": [4.1, 0, 0], "to": "guard", "route": "straight", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "58748d74be2305325a41fc99e5850e1d91ea7eae42d92dfd65bb5c558ffe2497"
+}
