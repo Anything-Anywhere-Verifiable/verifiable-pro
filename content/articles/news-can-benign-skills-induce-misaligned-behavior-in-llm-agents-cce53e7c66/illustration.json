@@ -1,0 +1,40 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large bar chart stands at the center of a gray floor, its tallest bar in violet. A dotted teal line with an arrowhead runs to it from a closed teal book at the left, and a dashed orange line carrying one packet joins it to an upright teal phone at the right.",
+    "zh": "灰色地面中央立着一组大柱状图，最高的一根为紫色。左侧一本青色合上的书以带箭头的青色点线连向柱状图，右侧一部竖立的青色手机以带一个数据块的橙色虚线与它相连。"
+  },
+  "caption": {
+    "en": "Illustration: a skill library, shown as a book, and an agent deployment, shown as a phone, feed one set of measurements in which a single bar rises above the rest, standing for the change in unsafe actions the authors report. It does not depict a tested deployment, the study's benchmarks or its actual results.",
+    "zh": "示意图：以一本书代表技能库，以一部手机代表智能体部署，两者汇入同一组测量结果，其中一根柱明显高于其余，代表作者报告的不安全行动变化。图中并未描绘经过测试的部署，也不呈现该研究的基准或实际数据。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "results",
+    "items": [
+      {
+        "prop": "bars",
+        "id": "results",
+        "at": [0, 0],
+        "tint": "evaluations",
+        "heights": [1.0, 1.6, 1.3, 2.6],
+        "bar": 0.6,
+        "scale": 1.2
+      },
+      {"prop": "book", "id": "skills", "at": [-2.6, -2.6], "tint": "agents", "emblem": "ring"},
+      {
+        "prop": "phone",
+        "id": "deployment",
+        "at": [2.6, 2.6],
+        "tint": "agents",
+        "content": "chat",
+        "scale": 1.3
+      }
+    ],
+    "links": [
+      {"from": "skills", "to": "results", "style": "dotted", "color": "agents", "arrow": true},
+      {"from": "deployment", "to": "results", "style": "dashed", "color": "data", "packets": [0.5]}
+    ]
+  },
+  "svg_sha256": "6ac57ed0fa98e26e42b37a1da778a02d4b4ea9025fd3068090a0767d40a32594"
+}
