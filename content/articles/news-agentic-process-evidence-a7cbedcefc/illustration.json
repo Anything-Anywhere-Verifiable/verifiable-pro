@@ -1,0 +1,51 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large stack of teal-topped pages lies at the center of a gray floor. A dashed orange line carrying one packet runs to it from a closed brown book on the right, and a dotted indigo line runs to it from a red rubber stamp and its impression on the left.",
+    "zh": "灰色地面中央平放着一大叠青绿色页面。右侧一本棕色合上的书经一条带数据包的橙色虚线连向它，左侧一枚红色印章及其印痕经一条靛蓝点线连向它。"
+  },
+  "caption": {
+    "en": "Illustration: a process log feeds an agent's evidence record, which a stamp signs, as the Agentic Process Evidence proposal describes. It does not depict a tested deployment, and it does not show that the signatures or tamper evidence work as described.",
+    "zh": "示意图：按 Agentic Process Evidence 方案的描述，流程日志汇入智能体的证据记录，再由印章签名。图中并非经过测试的部署，也不表示签名或篡改检测能按描述发挥作用。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "evidence",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "papers",
+        "id": "evidence",
+        "at": [0, 0],
+        "tint": "agents",
+        "count": 6,
+        "w": 2.8,
+        "d": 2.8,
+        "scale": 1.4
+      },
+      {"prop": "stamp", "id": "signer", "at": [-3.3, -3.3], "tint": "seal", "impression": true},
+      {
+        "prop": "book",
+        "id": "log",
+        "at": [3.3, 3.3],
+        "tint": "institutions",
+        "emblem": "bars",
+        "ribbon": true,
+        "scale": 1.2
+      }
+    ],
+    "links": [
+      {
+        "from": "log",
+        "to": "evidence",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "signer", "to": "evidence", "route": "straight", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "5909c5c205fc64dec8d69dba423c24fe14e3b6b4e57b14a25a1768a5f2d93296"
+}

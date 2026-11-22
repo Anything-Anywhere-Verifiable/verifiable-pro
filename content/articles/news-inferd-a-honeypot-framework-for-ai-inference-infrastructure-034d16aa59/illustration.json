@@ -1,0 +1,32 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A wide gray server lies flat at the center of a gray floor. A dashed orange line carrying two small packets runs to it from a globe on the left, and a dotted teal line with an arrowhead runs from the server to a camera on the right.",
+    "zh": "灰色地面中央平放着一台宽大的灰色服务器。左侧的地球仪有一条带两个小数据包的橙色虚线通向服务器，服务器另有一条带箭头的青绿色点线通向右侧的相机。"
+  },
+  "caption": {
+    "en": "Illustration: a decoy server takes requests arriving from the outside world while a camera records the traffic, standing for the honeypot design the InferD authors describe. It does not depict a tested deployment, real attack traffic or the authors' software, and it does not show that nothing submitted is executed.",
+    "zh": "示意图：一台诱饵服务器接收来自外部世界的请求，一旁的相机记录这些流量，代表 InferD 作者描述的蜜罐设计。图中并非经过测试的部署，也不是真实的攻击流量或作者的软件，更不表示提交的内容确实不会被执行。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "honeypot",
+    "items": [
+      {"prop": "server", "id": "honeypot", "at": [0, 0], "w": 6, "d": 2.8},
+      {"prop": "globe", "id": "world", "at": [-3.6, -3.6]},
+      {"prop": "camera", "id": "observer", "at": [3.6, 3.6]}
+    ],
+    "links": [
+      {
+        "from": "world",
+        "to": "honeypot",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.65],
+        "glow": true
+      },
+      {"from": "honeypot", "to": "observer", "style": "dotted", "color": "agents", "arrow": true}
+    ]
+  },
+  "svg_sha256": "5e52293a51a3fe6e74f24ff0ad34a53dadf4becbeb41cf21dfaef5667eaec7ac"
+}

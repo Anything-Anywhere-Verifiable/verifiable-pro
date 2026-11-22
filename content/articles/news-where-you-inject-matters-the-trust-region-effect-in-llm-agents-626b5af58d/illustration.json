@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large orange location pin stands at the center of a gray floor. A dashed orange line with two packets runs to its tip from a gray globe on the left, and a teal arrow runs from the pin to a teal tool tile with a terminal icon on the right.",
+    "zh": "灰色地面中央立着一枚大号橙色定位针。左侧灰色地球仪引出一条带两个数据包的橙色虚线，通到针尖；一条青色箭头再从定位针指向右侧带终端图标的青色工具牌。"
+  },
+  "caption": {
+    "en": "Illustration: a location pin marks the spot where an injected instruction lands on its way from an agent's environment, drawn as a globe, to a tool call, drawn as a tool tile. It does not depict a tested deployment, the paper's testbeds or any measured result.",
+    "zh": "示意图：定位针标出注入指令落下的位置，它处在智能体所处环境（地球仪）与工具调用（工具牌）之间。本图并未描绘任何经过测试的部署，也不代表论文的测试环境或实测结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "pin",
+    "items": [
+      {"prop": "globe", "id": "env", "at": [-2.6, -2.6], "r": 0.9},
+      {"prop": "map_pin", "id": "pin", "at": [0, 0], "size": 2, "tint": "data"},
+      {"prop": "tool", "id": "call", "at": [2.6, 2.6], "icon": "terminal", "size": 1.4, "tint": "agents"}
+    ],
+    "links": [
+      {"from": "env", "to": "pin.tip", "style": "dashed", "color": "data", "packets": [0.35, 0.65]},
+      {"from": "pin.tip", "to": "call", "style": "solid", "color": "agents", "arrow": true}
+    ]
+  },
+  "svg_sha256": "6378136edc87c519db563b3454fb4902e63af217beb604c0e0c5242c3d8caf26"
+}

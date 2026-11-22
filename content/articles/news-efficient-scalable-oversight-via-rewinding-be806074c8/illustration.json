@@ -1,0 +1,34 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray satellite with two solar wings floats above the center of a gray floor. A dashed violet line with one small cube runs from it to a conveyor belt on the right, and a dotted gray line joins it to a closed violet book lying on the left.",
+    "zh": "一颗带两片太阳能板的灰色卫星悬浮在灰色地面中央上方。一条带小方块的紫色虚线从卫星通向右侧的传送带，一条灰色点线把卫星与左侧平放的紫色书本相连。"
+  },
+  "caption": {
+    "en": "Illustration: a satellite stands for the weaker verifier that watches a computation from above, a conveyor for the prover's run that can be rewound to an earlier state, and a book for the record of the interaction, as the preprint describes them. It does not depict a tested deployment, the authors' implementation or their experiment.",
+    "zh": "示意图：卫星代表从上方检查计算的较弱验证者，传送带代表可以回退到早期状态的证明者运行过程，书本代表交互记录，均依预印本的描述绘制。本图并未描绘经过测试的部署，也不代表作者的实现或实验。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "sat",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "satellite", "id": "sat", "at": [0, 0, 1.8], "size": 2.2, "tint": "neutral"},
+      {"prop": "book", "id": "record", "at": [-4, -4], "tint": "evaluations", "emblem": "bars", "scale": 1.3},
+      {"prop": "conveyor", "id": "run", "at": [4, 4], "length": 4, "tint": "neutral"}
+    ],
+    "links": [
+      {
+        "from": [0, 0, 1.9],
+        "to": "run.start",
+        "style": "dashed",
+        "color": "evaluations",
+        "arrow": true,
+        "packets": [0.88]
+      },
+      {"from": "record.top", "to": [0, 0, 1.9], "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "6f65689447be238c3f6a0cc45ab5432ef17c0cf4146689cd607bf70919afe463"
+}

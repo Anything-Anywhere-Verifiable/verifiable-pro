@@ -1,0 +1,53 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A phone at left sends a dashed orange line with a packet to a large teal-tinted picture card at center that shows lines of text and hangs a tag; a glowing dashed orange line with an arrow runs on to a violet-tinted sheet of log lines lying flat at right.",
+    "zh": "左侧的手机以带数据包的橙色虚线连向中央一张大幅青绿色图卡，图卡上是几行文字，角上挂着标签；一条发光的橙色虚线箭头再从图卡延伸到右侧平放的紫色日志纸页。"
+  },
+  "caption": {
+    "en": "Illustration: a user's phone, a record of its tool calls and the trace that leaks from that record, standing for profile inference from tool-call traces. It does not depict the PrivacyTrace benchmark, any MCP server or a tested deployment, and it does not show that profiling succeeds in practice.",
+    "zh": "示意图：用户的手机、其工具调用记录，以及从记录中泄露出的轨迹，代表利用工具调用轨迹推断用户画像。图中并非 PrivacyTrace 基准、任何 MCP 服务器或经过测试的部署，也不表示画像推断在实际中能够成功。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "trace",
+    "backdrop": "white",
+    "ground": {"kind": "plate"},
+    "items": [
+      {"prop": "phone", "id": "device", "at": [-2.8, -2.2], "content": "chat", "h": 1.6},
+      {
+        "prop": "photo",
+        "id": "trace",
+        "at": [0, 0],
+        "w": 3.2,
+        "h": 2.4,
+        "scale": 1.4,
+        "content": "text",
+        "tag": "tag",
+        "tint": "agents"
+      },
+      {"prop": "sheet", "id": "leak", "at": [3.2, 1.4], "content": "log", "tint": "evaluations"}
+    ],
+    "links": [
+      {
+        "from": "device",
+        "to": "trace",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {
+        "from": "trace",
+        "to": "leak",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.55],
+        "arrow": true,
+        "glow": true
+      }
+    ]
+  },
+  "svg_sha256": "85d5a8f28bdb993bf43332113a78d66c672f42857cce31654610a4b5b13ae4ad"
+}
