@@ -1,0 +1,38 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray server sits in the center of a gray floor. A teal tool tile with a terminal icon sends a dashed orange line carrying a packet into it. A second dashed orange line with an arrow leaves the server toward a lone orange cube on the left. A dotted gray line ties the server to a standing lock panel on the right.",
+    "zh": "灰色地面中央是一台大型灰色服务器。一块带终端图标的青色工具卡片引出一条带数据包的橙色虚线，连到服务器；另一条带箭头的橙色虚线从服务器伸向左侧一个孤立的橙色方块。右侧立着一块带锁形图案的面板，以灰色点线与服务器相连。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's tool call reaches a server host, and a request escapes toward the left past the lock panel that should have confined it, as the advisory describes for versions below 0.2.1. It does not depict AWS's Serverless MCP Server or a tested deployment, and it does not show that the fix works as described.",
+    "zh": "示意图：智能体的工具调用到达服务器主机，一个请求越过本应限制它的锁形面板，从左侧逸出，对应公告所述 0.2.1 以下版本的问题。图中并非 AWS Serverless MCP Server 或任何经过测试的部署，也不表明修复确如所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "host",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "size": "auto"},
+    "items": [
+      {"prop": "server", "id": "host", "at": [0, 0], "w": 4.6, "d": 2.2, "scale": 1.2, "tint": "neutral"},
+      {"prop": "tool", "id": "call", "at": [3.0, -3.2], "icon": "terminal", "size": 1.0, "tint": "agents"},
+      {"prop": "packet", "id": "escape", "at": [-4.2, -3.6], "size": 0.6, "tint": "data"},
+      {
+        "prop": "panel",
+        "id": "boundary",
+        "at": [4.4, 4.0],
+        "w": 1.8,
+        "h": 1.6,
+        "content": "lock",
+        "tint": "neutral"
+      }
+    ],
+    "links": [
+      {"from": "call", "to": "host", "style": "dashed", "color": "data", "packets": [0.45]},
+      {"from": "host", "to": "escape", "style": "dashed", "color": "data", "arrow": true},
+      {"from": "boundary", "to": "host", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "6b3fc73cf28471f768cfa76d3a4b2c54b50a521aa9488d4a2d14efbb7ef4f9dc"
+}
