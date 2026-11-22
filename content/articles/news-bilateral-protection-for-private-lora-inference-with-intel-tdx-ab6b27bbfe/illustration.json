@@ -1,0 +1,27 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large indigo shield with a padlock emblem stands at the center of a gray floor. A dashed orange line carrying one data packet runs to it from an open gray laptop on the left, and a dotted indigo line links it to a closed indigo book with a ring emblem on the right.",
+    "zh": "灰色地面中央立着一面带锁形徽记的大型靛蓝色盾牌。左侧一台打开的灰色笔记本电脑以一条带数据包的橙色虚线连向盾牌，右侧一本带圆环徽记的靛蓝色书本以靛蓝色点线与盾牌相连。"
+  },
+  "caption": {
+    "en": "Illustration: A client's laptop sends data toward a shield standing for the two-sided protection the authors describe, beside a book standing for the TDX attestation report both parties check before releasing secrets. It does not depict the authors' system or a tested deployment, and it does not show that the protection works as described.",
+    "zh": "示意图：客户端的笔记本电脑向一面盾牌发送数据，盾牌代表作者描述的双向保护；旁边的书本代表双方在释放秘密前核对的 TDX 远程证明报告。图中并非作者的系统或经过测试的部署，也不表明该保护如描述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "shield",
+    "backdrop": "white",
+    "ground": {"kind": "plate"},
+    "items": [
+      {"prop": "shield", "id": "shield", "at": [0, 0], "tint": "tee", "size": 2.8, "emblem": "lock"},
+      {"prop": "laptop", "id": "client", "at": [-2.3, -2.3], "tint": "neutral", "content": "code"},
+      {"prop": "book", "id": "report", "at": [2.3, 2.3], "tint": "tee", "emblem": "ring", "ribbon": true}
+    ],
+    "links": [
+      {"from": "client", "to": "shield", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "report", "to": "shield", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "4546d6d58db3040ba309a74a109e1bf0b3d715e3abe37abd1f2118e188f9714b"
+}

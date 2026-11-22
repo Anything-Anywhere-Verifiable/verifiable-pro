@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray map tile with roads, a river and a dashed border line lies at the center of a gray floor. A dotted violet line joins it to a closed violet book at the left, and a dashed teal line joins it to a teal globe on a small stand at the right.",
+    "zh": "灰色地面中央平放着一大张灰色地图，上有道路、河流和一条虚线边界。左侧一本合上的紫色书以紫色点线与地图相连，右侧一个带底座的青色地球仪以青色虚线与地图相连。"
+  },
+  "caption": {
+    "en": "Illustration: a book stands for the framework paper, the map for the three-tier mitigation mapping its authors describe, and the globe for the MCP ecosystem that mapping is meant to cover. It does not depict a tested deployment, and it does not show that the reported controls work.",
+    "zh": "示意图：书代表这篇框架论文，地图代表作者所描述的三层缓解措施映射，地球仪代表这一映射意在覆盖的 MCP 生态。图中并未描绘经过测试的部署，也不表示论文报告的控制措施确实有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "map",
+    "items": [
+      {"prop": "map", "id": "map", "at": [0, 0], "w": 5, "d": 4, "border": true},
+      {"prop": "book", "id": "book", "at": [-3.5, -3.5], "tint": "evaluations", "emblem": "bars"},
+      {"prop": "globe", "id": "globe", "at": [3.4, 3.4], "tint": "agents", "r": 0.8}
+    ],
+    "links": [
+      {"from": "book", "to": "map", "style": "dotted", "color": "evaluations"},
+      {"from": "map", "to": "globe", "style": "dashed", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "a950f515d2f61285159ec9641346acee4c5168dd6f728c4d3daeddd6d0608169"
+}

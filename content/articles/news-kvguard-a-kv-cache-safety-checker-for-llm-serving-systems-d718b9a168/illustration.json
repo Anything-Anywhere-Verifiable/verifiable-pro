@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large indigo shield with a padlock emblem stands at the center of a gray floor. A dashed orange line carrying one packet runs to it from an open gray laptop at the left, and a dotted indigo arrow runs from the shield to a gray gavel at the right.",
+    "zh": "灰色地面中央立着一面带挂锁图案的靛蓝色大盾牌。左侧一台打开的灰色笔记本电脑以带数据包的橙色虚线连向盾牌，盾牌再以靛蓝色点线箭头指向右侧的灰色法槌。"
+  },
+  "caption": {
+    "en": "Illustration: a shield stands for the KV cache safety checker the KVGuard authors describe, placed between a laptop standing for a serving host and a gavel standing for the checker's verdict. It does not depict a tested deployment, and it does not show that the checks work as reported.",
+    "zh": "示意图：盾牌代表 KVGuard 作者所描述的 KV 缓存安全检查工具，位于代表服务主机的笔记本电脑与代表检查结论的法槌之间。图中并非经过测试的实际部署，也不表示这些检查如作者报告的那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "checker",
+    "items": [
+      {"prop": "laptop", "id": "host", "at": [-3.2, -3.2], "w": 2.2, "content": "grid"},
+      {"prop": "shield", "id": "checker", "at": [0, 0], "size": 3, "emblem": "lock", "tint": "tee"},
+      {"prop": "gavel", "id": "verdict", "at": [3.2, 3.2], "size": 1.5, "tint": "neutral"}
+    ],
+    "links": [
+      {"from": "host", "to": "checker", "style": "dashed", "color": "data", "packets": [0.45]},
+      {"from": "checker", "to": "verdict", "style": "dotted", "color": "tee", "arrow": true}
+    ]
+  },
+  "svg_sha256": "77f2b0b9f072617434a7f04b2010f0f392ee290dd02e6d51615558b78c5f1d77"
+}
