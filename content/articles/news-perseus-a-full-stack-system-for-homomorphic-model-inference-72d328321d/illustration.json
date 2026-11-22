@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large closed indigo padlock stands at the center of a gray floor. To its left lies a closed blue book with a small lock emblem on its cover, joined to the padlock by a dotted gray line. To its right, an open laptop showing lines of code sends a dashed orange line with one packet to the padlock.",
+    "zh": "灰色地面中央立着一把闭合的靛蓝色大挂锁。左侧平放一本封面带小锁标记的蓝色书，以灰色点线连到挂锁；右侧一台显示代码的笔记本电脑，以带一个数据包的橙色虚线连到挂锁。"
+  },
+  "caption": {
+    "en": "Illustration: a laptop sends encrypted input to a computation that stays locked, drawn as a padlock, while a book stands for the specification that defines the encryption, as the Perseus authors describe homomorphic inference. It does not depict a tested deployment, the Perseus library or any measured result.",
+    "zh": "示意图：笔记本电脑把加密输入送往一项始终上锁的计算（以挂锁表示），一本书代表定义加密方式的规范，对应 Perseus 作者描述的同态推理。本图不代表经过测试的部署，也不呈现 Perseus 库或任何实测结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "lock",
+    "items": [
+      {"prop": "padlock", "id": "lock", "at": [0, 0], "size": 2.4, "tint": "tee"},
+      {"prop": "book", "id": "spec", "at": [-2.4, -2.4], "tint": "models", "emblem": "lock"},
+      {"prop": "laptop", "id": "client", "at": [2.5, 2.5], "content": "code"}
+    ],
+    "links": [
+      {"from": "client", "to": "lock", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "spec", "to": "lock", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "0571c94dd3b76e0ed02f1cd89e324476392cffe26af13362f05447745e46e52e"
+}
