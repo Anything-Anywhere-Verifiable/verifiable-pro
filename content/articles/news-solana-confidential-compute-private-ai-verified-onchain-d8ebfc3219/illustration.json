@@ -1,0 +1,27 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large card certificate with an indigo seal stands at the center of a gray floor. A dashed indigo line with an arrowhead runs to it from an indigo padlock at the left, and a dotted indigo line runs from it to a small stack of gray papers at the right.",
+    "zh": "灰色地面中央立着一张带靛蓝印章的大证书。左侧一把靛蓝挂锁以带箭头的靛蓝虚线连到证书，证书再以靛蓝点线连到右侧一小叠灰色纸张。"
+  },
+  "caption": {
+    "en": "Illustration: a padlock for a confidential workload leads to an attestation certificate, which leads to a stack of papers for the record the foundation describes keeping on Solana. It does not depict Solana's program, Nito's machines or any tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：挂锁代表机密工作负载，连到一张远程证明证书，证书再连到一叠纸张，代表基金会所述在 Solana 上保存的记录。图中并非 Solana 的程序、Nito 的机器或任何经过测试的部署，也不表明这些校验确如所述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "cert",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "certificate", "id": "cert", "at": [0, 0], "tint": "tee", "w": 3.2, "h": 2.2, "scale": 1.25},
+      {"prop": "padlock", "id": "lock", "at": [-2.8, -2.8], "tint": "tee", "size": 1.1},
+      {"prop": "papers", "id": "record", "at": [2.8, 2.8], "tint": "neutral", "count": 5}
+    ],
+    "links": [
+      {"from": "lock", "to": "cert", "style": "dashed", "color": "tee", "arrow": true},
+      {"from": "cert", "to": "record", "style": "dotted", "color": "tee", "arrow": true}
+    ]
+  },
+  "svg_sha256": "89f45cb9372a7bb50c45686cac55a35d87652cd1bc2a6bee6538e2d0e58aad54"
+}

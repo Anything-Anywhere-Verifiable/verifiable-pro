@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray magnifying glass stands at the center of a gray floor, a grid pattern inside its lens. A dotted gray line joins it to a yellow warning sign on the left, and a dashed orange line with two small packets runs from its handle to a flat gray server on the right.",
+    "zh": "灰色地面中央立着一把大放大镜，镜片里有网格图案。一条灰色点线把它与左侧的黄色警示牌相连，一条带两个小数据包的橙色虚线从镜柄通向右侧平放的灰色服务器。"
+  },
+  "caption": {
+    "en": "Illustration: a magnifier stands for close inspection of the frame navigation the advisory describes, between a warning sign for the content security policy and a server for the host's tools, with an orange path for app data. It does not depict MCP Inspector's code or a tested deployment, and it does not show that the reported escape works as described.",
+    "zh": "示意图：放大镜代表对公告所述框架导航的仔细审视，左侧的警示牌代表内容安全策略，右侧的服务器代表宿主的工具，橙色路径代表应用数据。本图并未描绘 MCP Inspector 的代码或经过测试的部署，也不表明公告报告的逃逸确如所述。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "inspect",
+    "items": [
+      {"prop": "sign", "id": "policy", "at": [-2.4, -2.4]},
+      {"prop": "magnifier", "id": "inspect", "at": [0, 0], "r": 1.3, "reveal": "grid"},
+      {"prop": "server", "id": "host", "at": [2.4, 2.4], "w": 2.2, "d": 1.4}
+    ],
+    "links": [
+      {"from": "policy", "to": "inspect", "style": "dotted", "color": "mute"},
+      {"from": "inspect", "to": "host", "style": "dashed", "color": "data", "packets": [0.55, 0.8]}
+    ]
+  },
+  "svg_sha256": "bf67362fa644ec2542711a81f62b9e0293b50a181d115f55f874d6cf5e23b9b0"
+}

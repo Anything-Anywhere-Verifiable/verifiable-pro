@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large yellow warning sign on a post stands at the center of a gray floor. A dotted dark gray line joins it to a flat gray server on the left, and a dashed orange line carrying two small packets runs to it from a teal tool tile with a mail icon on the right.",
+    "zh": "灰色地面中央立着一块大型黄色警示牌。左侧一台平放的灰色服务器以深灰色点线与它相连，右侧一块带邮件图标的青绿色工具牌以橙色虚线和两个小数据包通向它。"
+  },
+  "caption": {
+    "en": "Illustration: a warning sign stands for the relative security definition the PlanTERS preprint describes, a server for the reference agent it is measured against, and a mail tool sending packets for untrusted input; the diagram does not depict a tested deployment or show that the reported results hold.",
+    "zh": "示意图：警示牌代表 PlanTERS 预印本所描述的相对安全定义，服务器代表用作比较基准的参考智能体，发出数据包的邮件工具代表不可信输入；本图并不描绘任何经过测试的部署，也不表示论文报告的结果成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "definition",
+    "items": [
+      {"prop": "sign", "id": "definition", "at": [0, 0], "size": 2},
+      {"prop": "server", "id": "reference", "at": [-2.8, -2.8], "w": 2.4, "d": 1.6},
+      {"prop": "tool", "id": "input", "at": [3.4, 3.4], "tint": "agents", "icon": "mail", "size": 1.4}
+    ],
+    "links": [
+      {"from": "reference", "to": "definition", "style": "dotted", "color": "ink"},
+      {"from": "input", "to": "definition", "style": "dashed", "color": "data", "packets": [0.35, 0.65]}
+    ]
+  },
+  "svg_sha256": "e396105f2dc62a72ac9ead252eb6ff65531995b4afa493446f4056f70be53dfb"
+}

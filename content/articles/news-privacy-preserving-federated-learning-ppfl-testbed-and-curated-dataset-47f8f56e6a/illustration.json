@@ -1,0 +1,61 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "Two gray database cylinders at the left send dashed orange arcs with packets up onto a gray neural network card at the back right, and a dotted gray line runs from the card to a violet bar chart standing in the center.",
+    "zh": "左侧两个灰色数据库各有一条带数据包的橙色虚线弧线，汇到右后方的灰色神经网络卡片上；一条灰色点线从卡片连到中央的紫色柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: a federated training setup in which two data sites send model updates to a central model, and the results of different configurations are compared on a chart. It does not depict NIST's testbed, dataset or any measured result, and it does not show that the privacy settings work as described.",
+    "zh": "示意图：联邦训练的示意，两个数据站点把模型更新发送到中央模型，不同配置的结果在图表上比较。图中不代表 NIST 的测试平台、数据集或任何实测结果，也不表明其隐私设置如描述那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "results",
+    "backdrop": "white",
+    "items": [
+      {
+        "prop": "bars",
+        "id": "results",
+        "at": [0.5, -0.5],
+        "scale": 1.3,
+        "tint": "evaluations",
+        "heights": [0.8, 1.4, 1.0, 1.9],
+        "highlight": -1
+      },
+      {"prop": "neural_net", "id": "model", "at": [-0.2, 3.0], "tint": "neutral", "columns": [3, 4, 2]},
+      {"prop": "database", "id": "site_a", "at": [-1.6, -2.4], "tint": "neutral", "tiers": 3},
+      {"prop": "database", "id": "site_b", "at": [-3.4, 0.6], "tint": "neutral", "tiers": 3}
+    ],
+    "links": [
+      {
+        "from": "site_a",
+        "to": "model",
+        "route": "arc",
+        "lift": 2.0,
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true
+      },
+      {
+        "from": "site_b",
+        "to": "model",
+        "route": "arc",
+        "lift": 1.5,
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true
+      },
+      {
+        "from": "model",
+        "to": "results",
+        "route": "straight",
+        "style": "dotted",
+        "color": "mute",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "2c5b997fe8a091718c54d5abf0336444dcac1e96deead8ba08a505983aa13e1a"
+}

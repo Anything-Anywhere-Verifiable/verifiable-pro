@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal card of layered nodes stands at the center of a gray floor. A dashed orange line carrying two packets runs left from it to a flat gray server, and a dotted gray line joins it to a pink-topped stack of papers on the right.",
+    "zh": "灰色地面中央立着一张青绿色的大卡片，上面是分层的节点。一条带两个数据包的橙色虚线从卡片向左通往一台扁平的灰色服务器，一条灰色点线把它与右侧一叠粉色页面相连。"
+  },
+  "caption": {
+    "en": "Illustration: a language model card passes suggested proof steps to a server standing for the verifier, while a stack of papers stands for the specification the proof must meet. It does not depict the authors' workflow, models or tools, or a tested deployment, and it does not show that the reported verifications hold.",
+    "zh": "示意图：语言模型卡片把建议的证明步骤交给代表验证器的服务器，一叠页面代表证明必须满足的规格。图中所示并非作者的流程、模型或工具，也不是经过测试的部署，不表明报告中的验证结果成立。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "model",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "neural_net",
+        "id": "model",
+        "at": [0, 0],
+        "tint": "agents",
+        "w": 3.2,
+        "h": 3.2,
+        "columns": [3, 5, 5, 2]
+      },
+      {"prop": "server", "id": "verifier", "at": [-2.8, -2.8], "tint": "neutral", "w": 2.4, "d": 1.4},
+      {"prop": "papers", "id": "spec", "at": [2.6, 2.6], "tint": "outputs", "count": 5}
+    ],
+    "links": [
+      {
+        "from": "model",
+        "to": "verifier",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.4, 0.7],
+        "arrow": true
+      },
+      {"from": "spec", "to": "model", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "8a39c9476695386b42d8b24dcbe301f0b590a32ed6871abf99be20bf77c2b9d3"
+}

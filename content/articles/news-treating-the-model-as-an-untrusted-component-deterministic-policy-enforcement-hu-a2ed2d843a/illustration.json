@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet magnifying glass stands at the center of a gray floor. A dotted dark line joins it to a yellow warning sign on the left, and a dashed orange line with one packet and an arrowhead runs from it to a teal tool tile marked with a wrench on the right.",
+    "zh": "灰色地面中央立着一把紫色大放大镜。左侧的黄色警示牌以深色点线与它相连；一条带数据包和箭头的橙色虚线从放大镜通向右侧带扳手图标的青色工具方块。"
+  },
+  "caption": {
+    "en": "Illustration: a magnifying glass stands for the inspection of an agent's proposed tool call, placed between a warning sign standing for the policy that external controls enforce and the tool the call would reach. It does not depict a tested deployment, the preprint's monitors or its results.",
+    "zh": "示意图：放大镜代表对智能体所提出工具调用的检查，一侧的警示牌代表外部控制所执行的策略，另一侧是该调用要到达的工具。图中并未呈现经过测试的部署，也不代表该预印本中的监控器或其实验结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "inspect",
+    "items": [
+      {"prop": "sign", "id": "policy", "at": [-2.6, -2.6], "size": 1.2},
+      {"prop": "magnifier", "id": "inspect", "at": [0, 0], "r": 1.0, "tint": "evaluations"},
+      {"prop": "tool", "id": "tool", "at": [2.6, 2.6], "icon": "wrench", "size": 1.3, "tint": "agents"}
+    ],
+    "links": [
+      {"from": "policy", "to": "inspect", "style": "dotted", "color": "ink"},
+      {"from": "inspect", "to": "tool", "style": "dashed", "color": "data", "packets": [0.55], "arrow": true}
+    ]
+  },
+  "svg_sha256": "38bae0dc9d227f8ff24681811250d2850d98181d533ee9dc4310a70cb94adbcb"
+}

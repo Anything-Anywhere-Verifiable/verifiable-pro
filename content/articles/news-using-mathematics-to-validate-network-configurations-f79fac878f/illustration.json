@@ -1,0 +1,37 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large screen showing an abstract network graph with an indigo trim stands at the center. Dashed orange lines with packets run into it from a gray server on the left and another on the right, and a dotted dark line joins it to a sheet marked with a padlock lying in front.",
+    "zh": "画面中央立着一块带靛蓝边框的大屏幕，显示抽象的网络图。左右两台灰色服务器各有一条带数据包的橙色虚线连向屏幕，前方平放的一张印有挂锁图案的纸页以深色点线与屏幕相连。"
+  },
+  "caption": {
+    "en": "Illustration: configuration from two servers, standing for production and development segments, feeds a network map on a screen that is compared with a policy sheet, as in the method Amazon describes. It does not depict AWS Cloud WAN, Tiros or a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：代表生产分段和开发分段的两台服务器把配置送入屏幕上的网络图，再与一张策略纸页比对，对应 Amazon 所描述的方法。图中并非 AWS Cloud WAN、Tiros 或任何经过测试的部署，也不表明这些检查确实如所述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "map",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "screen", "id": "map", "at": [0, 0], "w": 4.6, "h": 3.0, "content": "graph", "tint": "tee"},
+      {"prop": "server", "id": "prod", "at": [-3.6, -3.6], "tint": "neutral"},
+      {"prop": "server", "id": "dev", "at": [3.6, 3.6], "tint": "neutral"},
+      {
+        "prop": "sheet",
+        "id": "policy",
+        "at": [2.6, -2.6],
+        "w": 1.4,
+        "d": 1.8,
+        "content": "lock",
+        "tint": "neutral"
+      }
+    ],
+    "links": [
+      {"from": "prod", "to": "map", "style": "dashed", "color": "data", "packets": [0.45]},
+      {"from": "dev", "to": "map", "style": "dashed", "color": "data", "packets": [0.45]},
+      {"from": "policy", "to": "map", "style": "dotted", "color": "ink"}
+    ]
+  },
+  "svg_sha256": "d5b996e26e58546143f7a76f1b8ae9c151a9f10fd25fb7da7a688c2f0acf7beb"
+}

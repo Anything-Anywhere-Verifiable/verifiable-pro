@@ -1,0 +1,43 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray memory module of three standing sticks sits at the center. A dashed orange line with a packet runs from a teal-tinted laptop at the front to a gray server on the left; a broken orange line from the laptop stops short of the memory module, which a dotted gray line ties to teal bars on the right.",
+    "zh": "画面中央是一组由三条内存条组成的大型灰色内存模块。前方一台青色笔记本电脑以带数据包的橙色虚线连向左侧灰色服务器；另一条橙色线从笔记本电脑伸向内存模块，中途断开；内存模块以灰色点线连到右侧青色柱状图。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's session on a laptop can query a database server, but its link to live production state in memory is broken, and the bars stand for access gaps across five concurrency incidents. It does not depict a tested deployment, Claude Code or the study's engine, and it does not show that the proposed forensics layer works.",
+    "zh": "示意图：笔记本电脑上的智能体会话可以查询数据库服务器，但通往内存中实时生产状态的连接是断开的；柱状图代表五起并发故障中的访问缺口。图中所示并非经过测试的部署，也不是 Claude Code 或研究中的引擎，不表明所提出的取证层有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "memory",
+    "items": [
+      {
+        "prop": "dimm",
+        "id": "memory",
+        "at": [0, 0],
+        "tint": "neutral",
+        "count": 3,
+        "length": 2.8,
+        "scale": 2.3
+      },
+      {"prop": "server", "id": "db", "at": [-4.8, -4.8], "tint": "neutral", "facing": "right"},
+      {
+        "prop": "bars",
+        "id": "gaps",
+        "at": [4.8, 4.8],
+        "tint": "agents",
+        "scale": 1.4,
+        "heights": [1.2, 1.6, 1.0, 1.8, 1.4],
+        "highlight": -1
+      },
+      {"prop": "laptop", "id": "session", "at": [3.8, -3.8], "tint": "agents", "content": "code"}
+    ],
+    "links": [
+      {"from": "session", "to": "db", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "session", "to": "memory", "style": "broken", "color": "data", "gap": 0.5},
+      {"from": "memory", "to": "gaps", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "d4be261d3ae608482f88d31511322f1f270d01850be456b597639c0372afa1db"
+}

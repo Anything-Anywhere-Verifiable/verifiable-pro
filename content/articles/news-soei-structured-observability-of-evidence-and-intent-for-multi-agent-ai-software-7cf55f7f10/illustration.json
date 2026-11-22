@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-soei-structured-observability-of-evidence-and-intent-for-multi-agent-ai-software-7cf55f7f10.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "e5254c4e6d23c058a993392889b1aedca4b2073fcbb27a2c6d4429ee4f0f1938",
+  "variants": {
+    "list": {
+      "file": "news-soei-structured-observability-of-evidence-and-intent-for-multi-agent-ai-software-7cf55f7f10-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "2ff24f52d0ce854edcbc3b84c8dc7cb9a5f48c893181b29ce983333595494eec"
+    },
+    "thumb": {
+      "file": "news-soei-structured-observability-of-evidence-and-intent-for-multi-agent-ai-software-7cf55f7f10-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "d2bc71474d39f0476cd2e5fcac2cb041ef5966b1206686161cb25b26590abefe"
+    },
+    "social": {
+      "file": "news-soei-structured-observability-of-evidence-and-intent-for-multi-agent-ai-software-7cf55f7f10-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "1b8e72d273e1f0d1845afaf9f4f4add0092ea0f2594642dd9bf13eee38473c85"
+    }
+  },
+  "edits": {
+    "source_sha256": "1c86309d187bf9b2d038615ed6df0627b1d92554bb32812cf606bf9b367af87b",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv preprint reports gaps between agents’ completion claims and recorded checks, and proposes a structured ledger. Its abstract also flags a local mutation surface in a specific Agenttrail commit.",
+    "zh": "一篇 arXiv 预印本报告了智能体完成声明与检查记录之间的缺口，并提出结构化账本方案。摘要还指出，Agenttrail 的一个特定提交存在未经身份验证的本地修改接口。"
+  },
+  "caption": {
+    "en": "An arXiv preprint reports gaps between agents’ completion claims and recorded checks, and proposes a structured ledger. Its abstract also flags a local mutation surface in a specific Agenttrail commit.",
+    "zh": "一篇 arXiv 预印本报告了智能体完成声明与检查记录之间的缺口，并提出结构化账本方案。摘要还指出，Agenttrail 的一个特定提交存在未经身份验证的本地修改接口。"
+  },
+  "credit": "Mohammed Nayeem Khan, K S Sarun Kumar",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2610.39468",
+  "retrieved": "2026-11-01"
+}

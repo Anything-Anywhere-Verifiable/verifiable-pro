@@ -1,0 +1,50 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray monitor showing lines of a log stands at the center of a gray floor. A dashed orange line carrying two packets runs to it from a flat gray server on the left, and a dotted violet line runs from it to a bar chart on the right with one short bar in violet.",
+    "zh": "灰色地面中央立着一台显示日志行的大号灰色显示器。左侧一台扁平的灰色服务器引出一条带两个数据包的橙色虚线连到显示器，显示器再以紫色点线连到右侧柱状图，其中一根较短的柱子为紫色。"
+  },
+  "caption": {
+    "en": "Illustration: a monitor logging what an agent system's server does, linked to a bar chart, stands for measuring how many of an agent's actions runtime controls check. The diagram does not depict a tested deployment, guardscope, Microsoft's toolkit or agentgateway, and it does not show any coverage results.",
+    "zh": "示意图：一台记录智能体系统服务器操作的显示器连向一张柱状图，代表测量智能体有多少操作受到运行时控制的检查。本图并不描绘经过测试的部署，也不描绘 guardscope、Microsoft 的工具包或 agentgateway，更不表示任何覆盖率结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "monitor",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "server", "id": "server", "at": [-3.8, -3.8], "tint": "neutral", "w": 3, "d": 1.6},
+      {"prop": "monitor", "id": "monitor", "at": [0, 0], "tint": "neutral", "scale": 2.2, "content": "log"},
+      {
+        "prop": "bars",
+        "id": "bars",
+        "at": [3.8, 3.8],
+        "tint": "evaluations",
+        "scale": 1.2,
+        "heights": [1.6, 0.7, 1.2, 0.5],
+        "highlight": 1
+      }
+    ],
+    "links": [
+      {
+        "from": "server",
+        "to": "monitor.screen",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.7],
+        "glow": true
+      },
+      {
+        "from": "monitor.screen",
+        "to": "bars.top",
+        "route": "straight",
+        "style": "dotted",
+        "color": "evaluations"
+      }
+    ]
+  },
+  "svg_sha256": "7e3f8db9755689d0fc97f2f2846fe49dca79b05417e1f84723abac8165223cbd"
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large indigo-tinted cloud stands at the center of a gray floor. A dashed orange line with two packets runs to it from a phone at the front right, a dotted indigo line joins it to an indigo padlock on the left, and a solid indigo arrow reaches it from a flat server with a small lock on the right.",
+    "zh": "灰色地面中央立着一朵靛蓝色的大云。右前方的手机以带两个数据包的橙色虚线连向云，左侧的靛蓝色挂锁以靛蓝点线与云相连，右侧带小锁的扁平服务器以靛蓝实线箭头指向云。"
+  },
+  "caption": {
+    "en": "Illustration: the design the KServe RFC proposes, in which a client's phone sends data to a confidential-inference service drawn as a cloud, a padlock stands for the attestation that must hold before keys are released, and a server stands for the key broker that releases them. It does not depict a tested deployment, KServe's actual components or a released fix, and it does not show that the checks work as described.",
+    "zh": "示意图：KServe RFC 提出的设计——客户端手机把数据发往以云表示的机密推理服务，挂锁代表释放密钥前必须成立的远程证明，服务器代表释放密钥的密钥代理服务。图中并未描绘经过测试的部署、KServe 的实际组件或已发布的修复，也不表示这些检查会如描述的那样生效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "service",
+    "items": [
+      {"prop": "cloud", "id": "service", "at": [0, 0], "w": 3.6, "tint": "tee"},
+      {"prop": "padlock", "id": "attest", "at": [-2.8, -2.8], "tint": "tee", "size": 1.1},
+      {"prop": "server", "id": "broker", "at": [2.8, 2.8], "w": 2.4, "d": 1.4, "tint": "tee", "lock": true},
+      {"prop": "phone", "id": "client", "at": [3.4, -0.8], "content": "chat"}
+    ],
+    "links": [
+      {
+        "from": "client",
+        "to": "service",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.6],
+        "glow": true
+      },
+      {"from": "attest", "to": "service", "style": "dotted", "color": "tee"},
+      {"from": "broker", "to": "service", "style": "solid", "color": "tee", "arrow": true}
+    ]
+  },
+  "svg_sha256": "3f48fbece7e17118833a493cac1c30e8fec85778b16a70a957db2eaecd407326"
+}

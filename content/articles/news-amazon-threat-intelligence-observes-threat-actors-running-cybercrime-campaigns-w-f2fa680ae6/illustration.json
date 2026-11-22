@@ -1,0 +1,34 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large yellow warning sign with an exclamation mark stands at the center of a gray floor. In front of it, a dashed orange line carrying two packets runs from a teal tool tile with a terminal icon on the right to a gray server lying flat on the left.",
+    "zh": "灰色地面中央立着一块很大的黄色警示牌，上面画着感叹号。警示牌前方，一条带两个数据包的橙色虚线从右侧带终端图标的青色工具方块，延伸到左侧一台平放的灰色服务器。"
+  },
+  "caption": {
+    "en": "Illustration: a warning sign stands between agent tooling and an exposed service it reaches, standing for the cybercrime campaigns Amazon reports were run with AI agents. It does not depict ARTEX, MadPot or any affected system, and it does not show a tested deployment or that any reported attack succeeded.",
+    "zh": "示意图：警示牌立在智能体工具与它所接触的暴露服务之间，代表 Amazon 报告的利用 AI 智能体开展的网络犯罪活动。图中并非 ARTEX、MadPot 或任何受影响的系统，不代表经过测试的部署，也不表明记录所称的攻击取得了成功。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "warning",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "sign", "id": "warning", "at": [0, 0], "tint": "warn", "size": 2.2},
+      {"prop": "server", "id": "service", "at": [-2.2, -4.2], "tint": "neutral", "w": 2.6, "d": 1.4},
+      {"prop": "tool", "id": "tooling", "at": [4.2, 2.2], "tint": "agents", "icon": "terminal", "size": 1.4}
+    ],
+    "links": [
+      {
+        "from": "tooling",
+        "to": "service",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.25, 0.75],
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "8f33651c139661e5126b823f6c0a7e77fc0b64743f88cab5c47a8209adcc76d7"
+}

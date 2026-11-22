@@ -1,0 +1,40 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A violet bar chart with uneven bars stands at the center, a teal glass cube with a sphere inside at the front left, and a gray page at the far left. A dashed orange line with a packet and an arrow runs from the page to the cube, a dotted gray line joins the chart to the cube, and a dashed-outline cube stands to the right of the chart.",
+    "zh": "画面中央是一座高低不齐的紫色柱状图，左前方是一个内含圆球的青色玻璃方块，最左侧立着一页灰色文件。一条带数据包和箭头的橙色虚线从文件通向方块，一条灰色点线把柱状图与方块相连，柱状图右侧立着一个只有虚线轮廓的小方块。"
+  },
+  "caption": {
+    "en": "Illustration: a benchmark's uneven coverage, drawn as a bar chart, beside an agent that receives an injected instruction, with a dashed-outline packet standing for an attack category no benchmark tests. It does not depict the authors' benchmarks, taxonomy or any tested system or deployment, and it does not show the reported coverage gap.",
+    "zh": "示意图：高低不齐的柱状图代表基准的覆盖范围，旁边的智能体接收一条注入指令，虚线轮廓的数据包代表没有任何基准测试过的攻击类别。图中不是作者的基准、分类方法或任何经过测试的系统与部署，也不展示论文报告的覆盖缺口。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "benchmarks",
+    "items": [
+      {
+        "prop": "bars",
+        "id": "benchmarks",
+        "at": [0.3, -0.3],
+        "tint": "evaluations",
+        "heights": [2.2, 0.5, 1.7, 0.4, 1.2],
+        "highlight": 0
+      },
+      {"prop": "agent", "id": "target", "at": [0.0, -2.6], "tint": "agents", "core": "sphere"},
+      {"prop": "document", "id": "instruction", "at": [-1.9, -2.9], "tint": "neutral", "lines": 5},
+      {"prop": "packet", "id": "untested", "at": [2.2, 1.6], "tint": "data", "size": 0.5, "ghost": true}
+    ],
+    "links": [
+      {
+        "from": "instruction",
+        "to": "target",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "arrow": true
+      },
+      {"from": "benchmarks", "to": "target", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "6e8876a2e7ca180f3180cb460c11ca7c8e50e92e2b3cc468339221c1a22c6982"
+}

@@ -1,0 +1,44 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A wide mesh of seven connected spheres, one of them blue, stands at the center of a gray floor. A dotted gray line joins it to a three-bar chart with one blue bar on the left, and a dashed blue arrow runs from the mesh to a standing picture card on the right.",
+    "zh": "灰色地面中央是由七个相连小球组成的网络，其中一个为蓝色。左侧是三根柱子的柱状图，其中一根为蓝色，以灰色点线与网络相连；一条蓝色虚线箭头从网络指向右侧立着的图片卡。"
+  },
+  "caption": {
+    "en": "Illustration: a graph of connected nodes stands for the map of a foundation model's ancestry the paper describes, with bars for the dependency counts the authors report and a picture card for the released maps; it does not depict a tested deployment, the real maps or their contents.",
+    "zh": "示意图：相连的节点网络代表论文所描述的基础模型来源图谱，柱状图代表作者报告的依赖数量，图片卡代表已发布的地图；图中并未描绘经过测试的实际部署，也不是真实的地图或其内容。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "graph",
+    "items": [
+      {
+        "prop": "nodes",
+        "id": "graph",
+        "at": [0, 0],
+        "layout": "mesh",
+        "count": 7,
+        "w": 6.4,
+        "d": 5.0,
+        "post": 0.1,
+        "highlight": 0,
+        "tint": "models"
+      },
+      {"prop": "bars", "id": "counts", "at": [-3.8, -3.8], "heights": [0.9, 1.5, 2.1], "tint": "models"},
+      {
+        "prop": "photo",
+        "id": "published",
+        "at": [3.8, 3.8],
+        "w": 1.8,
+        "h": 1.4,
+        "content": "landscape",
+        "tint": "neutral"
+      }
+    ],
+    "links": [
+      {"from": "counts", "to": "graph", "style": "dotted", "color": "mute"},
+      {"from": "graph.hub", "to": "published", "style": "dashed", "color": "models", "arrow": true}
+    ]
+  },
+  "svg_sha256": "a93eb6bd53020f215c162f48ccabf579090439c3b2bab77445796bf77af83509"
+}
