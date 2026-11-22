@@ -1,0 +1,61 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large standing card with a violet border and seal sits at the center. On the left, a teal tile with a terminal icon stands in a dashed teal floor zone, and an orange dashed line with one packet runs from it to the card. A dotted indigo line runs from the card to a gray server with a small padlock.",
+    "zh": "画面中央立着一张带紫色边框和印章的大卡片。左侧青色虚线区域内立着一块带终端图标的青色方块，一条带数据包的橙色虚线从它连到卡片；一条靛蓝点线从卡片连到右侧带小锁的灰色服务器。"
+  },
+  "caption": {
+    "en": "Illustration: A specification card stands between an agent's bounded environment, where a tool call starts, and a locked server, representing an environment specification that API calls are checked against before they reach the system. This diagram does not depict a tested deployment, Pre-QED's harnesses or OSS-Verify, and it does not show that the specification covers every legal use.",
+    "zh": "示意图：一张规约卡片立在智能体的受限环境（工具调用由此发出）和一台带锁服务器之间，表示 API 调用在到达系统之前，要先对照环境规约接受检查。本图并非经过测试的部署，也不代表 Pre-QED 的验证框架或 OSS-Verify，更不表明该规约覆盖了所有合法用法。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "spec",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "zone",
+        "id": "env",
+        "at": [-3.6, -3.1],
+        "tint": "agents",
+        "w": 2.8,
+        "d": 2.4,
+        "dashed": true,
+        "fill": true
+      },
+      {
+        "prop": "tool",
+        "id": "call",
+        "at": [-3.6, -3.1],
+        "tint": "agents",
+        "icon": "terminal",
+        "size": 1.1,
+        "allow_overlap": true
+      },
+      {
+        "prop": "certificate",
+        "id": "spec",
+        "at": [0, 0],
+        "tint": "evaluations",
+        "w": 3.2,
+        "h": 2.2,
+        "scale": 1.4
+      },
+      {"prop": "server", "id": "host", "at": [3.8, 3.4], "tint": "neutral", "w": 3, "d": 1.6, "lock": true}
+    ],
+    "links": [
+      {
+        "from": "call",
+        "to": "spec",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "spec", "to": "host", "route": "straight", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "c8a40fbbe315e5b21f204aa366965e720c3b0d5e8ac11230d24069a2080020df"
+}
