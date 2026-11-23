@@ -1,0 +1,41 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray map tile with roads, a river and a dashed border line lies at the center of a gray floor. A closed violet book lies to its left, joined to the map by a dotted gray line, and a violet line with an arrowhead runs from the map to a standing card showing a chart on the right.",
+    "zh": "灰色地面中央平放着一大块灰色地图，上面有道路、河流和一条虚线边界。左侧平放着一本紫色封面的书，以灰色点线与地图相连；一条带箭头的紫色线从地图通向右侧一张立着的图表卡片。"
+  },
+  "caption": {
+    "en": "Illustration: a book of properties to check, a map of the ground those checks reach, with a border marking their bounds, and a card reporting the coverage. It does not depict a tested deployment, the study's projects or its data, and it does not show how much any check covers.",
+    "zh": "示意图：一本代表待检查属性的书，一张代表检查所及范围的地图（虚线边界表示检查的边界），以及一张报告覆盖情况的卡片。图中并未描绘任何经过测试的部署，也不是该研究的项目或数据，不能说明任何检查的实际覆盖范围。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "coverage",
+    "items": [
+      {"prop": "map", "id": "coverage", "at": [0, 0], "w": 3, "d": 3, "border": true},
+      {
+        "prop": "book",
+        "id": "properties",
+        "at": [-2.8, -2.8],
+        "tint": "evaluations",
+        "w": 1.2,
+        "d": 1.5,
+        "emblem": "ring"
+      },
+      {
+        "prop": "panel",
+        "id": "report",
+        "at": [2.7, 2.7],
+        "tint": "evaluations",
+        "w": 1.4,
+        "h": 1.2,
+        "content": "chart"
+      }
+    ],
+    "links": [
+      {"from": "properties", "to": "coverage", "style": "dotted", "color": "mute"},
+      {"from": "coverage", "to": "report", "style": "solid", "color": "evaluations", "arrow": true}
+    ]
+  },
+  "svg_sha256": "d360575eea51b1bb30d077c4b4a7c5b1dd9794ab3e92b4a2c96822126d9dbe65"
+}
