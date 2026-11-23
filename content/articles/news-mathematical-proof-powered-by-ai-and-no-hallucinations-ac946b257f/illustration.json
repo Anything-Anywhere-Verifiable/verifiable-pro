@@ -1,0 +1,33 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large rubber stamp with a cinnabar base stands at the center of a gray floor. A dotted dark line joins it to a closed pink book lying at the left, and a dashed teal line with an arrowhead runs from the stamp to a low gray platform at the right.",
+    "zh": "灰色地面中央立着一枚朱红底的大印章。一条深色点线把它与左侧平放的粉色合上的书相连，一条带箭头的青绿色虚线从印章通向右侧的灰色矮平台。"
+  },
+  "caption": {
+    "en": "Illustration: a book stands for a formalized theorem, a stamp for the check a proof assistant applies, and a platform for the checked proof an agent hands back. It does not depict a tested deployment, Amazon's tools or Isabelle, and it does not show that any proof was checked.",
+    "zh": "示意图：书代表形式化的定理，印章代表数学证明助手所做的检查，平台代表智能体交回的已检查证明。图中描绘的不是经过测试的部署，也不是 Amazon 的工具或 Isabelle，更不表示任何证明已通过检查。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "check",
+    "items": [
+      {
+        "prop": "book",
+        "id": "theorem",
+        "at": [-3.6, -3.6],
+        "tint": "outputs",
+        "w": 2.0,
+        "d": 2.6,
+        "emblem": "ring"
+      },
+      {"prop": "stamp", "id": "check", "at": [0, 0], "tint": "seal", "size": 2.2},
+      {"prop": "plate", "id": "proof", "at": [3.6, 3.6], "tint": "neutral", "w": 2.4, "d": 2.0, "h": 0.25}
+    ],
+    "links": [
+      {"from": "theorem", "to": "check", "style": "dotted", "color": "ink"},
+      {"from": "check", "to": "proof", "style": "dashed", "color": "agents", "arrow": true}
+    ]
+  },
+  "svg_sha256": "140b4ed8438a22cf1c0d1b1b39795e7d5841c10afaed370e8cc405c062ff8e3d"
+}
