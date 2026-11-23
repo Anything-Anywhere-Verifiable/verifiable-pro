@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large closed teal padlock stands at the center of a gray floor. On the left, a phone sends a dashed orange line carrying one data packet to the padlock. On the right, a standing panel with lines of a list joins the padlock with a dotted violet line.",
+    "zh": "灰色地面中央立着一把闭合的青绿色大挂锁。左侧一部手机发出一条带数据包的橙色虚线，通向挂锁；右侧一块写有列表行的立板以紫色点线与挂锁相连。"
+  },
+  "caption": {
+    "en": "Illustration: a write request from a phone reaches a padlock that admits it only within the scope a policy panel lists, standing for the write restriction the CapLite authors describe. It does not depict a tested deployment, and it does not show that the defense works as the authors claim.",
+    "zh": "示意图：手机发出的写入请求到达挂锁，只有在策略面板列出的范围内才会放行，代表 CapLite 作者描述的写入限制。图中并非经过测试的实际部署，也不表明该防御如作者所称有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "lock",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "phone", "id": "phone", "at": [-3.2, -3.2], "content": "chat"},
+      {"prop": "padlock", "id": "lock", "at": [0, 0], "tint": "agents", "size": 2.4},
+      {
+        "prop": "panel",
+        "id": "policy",
+        "at": [3.2, 3.2],
+        "tint": "evaluations",
+        "w": 2.2,
+        "h": 1.8,
+        "content": "log"
+      }
+    ],
+    "links": [
+      {"from": "phone", "to": "lock", "style": "dashed", "color": "data", "packets": [0.5], "arrow": true},
+      {"from": "policy", "to": "lock", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "19257b04ea64b1cf046879e61f7eb16526d36b855b01506fde581c1bcf33792d"
+}
