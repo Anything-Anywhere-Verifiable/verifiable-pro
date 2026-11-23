@@ -1,0 +1,41 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large cinnabar wax seal stands upright at the center of a gray floor. A closed teal book lies to its left and a pink-tinted card showing a grid stands to its right; a dashed teal line runs from the book to the seal and a dotted pink line from the card to the seal.",
+    "zh": "灰色地面中央竖立着一枚朱红色大印章。左侧平放一本青色封面的书，右侧立着一块带网格图案的粉色卡片；青色虚线从书连到印章，粉色点线从卡片连到印章。"
+  },
+  "caption": {
+    "en": "Illustration: a book for the formal specification and a card for the record of verifier votes both lead to a seal, standing for the certificate the Kalaris Labs proposal would attach to an accepted result. It does not depict a tested deployment; Kalaris Labs says the system has not been built.",
+    "zh": "示意图：代表形式化规范的书和代表验证者投票记录的卡片都连向一枚印章，印章象征 Kalaris Labs 提案中拟随被接受结果签发的证书。本图并未描绘经过测试的部署；Kalaris Labs 表示该系统尚未构建。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "seal",
+    "items": [
+      {"prop": "seal", "id": "seal", "at": [0, 0], "r": 1.5, "pose": "standing", "tint": "seal"},
+      {
+        "prop": "book",
+        "id": "spec",
+        "at": [-2.4, -2.4],
+        "w": 1.6,
+        "d": 2.0,
+        "tint": "agents",
+        "emblem": "bars"
+      },
+      {
+        "prop": "panel",
+        "id": "votes",
+        "at": [2.6, 2.6],
+        "w": 2.0,
+        "h": 1.6,
+        "content": "grid",
+        "tint": "outputs"
+      }
+    ],
+    "links": [
+      {"from": "spec", "to": "seal", "style": "dashed", "color": "agents"},
+      {"from": "votes", "to": "seal", "style": "dotted", "color": "outputs"}
+    ]
+  },
+  "svg_sha256": "f4f25980e123c487eb546d848ddeed4109c1d777716d329059f47dd97a903be5"
+}

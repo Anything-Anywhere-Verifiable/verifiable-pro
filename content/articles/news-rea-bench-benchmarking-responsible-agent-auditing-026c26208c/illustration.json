@@ -1,0 +1,32 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large violet shield with a lock emblem stands at the center of a gray floor. A dashed orange line carrying two small packets runs to it from the front of a teal globe on the left, and a dotted gray line joins it to a closed violet book lying on the right.",
+    "zh": "灰色地面中央立着一面带锁形标记的紫色大盾牌。左侧青绿色地球仪的正面引出一条带两个小数据块的橙色虚线，连到盾牌；右侧平放着一本合上的紫色书，经一条灰色点线与盾牌相连。"
+  },
+  "caption": {
+    "en": "Illustration: a globe standing for agent trajectories sends data to a shield standing for responsible auditing, which is linked to a book standing for audit criteria, as in the benchmark the authors describe. It does not depict a tested deployment, the ReA-Bench data or any real auditing system, and it does not show that an auditor catches the risks.",
+    "zh": "示意图：地球仪代表智能体的执行轨迹，数据流向代表负责任审计的盾牌，盾牌又与代表审计标准的书相连，对应作者描述的基准思路。图中并非经过测试的实际部署，也不是 ReA-Bench 的数据或任何真实的审计系统，更不表示审计工具能检出这些风险。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "audit",
+    "items": [
+      {"prop": "shield", "id": "audit", "at": [0, 0], "size": 3, "tint": "evaluations", "emblem": "lock"},
+      {"prop": "globe", "id": "traces", "at": [-2.4, -2.4], "r": 0.9, "tint": "agents"},
+      {"prop": "book", "id": "criteria", "at": [2.6, 2.6], "tint": "evaluations", "emblem": "bars"}
+    ],
+    "links": [
+      {
+        "from": "traces.front",
+        "to": "audit",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.65]
+      },
+      {"from": "criteria", "to": "audit", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "527fa177c7702da211d5303fdbc8bcce11278cef9864c1ef53373bea696df9b6"
+}
