@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-evaluating-authorization-and-trust-boundaries-in-agentic-orchestration-framework-cf3fb18e2d.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "964d048e645cf6736f6d63f343c96ba81072e62ecf96b25672d1d019509a9e30",
+  "variants": {
+    "list": {
+      "file": "news-evaluating-authorization-and-trust-boundaries-in-agentic-orchestration-framework-cf3fb18e2d-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "c97455e5411a24cec6631bc2a44dedd902701c14400a1d8cf8bd7914b875c94a"
+    },
+    "thumb": {
+      "file": "news-evaluating-authorization-and-trust-boundaries-in-agentic-orchestration-framework-cf3fb18e2d-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "832e92f38341d0bd9afb9a0a1ac820a8b55f25728d172245c79421390ca0ecf8"
+    },
+    "social": {
+      "file": "news-evaluating-authorization-and-trust-boundaries-in-agentic-orchestration-framework-cf3fb18e2d-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "00f79bcf9fe7e9b434b40bd197d0f878266f074387c83afd19852033aad44266"
+    }
+  },
+  "edits": {
+    "source_sha256": "34ad3e2f68a1ec66316e2ade0fa091a501ff18733215b45f868766023f54b94e",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A preprint reports unauthorized tool use and other boundary failures in experiments across four orchestration frameworks. Its abstract also describes protections that stopped specific operations in the configurations tested.",
+    "zh": "一篇预印本报告称，针对四种智能体编排框架的实验出现了未授权工具调用等边界问题。摘要还描述了在受测配置中阻止特定操作的保护措施。"
+  },
+  "caption": {
+    "en": "A preprint reports unauthorized tool use and other boundary failures in experiments across four orchestration frameworks. Its abstract also describes protections that stopped specific operations in the configurations tested.",
+    "zh": "一篇预印本报告称，针对四种智能体编排框架的实验出现了未授权工具调用等边界问题。摘要还描述了在受测配置中阻止特定操作的保护措施。"
+  },
+  "credit": "Sahaya Jestus Lazer, Kshitiz Aryal, Maanak Gupta, Elisa Bertino",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.21259",
+  "retrieved": "2026-11-22"
+}
