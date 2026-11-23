@@ -1,0 +1,73 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A standing gray card with a grid stands at the center. A broken gray line runs from it to a gray stack of discs at the back left, while a dashed orange line with packets reaches it from an orange stack of discs at the front left. A dotted dark line joins it to two memory modules beside a yellow warning sign on the right.",
+    "zh": "画面中央立着一张带网格的灰色卡片。一条断开的灰线连向左后方的灰色圆盘堆，一条带数据包的橙色虚线从左前方的橙色圆盘堆通到卡片。右侧有两条内存条和一块黄色警示牌，一条深色点线把内存条与卡片相连。"
+  },
+  "caption": {
+    "en": "Illustration: a fault in memory alters a block table, so that a read meant for one tenant's cache blocks is redirected to another tenant's blocks, as the BlockJack authors describe. It does not depict a tested deployment, vLLM's code or any real hardware, and it does not show that the attack or the proposed patches work as reported.",
+    "zh": "示意图：按 BlockJack 论文作者的描述，内存中的故障改动了块表，原本指向某一租户缓存块的读取被重定向到另一租户的缓存块。图中没有描绘任何经过测试的部署，也没有描绘 vLLM 的代码或真实硬件，更不表示攻击或补丁方案确如作者报告的那样有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "table",
+    "items": [
+      {
+        "prop": "panel",
+        "id": "table",
+        "at_uv": [0, 0],
+        "w": 2.6,
+        "h": 2.0,
+        "content": "grid",
+        "note": "the block table that maps logical cache blocks to physical blocks"
+      },
+      {
+        "prop": "database",
+        "id": "own",
+        "at_uv": [-5, -2.5],
+        "note": "the cache blocks assigned to the requesting tenant"
+      },
+      {
+        "prop": "database",
+        "id": "victim",
+        "at_uv": [-5, 2.5],
+        "tint": "data",
+        "note": "another tenant's cache blocks"
+      },
+      {
+        "prop": "dimm",
+        "id": "memory",
+        "at_uv": [4.5, 2],
+        "count": 2,
+        "note": "the memory holding the table, where the authors report a Rowhammer fault"
+      },
+      {"prop": "sign", "id": "fault", "at_uv": [5.6, -0.6]}
+    ],
+    "links": [
+      {
+        "from": "table",
+        "to": "own",
+        "style": "broken",
+        "color": "mute",
+        "note": "the intended mapping, no longer followed"
+      },
+      {
+        "from": "victim",
+        "to": "table",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.35, 0.65],
+        "glow": true,
+        "note": "the redirected read"
+      },
+      {
+        "from": "memory",
+        "to": "table",
+        "style": "dotted",
+        "color": "ink",
+        "note": "the fault reaches the table entry"
+      }
+    ]
+  },
+  "svg_sha256": "0bba456c8d1c81b4f56a33997cdbd305191264df65f35128e0cb66b3f47ad39a"
+}

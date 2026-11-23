@@ -1,0 +1,30 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal chain lies diagonally across a gray floor, open at one link near its middle. A dashed dark gray line on the floor runs from a closed gray book at the upper right, under the middle of the chain, to an open gray laptop at the lower left.",
+    "zh": "一条青绿色的粗链条斜放在灰色地面上，中段有一环断开。地面上一条深灰色虚线从右上方一本合上的灰色书出发，自链条中段下方穿过，连到左下方一台打开的灰色笔记本电脑。"
+  },
+  "caption": {
+    "en": "Illustration: a chain opened at one link stands for the memory lineage that the paper's authors say a forget request should cut, with a laptop for the agent's memory, a book for the request record and a line joining the two across the chain. It does not depict a tested deployment, LinEra's code or keys, or show that the erasure works as described.",
+    "zh": "示意图：一条在某一环断开的链条，代表论文作者所说的遗忘请求应当切断的记忆谱系；笔记本电脑代表智能体的记忆，书代表遗忘请求的记录，一条线越过链条把两者连在一起。图中没有描绘经过测试的部署，也没有描绘 LinEra 的代码或密钥，更不表示擦除确如所述生效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "lineage",
+    "items": [
+      {"prop": "chain", "id": "lineage", "at": [0, 0], "tint": "agents", "links": 5, "size": 2, "broken": 2},
+      {"prop": "laptop", "id": "memory", "at": [-1.25, -3.25], "tint": "neutral", "content": "graph"},
+      {
+        "prop": "book",
+        "id": "request",
+        "at": [1.25, 3.25],
+        "tint": "neutral",
+        "w": 1.8,
+        "d": 2.2,
+        "emblem": "ring"
+      }
+    ],
+    "links": [{"from": "request", "to": "memory", "style": "dashed", "color": "ink"}]
+  },
+  "svg_sha256": "181277314ebc83b5892072e9098d904cbd304ace408845d971c310a9714e5773"
+}
