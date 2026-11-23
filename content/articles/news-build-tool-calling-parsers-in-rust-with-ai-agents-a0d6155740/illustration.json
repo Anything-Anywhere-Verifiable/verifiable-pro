@@ -1,0 +1,41 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal tool tile with a gear icon stands at the center of a gray floor. A dashed orange arrow runs to it from an open laptop showing lines of code on the left, and a dotted violet line joins it to a closed violet book lying on the right.",
+    "zh": "灰色地面中央立着一块带齿轮图标的青绿色大工具牌。左侧一台打开的笔记本电脑显示代码，一条橙色虚线箭头从它指向工具牌；一条紫色点线把工具牌连到右侧平放的紫色书本。"
+  },
+  "caption": {
+    "en": "Illustration: a laptop sends model output to a tool-calling parser, drawn as a tool tile, whose results are compared with a book of reviewed expected outputs. It does not depict NVIDIA's parsers or test corpus, and it does not depict a tested deployment.",
+    "zh": "示意图：笔记本电脑把模型输出送入以工具牌表示的工具调用解析器，解析结果再与一本经审阅的预期输出对照。图中并非 NVIDIA 的解析器或测试语料库，也不代表任何经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "parser",
+    "items": [
+      {
+        "prop": "tool",
+        "id": "parser",
+        "at": [0, 0],
+        "size": 2,
+        "scale": 1.5,
+        "icon": "gear",
+        "tint": "agents"
+      },
+      {"prop": "laptop", "id": "caller", "at": [-2.2, -2.2], "content": "code", "tint": "neutral"},
+      {
+        "prop": "book",
+        "id": "expected",
+        "at": [2.2, 2.2],
+        "w": 2,
+        "d": 2.6,
+        "tint": "evaluations",
+        "emblem": "ring"
+      }
+    ],
+    "links": [
+      {"from": "caller", "to": "parser", "style": "dashed", "color": "data", "arrow": true},
+      {"from": "parser", "to": "expected", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "4dd119f6a549c288b9a62bd06c3f4f4fdc24849b72089fada8b88be446942e55"
+}
