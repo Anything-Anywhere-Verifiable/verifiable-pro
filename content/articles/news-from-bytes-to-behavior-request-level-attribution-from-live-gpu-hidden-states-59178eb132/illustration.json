@@ -1,0 +1,41 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large dark graphics card stands at the center of a gray floor. A dashed orange line carrying one packet runs from the card to a violet sphere on the left, and a dotted violet line runs down to the card from a gray satellite floating above on the right.",
+    "zh": "灰色地面中央立着一张大号深色显卡。一条带数据包的橙色虚线从显卡连到左侧的紫色球体，右上方悬浮着一颗灰色卫星，一条紫色点线从卫星向下连到显卡。"
+  },
+  "caption": {
+    "en": "Illustration: a hidden state is read out of a running GPU while a probe watches from above, standing for the request-level analysis the paper describes. It does not depict a tested deployment, and it does not show that the method works as reported.",
+    "zh": "示意图：探针从上方观察，同时从运行中的 GPU 读出一个隐藏状态，代表论文所描述的请求级分析。图中并非经过测试的实际部署，也不表明该方法如报告所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "card",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "gpu_card", "id": "card", "at": [0, 0], "tint": "dark", "length": 3, "scale": 1.5},
+      {
+        "prop": "sphere",
+        "id": "state",
+        "at": [-3.4, -2.4],
+        "r": 0.5,
+        "tint": "evaluations",
+        "material": "auto"
+      },
+      {"prop": "satellite", "id": "probe", "at": [2.4, 3.4, 3.2], "tint": "neutral", "size": 0.9}
+    ],
+    "links": [
+      {
+        "from": "card",
+        "to": "state",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "probe", "to": "card", "route": "straight", "style": "dotted", "color": "evaluations"}
+    ]
+  },
+  "svg_sha256": "77822706adf1e3470593e87273d6bf6a2e694027c69beaa2a7eed7858480831b"
+}
