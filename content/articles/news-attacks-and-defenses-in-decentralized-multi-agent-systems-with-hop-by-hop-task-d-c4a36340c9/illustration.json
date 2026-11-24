@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-attacks-and-defenses-in-decentralized-multi-agent-systems-with-hop-by-hop-task-d-c4a36340c9.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "96b571c367cc47a0820bf4390f9bffe1c8a55da8b32dbd6907ec0b299f73b6bb",
+  "variants": {
+    "list": {
+      "file": "news-attacks-and-defenses-in-decentralized-multi-agent-systems-with-hop-by-hop-task-d-c4a36340c9-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "c31826ec50d1464301b842489eb8979f95eb484c5459c3c1498c65793a7947d4"
+    },
+    "thumb": {
+      "file": "news-attacks-and-defenses-in-decentralized-multi-agent-systems-with-hop-by-hop-task-d-c4a36340c9-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "3df5479871ba28a236251759d234f218cba7e4fe34df6fa2826228ad69dbbfd9"
+    },
+    "social": {
+      "file": "news-attacks-and-defenses-in-decentralized-multi-agent-systems-with-hop-by-hop-task-d-c4a36340c9-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "b08fc0e06b41a26297e9b5784a7eb5d904c431da1c8edb299438ad3faab94f67"
+    }
+  },
+  "edits": {
+    "source_sha256": "0265aaad49f32288f722762182ea9497d279420963149a47ff3a04918b2cf382",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A preprint describes attacks by malicious agents and proposes cryptographic execution traces and an auditor. Its reported results come from the authors’ evaluation, which we did not independently test.",
+    "zh": "一篇预印本描述了恶意智能体的攻击，并提出用密码学执行轨迹和审计器应对。文中的结果来自作者的评估，我们未独立测试。"
+  },
+  "caption": {
+    "en": "A preprint describes attacks by malicious agents and proposes cryptographic execution traces and an auditor. Its reported results come from the authors’ evaluation, which we did not independently test.",
+    "zh": "一篇预印本描述了恶意智能体的攻击，并提出用密码学执行轨迹和审计器应对。文中的结果来自作者的评估，我们未独立测试。"
+  },
+  "credit": "Matthew D. Laws, Maria Lazou, Alina Oprea, Cristina Nita-Rotaru",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.25056",
+  "retrieved": "2026-11-24"
+}
