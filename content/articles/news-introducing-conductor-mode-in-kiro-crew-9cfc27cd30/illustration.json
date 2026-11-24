@@ -1,0 +1,41 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal robot arm stands at the center of a gray floor. To its left lies a gray server, joined to the arm's base by a dashed orange line carrying one small packet. To its right lies a stack of gray papers, reached from the arm's base by a dotted teal line with an arrowhead.",
+    "zh": "灰色地面中央立着一台青绿色的大型机械臂。左侧平放着一台灰色服务器，一条带有一个小数据块的橙色虚线把它连到机械臂底座；右侧是一叠灰色纸张，一条带箭头的青绿色点线从机械臂底座通向它。"
+  },
+  "caption": {
+    "en": "Illustration: a robot arm stands for the conductor Kiro describes, a server for the worker agents that report to it, and a stack of papers for the log where tasks and results are recorded; it is an explanatory diagram and does not depict a tested deployment or Kiro's actual software.",
+    "zh": "示意图：机械臂代表 Kiro 所描述的 Conductor，服务器代表向它报告的工作智能体，一叠纸张代表记录任务与结果的日志；本图仅作说明，并未呈现经过测试的部署，也不是 Kiro 的实际软件。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "conductor",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "robot_arm", "id": "conductor", "at": [0, 0], "tint": "agents", "reach": 1.7},
+      {"prop": "server", "id": "worker", "at": [-2.6, -2.6], "w": 2.4, "d": 1.6},
+      {"prop": "papers", "id": "log", "at": [2.4, 2.4], "count": 6}
+    ],
+    "links": [
+      {
+        "from": "worker",
+        "to": "conductor.base",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.55]
+      },
+      {
+        "from": "conductor.base",
+        "to": "log",
+        "route": "straight",
+        "style": "dotted",
+        "color": "agents",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "72638a7be86bb0d746a970dbba3ce99c0799385f56be49e580105cb49851daef"
+}

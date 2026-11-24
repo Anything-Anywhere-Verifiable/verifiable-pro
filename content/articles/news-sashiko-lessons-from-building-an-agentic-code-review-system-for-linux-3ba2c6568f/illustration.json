@@ -1,0 +1,44 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large open laptop with teal trim showing code sits at the center of a gray floor. A dashed orange line carrying one packet runs to a pink-tinted sheet of log lines on the left. A teal tool tile with a terminal icon behind it and a pair of gray glasses on the right link to the laptop by dotted lines.",
+    "zh": "灰色地面中央是一台打开的大笔记本电脑，带青绿色边饰，屏幕显示代码。一条载有数据包的橙色虚线通向左侧一张粉色日志纸。后方带终端图标的青绿色工具方块和右侧一副灰色眼镜，各以点线连到电脑。"
+  },
+  "caption": {
+    "en": "Illustration: a laptop stands for a workstation running the agentic review design Google describes, calling a tool, sending a report to the sheet on its left and examined by a reviewer, shown as glasses. It does not depict Sashiko, its review records or a tested deployment, and it does not show that the reviews work as described.",
+    "zh": "示意图：笔记本电脑代表运行 Google 所描述的智能体代码审查流程的工作站，它调用工具，把审查报告送到左侧的纸页，右侧的眼镜代表检查代码的审查者。图中并非 Sashiko 本身、其审查记录或经过测试的部署，也不表明审查如所述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "review",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "laptop", "id": "review", "at": [0, 0], "w": 3, "tint": "agents", "content": "code"},
+      {
+        "prop": "sheet",
+        "id": "report",
+        "at": [-3.2, -3.2],
+        "w": 1.4,
+        "d": 1.8,
+        "tint": "outputs",
+        "content": "log"
+      },
+      {"prop": "glasses", "id": "reviewer", "at": [3.2, 3.2], "w": 1.8, "tint": "neutral"},
+      {"prop": "tool", "id": "tool", "at": [1.0, 4.4], "icon": "terminal", "tint": "agents", "size": 0.9}
+    ],
+    "links": [
+      {
+        "from": "review",
+        "to": "report",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "tool", "to": "review", "route": "straight", "style": "dotted", "color": "agents"},
+      {"from": "reviewer", "to": "review", "route": "straight", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "3f38752cffd3cccbd8d1aca951ab6b87248bed640cb22659d87a273769b8619a"
+}
