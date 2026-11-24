@@ -1,0 +1,45 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray columned building stands at the center of a gray floor. A dotted gray line joins it to a sheet lying on the floor at the left, and a dashed orange line with one packet runs from it to a flat server with a small indigo padlock at the right, where a teal tool tile with a gear also connects by a dotted teal line.",
+    "zh": "灰色地面中央是一座有立柱的大型灰色建筑。一条灰色虚点线把它与左侧平放的纸页相连；一条带一个数据包的橙色虚线从建筑通向右侧一台带靛蓝小锁的扁平服务器，一块印有齿轮的青色工具卡片也以青色点线连到服务器。"
+  },
+  "caption": {
+    "en": "Illustration: a familiar software foundation, drawn as a building, linked to a sheet of common flaws on one side and an agent platform and its tool on the other. It does not depict Effycace's dataset, any real product or MCP server, or a tested deployment.",
+    "zh": "示意图：以建筑代表常见的软件基础，一侧连着列有常见缺陷的纸页，另一侧连着智能体平台及其工具。图中并非 Effycace 的数据集、任何真实产品或 MCP 服务器，也不代表经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "foundation",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "building",
+        "id": "foundation",
+        "at": [0, 0],
+        "w": 3,
+        "d": 2.4,
+        "columns": 5,
+        "tint": "neutral"
+      },
+      {"prop": "sheet", "id": "flaws", "at": [-3.2, -3.2], "w": 1.4, "d": 1.8, "content": "log"},
+      {
+        "prop": "server",
+        "id": "platform",
+        "at": [3.3, 3.3],
+        "w": 2.4,
+        "d": 1.4,
+        "lock": true,
+        "tint": "neutral"
+      },
+      {"prop": "tool", "id": "tool", "at": [3.6, -0.6], "icon": "gear", "tint": "agents"}
+    ],
+    "links": [
+      {"from": "flaws", "to": "foundation", "style": "dotted", "color": "mute"},
+      {"from": "foundation", "to": "platform", "style": "dashed", "color": "data", "packets": [0.5]},
+      {"from": "tool", "to": "platform", "style": "dotted", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "b7f4f3a33b33bbdaab36ba30fd9ee044ae3d7d93c21c36baf2f1d990d505dd0e"
+}
