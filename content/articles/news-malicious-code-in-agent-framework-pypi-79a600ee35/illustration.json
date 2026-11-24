@@ -1,0 +1,35 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray camera stands at the center of a gray floor, its lens toward the front. A dashed teal line with an arrowhead runs from it to a standing card with lines of writing on the left, and a dotted gray line runs to a flat stack of pages with a teal header on the right.",
+    "zh": "灰色地面中央立着一台大号灰色相机，镜头朝前。一条带箭头的青绿色虚线从相机通向左侧一块写有几行字迹的立牌，一条灰色点线通向右侧一叠平放的、带青绿色页眉的纸页。"
+  },
+  "caption": {
+    "en": "Illustration: a camera stands for the advisory watch over the agent-framework releases, a standing card for the published notice and a stack of pages for the record of affected versions. It does not depict a tested deployment, the packages themselves or any real system.",
+    "zh": "示意图：相机代表对 agent-framework 发布版本的安全公告监测，立牌代表已发布的公告，一叠纸页代表受影响版本的记录。本图并未描绘经过测试的部署，也不呈现软件包本身或任何真实系统。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "watch",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "camera", "id": "watch", "at": [0, 0], "size": 3},
+      {
+        "prop": "panel",
+        "id": "notice",
+        "at": [-3.2, -3.2],
+        "w": 2.0,
+        "h": 1.6,
+        "content": "text",
+        "tint": "agents"
+      },
+      {"prop": "papers", "id": "record", "at": [3.2, 3.2], "w": 1.6, "d": 2.0, "count": 5, "tint": "agents"}
+    ],
+    "links": [
+      {"from": "watch", "to": "notice", "style": "dashed", "color": "agents", "arrow": true},
+      {"from": "watch", "to": "record", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "100232c7db787321df36b4758aa61334a7277106e72c0e3e2fd331ac1b461e64"
+}

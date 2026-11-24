@@ -1,0 +1,40 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large closed teal book with a ring emblem lies at the center of a gray floor. A dark gray dotted line runs from it to a standing card with log lines on the left, a light gray dotted line to a small stack of pages with a violet tint on the right, and a teal dotted line to a teal terminal tile behind it.",
+    "zh": "灰色地面中央平放着一本带圆环标记的青绿色大书。深灰色点线从书连到左侧印有日志行的立牌，浅灰色点线连到右侧带紫色调的一小叠纸页，青绿色点线连到书后方的青绿色终端图块。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's memory, drawn as a book, is linked to an evidence record, to the pages of past task traces and to a terminal tool for following those links. It does not depict WikiTrace or a tested deployment, and it does not show that the links reduce agent errors.",
+    "zh": "示意图：以一本书代表智能体的记忆，它与一份证据记录、过往任务轨迹的纸页，以及用于沿链接查看的终端工具相连。图中并非 WikiTrace 或任何经过测试的部署，也不表示这些链接能减少智能体错误。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "memory",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "size": "auto", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "book",
+        "id": "memory",
+        "at": [0, 0],
+        "tint": "agents",
+        "w": 3,
+        "d": 3,
+        "thick": 0.4,
+        "emblem": "ring",
+        "ribbon": true
+      },
+      {"prop": "panel", "id": "evidence", "at": [-2.6, -2.6], "w": 1.6, "h": 1.2, "content": "log"},
+      {"prop": "papers", "id": "traces", "at": [2.6, 2.6], "tint": "evaluations", "count": 4},
+      {"prop": "tool", "id": "terminal", "at": [-1.6, 2.6], "tint": "agents", "icon": "terminal"}
+    ],
+    "links": [
+      {"from": "memory", "to": "evidence", "style": "dotted", "color": "ink"},
+      {"from": "memory", "to": "traces", "style": "dotted", "color": "mute"},
+      {"from": "terminal", "to": "memory", "style": "dotted", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "1a8f80f0259ddf44c3ea423d5ef32fc73897a481bfbeb28e57cdfcbd5d0d8f10"
+}
