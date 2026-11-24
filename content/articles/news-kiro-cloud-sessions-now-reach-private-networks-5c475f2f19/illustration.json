@@ -1,0 +1,42 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large globe with teal meridians stands at the center of a gray floor. A dashed orange line runs from an orange packet cube on the left to the globe, then continues with an arrowhead into a teal floor area with a dashed edge on the right.",
+    "zh": "灰色地面中央立着一个带青绿色经线的大地球仪。一条橙色虚线从左侧的橙色数据包方块通到地球仪，再带着箭头延伸进右侧一块虚线围边的青绿色地面区域。"
+  },
+  "caption": {
+    "en": "Illustration: a session request, drawn as an orange packet, travels by way of a globe standing for Kiro's cloud sessions into a marked zone standing for a customer's private network, as Kiro describes the feature. It does not depict a tested deployment, and it does not show Kiro's actual routing or network controls.",
+    "zh": "示意图：按照 Kiro 的描述，橙色数据包代表的会话请求经由象征 Kiro 云端会话的地球仪，进入代表客户私有网络的划定区域。图中描绘的并非经过测试的部署，也不反映 Kiro 的实际路由或网络控制措施。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "reach",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "globe", "id": "reach", "at": [0, 0], "r": 1.9, "tint": "agents"},
+      {"prop": "packet", "id": "request", "at": [-3.8, -3.8], "size": 0.8, "tint": "data"},
+      {"prop": "zone", "id": "private-net", "at": [3.6, 3.6], "w": 2.4, "d": 2.4, "tint": "agents"}
+    ],
+    "links": [
+      {
+        "from": "request",
+        "to": "reach",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "glow": true
+      },
+      {
+        "from": "reach",
+        "to": [3.1, 3.1, 0],
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "arrow": true,
+        "note": "ends at a floor point inside the zone, since a zone has no outline for a link to meet"
+      }
+    ]
+  },
+  "svg_sha256": "b4cb63080147c33ab22fcca09a15a5ce3f6f1305cec59f8b017726ee20a3e9f5"
+}
