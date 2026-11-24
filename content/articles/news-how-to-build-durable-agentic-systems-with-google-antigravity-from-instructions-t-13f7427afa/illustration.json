@@ -1,0 +1,61 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray platform sits at the center with a teal terminal tile standing on it. A dashed orange arc carrying a packet runs from a map tile at the left onto the tile, and a dotted violet arc with an arrow runs from the tile to a flat violet seal at the right.",
+    "zh": "画面中央是一块大型灰色平台，上面立着一块青色终端图块。一条带数据包的橙色虚线弧从左侧的地图图块连到终端图块，另一条带箭头的紫色点线弧从终端图块连到右侧平放的紫色印章。"
+  },
+  "caption": {
+    "en": "Illustration: an agent's task works on a gray bench, taking its steps from a map and passing each result to a violet seal that stands for an evaluation check. It does not depict Google Antigravity, its SDK or a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：智能体任务在灰色工作台上运行，从地图获取步骤，并将每步结果交给代表评估检查的紫色印章。图中并非 Google Antigravity、其 SDK 或任何经过测试的部署，也不表示这些检查能如文中所述发挥作用。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "bench",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "plate", "id": "bench", "at": [0, 0], "w": 3, "d": 3, "h": 0.25, "tint": "neutral"},
+      {
+        "prop": "tool",
+        "id": "task",
+        "at": [0, 0],
+        "on": "bench",
+        "tint": "agents",
+        "icon": "terminal",
+        "size": 1.2
+      },
+      {
+        "prop": "map",
+        "id": "steps",
+        "at": [-2.6, -2.6],
+        "w": 1.8,
+        "d": 1.8,
+        "tint": "neutral",
+        "border": true
+      },
+      {"prop": "seal", "id": "check", "at": [2.4, 2.4], "r": 0.6, "pose": "lying", "tint": "evaluations"}
+    ],
+    "links": [
+      {
+        "from": "steps",
+        "to": "task",
+        "route": "arc",
+        "lift": 1.2,
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {
+        "from": "task",
+        "to": "check.rim",
+        "route": "arc",
+        "lift": 1.2,
+        "style": "dotted",
+        "color": "evaluations",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "9ac7ad10d358f1c6b554f305bc5768301165f91175b773c02d6f2ebad5d74e0a"
+}
