@@ -1,0 +1,27 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A tall teal cylinder stands at the center of a gray floor. A dotted gray line joins it to a flat gray slab on the left, a solid teal line joins it to a gray server lying on the right, and a dashed orange arrow runs from it to a small orange cube in front.",
+    "zh": "灰色地面中央立着一根高大的青绿色圆柱。一条灰色点线把它与左侧的灰色平板相连，一条青绿色实线把它与右侧平放的灰色服务器相连，一条橙色虚线箭头从它指向前方的橙色小方块。"
+  },
+  "caption": {
+    "en": "Illustration: a single slot, drawn as a cylinder between a slab for the shared slot pool and a server for the engine, is lent to one child task at a time, as CocoIndex describes its scheduling rule. It does not depict CocoIndex's software or a tested deployment, and it does not show that the rule works as described.",
+    "zh": "示意图：圆柱代表一个槽位，位于代表共享槽位池的平板和代表引擎的服务器之间，一次只借给一个子任务，对应 CocoIndex 所描述的调度规则。图中没有描绘 CocoIndex 的软件或经过测试的部署，也不表示该规则确如其所述运作。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "slot",
+    "items": [
+      {"prop": "cylinder", "id": "slot", "at": [0, 0], "r": 1.1, "h": 2.6, "tint": "agents", "rim": true},
+      {"prop": "slab", "id": "pool", "at": [-2.6, -2.6], "w": 2, "d": 1.4, "h": 0.14},
+      {"prop": "server", "id": "engine", "at": [2.7, 2.7], "w": 3, "d": 1.6},
+      {"prop": "packet", "id": "child", "at": [1.9, -1.9], "size": 0.4, "tint": "data"}
+    ],
+    "links": [
+      {"from": "pool", "to": "slot", "style": "dotted", "color": "mute"},
+      {"from": "slot", "to": "child", "style": "dashed", "color": "data", "arrow": true},
+      {"from": "slot", "to": "engine", "style": "solid", "color": "agents"}
+    ]
+  },
+  "svg_sha256": "095825940c286c5153b30524d2bed8c1dda3634877d00e576a11cd3e249fbe48"
+}

@@ -1,0 +1,49 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A tall white card with lines of writing stands at the center of a gray floor. A dotted violet line runs to its base from a sheet of code lying on the floor to the left, and a dotted teal line runs to it from a pair of smart glasses resting on the right.",
+    "zh": "灰色地面中央立着一张写有文字线条的白色高卡片。左侧地面上平放着一页代码，一条紫色点线从这里通向卡片底部；右侧放着一副智能眼镜，一条青色点线从眼镜通向卡片。"
+  },
+  "caption": {
+    "en": "Illustration: a decision card recording an invariant and its test, checked from one side by a scripted test and from the other by inspecting recorded behavior. It does not depict Crewroom, any other harness or a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：一张记录不变量及其测试的决策卡，一侧由脚本化测试检查，另一侧通过查看行为记录来检查。图中所示并非 Crewroom、其他框架或任何经过测试的实际部署，也不表明这些检查能如文中所述发挥作用。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "card",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "panel",
+        "id": "card",
+        "at": [0, 0],
+        "w": 2.6,
+        "h": 3,
+        "content": "text",
+        "tint": "evaluations"
+      },
+      {"prop": "sheet", "id": "test", "at": [-2.2, -2.2], "w": 1.4, "d": 1.8, "content": "code"},
+      {"prop": "glasses", "id": "glasses", "at": [2.2, 2.2], "tint": "neutral"}
+    ],
+    "links": [
+      {
+        "from": "test",
+        "to": "card.base",
+        "route": "straight",
+        "style": "dotted",
+        "color": "evaluations",
+        "arrow": true
+      },
+      {
+        "from": "glasses.base",
+        "to": "card.base",
+        "route": "straight",
+        "style": "dotted",
+        "color": "agents",
+        "arrow": true
+      }
+    ]
+  },
+  "svg_sha256": "886d9b8641850d55d61bd0e3c4bd36456de0dbd4ff090955f84e2303a7e6f3d2"
+}
