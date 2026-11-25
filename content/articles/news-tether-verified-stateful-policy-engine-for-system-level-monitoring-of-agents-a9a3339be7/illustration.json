@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal padlock stands at the center of a gray floor. To its left, a gray camera sends a dashed orange line with two small packets to the padlock; to its right, a dotted indigo line joins the padlock to an indigo rubber stamp.",
+    "zh": "灰色地面中央立着一把青绿色大挂锁。左侧的灰色相机经一条带两个小数据包的橙色虚线连到挂锁，右侧一条靛蓝色点线把挂锁连到一枚靛蓝色印章。"
+  },
+  "caption": {
+    "en": "Illustration: a camera stands for monitoring of an agent action's system-level effects, the padlock for the stateful policy the action must pass, and the stamp for the policy invariant the authors say they check formally; it does not depict a tested deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：相机代表对智能体操作系统层面影响的监控，挂锁代表操作必须通过的有状态策略，印章代表作者称经形式化检查的策略不变量；本图并不描绘经过测试的部署，也不表示这些检查如论文所述有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "policy",
+    "items": [
+      {"prop": "padlock", "id": "policy", "at": [0, 0], "size": 3, "tint": "agents"},
+      {"prop": "camera", "id": "monitor-cam", "at": [-2.8, -2.8], "size": 1.4, "facing": "right"},
+      {"prop": "stamp", "id": "invariant", "at": [2.8, 2.8], "size": 1.2, "tint": "tee", "impression": false}
+    ],
+    "links": [
+      {"from": "monitor-cam", "to": "policy", "style": "dashed", "color": "data", "packets": [0.4, 0.6]},
+      {"from": "policy", "to": "invariant", "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "ba6850c705ed1f7db033a1bdf6df455e54adf231f8124e52240435fce14619e1"
+}

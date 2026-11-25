@@ -1,0 +1,63 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large indigo book with a ring emblem lies at the center of a gray floor. On the right, a dashed orange line carrying one packet runs to it from a stack of teal-edged papers. On the left, a dotted indigo arc rises from a red rubber stamp and comes down onto the book.",
+    "zh": "灰色地面中央平放着一本带圆环标志的大号靛蓝色书。右侧一叠青绿色纸张通过一条带数据包的橙色虚线连向它；左侧一枚红色印章上方升起一条靛蓝色点线弧，落在书上。"
+  },
+  "caption": {
+    "en": "Illustration: decision records, shown as papers, are added to an anchored log, shown as a book, and a stamp stands for the signing key that attributes each record, as the VAP draft describes. It does not depict a tested VAP deployment, and it does not show that the checks work as described.",
+    "zh": "示意图：按照 VAP 草案的描述，以纸张表示的决策记录被写入以书表示的锚定日志，印章代表为每条记录确定归属的签名密钥。图中并非经过测试的 VAP 部署，也不表明这些检查能按描述发挥作用。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "log",
+    "backdrop": "white",
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {
+        "prop": "book",
+        "id": "log",
+        "at": [0, 0],
+        "tint": "tee",
+        "w": 2.6,
+        "d": 3,
+        "thick": 0.6,
+        "emblem": "ring",
+        "ribbon": true,
+        "note": "focal: the anchored log of auditable decision records"
+      },
+      {
+        "prop": "stamp",
+        "id": "signer",
+        "at": [-2.9, -2.9],
+        "tint": "seal",
+        "size": 1,
+        "impression": false,
+        "note": "the signing key that attributes a record"
+      },
+      {
+        "prop": "papers",
+        "id": "records",
+        "at": [2.9, 2.9],
+        "tint": "agents",
+        "count": 5,
+        "w": 1.4,
+        "d": 1.8,
+        "note": "the decision records"
+      }
+    ],
+    "links": [
+      {
+        "from": "records",
+        "to": "log",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5],
+        "glow": true
+      },
+      {"from": "signer.top", "to": "log", "route": "arc", "lift": 1.5, "style": "dotted", "color": "tee"}
+    ]
+  },
+  "svg_sha256": "74cdccc8b89f64801769738f888ff746f3f7a5c12b6d87ddeb9d75e898ad40ca"
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A teal glass agent cube on the left is joined by a teal arrow to a large teal tool tile with a terminal icon in the center. A dashed orange line carrying one packet runs into the tile from a gray stack of database discs on the right, and a yellow warning sign stands behind the discs.",
+    "zh": "左侧青绿色玻璃立方体代表智能体，一条青绿色箭头连到中央带终端图标的青绿色大工具牌；右侧灰色数据库圆盘引出一条带数据包的橙色虚线通向工具牌，圆盘后方立着黄色警示牌。"
+  },
+  "caption": {
+    "en": "Illustration: an agent calls a repository tool, and content from the repository store flows back into that tool, with a warning sign marking the risk AgentStack reports; the diagram does not depict a tested deployment, the actual mcp-server-git software or any reproduced result.",
+    "zh": "示意图：智能体调用仓库工具，仓库存储中的内容又流回该工具，警示牌标出 AgentStack 所报告的风险；本图并未描绘经过测试的部署，也不代表 mcp-server-git 软件本身或任何已复现的结果。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "git",
+    "items": [
+      {"prop": "agent", "id": "agent", "at_uv": [-3.4, 0.4], "tint": "agents", "size": 1.4},
+      {"prop": "tool", "id": "git", "at_uv": [0, 0], "tint": "agents", "icon": "terminal", "size": 2},
+      {"prop": "database", "id": "repo", "at_uv": [3.4, -0.2], "tint": "neutral"},
+      {"prop": "sign", "id": "warning", "at_uv": [5.0, -1.4], "tint": "warn", "size": 0.9}
+    ],
+    "links": [
+      {"from": "agent", "to": "git", "style": "solid", "color": "agents", "arrow": true},
+      {"from": "repo", "to": "git", "style": "dashed", "color": "data", "packets": [0.5], "arrow": true}
+    ]
+  },
+  "svg_sha256": "1425f66ac1ba828c0a5b8833186f60c2e8a115a54f13e8d5341f0f3db1479eac"
+}

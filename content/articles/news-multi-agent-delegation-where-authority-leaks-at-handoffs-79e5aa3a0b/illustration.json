@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal chain of five links lies across the center of a gray floor. A dashed orange line runs from a small stack of papers at the upper left to one end of the chain, and a second dashed orange line with an arrowhead runs from the other end to a flat gray server with a small indigo padlock at the lower right.",
+    "zh": "灰色地面中央横放着一条由五个链环组成的青绿色大链条。一条橙色虚线从左上方的一小叠纸张通向链条一端，另一条带箭头的橙色虚线从链条另一端通向右下方一台带靛蓝色小挂锁的灰色服务器。"
+  },
+  "caption": {
+    "en": "Illustration: an instruction carried in a stack of papers travels along a chain of delegation toward a locked server, standing for the handoff path KLA describes; it does not depict a tested deployment, any of the named frameworks or KLA's product.",
+    "zh": "示意图：一叠纸张中携带的指令沿着委派链条传向一台上锁的服务器，代表 KLA 所描述的交接路径；图中描绘的并非经过测试的部署，也不是文中提到的任何框架或 KLA 的产品。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "delegation",
+    "items": [
+      {"prop": "chain", "id": "delegation", "at": [0, 0], "tint": "agents", "links": 5, "size": 1.6},
+      {"prop": "papers", "id": "summary", "at": [-4.6, 0], "count": 4},
+      {"prop": "server", "id": "file", "at": [4.7, 0], "w": 2.0, "d": 1.4, "lock": true}
+    ],
+    "links": [
+      {"from": "summary", "to": [-3.0, 0, 0], "style": "dashed", "color": "data"},
+      {"from": [3.0, 0, 0], "to": "file", "style": "dashed", "color": "data", "arrow": true}
+    ]
+  },
+  "svg_sha256": "49717d0af12a63d37708c99ca74082e2b47c58a9223d424e2981c024f4147369"
+}

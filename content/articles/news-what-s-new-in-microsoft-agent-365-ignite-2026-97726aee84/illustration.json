@@ -1,0 +1,51 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray map tile with a dashed border lies at the center of a gray floor, with two teal location pins on it. A dashed orange line with a packet runs from a camera on the right to one pin; a dotted dark gray line runs from the phone of a person in an orange coat on the left to the other pin.",
+    "zh": "灰色地面中央平放着一块带虚线边界的大幅灰色地图，上面立着两枚青色定位标记。右侧相机引出一条带数据包的橙色虚线，连到其中一枚标记；左侧身穿橙色外套的人手中的手机引出一条深灰色点线，连到另一枚标记。"
+  },
+  "caption": {
+    "en": "Illustration: a map with teal pins stands for the Agent 365 registry Microsoft describes, where a camera stands for discovery of local agents and a person for the administrator who views it. It does not depict a tested deployment, Microsoft's software or real agents, and it does not show that discovery or monitoring work as described.",
+    "zh": "示意图：插着青色标记的地图代表 Microsoft 所描述的 Agent 365 注册表，相机代表对本地智能体的发现，人物代表查看注册表的管理员。图中并非经过测试的部署，也不是 Microsoft 的软件或真实的智能体，并不表明发现或监测功能如其所述般有效。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "registry",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "map", "id": "registry", "at": [0, 0], "w": 3, "d": 2.4, "tint": "neutral", "border": true},
+      {
+        "prop": "map_pin",
+        "id": "pin-cloud",
+        "at": [0.6, 0.5],
+        "on": "registry",
+        "tint": "agents",
+        "size": 0.8
+      },
+      {
+        "prop": "map_pin",
+        "id": "pin-local",
+        "at": [-0.6, -0.4],
+        "on": "registry",
+        "tint": "agents",
+        "size": 0.8
+      },
+      {"prop": "person", "id": "admin", "at": [-2.6, -2.6], "tint": "data"},
+      {"prop": "camera", "id": "discovery", "at": [2.4, 2.4], "tint": "neutral", "size": 1.2}
+    ],
+    "links": [
+      {
+        "from": "discovery.lens",
+        "to": "pin-cloud.tip",
+        "route": "straight",
+        "style": "dashed",
+        "color": "data",
+        "packets": [0.5]
+      },
+      {"from": "admin", "to": "pin-local.tip", "route": "straight", "style": "dotted", "color": "ink"}
+    ]
+  },
+  "svg_sha256": "9e62bdc730986803a2bdf27a51679e1b88bbfe98e8be8fcb1f54cc2a4677e083"
+}
