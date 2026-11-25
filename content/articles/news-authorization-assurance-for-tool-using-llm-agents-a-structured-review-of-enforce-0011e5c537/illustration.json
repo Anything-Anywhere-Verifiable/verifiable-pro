@@ -1,0 +1,30 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large cinnabar wax seal stands upright at the center of a gray floor. A dotted gray line joins it to a violet-tinted stack of papers on the left. A dashed teal arrow runs from the seal to a teal tool tile, and a dark line broken by a gap runs from the tile toward a gray server.",
+    "zh": "灰色地面中央立着一枚大号朱红色火漆印，左侧一叠紫色调纸张通过灰色点线与之相连。一条青色虚线箭头从火漆印指向青色工具卡片，卡片与右侧灰色服务器之间的深色连线中间断开。"
+  },
+  "caption": {
+    "en": "Illustration: an authorization claim, drawn from a corpus of reviewed source claims, leads to an agent's tool call, but the evidence line breaks before it reaches the protected resource. It does not depict a tested deployment or any system from the reviewed studies, and it does not show how often the evidence falls short.",
+    "zh": "示意图：一项授权主张源自所审查的文献主张，连向智能体的工具调用，但证据链在到达受保护资源之前断开。图中不代表任何经过测试的部署或所审查研究中的系统，也不表示证据缺口出现的频率。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "claim",
+    "backdrop": "white",
+    "camera": {"zoom": "items"},
+    "ground": {"kind": "plate", "tint": "neutral"},
+    "items": [
+      {"prop": "papers", "id": "corpus", "at": [-3.4, -3.4], "tint": "evaluations", "count": 5},
+      {"prop": "seal", "id": "claim", "at": [0, 0], "pose": "standing", "r": 1.5, "tint": "seal"},
+      {"prop": "tool", "id": "call", "at": [2.2, 1.2], "tint": "agents", "icon": "terminal", "size": 1.0},
+      {"prop": "server", "id": "resource", "at": [4.2, 3.2], "tint": "neutral"}
+    ],
+    "links": [
+      {"from": "corpus", "to": "claim", "style": "dotted", "color": "mute"},
+      {"from": "claim", "to": "call", "style": "dashed", "color": "agents", "arrow": true},
+      {"from": "call", "to": "resource", "style": "broken", "color": "ink", "gap": 0.5}
+    ]
+  },
+  "svg_sha256": "5a0ec01402bc55d0f5f6a1fa610dc909b52cae36c51922d5dc3f111715acfe4f"
+}
