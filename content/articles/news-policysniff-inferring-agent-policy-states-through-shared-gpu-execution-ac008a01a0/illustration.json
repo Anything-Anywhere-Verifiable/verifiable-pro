@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large satellite sits between a teal sphere on the left and a gray server on the right. Dotted gray lines connect the satellite to both objects.",
+    "zh": "一颗大型卫星位于画面中央，左侧是青绿色球体，右侧是灰色服务器；灰色点线将卫星与两者相连。"
+  },
+  "caption": {
+    "en": "Illustration: A satellite represents a probe inferring an agent’s policy state from execution on a shared GPU host; the scene does not depict a tested deployment.",
+    "zh": "示意图：卫星代表探针，通过共享 GPU 主机的执行情况推断智能体的策略状态；画面并非经过测试的实际部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "probe",
+    "items": [
+      {"prop": "sphere", "id": "policy", "at": [-4, -4], "r": 0.65, "tint": "agents"},
+      {"prop": "satellite", "id": "probe", "at": [0, 0], "size": 2.5},
+      {"prop": "server", "id": "host", "at": [4, 4], "tint": "neutral"}
+    ],
+    "links": [
+      {"from": "policy.top", "to": "probe.center", "style": "dotted", "color": "mute"},
+      {"from": "probe.center", "to": "host.top", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "f8c05c1488b352859aa577fa7defc66216a4d9803e4059b445920dccbf8a1a1f"
+}
