@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray conveyor stands between gray glasses on the left and a flat gray sheet on the right. Dotted gray lines connect the objects.",
+    "zh": "一条大型灰色传送带居中，左侧是一副灰色眼镜，右侧是一张平放的灰色纸页；灰色点线连接着三个物件。"
+  },
+  "caption": {
+    "en": "Illustration: A conveyor represents the package supply chain, with glasses for inspection and a sheet for the advisory; it does not depict a tested deployment.",
+    "zh": "示意图：传送带代表软件包供应链，眼镜代表检查，纸页代表安全通报；画面并未描绘经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "conveyor",
+    "items": [
+      {"prop": "conveyor", "id": "conveyor", "at": [0, 0], "length": 4, "width": 1.2, "scale": 1.5},
+      {"prop": "glasses", "id": "glasses", "at": [-4.5, -4.5]},
+      {"prop": "sheet", "id": "advisory", "at": [4.5, 4.5], "content": "text"}
+    ],
+    "links": [
+      {"from": "glasses", "to": "conveyor.start", "style": "dotted", "color": "mute"},
+      {"from": "conveyor.end", "to": "advisory", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "66a632ba6f6a01771b7e4b990df7cd3a315fbe09d85381eafbced591c26b5529"
+}
