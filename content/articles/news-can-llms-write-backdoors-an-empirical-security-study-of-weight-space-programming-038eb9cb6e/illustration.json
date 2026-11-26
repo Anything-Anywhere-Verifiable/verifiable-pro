@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-can-llms-write-backdoors-an-empirical-security-study-of-weight-space-programming-038eb9cb6e.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "7549b8a16710e3051b3d3664824835b2f5b3254d85d57a6563280754d6b7f505",
+  "variants": {
+    "list": {
+      "file": "news-can-llms-write-backdoors-an-empirical-security-study-of-weight-space-programming-038eb9cb6e-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "4ee1cf45d5bda2af5fa05c14e636e7d3b316adedda9e072ea1f074fe979e8945"
+    },
+    "thumb": {
+      "file": "news-can-llms-write-backdoors-an-empirical-security-study-of-weight-space-programming-038eb9cb6e-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "1cf2852bdb51de4f9f38d87aa6f5bc82c5dec507a0bf5cd52184a3367df38a70"
+    },
+    "social": {
+      "file": "news-can-llms-write-backdoors-an-empirical-security-study-of-weight-space-programming-038eb9cb6e-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "2df1196d92b8c82d13d35f04907b5b08de012716b813e104998d6fc22703f902"
+    }
+  },
+  "edits": {
+    "source_sha256": "15b450fac94853d0af43e85f361e9de12f4ba6f3bcd0d66e89bc93eb21efcd4b",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "An arXiv paper reports that language models modified neural network weights to insert backdoors in three tested architectures. The saved abstract leaves the detailed methods and independent verification open.",
+    "zh": "一篇 arXiv 论文报告称，大语言模型通过修改神经网络权重，在三种受测架构中植入了后门。保存的摘要未披露详细方法，结果也有待独立核验。"
+  },
+  "caption": {
+    "en": "An arXiv paper reports that language models modified neural network weights to insert backdoors in three tested architectures. The saved abstract leaves the detailed methods and independent verification open.",
+    "zh": "一篇 arXiv 论文报告称，大语言模型通过修改神经网络权重，在三种受测架构中植入了后门。保存的摘要未披露详细方法，结果也有待独立核验。"
+  },
+  "credit": "Zhaojia Wang, Jiucui Lu, Zheng Li",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.17395",
+  "retrieved": "2026-11-26"
+}
