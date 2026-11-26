@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray camera stands between a panel with a timeline and a stack of papers on a gray floor. Two dotted gray lines connect the camera to the panel and papers.",
+    "zh": "灰色地面上，一台大型灰色相机位于时间线面板和一摞纸张之间，两条灰色点线分别连接相机与面板、纸张。"
+  },
+  "caption": {
+    "en": "Illustration: The camera represents a block-level checkpoint snapshot, with a panel for its record and papers for the setup steps it covers; the diagram does not depict a tested deployment.",
+    "zh": "示意图：相机代表分块检查点快照，面板代表检查点记录，纸张代表其涵盖的配置步骤；该图并未展示经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "checkpoint",
+    "items": [
+      {"prop": "panel", "id": "record", "at": [-2.5, -2.5], "content": "timeline", "w": 1.6, "h": 1.6},
+      {"prop": "camera", "id": "checkpoint", "at": [0, 0], "size": 3},
+      {"prop": "papers", "id": "steps", "at": [2.5, 2.5]}
+    ],
+    "links": [
+      {"from": "record.top", "to": "checkpoint.top", "style": "dotted", "color": "mute"},
+      {"from": "checkpoint.top", "to": "steps.top", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "dc4d336c1b78a5a44cd04845a54b897f5339855f989db8a983c582a0e9f8c328"
+}
