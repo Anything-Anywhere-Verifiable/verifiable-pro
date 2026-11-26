@@ -1,0 +1,22 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large teal globe stands between a gray sphere on the left and a gray server on the right, with no lines connecting them.",
+    "zh": "一个大型青绿色地球仪居中，左侧是灰色球体，右侧是灰色服务器，三者之间没有连线。"
+  },
+  "caption": {
+    "en": "Illustration: The globe, sphere, and server represent a runtime connecting centralized reasoning with distributed execution; the diagram does not depict a tested deployment.",
+    "zh": "示意图：地球仪、球体和服务器表示连接集中式推理与分布式执行的运行时；该图并未描绘经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "runtime",
+    "items": [
+      {"prop": "sphere", "id": "task", "at": [-2.8, -2.8], "r": 0.65},
+      {"prop": "globe", "id": "runtime", "at": [0, 0], "tint": "agents", "r": 1.4},
+      {"prop": "server", "id": "node", "at": [2.8, 2.8]}
+    ],
+    "links": []
+  },
+  "svg_sha256": "f225c38e5ebc747eb1ae87ea5a5660f04c0fe26074a0192740154baf97ac5a2d"
+}
