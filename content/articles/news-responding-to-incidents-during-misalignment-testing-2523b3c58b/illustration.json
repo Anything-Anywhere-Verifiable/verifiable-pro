@@ -1,0 +1,33 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray plate sits between a flat map on the left and an upright red seal on the right, with dotted gray lines linking the three objects.",
+    "zh": "一块大型灰色平台居中，左侧是平铺的地图，右侧是直立的红色印章；灰色点线连接三个物件。"
+  },
+  "caption": {
+    "en": "Illustration: A workbench, a response playbook and a seal represent steps for handling a misalignment-testing incident and checking each step; the diagram does not depict a tested deployment.",
+    "zh": "示意图：工作台、响应预案和印章代表失调测试事件的处理步骤及逐项检查；本图不描绘经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "workbench",
+    "items": [
+      {"prop": "plate", "id": "workbench", "at": [0, 0], "w": 3, "d": 3, "h": 0.35, "tint": "neutral"},
+      {
+        "prop": "map",
+        "id": "playbook",
+        "at": [-2.4, -2.4],
+        "w": 1.5,
+        "d": 1.2,
+        "tint": "neutral",
+        "border": false
+      },
+      {"prop": "seal", "id": "check", "at": [2.4, 2.4], "r": 0.5, "pose": "standing", "tint": "seal"}
+    ],
+    "links": [
+      {"from": "playbook.base", "to": "workbench.base", "style": "dotted", "color": "mute"},
+      {"from": "workbench.base", "to": "check.base", "style": "dotted", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "864861d91d9ac958fc57c18984c626d6c14e988610bf661ff37c704d601b6024"
+}
