@@ -1,0 +1,25 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray gavel on its block sits between a stack of papers on the left and a gray server on the right. Orange lines connect the papers to the gavel and the gavel to the server.",
+    "zh": "一把大型灰色法槌置于中央，左侧是一叠纸，右侧是一台灰色服务器。橙色线条将纸张、法槌和服务器依次连接起来。"
+  },
+  "caption": {
+    "en": "Illustration: Papers, a gavel and a server represent an audit of contract inference repair decisions; the diagram does not depict a tested deployment.",
+    "zh": "示意图：纸张、法槌与服务器代表对合同推理答案修复决策的审计；本图不描绘经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "audit",
+    "items": [
+      {"prop": "papers", "id": "contract", "at": [-3, -3], "tint": "neutral"},
+      {"prop": "gavel", "id": "audit", "at": [0, 0], "tint": "neutral", "size": 3},
+      {"prop": "server", "id": "platform", "at": [3.5, 3.5], "tint": "neutral"}
+    ],
+    "links": [
+      {"from": "contract.top", "to": "audit.top", "color": "data"},
+      {"from": "audit.top", "to": "platform.top", "color": "data"}
+    ]
+  },
+  "svg_sha256": "311c6ab39041b153696284266a3e6625c786c2814842bca21a805f4bf2644d53"
+}
