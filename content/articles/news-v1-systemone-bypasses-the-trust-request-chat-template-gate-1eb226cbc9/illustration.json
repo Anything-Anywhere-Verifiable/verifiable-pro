@@ -1,0 +1,21 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large orange packet stands between a dashed gray boundary zone on the left and a chat template sheet on the right.",
+    "zh": "一个大型橙色数据包位于中央，左侧是灰色虚线边界区域，右侧是一张聊天模板纸页。"
+  },
+  "caption": {
+    "en": "Illustration: An orange request packet beside a trust boundary and a chat template represents the bypass described in the advisory; it does not depict a tested deployment.",
+    "zh": "示意图：信任边界和聊天模板之间的橙色请求数据包，表示安全公告所述的绕过问题；此图不描绘经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "request",
+    "items": [
+      {"prop": "zone", "id": "boundary", "at": [-2.4, -2.4], "w": 2, "d": 2, "tint": "neutral"},
+      {"prop": "packet", "id": "request", "at": [0, 0], "size": 1, "scale": 3},
+      {"prop": "sheet", "id": "template", "at": [2.4, 2.4], "w": 1.4, "d": 1.8, "content": "chat"}
+    ]
+  },
+  "svg_sha256": "3567f80b9cf85fc05023d47a4bc410d5a9633810805f3c68dc378dca04f506d4"
+}
