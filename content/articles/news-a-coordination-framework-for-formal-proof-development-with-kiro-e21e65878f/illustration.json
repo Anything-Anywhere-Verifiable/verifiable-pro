@@ -1,0 +1,33 @@
+{
+  "kind": "illustration",
+  "alt": {
+    "en": "A large gray building stands at the center of a gray floor, between a sheet with abstract code on the left and a seal on the right. Dashed lines connect the sheet to the building and the building to the seal.",
+    "zh": "灰色地面中央是一座大型灰色建筑，左侧是一张带抽象代码的纸，右侧是一枚印章。虚线将纸、建筑和印章依次连接。"
+  },
+  "caption": {
+    "en": "Illustration: A building represents the coordination framework, with a proof script on one side and a proof represented by a seal on the other; the diagram does not depict a tested deployment.",
+    "zh": "示意图：建筑代表协调框架，两侧的纸和印章分别代表证明脚本与数学证明；此图并非经过测试的部署。"
+  },
+  "scene": {
+    "version": 1,
+    "focal": "framework",
+    "items": [
+      {
+        "prop": "building",
+        "id": "framework",
+        "at": [0, 0],
+        "tint": "neutral",
+        "w": 3.6,
+        "d": 2.4,
+        "emblem": false
+      },
+      {"prop": "sheet", "id": "script", "at": [-3.5, -3.5], "content": "code"},
+      {"prop": "seal", "id": "proof", "at": [3.5, 3.5], "tint": "outputs", "pose": "standing", "r": 0.7}
+    ],
+    "links": [
+      {"from": "script", "to": "framework", "style": "dashed", "color": "mute"},
+      {"from": "framework", "to": "proof", "style": "dashed", "color": "mute"}
+    ]
+  },
+  "svg_sha256": "4ec20104a24784c4102379ec5513a40fae499e478d6954876fb34b421a8e5c12"
+}
