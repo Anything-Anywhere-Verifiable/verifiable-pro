@@ -1,0 +1,47 @@
+{
+  "kind": "photo",
+  "file": "news-do-verifier-judgments-survive-abstraction-measuring-verification-transport-for-l-85b953762f.webp",
+  "width": 1600,
+  "height": 1067,
+  "sha256": "6202975864fe2b42bb62be6d743b0dfef952c95496091d63ed0b885c2c17052d",
+  "variants": {
+    "list": {
+      "file": "news-do-verifier-judgments-survive-abstraction-measuring-verification-transport-for-l-85b953762f-800.webp",
+      "width": 800,
+      "height": 533,
+      "sha256": "7e18cdf2e94c3adbb226af01207adb8c50d24d966a85b20026e88a5c9e90cfe3"
+    },
+    "thumb": {
+      "file": "news-do-verifier-judgments-survive-abstraction-measuring-verification-transport-for-l-85b953762f-400.webp",
+      "width": 400,
+      "height": 267,
+      "sha256": "eb0e446f45102d9e348423b680fb9ce22c4a09e783f313652a0f0438173a2073"
+    },
+    "social": {
+      "file": "news-do-verifier-judgments-survive-abstraction-measuring-verification-transport-for-l-85b953762f-og.jpg",
+      "width": 1200,
+      "height": 630,
+      "sha256": "14118294b42059c055266c8fb524d879dc25861f107e1eb1f2af7beab408496c"
+    }
+  },
+  "edits": {
+    "source_sha256": "de2bff5f3632e7360059fb25af7c73c70103824020b53ab973da6d42d0175168",
+    "source_size": [1600, 1067],
+    "crop": [0, 0, 1600, 1067],
+    "social_crop": [0, 114, 1600, 840],
+    "grade": "soft-1"
+  },
+  "alt": {
+    "en": "A paper introduces a test for whether verifier judgments remain stable when agent execution evidence is abstracted. Its authors report failures and partial recovery when provenance is restored.",
+    "zh": "一篇论文提出测试方法，评估智能体执行证据经抽象后验证器的判断是否稳定。作者报告了判断变化，以及恢复来源信息后的部分改善。"
+  },
+  "caption": {
+    "en": "A paper introduces a test for whether verifier judgments remain stable when agent execution evidence is abstracted. Its authors report failures and partial recovery when provenance is restored.",
+    "zh": "一篇论文提出测试方法，评估智能体执行证据经抽象后验证器的判断是否稳定。作者报告了判断变化，以及恢复来源信息后的部分改善。"
+  },
+  "credit": "Disha Sheshanarayana, Sai Linisha Reddy Goli",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://arxiv.org/abs/2611.18471",
+  "retrieved": "2026-11-27"
+}
